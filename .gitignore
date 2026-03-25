@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# production
+build/
+
+# env files (DB 비밀번호 등 노출 방지)
+.env
+.env.local
+.env.production
+
+# prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*

@@ -1,0 +1,244 @@
+{
+  "nav": {
+    "products": "Products",
+    "robotHand": "Robot Hand",
+    "collaborativeRobot": "Collaborative Robot",
+    "physicalAI": "Physical AI",
+    "humanoid": "Humanoid Robot",
+    "bodyEnhancement": "Body Enhancement",
+    "about": "About",
+    "inquiry": "Inquiry Board",
+    "login": "Login",
+    "register": "Sign Up",
+    "logout": "Logout",
+    "myPage": "My Page"
+  },
+  "home": {
+    "hero": {
+      "title": "Beyond Human Limits,\nToward a Better Life",
+      "subtitle": "Refind overcomes the limitations of\ndisability and aging through robotic innovation",
+      "cta": "View Products",
+      "ctaSecondary": "About Us"
+    },
+    "about": {
+      "title": "What is Refind?",
+      "description": "Re + Find — to rediscover oneself after adversity. Refind helps people transcend the limitations of disability and aging through robotic innovation.",
+      "vision": "Vision",
+      "visionText": "Revolutionize humanity's quality of life through robotic technology",
+      "mission": "Mission",
+      "missionText": "Provide innovative robotic solutions that overcome the limitations of disability and aging",
+      "values": "Core Values"
+    },
+    "coreValues": {
+      "innovation": "Innovation",
+      "innovationText": "Creating new value through continuous research and challenge",
+      "professionalism": "Professionalism",
+      "professionalismText": "Earning customer trust through excellence and quality",
+      "ethics": "Ethics",
+      "ethicsText": "Realizing social value through integrity and responsibility",
+      "collaboration": "Collaboration",
+      "collaborationText": "Building greater possibilities by growing together",
+      "positivity": "Positivity",
+      "positivityText": "Leading change and opening futures with an optimistic attitude"
+    },
+    "products": {
+      "title": "Featured Products",
+      "viewAll": "View All"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Have questions about our products or services? Get in touch with us.",
+      "button": "Inquire Now"
+    }
+  },
+  "products": {
+    "robotHand": {
+      "title": "Robot Hand",
+      "description": "Precise and natural movements with advanced robotic hand technology",
+      "items": [
+        {
+          "name": "ROHAND E1",
+          "description": "5DOF electric robot hand, up to 10kg gripping force"
+        },
+        {
+          "name": "ROHAND E2",
+          "description": "6DOF high-precision robot hand with tactile sensors"
+        },
+        {
+          "name": "OHand Prosthetic",
+          "description": "Natural prosthetic control based on biosignals"
+        }
+      ]
+    },
+    "collaborativeRobot": {
+      "title": "Collaborative Robot",
+      "description": "Next-generation robot solutions that collaborate safely with humans",
+      "items": [
+        {
+          "name": "REALMAN RM65-B",
+          "description": "6-axis collaborative robot, 5kg payload"
+        },
+        {
+          "name": "Elephant Robotics",
+          "description": "Multi-joint collaborative robot series"
+        }
+      ]
+    },
+    "physicalAI": {
+      "title": "Physical AI",
+      "description": "Realizing real-world robot control with physically intelligent AI platforms",
+      "items": [
+        {
+          "name": "GELLO Teleoperation",
+          "description": "Intuitive robot teleoperation solution"
+        },
+        {
+          "name": "AI Learning Platform",
+          "description": "Robot imitation learning data collection system"
+        }
+      ]
+    },
+    "humanoid": {
+      "title": "Humanoid Robot",
+      "description": "Next-generation robot platforms in human form",
+      "items": [
+        {
+          "name": "Unitree G1",
+          "description": "High-performance humanoid robot, 23 DOF"
+        },
+        {
+          "name": "Unitree H1",
+          "description": "Industrial humanoid robot"
+        }
+      ]
+    },
+    "bodyEnhancement": {
+      "title": "Personal Body Enhancement",
+      "description": "Assist and enhance physical capabilities with wearable technology",
+      "items": [
+        {
+          "name": "BCI/BMI Research Equipment",
+          "description": "Brain-computer interface research platform"
+        },
+        {
+          "name": "Wearable Rehabilitation Device",
+          "description": "Biosignal-based rehabilitation assistance system"
+        },
+        {
+          "name": "Biosignal Measurement System",
+          "description": "EMG/EEG biosignal measurement and analysis"
+        }
+      ]
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "companyName": "Refind Inc.",
+    "founded": "Founded",
+    "foundedYear": "2021",
+    "location": "Location",
+    "locationText": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon-do, South Korea",
+    "phone": "Phone",
+    "email": "Email",
+    "ci": {
+      "title": "Brand Symbol",
+      "description": "The staircase shape symbolizes the 'gradual process of discovering oneself,' while the combined 'r' and 'f' form represents clarity emerging from darkness. The DNA helix imagery signifies science-based, verified healthcare devices."
+    },
+    "philosophy": {
+      "title": "Management Philosophy",
+      "vision": "Vision",
+      "visionText": "Revolutionize humanity's quality of life through robotic technology",
+      "mission": "Mission",
+      "missionText": "Provide innovative robotic solutions that overcome the limitations of disability and aging"
+    }
+  },
+  "inquiry": {
+    "title": "Inquiry Board",
+    "description": "Leave your inquiries about products and services. Our team will respond promptly.",
+    "writeButton": "Write Inquiry",
+    "loginRequired": "Please login to write an inquiry",
+    "table": {
+      "no": "No.",
+      "category": "Category",
+      "title": "Title",
+      "author": "Author",
+      "date": "Date",
+      "status": "Status"
+    },
+    "status": {
+      "pending": "Pending",
+      "answered": "Answered"
+    },
+    "category": {
+      "product": "Product",
+      "purchase": "Purchase",
+      "as": "After Service",
+      "partnership": "Partnership",
+      "other": "Other"
+    },
+    "form": {
+      "title": "Write Inquiry",
+      "category": "Category",
+      "subject": "Subject",
+      "subjectPlaceholder": "Enter inquiry subject",
+      "content": "Content",
+      "contentPlaceholder": "Enter inquiry content",
+      "isPrivate": "Private",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "detail": {
+      "answer": "Answer",
+      "noAnswer": "No answer has been posted yet",
+      "back": "Back to list"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "submit": "Login",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Sign Up",
+      "error": "Invalid email or password"
+    },
+    "register": {
+      "title": "Sign Up",
+      "name": "Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "company": "Company (Optional)",
+      "companyPlaceholder": "Enter company name",
+      "phone": "Phone (Optional)",
+      "phonePlaceholder": "010-0000-0000",
+      "submit": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Login",
+      "success": "Registration completed successfully",
+      "errors": {
+        "emailExists": "This email is already in use",
+        "passwordMismatch": "Passwords do not match",
+        "passwordTooShort": "Password must be at least 8 characters"
+      }
+    }
+  },
+  "footer": {
+    "company": "Refind Inc.",
+    "address": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon-do, South Korea",
+    "phone": "070-4837-2829",
+    "email": "refind@refind.kr",
+    "copyright": "© 2024 Refind Inc. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  }
+}

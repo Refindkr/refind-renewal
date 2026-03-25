@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  company   String?
+  phone     String?
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  inquiries Inquiry[]
+  answers   Answer[]
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  category  String
+  subject   String
+  content   String
+  isPrivate Boolean  @default(false)
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  answer Answer?
+}
+
+model Answer {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  inquiryId String  @unique
+  inquiry   Inquiry @relation(fields: [inquiryId], references: [id])
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+}
