@@ -21,6 +21,9 @@ export default function Navbar({ locale }: NavbarProps) {
   const otherLocale = locale === "ko" ? "en" : "ko";
   const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
 
+  // 홈페이지일 때만 투명 네비바 적용
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+
   const productLinks = [
     { href: `/${locale}/products/robot-hand`, label: t("robotHand") },
     { href: `/${locale}/products/collaborative-robot`, label: t("collaborativeRobot") },
@@ -31,16 +34,20 @@ export default function Navbar({ locale }: NavbarProps) {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10);
+    handler(); // 초기 스크롤 위치 즉시 반영
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // 투명 모드: 홈페이지 + 스크롤 안 됨
+  const isTransparent = isHome && !scrolled;
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl border-b border-gray-200/60 shadow-sm"
-          : "bg-transparent"
+        isTransparent
+          ? "bg-transparent"
+          : "bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -49,7 +56,7 @@ export default function Navbar({ locale }: NavbarProps) {
           <Link href={`/${locale}`} className="flex items-center gap-2">
             <span
               className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                scrolled ? "text-gray-900" : "text-white"
+                isTransparent ? "text-white" : "text-gray-900"
               }`}
             >
               refind
@@ -58,15 +65,17 @@ export default function Navbar({ locale }: NavbarProps) {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {/* Products Dropdown */}
+            {/* Products Dropdown — 버튼과 드롭다운 사이 투명 브릿지로 gap 제거 */}
             <div
               className="relative"
               onMouseEnter={() => setProductsOpen(true)}
               onMouseLeave={() => setProductsOpen(false)}
             >
               <button
-                className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 rounded-lg hover:bg-black/5 ${
-                  scrolled ? "text-gray-700" : "text-white/80 hover:text-white hover:bg-white/10"
+                className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 rounded-lg ${
+                  isTransparent
+                    ? "text-white/80 hover:text-white hover:bg-white/10"
+                    : "text-gray-700 hover:bg-black/5"
                 }`}
               >
                 {t("products")}
@@ -81,16 +90,22 @@ export default function Navbar({ locale }: NavbarProps) {
               </button>
 
               {productsOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white/95 backdrop-blur-xl shadow-xl rounded-2xl border border-gray-100 py-2 w-52 z-50">
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                /* 투명 래퍼가 버튼 바로 아래부터 시작 → 마우스가 gap에서 벗어나지 않음 */
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 z-50">
+                  {/* 투명 브릿지: 버튼과 드롭다운 사이 gap 커버 */}
+                  <div className="h-2" />
+                  <div className="bg-white/95 backdrop-blur-xl shadow-xl rounded-2xl border border-gray-100 py-2">
+                    {productLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -98,9 +113,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`/${locale}/about`}
               className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                scrolled
-                  ? "text-gray-700 hover:bg-black/5"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                isTransparent
+                  ? "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:bg-black/5"
               }`}
             >
               {t("about")}
@@ -108,9 +123,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={`/${locale}/inquiry`}
               className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                scrolled
-                  ? "text-gray-700 hover:bg-black/5"
-                  : "text-white/80 hover:text-white hover:bg-white/10"
+                isTransparent
+                  ? "text-white/80 hover:text-white hover:bg-white/10"
+                  : "text-gray-700 hover:bg-black/5"
               }`}
             >
               {t("inquiry")}
@@ -123,9 +138,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <Link
               href={switchPath}
               className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-                scrolled
-                  ? "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
-                  : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
+                isTransparent
+                  ? "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
+                  : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
               }`}
             >
               {otherLocale === "en" ? "EN" : "한국어"}
@@ -133,15 +148,13 @@ export default function Navbar({ locale }: NavbarProps) {
 
             {session ? (
               <div className="flex items-center gap-3">
-                <span
-                  className={`text-sm ${scrolled ? "text-gray-600" : "text-white/70"}`}
-                >
+                <span className={`text-sm ${isTransparent ? "text-white/70" : "text-gray-600"}`}>
                   {session.user?.name}
                 </span>
                 <button
                   onClick={() => signOut({ callbackUrl: `/${locale}` })}
                   className={`text-sm transition-colors ${
-                    scrolled ? "text-gray-500 hover:text-red-500" : "text-white/60 hover:text-red-400"
+                    isTransparent ? "text-white/60 hover:text-red-400" : "text-gray-500 hover:text-red-500"
                   }`}
                 >
                   {t("logout")}
@@ -152,9 +165,7 @@ export default function Navbar({ locale }: NavbarProps) {
                 <Link
                   href={`/${locale}/auth/login`}
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                    scrolled
-                      ? "text-gray-700 hover:text-gray-900"
-                      : "text-white/80 hover:text-white"
+                    isTransparent ? "text-white/80 hover:text-white" : "text-gray-700 hover:text-gray-900"
                   }`}
                 >
                   {t("login")}
@@ -162,9 +173,9 @@ export default function Navbar({ locale }: NavbarProps) {
                 <Link
                   href={`/${locale}/auth/register`}
                   className={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${
-                    scrolled
-                      ? "bg-gray-900 text-white hover:bg-gray-700"
-                      : "bg-white text-black hover:bg-white/90"
+                    isTransparent
+                      ? "bg-white text-black hover:bg-white/90"
+                      : "bg-gray-900 text-white hover:bg-gray-700"
                   }`}
                 >
                   {t("register")}
@@ -176,7 +187,7 @@ export default function Navbar({ locale }: NavbarProps) {
           {/* Mobile menu button */}
           <button
             className={`md:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? "text-gray-700" : "text-white"
+              isTransparent ? "text-white" : "text-gray-700"
             }`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="메뉴"
