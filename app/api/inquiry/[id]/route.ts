@@ -32,3 +32,37 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     return NextResponse.json({ error: "서버 오류" }, { status: 500 });
   }
 }
+
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  try {
+    const session = await getServerSession(authOptions);
+    const userRole = (session?.user as { role?: string })?.role;
+
+    if (!session?.user || userRole !== "admin") {
+      return NextResponse.json({ error: "관리자만 답변할 수 있습니다" }, { status: 403 });
+    }
+
+    const { id } = await params;
+    const { content } = await request.json();
+
+    if (!content?.trim()) {
+      return NextResponse.json({ error: "답변 내용을 입력해주세요" }, { status: 400 });
+    }
+
+    const authorId = (session.user as { id?: string }).id!;
+
+    const answer = await prisma.answer.create({
+      data: { content, inquiryId: id, authorId },
+    });
+
+    await prisma.inquiry.update({
+      where: { id },
+      data: { status: "answered" },
+    });
+
+    return NextResponse.json(answer, { status: 201 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "서버 오류" }, { status: 500 });
+  }
+}

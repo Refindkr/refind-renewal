@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import AdminAnswerForm from "@/components/ui/AdminAnswerForm";
 
 interface PageProps {
   params: Promise<{ locale: string; id: string }>;
@@ -98,6 +99,10 @@ export default async function InquiryDetailPage({ params }: PageProps) {
             )}
           </div>
         </div>
+
+        {userRole === "admin" && !inquiry.answer && (
+          <AdminAnswerForm inquiryId={inquiry.id} />
+        )}
       </div>
     </div>
   );
