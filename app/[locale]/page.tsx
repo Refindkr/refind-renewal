@@ -8,125 +8,158 @@ interface PageProps {
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations("home");
-
-  const coreValues = [
-    { key: "innovation", icon: "💡" },
-    { key: "professionalism", icon: "⭐" },
-    { key: "ethics", icon: "🤝" },
-    { key: "collaboration", icon: "🌐" },
-    { key: "positivity", icon: "✨" },
-  ] as const;
-
-  const products = [
-    { href: `/${locale}/products/robot-hand`, icon: "🤖", titleKey: "robotHand" as const, descKey: "robotHandDesc" as const },
-    { href: `/${locale}/products/collaborative-robot`, icon: "🦾", titleKey: "collaborativeRobot" as const, descKey: "collaborativeRobotDesc" as const },
-    { href: `/${locale}/products/physical-ai`, icon: "🧠", titleKey: "physicalAI" as const, descKey: "physicalAIDesc" as const },
-    { href: `/${locale}/products/humanoid`, icon: "🚶", titleKey: "humanoid" as const, descKey: "humanoidDesc" as const },
-    { href: `/${locale}/products/body-enhancement`, icon: "💪", titleKey: "bodyEnhancement" as const, descKey: "bodyEnhancementDesc" as const },
-  ];
-
-  const tn = await getTranslations("nav");
   const tp = await getTranslations("products");
 
+  const products = [
+    {
+      href: `/${locale}/products/robot-hand`,
+      title: tp("robotHand.title"),
+      desc: tp("robotHand.description"),
+      number: "01",
+    },
+    {
+      href: `/${locale}/products/collaborative-robot`,
+      title: tp("collaborativeRobot.title"),
+      desc: tp("collaborativeRobot.description"),
+      number: "02",
+    },
+    {
+      href: `/${locale}/products/physical-ai`,
+      title: tp("physicalAI.title"),
+      desc: tp("physicalAI.description"),
+      number: "03",
+    },
+    {
+      href: `/${locale}/products/humanoid`,
+      title: tp("humanoid.title"),
+      desc: tp("humanoid.description"),
+      number: "04",
+    },
+    {
+      href: `/${locale}/products/body-enhancement`,
+      title: tp("bodyEnhancement.title"),
+      desc: tp("bodyEnhancement.description"),
+      number: "05",
+    },
+  ];
+
   return (
-    <div className="pt-16">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-primary-900 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-primary-400/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 left-20 w-64 h-64 bg-primary-400/5 rounded-full blur-3xl" />
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
+    <div>
+
+      {/* ─── Hero ─── */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white text-center px-6">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px]" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center px-4 py-2 bg-primary-400/10 border border-primary-400/20 rounded-full mb-8">
-              <span className="w-2 h-2 bg-primary-400 rounded-full mr-2 animate-pulse" />
-              <span className="text-primary-400 text-sm font-medium">Refind Inc.</span>
-            </div>
+        <div className="relative max-w-4xl mx-auto">
+          <p className="text-primary-400 text-sm font-semibold tracking-[0.2em] uppercase mb-8">
+            Refind Inc. · 리파인주식회사
+          </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 whitespace-pre-line">
-              {t("hero.title")}
-            </h1>
-            <p className="text-xl text-gray-300 mb-10 whitespace-pre-line">
-              {t("hero.subtitle")}
-            </p>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line">
+            {t("hero.title")}
+          </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href={`/${locale}/products/robot-hand`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary-400 text-white font-semibold rounded-xl hover:bg-primary-500 transition-colors"
-              >
-                {t("hero.cta")}
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href={`/${locale}/about`}
-                className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 transition-colors"
-              >
-                {t("hero.ctaSecondary")}
-              </Link>
-            </div>
+          <p className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line">
+            {t("hero.subtitle")}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href={`/${locale}/products/robot-hand`}
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-200"
+            >
+              {t("hero.cta")}
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white text-sm font-semibold rounded-full hover:border-white/50 hover:bg-white/5 transition-all duration-200"
+            >
+              {t("hero.ctaSecondary")}
+            </Link>
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/30" />
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* ─── Stats ─── */}
+      <section className="bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100">
+          {[
+            { value: "2021", label: "설립연도" },
+            { value: "5+", label: "제품 라인업" },
+            { value: "AI", label: "물리적 지능" },
+            { value: "∞", label: "가능성의 한계" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-white px-10 py-12 text-center">
+              <div className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-400 font-medium tracking-wide uppercase">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Brand Story ─── */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            {/* Left */}
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">{t("about.title")}</h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-10">{t("about.description")}</p>
+              <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+                About
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight mb-8">
+                {t("about.title")}
+              </h2>
+              <p className="text-lg text-gray-500 leading-relaxed mb-12">
+                {t("about.description")}
+              </p>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
+              <div className="space-y-8">
+                <div className="border-l-2 border-primary-400 pl-6">
+                  <div className="text-xs font-semibold text-primary-400 uppercase tracking-widest mb-2">
+                    {t("about.vision")}
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{t("about.vision")}</h3>
-                    <p className="text-gray-600">{t("about.visionText")}</p>
-                  </div>
+                  <p className="text-gray-800 font-medium">{t("about.visionText")}</p>
                 </div>
-
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                <div className="border-l-2 border-gray-200 pl-6">
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
+                    {t("about.mission")}
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">{t("about.mission")}</h3>
-                    <p className="text-gray-600">{t("about.missionText")}</p>
-                  </div>
+                  <p className="text-gray-800 font-medium">{t("about.missionText")}</p>
                 </div>
               </div>
             </div>
 
-            {/* Core Values */}
+            {/* Right – Core Values */}
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">{t("about.values")}</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {coreValues.map(({ key, icon }) => (
-                  <div key={key} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50 hover:bg-primary-50 transition-colors">
-                    <span className="text-2xl">{icon}</span>
+              <p className="text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">
+                {t("about.values")}
+              </p>
+              <div className="divide-y divide-gray-100">
+                {(["innovation", "professionalism", "ethics", "collaboration", "positivity"] as const).map((key, i) => (
+                  <div key={key} className="flex items-start gap-6 py-5 group">
+                    <span className="text-xs text-gray-300 font-mono mt-1 w-6 shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <div>
-                      <h4 className="font-semibold text-gray-900">{t(`coreValues.${key}`)}</h4>
-                      <p className="text-sm text-gray-600 mt-0.5">{t(`coreValues.${key}Text`)}</p>
+                      <div className="font-semibold text-gray-900 mb-0.5 group-hover:text-primary-400 transition-colors">
+                        {t(`coreValues.${key}`)}
+                      </div>
+                      <p className="text-sm text-gray-400">{t(`coreValues.${key}Text`)}</p>
                     </div>
                   </div>
                 ))}
@@ -136,55 +169,91 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t("products.title")}</h2>
+      {/* ─── Products ─── */}
+      <section className="py-32 bg-[#0a0a0a]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div>
+              <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+                Products
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                {t("products.title")}
+              </h2>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { href: `/${locale}/products/robot-hand`, icon: "🤖", title: tp("robotHand.title"), desc: tp("robotHand.description") },
-              { href: `/${locale}/products/collaborative-robot`, icon: "🦾", title: tp("collaborativeRobot.title"), desc: tp("collaborativeRobot.description") },
-              { href: `/${locale}/products/physical-ai`, icon: "🧠", title: tp("physicalAI.title"), desc: tp("physicalAI.description") },
-              { href: `/${locale}/products/humanoid`, icon: "🚶", title: tp("humanoid.title"), desc: tp("humanoid.description") },
-              { href: `/${locale}/products/body-enhancement`, icon: "💪", title: tp("bodyEnhancement.title"), desc: tp("bodyEnhancement.description") },
-            ].map((product) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+            {products.map((product) => (
               <Link
                 key={product.href}
                 href={product.href}
-                className="group bg-white rounded-2xl p-8 border border-gray-100 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+                className="group relative bg-[#111] p-10 hover:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden"
               >
-                <span className="text-4xl mb-4 block">{product.icon}</span>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-400 transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{product.desc}</p>
-                <div className="mt-4 flex items-center text-primary-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  {t("products.viewAll")}
-                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                {/* Hover accent */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="relative">
+                  <span className="text-xs font-mono text-white/20 mb-8 block">
+                    {product.number}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors duration-200">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm text-white/40 leading-relaxed">
+                    {product.desc}
+                  </p>
+                  <div className="mt-8 flex items-center text-primary-400 text-xs font-semibold tracking-wider uppercase opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
+                    자세히 보기
+                    <svg className="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
+
+            {/* Last card – CTA */}
+            <Link
+              href={`/${locale}/inquiry`}
+              className="group bg-primary-400 p-10 hover:bg-primary-500 transition-colors duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <span className="text-xs font-mono text-white/50 mb-8 block">06</span>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {t("contact.title")}
+                </h3>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  {t("contact.description")}
+                </p>
+              </div>
+              <div className="mt-8 flex items-center text-white text-xs font-semibold tracking-wider uppercase">
+                {t("contact.button")}
+                <svg className="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-24 bg-primary-400">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">{t("contact.title")}</h2>
-          <p className="text-xl text-white/80 mb-10">{t("contact.description")}</p>
+      {/* ─── Final CTA ─── */}
+      <section className="py-40 bg-black text-center px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
+            {t("contact.title")}
+          </h2>
+          <p className="text-lg text-white/40 mb-12">
+            {t("contact.description")}
+          </p>
           <Link
             href={`/${locale}/inquiry`}
-            className="inline-flex items-center px-8 py-4 bg-white text-primary-400 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center px-10 py-5 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-200"
           >
             {t("contact.button")}
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>

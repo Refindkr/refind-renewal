@@ -201,20 +201,21 @@ npx prisma studio        # DB GUI 관리 도구
 - [x] 로컬 개발 서버 실행 확인 (`http://localhost:3000`)
 - [x] GitHub 저장소 생성 및 코드 업로드
   - 저장소: https://github.com/taeseong88/refind-renewal
-
-### ⏳ 다음 단계 (내일 진행)
-- [ ] Supabase 프로젝트 생성
-  - supabase.com 가입 → New project → `refind-renewal`
+- [x] Supabase 프로젝트 생성
+  - 프로젝트명: refind-renewal
   - Region: Northeast Asia (Seoul)
-  - DB 비밀번호 저장 필요
-  - Settings → Database → Connection string (URI) 복사
-- [ ] Prisma 스키마 SQLite → PostgreSQL 변경
-- [ ] `.env` DATABASE_URL Supabase 연결 문자열로 교체
-- [ ] `npx prisma db push` 로 Supabase DB 테이블 생성
+  - DB 호스트: `aws-1-ap-northeast-2.pooler.supabase.com`
+- [x] Prisma 스키마 SQLite → PostgreSQL 변경
+- [x] `.env` DATABASE_URL Supabase Session Pooler(5432)로 교체
+  - 연결 방식: Session Pooler (포트 5432) — Transaction(6543)은 prisma db push 불가
+- [x] `npx prisma db push` 로 Supabase DB 테이블 생성 완료
+
+### ⏳ 다음 단계
 - [ ] Vercel 배포
   - vercel.com → GitHub 저장소 연결
   - 환경변수 설정 (DATABASE_URL, NEXTAUTH_SECRET, NEXTAUTH_URL)
 - [ ] 배포 완료 후 URL 확인
+- [ ] Supabase DB 비밀번호 변경 (보안)
 
 ---
 
