@@ -1,5 +1,4 @@
-import { getTranslations } from "next-intl/server";
-import ProductPage from "@/components/ui/ProductPage";
+import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -7,20 +6,41 @@ interface PageProps {
 
 export default async function BodyEnhancementPage({ params }: PageProps) {
   const { locale } = await params;
-  const t = await getTranslations("products.bodyEnhancement");
+  const isKo = locale === "ko";
 
   return (
-    <ProductPage
+    <ProductCategoryPage
       locale={locale}
-      title={t("title")}
-      description={t("description")}
-      items={[
-        { name: "BCI/BMI 연구장비", description: locale === "ko" ? "뇌-컴퓨터 인터페이스 연구 플랫폼, EEG/EMG 신호 처리, 실시간 분류" : "Brain-computer interface research platform with EEG/EMG signal processing and real-time classification" },
-        { name: "웨어러블 재활기기", description: locale === "ko" ? "EMG 기반 상지 재활 보조 장치, 능동형 보조 알고리즘 탑재" : "EMG-based upper limb rehabilitation assist device with active assist algorithm" },
-        { name: "생체신호 측정시스템", description: locale === "ko" ? "다채널 EMG/EEG 측정 및 분석 시스템, 실시간 모니터링" : "Multi-channel EMG/EEG measurement and analysis system with real-time monitoring" },
+      title={isKo ? "신체증강기기" : "Body Enhancement"}
+      titleEn="Body Enhancement"
+      description={
+        isKo
+          ? "EMG 생체신호 기반의 웨어러블 재활·증강 기기. 뇌졸중, 척수 손상, 근력 약화 환자의 일상 복귀를 돕습니다."
+          : "Wearable rehabilitation and enhancement devices based on EMG biosignals. Helping patients with stroke, spinal cord injuries, and muscle weakness return to daily life."
+      }
+      categorySlug="body-enhancement"
+      products={[
+        {
+          slug: "ore-3000",
+          name: "ORE-3000",
+          nameEn: "ORE-3000 Upper Limb Rehab Robot",
+          tagline: isKo
+            ? "상지 재활 및 근력 증강을 위한 로봇 운동기. 4채널 EMG 내장, 3가지 운동 모드."
+            : "Robotic exercise device for upper limb rehabilitation and strength enhancement. 4-channel EMG, 3 exercise modes.",
+          image: "/products/body-enhancement/HDE.jpg",
+          tags: isKo ? ["4채널 EMG", "3운동 모드", "무선"] : ["4ch EMG", "3 Exercise Modes", "Wireless"],
+        },
+        {
+          slug: "oyfm-7000",
+          name: "OYFM-7000",
+          nameEn: "OYFM-7000 Finger Rehabilitation",
+          tagline: isKo
+            ? "손가락 재활·보조를 위한 경량 외골격. 4채널 EMG로 운동 의도 파악, 0°~70° 운동 범위."
+            : "Lightweight exoskeleton for finger rehabilitation and assistance. 4-channel EMG intent detection, 0°–70° range of motion.",
+          image: "/products/body-enhancement/HDE.jpg",
+          tags: isKo ? ["손가락 재활", "EMG 보조", "경량"] : ["Finger Rehab", "EMG Assist", "Lightweight"],
+        },
       ]}
-      icon="💪"
-      color="bg-gradient-to-br from-green-900 to-green-700"
     />
   );
 }

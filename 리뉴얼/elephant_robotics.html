@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#a0c9ff",
+                    "primary": "#006972",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-fixed": "#001f23",
+                    "surface-variant": "#e5e2e1",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#522700",
+                    "on-surface-variant": "#3d494b",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1c1b1b",
+                    "tertiary-fixed": "#ffdcc5",
+                    "surface-bright": "#fcf9f8",
+                    "outline": "#6d797b",
+                    "outline-variant": "#bcc9cb",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#ebe7e7",
+                    "on-primary-container": "#00393f",
+                    "tertiary-container": "#e97f1e",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1c1b1b",
+                    "surface-container": "#f0edec",
+                    "on-primary-fixed-variant": "#004f56",
+                    "secondary-container": "#73b4ff",
+                    "primary-fixed": "#8ff2ff",
+                    "on-secondary-fixed-variant": "#00497f",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#313030",
+                    "background": "#fcf9f8",
+                    "on-tertiary-fixed": "#301400",
+                    "surface": "#fcf9f8",
+                    "tertiary": "#934b00",
+                    "on-secondary-container": "#004579",
+                    "inverse-primary": "#58d7e7",
+                    "primary-container": "#0aabba",
+                    "on-secondary-fixed": "#001c37",
+                    "secondary": "#0061a6",
+                    "primary-fixed-dim": "#58d7e7",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-dim": "#dcd9d9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#006972",
+                    "secondary-fixed": "#d2e4ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(252, 249, 248, 0.7); backdrop-filter: blur(24px); }
+        .premium-gradient { background: linear-gradient(135deg, #006972 0%, #0aabba 100%); }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 w-full glass-nav shadow-sm">
+<div class="text-xl font-bold tracking-tighter text-[#1c1b1b] font-headline" style="">&nbsp;Elephant Robotics</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-primary" data-icon="shopping_cart" style="">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface/60" data-icon="menu" style="">menu</button>
+</div>
+<whale-grammar data-role="underline"></whale-grammar></nav>
+<main class="pt-16 pb-24">
+<!-- 01 Hero Section -->
+<section class="px-6 py-20 flex flex-col items-start gap-6">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label" style="">01 Democratization</div>
+<h1 class="font-headline text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-on-surface" style="">
+                로봇의 대중화를 선도하다
+            </h1>
+<p class="text-on-surface-variant text-lg max-w-[280px] leading-relaxed" style="">
+                A world where robots become everyday life.
+            </p>
+<div class="flex flex-col w-full gap-3 mt-4">
+<button class="premium-gradient text-on-primary py-4 px-6 rounded-lg font-semibold flex justify-between items-center group" style="">
+<span class="" style="">기술 사양서 다운로드&nbsp; &nbsp; &nbsp; &nbsp;</span>
+<span class="material-symbols-outlined" data-icon="download" style="">download</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface py-4 px-6 rounded-lg font-semibold flex justify-between items-center" style="">
+<span class="" style="">협업 문의하기</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward" style="">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- 02 Technical Edge (Bento-lite) -->
+<section class="bg-surface-container-low px-6 py-16">
+<div class="mb-10">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label mb-2" style="">02 Innovation</div>
+<h2 class="font-headline text-3xl font-bold leading-tight" style="">오픈 소스가 선사하는<br>무한한 자유도</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="terminal" style="">terminal</span>
+<h3 class="font-bold text-lg mb-2" style="">Full SDK 지원</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">Python, C++, JS 등 다양한 언어 환경에서 로봇을 제어하는 강력한 라이브러리를 제공합니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="hub" style="">hub</span>
+<h3 class="font-bold text-lg mb-2" style="">ROS 1/2 호환</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">Robot Operating System과의 완벽한 통합으로 학술 연구부터 상업적 프로토타이핑까지 지원합니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+<h3 class="font-bold text-lg mb-2" style="">Control Tools</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">myStudio의 시각화 도구와 myBlockly의 직관적인 코딩 환경을 통해 누구나 로봇을 제어할 수 있습니다.</p>
+</div>
+</div>
+</section>
+<!-- 03 Product Lineup -->
+<section class="px-6 py-16">
+<div class="mb-10">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label mb-2" style="">03 Solutions</div>
+<h2 class="font-headline text-3xl font-bold leading-tight" style="">목적에 맞는 최적의<br>로봇 파트너</h2>
+</div>
+<div class="space-y-12">
+<!-- Desktop Series -->
+<div class="group">
+<div class="w-full aspect-[4/3] bg-surface-container mb-6 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 premium-gradient opacity-5"></div>
+<span class="material-symbols-outlined text-primary/20 text-8xl" data-icon="desktop_windows" style="">desktop_windows</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary font-bold" style="">03.1</span>
+<h3 class="font-headline text-xl font-bold" style="">Desktop Series (myCobot)</h3>
+</div>
+<p class="text-on-surface-variant mb-4 leading-relaxed" style="">작지만 강력한 성능. 교육 및 실험실 환경을 위한 세계 최소형 6축 협동 로봇.</p>
+</div>
+<!-- Advanced Research -->
+<div class="group">
+<div class="w-full aspect-[4/3] bg-surface-container mb-6 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 premium-gradient opacity-5"></div>
+<span class="material-symbols-outlined text-primary/20 text-8xl" data-icon="bolt" style="">bolt</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-primary font-bold" style="">03.2</span>
+<h3 class="font-headline text-xl font-bold" style="">Advanced Research (Mercury X1)</h3>
+</div>
+<p class="text-on-surface-variant mb-4 leading-relaxed" style="">고성능 센서와 정밀 제어 모듈이 탑재된 차세대 연구용 하이엔드 로봇 플랫폼.</p>
+</div>
+</div>
+</section>
+<!-- 04 Ecosystem -->
+<section class="bg-on-surface text-surface py-16 px-6">
+<div class="mb-10">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary-container uppercase font-label mb-2" style="">04 Accessories</div>
+<h2 class="font-headline text-3xl font-bold leading-tight" style="">상상을 완성하는 도구들</h2>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="front_loader" style="">front_loader</span>
+<span class="font-bold text-sm uppercase tracking-wider" style="">그리퍼 및 툴</span>
+</div>
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="psychology" style="">psychology</span>
+<span class="font-bold text-sm uppercase tracking-wider" style="">AI 키트</span>
+</div>
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="vr_video" style="">vrpano</span>
+<span class="font-bold text-sm uppercase tracking-wider" style="">VR 제어</span>
+</div>
+<div class="bg-white/5 p-4 rounded-lg border border-white/10 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="settings_input_component" style="">settings_input_component</span>
+<span class="font-bold text-sm uppercase tracking-wider" style="">센서 패키지</span>
+</div>
+</div>
+</section>
+<!-- 05 Applications -->
+<section class="px-6 py-16">
+<div class="mb-10">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label mb-2" style="">05 Application</div>
+<h2 class="font-headline text-3xl font-bold leading-tight" style="">실제 현장에서의<br>활용 사례</h2>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4 items-start p-4 bg-surface-container-low rounded-xl">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="school" style="">school</span>
+</div>
+<div>
+<h4 class="font-bold mb-1" style="">Education</h4>
+<p class="text-xs text-on-surface-variant" style="">전 세계 주요 공과 대학의 로봇 공학 교육 커리큘럼에 채택되어 사용 중입니다.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start p-4 bg-surface-container-low rounded-xl">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="coffee" style="">coffee</span>
+</div>
+<div>
+<h4 class="font-bold mb-1" style="">Smart Business</h4>
+<p class="text-xs text-on-surface-variant" style="">바리스타 로봇 및 무인 매장 안내 시스템 등 리테일 산업의 혁신을 지원합니다.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start p-4 bg-surface-container-low rounded-xl">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" data-icon="biotech" style="">biotech</span>
+</div>
+<div>
+<h4 class="font-bold mb-1" style="">Laboratory</h4>
+<p class="text-xs text-on-surface-variant" style="">정밀 시료 취급 및 반복 테스트 환경에서의 정확한 데이터 수집을 보장합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 06 Technical Matrix -->
+<section class="px-6 py-16">
+<div class="mb-8">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label mb-2" style="">06 Matrix</div>
+<h2 class="font-headline text-3xl font-bold leading-tight" style="">기술 사양 비교</h2>
+</div>
+<div class="overflow-x-auto -mx-6 px-6">
+<table class="w-full text-sm">
+<thead>
+<tr class="text-left border-b border-outline-variant">
+<th class="py-4 font-bold pr-4" style="">Model</th>
+<th class="py-4 font-bold pr-4" style="">Payload</th>
+<th class="py-4 font-bold" style="">Reach</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr>
+<td class="py-4 font-medium" style="">myCobot 280</td>
+<td class="py-4 text-on-surface-variant" style="">250g</td>
+<td class="py-4 text-on-surface-variant" style="">280mm</td>
+</tr>
+<tr>
+<td class="py-4 font-medium" style="">myCobot 320</td>
+<td class="py-4 text-on-surface-variant" style="">1000g</td>
+<td class="py-4 text-on-surface-variant" style="">320mm</td>
+</tr>
+<tr>
+<td class="py-4 font-medium" style="">Mercury B1</td>
+<td class="py-4 text-on-surface-variant" style="">1.5kg</td>
+<td class="py-4 text-on-surface-variant" style="">450mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 07 Trust & Quality -->
+<section class="px-6 py-16 bg-surface-container-high rounded-t-3xl text-center">
+<div class="text-[0.75rem] font-medium tracking-[0.2em] text-primary uppercase font-label mb-4" style="">07 Contact</div>
+<h2 class="font-headline text-3xl font-bold mb-6" style="">전문가와 상담하기</h2>
+<p class="text-on-surface-variant mb-10 max-w-xs mx-auto" style="">비즈니스 파트너십 및 맞춤형 로봇 솔루션 도입을 위한 전문 상담을 신청하세요.</p>
+<div class="flex flex-col gap-4">
+<button class="premium-gradient text-on-primary py-4 px-6 rounded-lg font-semibold shadow-lg" style="">협업 문의하기</button>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant text-sm font-medium">
+<span class="material-symbols-outlined text-base" data-icon="call" style="">call</span>
+<span class="" style=""><br></span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe px-4 glass-nav border-t border-stone-200/20 z-50">
+<a class="flex flex-col items-center justify-center text-stone-400" href="#" style="">
+<span class="material-symbols-outlined" data-icon="home" style="">home</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1" style="">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#006972] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#006972] after:rounded-full" href="#" style="">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1" style="">Products</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400" href="#" style="">
+<span class="material-symbols-outlined" data-icon="terminal" style="">terminal</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1" style="">Tech</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400" href="#" style="">
+<span class="material-symbols-outlined" data-icon="mail" style="">mail</span>
+<span class="font-['Inter'] text-[10px] uppercase tracking-widest font-medium mt-1" style="">Contact</span>
+</a>
+</footer>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

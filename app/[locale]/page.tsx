@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
@@ -16,30 +17,42 @@ export default async function HomePage({ params }: PageProps) {
       title: tp("robotHand.title"),
       desc: tp("robotHand.description"),
       number: "01",
+      image: "/products/robot-hand/a002.png",
+    },
+    {
+      href: `/${locale}/products/prosthetic`,
+      title: locale === "ko" ? "전자의수" : "Prosthetic Hand",
+      desc: locale === "ko" ? "AI 근전도 제어 지능형 전자의수" : "AI myoelectric intelligent prosthetic hand",
+      number: "02",
+      image: "/products/prosthetic/ohand_pinch_hd.png",
     },
     {
       href: `/${locale}/products/collaborative-robot`,
       title: tp("collaborativeRobot.title"),
       desc: tp("collaborativeRobot.description"),
-      number: "02",
-    },
-    {
-      href: `/${locale}/products/physical-ai`,
-      title: tp("physicalAI.title"),
-      desc: tp("physicalAI.description"),
       number: "03",
+      image: "/products/collaborative-robot/1.jpeg",
     },
     {
       href: `/${locale}/products/humanoid`,
       title: tp("humanoid.title"),
       desc: tp("humanoid.description"),
       number: "04",
+      image: "/products/humanoid/realbot.jpeg",
     },
     {
       href: `/${locale}/products/body-enhancement`,
       title: tp("bodyEnhancement.title"),
       desc: tp("bodyEnhancement.description"),
       number: "05",
+      image: "/products/body-enhancement/HDE.jpg",
+    },
+    {
+      href: `/${locale}/products/physical-ai`,
+      title: tp("physicalAI.title"),
+      desc: tp("physicalAI.description"),
+      number: "06",
+      image: "/products/sensors/tashan.png",
     },
   ];
 
@@ -183,28 +196,36 @@ export default async function HomePage({ params }: PageProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.map((product) => (
               <Link
                 key={product.href}
                 href={product.href}
-                className="group relative bg-[#111] p-10 hover:bg-[#1a1a1a] transition-colors duration-300 overflow-hidden"
+                className="group relative bg-[#111] rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
               >
-                {/* Hover accent */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Product Image */}
+                <div className="relative h-48 bg-[#1a1a1a] overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-contain p-6 group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
 
-                <div className="relative">
-                  <span className="text-xs font-mono text-white/20 mb-8 block">
+                <div className="p-7">
+                  <span className="text-xs font-mono text-white/20 mb-3 block">
                     {product.number}
                   </span>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors duration-200">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-400 transition-colors duration-200">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-white/40 leading-relaxed">
+                  <p className="text-xs text-white/40 leading-relaxed">
                     {product.desc}
                   </p>
-                  <div className="mt-8 flex items-center text-primary-400 text-xs font-semibold tracking-wider uppercase opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
-                    자세히 보기
+                  <div className="mt-5 flex items-center text-primary-400 text-xs font-semibold tracking-wider uppercase opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200">
+                    {locale === "ko" ? "자세히 보기" : "Learn more"}
                     <svg className="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -212,28 +233,6 @@ export default async function HomePage({ params }: PageProps) {
                 </div>
               </Link>
             ))}
-
-            {/* Last card – CTA */}
-            <Link
-              href={`/${locale}/inquiry`}
-              className="group bg-primary-400 p-10 hover:bg-primary-500 transition-colors duration-300 flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-xs font-mono text-white/50 mb-8 block">06</span>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {t("contact.title")}
-                </h3>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  {t("contact.description")}
-                </p>
-              </div>
-              <div className="mt-8 flex items-center text-white text-xs font-semibold tracking-wider uppercase">
-                {t("contact.button")}
-                <svg className="ml-2 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
-            </Link>
           </div>
         </div>
       </section>

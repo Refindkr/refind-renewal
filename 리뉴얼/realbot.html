@@ -1,0 +1,364 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001f23",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd9d9",
+                    "surface-variant": "#e5e2e1",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "inverse-primary": "#58d7e7",
+                    "inverse-on-surface": "#f3f0ef",
+                    "secondary": "#0061a6",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#301400",
+                    "tertiary-container": "#e97f1e",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-background": "#1c1b1b",
+                    "secondary-fixed-dim": "#a0c9ff",
+                    "on-surface": "#1c1b1b",
+                    "surface-container-high": "#ebe7e7",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf9f8",
+                    "surface-container-low": "#f6f3f2",
+                    "on-secondary-fixed": "#001c37",
+                    "primary-fixed": "#8ff2ff",
+                    "primary-container": "#0aabba",
+                    "on-primary-container": "#00393f",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fcf9f8",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#d2e4ff",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "primary": "#006972",
+                    "on-secondary-container": "#004579",
+                    "surface-bright": "#fcf9f8",
+                    "outline": "#6d797b",
+                    "on-secondary-fixed-variant": "#00497f",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-tertiary-container": "#522700",
+                    "surface-tint": "#006972",
+                    "secondary-container": "#73b4ff",
+                    "inverse-surface": "#313030",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#934b00",
+                    "surface-container": "#f0edec",
+                    "tertiary-fixed": "#ffdcc5",
+                    "outline-variant": "#bcc9cb",
+                    "on-surface-variant": "#3d494b",
+                    "primary-fixed-dim": "#58d7e7",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(24px);
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed-variant">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-stone-950/70 backdrop-blur-xl shadow-[0_10px_40px_rgba(28,27,27,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20 font-['Manrope'] tracking-tight">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba]" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+<span class="text-xl font-bold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8]" style="">REALBOT Humanoid</span>
+</div>
+<nav class="hidden md:flex gap-10">
+<a class="text-[#006972] border-b-2 border-[#006972] dark:text-[#0aabba] dark:border-[#0aabba] transition-colors duration-300" href="#" style="">Overview</a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#006972] transition-colors duration-300" href="#" style="">Technology</a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#006972] transition-colors duration-300" href="#" style="">Specifications</a>
+</nav>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-90 transition-all shadow-lg shadow-primary/20" style="">
+                View Specs
+            </button>
+</div>
+</header>
+<main class="pt-20">
+<!-- 01. 히어로 섹션 -->
+<section class="max-w-7xl mx-auto px-8 pt-32 pb-24">
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full mb-8">
+<span class="material-symbols-outlined text-[18px]" data-icon="robot_2" style="">robot_2</span>
+<span class="text-[10px] font-bold tracking-[0.1em] uppercase" style="">Embodied Intelligence</span>
+</div>
+<h1 class="font-headline text-[4rem] md:text-[5.5rem] leading-[0.95] font-extrabold tracking-tighter mb-12 text-on-surface" style="">
+                        휴머노이드 로봇<br>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container" style="">Realbot</span>
+</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-2xl leading-relaxed mb-12" style="">
+                        인간의 형태와 지능을 결합한 차세대 모빌리티. 자율 학습 알고리즘과 고정밀 하드웨어를 통해 복잡한 산업 현장과 일상 환경에서 인간과 협력합니다.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 02. 핵심 특징 (Specifications) -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2" style="">Core Specifications</h2>
+<p class="text-on-surface-variant" style="">정밀 공학으로 설계된 최적의 하드웨어 데이터</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-outline-variant/20 overflow-hidden rounded-xl">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase" style="">Weight</span>
+<div>
+<div class="text-4xl font-headline font-extrabold text-primary mb-1" style="">&lt;95kg</div>
+<div class="text-xs text-on-surface-variant" style="">Lightweight Alloy Body</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase" style="">Payload</span>
+<div>
+<div class="text-4xl font-headline font-extrabold text-primary mb-1" style="">5kg</div>
+<div class="text-xs text-on-surface-variant" style="">Per Arm Capability</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase" style="">DOF</span>
+<div>
+<div class="text-4xl font-headline font-extrabold text-primary mb-1" style="">21</div>
+<div class="text-xs text-on-surface-variant" style="">Degrees of Freedom</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase" style="">Charging</span>
+<div>
+<div class="text-4xl font-headline font-extrabold text-primary mb-1" style="">1.65시간</div>
+<div class="text-xs text-on-surface-variant" style="">Fast Charge System</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase" style="">Height</span>
+<div>
+<div class="text-4xl font-headline font-extrabold text-primary mb-1" style="">168cm</div>
+<div class="text-xs text-on-surface-variant" style="">Optimal Human Scale</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 03. 기술적 강점 (Technical Highlights) -->
+<section class="py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div>
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-4 block" style="">Engineered Excellence</span>
+<h2 class="font-headline text-5xl font-bold tracking-tighter mb-8 leading-tight" style="">지능형 로보틱스의<br>새로운 기준</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-12" style="">REALBOT은 단순한 기계적 움직임을 넘어, 주변 환경을 이해하고 능동적으로 대처하는 기술적 우위를 제공합니다.</p>
+<div class="space-y-12">
+<div class="flex gap-6 group">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="front_hand" style="">front_hand</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2" style="">인간 팔 모사 (Bio-mimetic Control)</h4>
+<p class="text-on-surface-variant leading-relaxed" style="">인간의 근골격계 구조를 모사하여 섬세한 물체 조작과 고도의 유연성을 확보했습니다.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="hub" style="">hub</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2" style="">GLN 네트워크 통합</h4>
+<p class="text-on-surface-variant leading-relaxed" style="">Global Learning Network를 통해 전 세계의 로봇 학습 데이터를 동기화하고 성능을 지속적으로 향상시킵니다.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-12 mt-12 md:mt-24">
+<div class="flex gap-6 group">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="psychology" style="">psychology</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2" style="">Embodied AI 생태계</h4>
+<p class="text-on-surface-variant leading-relaxed" style="">하드웨어와 AI가 완벽히 결합된 신체 지능(Embodied Intelligence)으로 복잡한 비정형 작업 수행이 가능합니다.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="verified" style="">verified</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2" style="">내구성 및 안전 인증</h4>
+<p class="text-on-surface-variant leading-relaxed" style="">산업용 등급의 내구성 테스트를 통과하였으며, 인간 협업을 위한 5단계 안전 충돌 방지 시스템을 갖췄습니다.</p>
+</div>
+</div>
+<!-- AI Insight Chip -->
+<div class="p-8 rounded-2xl bg-secondary-container/10 border border-primary/20 backdrop-blur-md relative overflow-hidden group">
+<div class="absolute -right-8 -bottom-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[160px]" data-icon="auto_awesome" style="">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="tips_and_updates" style="">tips_and_updates</span>
+<span class="font-label text-[10px] font-bold tracking-widest text-primary uppercase" style="">&nbsp;&nbsp;</span>
+</div>
+<p class="text-on-surface font-medium italic leading-relaxed relative z-10" style="">&nbsp;&nbsp;</p>
+<whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 04. 활용사례 (Use Cases) -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight mb-4" style="">Transforming Industries</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto" style="">REALBOT은 다재다능한 신체 조건과 지능으로 다양한 분야의 문제를 해결합니다.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-primary transition-all duration-500 hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-8 block transition-colors" data-icon="inventory_2" style="">inventory_2</span>
+<h3 class="font-headline text-xl font-bold mb-4 group-hover:text-white transition-colors" style="">스마트 물류</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed transition-colors" style="">비정형 화물 분류부터 창고 내 자율 운송까지 자동화 효율을 극대화합니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-primary transition-all duration-500 hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-8 block transition-colors" data-icon="medical_services" style="">medical_services</span>
+<h3 class="font-headline text-xl font-bold mb-4 group-hover:text-white transition-colors" style="">의료 서비스</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed transition-colors" style="">병동 내 물품 운송 및 환자 보조 업무를 수행하여 의료진의 업무 강도를 완화합니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-primary transition-all duration-500 hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-8 block transition-colors" data-icon="factory" style="">factory</span>
+<h3 class="font-headline text-xl font-bold mb-4 group-hover:text-white transition-colors" style="">정밀 제조</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed transition-colors" style="">인간과 동일한 공구 사용이 가능하여 유연 생산 라인 구축에 최적화되어 있습니다.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-2xl group hover:bg-primary transition-all duration-500 hover:-translate-y-2">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-8 block transition-colors" data-icon="science" style="">science</span>
+<h3 class="font-headline text-xl font-bold mb-4 group-hover:text-white transition-colors" style="">R&amp;D 가속</h3>
+<p class="text-on-surface-variant group-hover:text-white/80 leading-relaxed transition-colors" style="">AI 학습 연구를 위한 플랫폼으로서 오픈 API와 시뮬레이션 환경을 지원합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 05. 상세 기술 사양 (Key Technical Specifications) -->
+<section class="py-32">
+<div class="max-w-4xl mx-auto px-8">
+<div class="flex items-center gap-4 mb-16">
+<div class="h-px flex-1 bg-outline-variant/30"></div>
+<h2 class="font-headline text-2xl font-bold tracking-tight px-6 uppercase" style="">Technical Table</h2>
+<div class="h-px flex-1 bg-outline-variant/30"></div>
+</div>
+<div class="space-y-0 border-t border-outline-variant/30">
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style="">최대 주행 속도</span>
+<span class="text-on-surface font-semibold text-right" style="">0.1 m/s ~ 1.6m/s</span>
+</div>
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style="">최소 회전 반경</span>
+<span class="text-on-surface font-semibold text-right" style="">690mm (제자리 회전 시)</span>
+</div>
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style="">배터리</span>
+<span class="text-on-surface font-semibold text-right" style="">25.2V / 33Ah</span>
+</div>
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style="">팔 구동 범위</span>
+<span class="text-on-surface font-semibold text-right" style="">1,200mm(수평 리치)</span>
+</div>
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style=""><br></span>
+<span class="text-on-surface font-semibold text-right" style=""><br></span>
+</div>
+<div class="grid grid-cols-2 py-6 border-b border-outline-variant/30 hover:bg-surface-container-low transition-colors px-4">
+<span class="text-on-surface-variant font-medium" style="">네트워크</span>
+<span class="text-on-surface font-semibold text-right" style=""><span style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; font-weight: 400; text-align: start; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">WIFI/블루투스</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 pb-32">
+<div class="bg-on-background rounded-[2rem] p-16 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tighter" style="">로보틱스의 미래를<br>함께 설계하십시오</h2>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-gradient-to-r from-primary-container to-primary text-on-primary font-bold py-4 px-10 rounded-xl hover:scale-105 transition-all shadow-2xl shadow-primary/40" style="">
+                        기술 사양서 다운로드
+                    </button>
+<button class="bg-white/10 hover:bg-white/20 text-white font-bold py-4 px-10 rounded-xl border border-white/20 transition-all" style="">
+                        협업 문의하기
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f6f3f2] dark:bg-stone-900 w-full py-12 mt-24 font-['Inter'] text-sm tracking-wide">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto px-12">
+<div class="flex flex-col gap-6">
+<span class="font-['Manrope'] font-semibold uppercase tracking-widest text-[#1c1b1b] dark:text-[#fcf9f8]" style="">REALBOT Robotics</span>
+<p class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 max-w-xs" style="">
+                    인간과 로봇의 공존을 위한 기술, REALBOT Dynamics가 만들어갑니다.
+                </p>
+<div class="flex gap-4">
+<a class="text-[#006972] underline decoration-2 underline-offset-4 transition-all duration-300" href="#" style="">Privacy Policy</a>
+<a class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] dark:hover:text-[#0aabba] transition-all duration-300" href="#" style="">Terms of Service</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<span class="font-bold text-[#1c1b1b] dark:text-[#fcf9f8] mb-2" style="">Resources</span>
+<a class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-all duration-300" href="#" style="">API Documentation</a>
+<a class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-all duration-300" href="#" style="">Hardware Schema</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-bold text-[#1c1b1b] dark:text-[#fcf9f8] mb-2" style="">Support</span>
+<a class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-all duration-300" href="#" style="">Safety Protocols</a>
+<a class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-all duration-300" href="#" style="">Contact Support</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-12 pt-12 mt-12 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 text-xs" style="">© 2026 REALBOT Dynamics. All rights reserved.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#1c1b1b]/30" data-icon="public" style="">public</span>
+<span class="material-symbols-outlined text-[#1c1b1b]/30" data-icon="share" style="">share</span>
+</div>
+</div>
+</footer>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

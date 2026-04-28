@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    :root {
+      --color-brand: #0AABBA;
+      --color-text-primary: #1C1B1B;
+      --color-text-secondary: #636E6E;
+      --color-text-tertiary: #94A3B8;
+      --color-background-primary: #FFFFFF;
+      --color-background-secondary: #F8FAFC;
+      --color-border-primary: #E2E8F0;
+      --color-border-secondary: #CBD5E1;
+      --color-border-tertiary: #F1F5F9;
+      --font-sans: 'Manrope', 'Noto Sans KR', sans-serif;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background-color: #fcfcfc;
+      line-height: 1.6;
+    }
+
+    .doc {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .cover {
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--color-background-primary);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+    }
+
+    .cr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+
+    .gem {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--color-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+    }
+
+    .sec {
+      margin-bottom: 2.5rem;
+    }
+
+    .sl {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--color-brand);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      display: block;
+    }
+
+    .card {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .ch {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .ci {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .ct {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cd {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .cb {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .b-brand { background: #E6F7F8; color: #088A96; }
+    .b-gray { background: #F1F5F9; color: #64748B; }
+
+    .dr {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .dr:last-child { border-bottom: none; }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-brand);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .dt {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .dt strong {
+      color: var(--color-text-primary);
+      font-weight: 600;
+    }
+
+    .sub-card {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .st {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-text-primary);
+    }
+
+    .ml-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 1rem;
+    }
+
+    .ml-table th {
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      background: var(--color-background-secondary);
+      border-bottom: 1px solid var(--color-border-primary);
+    }
+
+    .ml-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border-tertiary);
+      vertical-align: middle;
+      color: var(--color-text-secondary);
+    }
+
+    .hero-img {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      margin-top: 1.5rem;
+      border: 1px solid var(--color-border-tertiary);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cta-primary {
+      background: var(--color-brand);
+      color: white;
+    }
+
+    .cta-secondary {
+      background: var(--color-background-primary);
+      border: 1px solid var(--color-border-secondary);
+      color: var(--color-text-primary);
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      .g2 { grid-template-columns: 1fr; }
+      .doc { padding: 1.5rem 1rem; }
+      .cover { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="doc">
+<!-- Cover / Section 1: Hero -->
+<div class="cover">
+<div class="cr">
+<div class="gem">
+<span class="material-symbols-outlined" style="font-size: 20px;">precision_manufacturing</span>
+</div>
+<span style="font-size: 14px; font-weight: 700; color: var(--color-brand);" class="">&nbsp;FORCE SENSING SERIES</span>
+</div>
+<h1 style="font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.5px;" class="">
+      [PRD] Refind AP001 상세 페이지 기획안
+    </h1>
+<div style="font-size:13px; color:var(--color-text-secondary); margin-bottom:1.5rem; display: flex; gap: 12px; align-items: center;">
+<span class="badge b-gray" style="">Ver 1.2</span>
+<span class="" style="">•</span>
+<span class="" style="">2026.04.12</span>
+<span class="" style="">•</span>
+<span style="font-weight: 500;" class="">High-Performance Force Sensing Hand</span>
+</div>
+<div class="card" style="border: none; padding: 0; background: transparent; margin-bottom: 2rem;">
+<div style="font-size: 18px; font-weight: 700; margin-bottom: 0.5rem;" class="">"강력한 퍼포먼스, 로봇 핸드의 표준을 정립하다"</div>
+<div class="cb" style="">
+        힘을 읽고 제어하다, Refind AP001. 내장형 포스 센서(Force Sensor)로 실시간 힘 피드백과 토크 제어의 최적화를 경험하세요. 미세한 힘을 감지하여 정밀 조립 작업을 수행하는 압도적 퍼포먼스를 제공합니다.
+      </div>
+</div>
+<img alt="Refind AP001 Product" class="hero-img" src="https://lh3.googleusercontent.com/aida/ADBb0ugbN_KhgUK8QpjYOaXyemIcFbMQa9xCoMOADqC_VW-OWmBo1gNqItu0lP3tb06mIATGNncRhP7r_zeFmJYzhBVX2pEDozEjg7quTJKfin3dNsY0jSG2f4GQ2z6JH6ohzJzkYD_wXIic6e3DayMc1W8pqFappKdruAU49_6cLPIRZjE3zp5HvKXe1mqh0BWdE70Hem5xjV9L3XYvF05xgpcPYlXRApL4MS7MBPH2aGqS6nCxrdTdr8ACcIIdFe_4hfzd_x4BnHjiMQ" style="">
+<div style="display:flex; gap:10px; margin-top:1.5rem; flex-wrap: wrap;">
+<div class="cta-button cta-primary" style="">
+<span class="material-symbols-outlined" style="font-size: 18px;">description</span>
+        기술 사양서(Whitepaper) 다운로드
+      </div>
+<div class="cta-button cta-secondary" style="">
+<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
+        협업 문의하기
+      </div>
+</div>
+</div>
+<!-- Section 2: Core Value -->
+<div class="sec">
+<span class="sl" style="">01 · CORE VALUE</span>
+<div class="g2">
+<div class="card">
+<div class="ch">
+<div class="ci b-brand"><span class="material-symbols-outlined" style="">sensors</span></div>
+<div>
+<div class="ct" style="">Integrated Force Sensing</div>
+<div class="cd" style="">내장형 포스 센싱</div>
+</div>
+</div>
+<div class="cb" style="">별도의 외부 센서 없이도 말단 부하를 정밀 측정하여 섬세한 힘 조절이 가능합니다.</div>
+</div>
+<div class="card">
+<div class="ch">
+<div class="ci b-brand"><span class="material-symbols-outlined" style="">sync_alt</span></div>
+<div>
+<div class="ct" style="">Bidirectional Feedback</div>
+<div class="cd" style="">양방향 피드백</div>
+</div>
+</div>
+<div class="cb" style="">관절 각도 데이터와 포스 데이터를 결합하여 완성도 높은 로봇 경로 생성 및 학습을 지원합니다.</div>
+</div>
+<div class="card">
+<div class="ch">
+<div class="ci b-brand"><span class="material-symbols-outlined" style="">verified</span></div>
+<div>
+<div class="ct" style="">Industrial Reliability</div>
+<div class="cd" style="">산업급 신뢰성</div>
+</div>
+</div>
+<div class="cb" style="">반복적인 힘 가압 환경에서도 변함없는 측정 정밀도와 내구성을 보장합니다.</div>
+</div>
+<div class="card">
+<div class="ch">
+<div class="ci b-brand"><span class="material-symbols-outlined" style="">code</span></div>
+<div>
+<div class="ct" style="">SDK Support</div>
+<div class="cd" style="">개발 유연성</div>
+</div>
+</div>
+<div class="cb" style="">Python, C++ 전용 라이브러리를 통해 연구 및 공정 설계에 즉시 도입이 가능합니다.</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Technical Deep Dive -->
+<div class="sec">
+<span class="sl" style="">02 · TECHNICAL DEEP DIVE</span>
+<div class="card">
+<div class="st" style="">하드웨어의 정수: 기술 상세</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style="">
+<strong>[01] 센서 테크놀로지</strong><br>
+          고감도 포스 센서를 통해 미세한 저항값 변화를 감지합니다. 정밀한 힘 제어 알고리즘 구현을 위한 초고속 데이터 샘플링(150Hz)을 완벽하게 지원합니다.
+        </div>
+</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style="">
+<strong>[02] 지능형 제어 및 호환성</strong><br>
+          UART, RS485, CAN 인터페이스를 모두 지원하며, SerialCtrl 전용 프로토콜과 ModBus-RTU를 지원하여 기존 산업 시스템과의 뛰어난 호환성을 자랑합니다.
+        </div>
+</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style="">
+<strong>정밀도 범위</strong><br>
+          0.1N ~ 25N의 정밀한 측정 범위를 가지며, 반복 정밀도는 ±20% (500g 부하 시) 내외로 미세한 물리적 변화를 데이터화합니다.
+        </div>
+</div>
+</div>
+</div>
+<!-- Section 4: Use Cases -->
+<div class="sec">
+<span class="sl" style="">03 · USE CASES (실증 사례)</span>
+<div class="card">
+<div style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;" class="">B2B 고객 및 실무 연구진이 가장 주목하는 핵심 시나리오</div>
+<div class="sub-card">
+<div class="st" style="">1. 정밀 조립 (Precision Assembly)</div>
+<div class="cb" style="">부품 결합 시 발생하는 힘을 실시간으로 감지하여 부품 파손을 방지하고 공정 결합 품질을 즉각적으로 검수합니다.</div>
+</div>
+<div class="sub-card">
+<div class="st" style="">2. 표면 가공 (Deburring/Polishing)</div>
+<div class="cb" style="">일정한 압력을 유지하며 작업해야 하는 샌딩 및 연마 공정을 자동화하여 작업 결과물의 균일성을 확보합니다.</div>
+</div>
+<div class="sub-card">
+<div class="st" style="">3. 의료/바이오 자동화</div>
+<div class="cb" style="">섬세한 조작이 필요한 바이오 시료 취급이나 힘 피드백 기반의 원격 수술 로봇 연구 환경에 최적화되어 있습니다.</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Product Lineup & Specs -->
+<div class="sec">
+<span class="sl" style="">04 · PRODUCT LINEUP &amp; SPECS</span>
+<div class="card" style="padding: 0; overflow-x: auto;">
+<table class="ml-table">
+<thead>
+<tr>
+<th class="" style="">구분</th>
+<th class="" style="">ROH-Lite</th>
+<th class="" style="">Refind AP001</th>
+<th class="" style="">Refind AP002</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="" style="">가동 관절</td>
+<td class="" style="">6 DOF</td>
+<td class="" style="">11개 / 6 DOF</td>
+<td class="" style="">11개 / 6 DOF</td>
+</tr>
+<tr>
+<td class="" style="">무게</td>
+<td class="" style="">457g±5</td>
+<td class="" style="">640g ± 5g</td>
+<td class="" style="">575g ± 5g</td>
+</tr>
+<tr>
+<td class="" style="">구동 속도</td>
+<td class="" style="">0.7</td>
+<td class="" style="">0.7초</td>
+<td class="" style="">0.7초</td>
+</tr>
+<tr>
+<td class="" style="">포스/촉각 센서</td>
+<td class="" style="">X</td>
+<td class="" style="">Tashan 포스 센서</td>
+<td class="" style="">3D 포스 + 팜 매트릭스</td>
+</tr>
+<tr>
+<td class="" style="">샘플링 속도</td>
+<td class="" style="">50Hz</td>
+<td class="" style="">150Hz</td>
+<td class="" style="">150Hz(손바닥),50Hz(손가락 마디)</td>
+</tr>
+<tr>
+<td class="" style="">통신 인터페이스</td>
+<td class="" style="">RS-485 및 Modbus</td>
+<td class="" style="">UART, RS485, CAN FD</td>
+<td class="" style="">UART, RS485, CAN FD</td>
+</tr>
+<tr>
+<td class="" style="">주요 특징</td>
+<td class="" style="">가성비 기본 모델</td>
+<td class="" style="">실시간 힘 제어 표준</td>
+<td class="" style="">고정밀 3D 감지</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 6: Trust & Contact -->
+<div class="sec">
+<span class="sl" style="">05 · TRUST &amp; CONTACT</span>
+<div class="card">
+<div class="st" style="text-align: center; margin-bottom: 2rem;">리파인(Refind)의 기술력을 신뢰하는 파트너사</div>
+<div style="display: flex; justify-content: space-around; align-items: center; gap: 2rem; flex-wrap: wrap; opacity: 0.6; padding: 0 1rem;">
+<span style="font-size: 20px; font-weight: 800; letter-spacing: -1px;" class="">NVIDIA</span>
+<span style="font-size: 18px; font-weight: 700;" class="">SAMSUNG</span>
+<span style="font-size: 18px; font-weight: 900;" class="">HYUNDAI</span>
+<span style="font-size: 20px; font-weight: 500;" class="">KAIST</span>
+</div>
+<div style="margin-top: 3rem; text-align: center; padding-top: 2rem; border-top: 1px solid var(--color-border-tertiary);">
+<div style="font-size: 18px; font-weight: 700; margin-bottom: 0.5rem;" class="">"단순한 판매를 넘어, 기술 지원과 커스텀 솔루션을 제공합니다"</div>
+<p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 2rem;" class="">
+          제품 도입부터 공정 적용까지 리파인의 전문가 그룹이 함께합니다.
+        </p>
+<div style="display: inline-flex; gap: 12px;"><div class="cta-button cta-primary" style="">
+<span class="material-symbols-outlined" style="font-size: 18px;">description</span>
+        기술 사양서(Whitepaper) 다운로드
+      </div>
+<div class="cta-button cta-secondary" style="">
+<span class="material-symbols-outlined" style="font-size: 18px;">mail</span>
+        협업 문의하기
+      </div></div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 2rem;">
+<div style="font-size: 12px; color: var(--color-text-tertiary);" class="">
+        © 2026 Refind Inc. All Rights Reserved. | 본사: 경기도 성남시 분당구 판교역로 | 고객지원: support@refind.robot
+      </div>
+</div>
+</div>
+</div>
+</body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

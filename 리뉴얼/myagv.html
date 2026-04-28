@@ -1,0 +1,305 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>myAGV 2023 - 교육 및 연구용 이동 로봇 플랫폼</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#a0c9ff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#e97f1e",
+                    "primary-fixed": "#8ff2ff",
+                    "on-surface": "#1c1b1b",
+                    "secondary-fixed": "#d2e4ff",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "inverse-primary": "#58d7e7",
+                    "surface-container-low": "#f6f3f2",
+                    "outline-variant": "#bcc9cb",
+                    "on-tertiary-fixed": "#301400",
+                    "on-primary-container": "#00393f",
+                    "on-secondary-fixed-variant": "#00497f",
+                    "tertiary-fixed": "#ffdcc5",
+                    "error": "#ba1a1a",
+                    "surface": "#fcf9f8",
+                    "background": "#fcf9f8",
+                    "on-secondary": "#ffffff",
+                    "primary": "#006972",
+                    "surface-container": "#f0edec",
+                    "surface-container-highest": "#e5e2e1",
+                    "tertiary": "#934b00",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-background": "#1c1b1b",
+                    "on-secondary-fixed": "#001c37",
+                    "surface-variant": "#e5e2e1",
+                    "surface-tint": "#006972",
+                    "inverse-surface": "#313030",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#dcd9d9",
+                    "outline": "#6d797b",
+                    "on-tertiary-container": "#522700",
+                    "on-primary-fixed": "#001f23",
+                    "primary-fixed-dim": "#58d7e7",
+                    "surface-bright": "#fcf9f8",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "on-secondary-container": "#004579",
+                    "on-primary-fixed-variant": "#004f56",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ebe7e7",
+                    "secondary": "#0061a6",
+                    "primary-container": "#0aabba",
+                    "on-surface-variant": "#3d494b",
+                    "secondary-container": "#73b4ff",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #fcf9f8; color: #1c1b1b; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-stone-950/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba] text-3xl" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+<span class="font-['Manrope'] font-black text-[#006972] dark:text-[#0aabba] tracking-tighter text-2xl" style="">myAGV 2023</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#006972] dark:text-[#0aabba] font-bold border-b-2 border-[#006972] hover:text-[#006972] transition-colors duration-300" href="#overview" style=""><br></a>
+<a class="text-[#1c1b1b] dark:text-stone-400 font-medium hover:text-[#006972] transition-colors duration-300" href="#features" style=""><br></a>
+<a class="text-[#1c1b1b] dark:text-stone-400 font-medium hover:text-[#006972] transition-colors duration-300" href="#applications" style=""><br></a>
+<a class="text-[#1c1b1b] dark:text-stone-400 font-medium hover:text-[#006972] transition-colors duration-300" href="#specifications" style=""><br></a>
+</nav>
+<button class="bg-[#006972] hover:opacity-80 text-white px-6 py-2 rounded-full font-bold transition-all duration-200" style="">협업 문의하기</button>
+</div>
+<whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></header>
+<!-- Side Navigation (Technical Docs Sidebar Style) -->
+<aside class="hidden xl:flex fixed left-0 top-20 w-72 h-[calc(100vh-5rem)] p-6 flex-col bg-[#f6f3f2] dark:bg-stone-900 rounded-r-2xl shadow-2xl z-40">
+<div class="mb-8">
+<span class="font-['Manrope'] text-lg font-bold text-[#1c1b1b] dark:text-stone-100" style="">Technical Docs</span>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-800 text-[#006972] dark:text-[#0aabba] font-bold rounded-lg transition-transform hover:translate-x-1" href="#overview" style="">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard" style="">dashboard</span>
+<span class="font-['Inter'] text-sm tracking-wide uppercase" style="">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800/50 rounded-lg transition-transform hover:translate-x-1" href="#features" style="">
+<span class="material-symbols-outlined text-xl" data-icon="memory" style="">memory</span>
+<span class="font-['Inter'] text-sm tracking-wide uppercase" style="">Key Features</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800/50 rounded-lg transition-transform hover:translate-x-1" href="#applications" style="">
+<span class="material-symbols-outlined text-xl" data-icon="rocket_launch" style="">rocket_launch</span>
+<span class="font-['Inter'] text-sm tracking-wide uppercase" style="">Applications</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-200 dark:hover:bg-stone-800/50 rounded-lg transition-transform hover:translate-x-1" href="#specifications" style="">
+<span class="material-symbols-outlined text-xl" data-icon="settings_input_component" style="">settings_input_component</span>
+<span class="font-['Inter'] text-sm tracking-wide uppercase" style="">Specifications</span>
+</a>
+</nav>
+</aside>
+<main class="pt-32 pb-20 px-8 max-w-7xl mx-auto xl:pl-80">
+<!-- 01 Overview -->
+<section class="mb-32" id="overview">
+<div class="flex items-center gap-4 mb-6">
+<span class="font-['Manrope'] text-6xl font-extralight text-primary/20" style="">01</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-['Inter'] text-xs font-bold tracking-[0.2em] uppercase text-primary" style="">Overview</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8">
+<h1 class="text-6xl md:text-7xl font-headline font-bold text-on-surface tracking-tight leading-none mb-8" style="">
+                        AVR / AMR<br>
+<span class="text-primary-container" style="">myAGV 2023</span>
+</h1>
+<p class="text-xl md:text-2xl font-body text-on-surface-variant leading-relaxed max-w-2xl" style="">
+                        교육 및 연구를 위해 정밀하게 설계된 차세대 이동 로봇 플랫폼. 자율주행 알고리즘 개발부터 지능형 로보틱스 시스템 구축까지, 연구자의 상상을 현실로 구현합니다.
+                    </p>
+</div>
+<div class="lg:col-span-4 flex flex-col justify-end">
+<div class="p-8 bg-surface-container-low rounded-xl border-l-4 border-primary">
+<span class="text-sm font-bold text-primary block mb-2" style="">Category</span>
+<p class="text-lg font-medium" style="">Research &amp; Educational Robotics</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 02 Key Features -->
+<section class="mb-32" id="features">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-['Manrope'] text-6xl font-extralight text-primary/20" style="">02</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-['Inter'] text-xs font-bold tracking-[0.2em] uppercase text-primary" style="">Key Features</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20 overflow-hidden rounded-2xl">
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-colors duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="auto_videocam" style="">auto_videocam</span>
+<h3 class="text-2xl font-bold mb-4" style="">자율주행 실습 최적화</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                        복잡한 환경에서도 정밀한 경로 탐색과 장애물 회피가 가능한 자율주행 알고리즘 실습 환경을 제공합니다.
+                    </p>
+</div>
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-colors duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="map" style="">map</span>
+<h3 class="text-2xl font-bold mb-4" style="">SLAM &amp; Navigation 지원</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                        실시간 지도 생성(SLAM) 및 정밀한 위치 추정 기술을 통해 로봇 내비게이션의 전 과정을 직접 제어하고 실험할 수 있습니다.
+                    </p>
+</div>
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-colors duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="hub" style="">hub</span>
+<h3 class="text-2xl font-bold mb-4" style="">ROS 기반 오픈 플랫폼</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                        Robot Operating System(ROS)과의 완벽한 호환성을 통해 방대한 오픈소스 라이브러리와 도구들을 즉시 활용할 수 있습니다.
+                    </p>
+</div>
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-colors duration-500">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="home_mini" style="">home_mini</span>
+<h3 class="text-2xl font-bold mb-4" style="">컴팩트한 실내 주행 설계</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                        제한된 실내 연구실 환경에서도 효율적인 기동성을 발휘하도록 설계된 슬림하고 견고한 폼팩터를 자랑합니다.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 03 Applications -->
+<section class="mb-32" id="applications">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-['Manrope'] text-6xl font-extralight text-primary/20" style="">03</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-['Inter'] text-xs font-bold tracking-[0.2em] uppercase text-primary" style="">Applications</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Application Card 1 -->
+<div class="relative overflow-hidden group bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="school" style="">school</span>
+</div>
+<span class="inline-block px-3 py-1 bg-secondary-container/20 text-secondary font-bold text-[10px] tracking-widest uppercase mb-6 w-fit rounded" style="">Academic</span>
+<h4 class="text-xl font-bold mb-4 text-on-surface" style="">자율주행 로봇 교육</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6" style="">학부 및 대학원 과정의 자율주행 및 로보틱스 기초 교육을 위한 표준 플랫폼으로 활용됩니다.</p>
+</div>
+<!-- Application Card 2 -->
+<div class="relative overflow-hidden group bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="biotech" style="">biotech</span>
+</div>
+<span class="inline-block px-3 py-1 bg-secondary-container/20 text-secondary font-bold text-[10px] tracking-widest uppercase mb-6 w-fit rounded" style="">R&amp;D</span>
+<h4 class="text-xl font-bold mb-4 text-on-surface" style="">이동 로봇 연구</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6" style="">고도화된 모빌리티 제어 알고리즘 및 센서 퓨전 연구를 위한 안정적인 하드웨어 기반을 제공합니다.</p>
+</div>
+<!-- Application Card 3 -->
+<div class="relative overflow-hidden group bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="psychology" style="">psychology</span>
+</div>
+<span class="inline-block px-3 py-1 bg-secondary-container/20 text-secondary font-bold text-[10px] tracking-widest uppercase mb-6 w-fit rounded" style="">AI Project</span>
+<h4 class="text-xl font-bold mb-4 text-on-surface" style="">AI 로보틱스 프로젝트</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6" style="">딥러닝 기반의 객체 인식, 인간-로봇 상호작용(HRI) 등 AI 융합 연구를 지원합니다.</p>
+</div>
+</div>
+</section>
+<!-- 04 Specifications -->
+<section class="mb-32" id="specifications">
+<div class="flex items-center gap-4 mb-12">
+<span class="font-['Manrope'] text-6xl font-extralight text-primary/20" style="">04</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+<span class="font-['Inter'] text-xs font-bold tracking-[0.2em] uppercase text-primary" style="">Specifications</span>
+</div>
+<div class="bg-surface-container-low rounded-3xl overflow-hidden shadow-inner">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary/5">
+<th class="px-10 py-6 font-headline font-bold text-primary uppercase tracking-tighter border-b border-primary/10" style="">Specification Item</th>
+<th class="px-10 py-6 font-headline font-bold text-primary uppercase tracking-tighter border-b border-primary/10" style="">Description</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style="">Main Controller</td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="249" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">Raspberry Pi 4B (4GB) / Elephant Robotics 커스터마이징 Ubuntu Mate 20.04 탑재</b></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style="">Driving System</td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="407" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">고성능 플래터너리 BLDC 모터 (220 rpm/min), 최대 주행 속도 0.9m/s</b></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style="">Sensors</td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="533" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">360° 전방위 라이다 (탐지 범위 8m), 500만 화소(5M Pixels) 내장 카메라, 6-Axis IMU</b></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style=""><b _ngcontent-ng-c2126329125="" data-start-index="1037" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">Size &amp; Weight</b></td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="1050" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">300x205x145mm / 3.02kg</b></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style="">Battery Life</td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><span style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">Up to 2.5 hours of continuous operation (6,000mAh)</span></td>
+</tr>
+<tr class="hover:bg-white/50 transition-colors">
+<td class="px-10 py-6 font-bold text-on-surface" style="">Payload</td>
+<td class="px-10 py-6 text-on-surface-variant" style=""><span style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">Max Support up to 5kg (Recommended 2kg)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-40 mb-20 text-center">
+<h2 class="text-4xl md:text-5xl font-headline font-bold mb-12 tracking-tight" style="">전문적인 로봇 연구를 위한<br><span class="text-primary" style="">최고의 파트너</span>를 만나보세요.</h2>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<a class="group relative px-10 py-4 bg-primary text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1" href="#" style="">
+<span class="relative z-10 flex items-center gap-2" style="">
+<span class="material-symbols-outlined" data-icon="download" style="">download</span>
+                        기술 사양서 다운로드
+                    </span>
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-container opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</a>
+<a class="px-10 py-4 bg-surface-container-highest text-on-surface rounded-full font-bold text-lg hover:bg-surface-dim transition-colors duration-300 border border-outline-variant/30" href="#" style="">
+                    협업 문의하기
+                </a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fcf9f8] dark:bg-stone-950 w-full border-t border-stone-100 dark:border-stone-900">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center">
+<p class="font-['Inter'] text-xs text-stone-500 mb-6 md:mb-0" style="">© 2023 myAGV Platform. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#" style="">기술 사양서 다운로드</a>
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#" style="">개인정보처리방침</a>
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#" style="">이용약관</a>
+</div>
+</div>
+</footer>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

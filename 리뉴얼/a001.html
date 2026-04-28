@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    :root {
+      --font-sans: 'Manrope', sans-serif;
+      --color-text-primary: #111827;
+      --color-text-secondary: #4B5563;
+      --color-text-tertiary: #9CA3AF;
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #F9FAFB;
+      --color-border-tertiary: #E5E7EB;
+      --color-border-secondary: #D1D5DB;
+      --border-radius-lg: 12px;
+      --border-radius-md: 8px;
+      --color-brand: #0AABBA;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-primary);
+      background-color: #f3f4f6;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .doc {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .cover {
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem 2rem;
+      margin-bottom: 1.75rem;
+      background: var(--color-background-primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .cr {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .gem {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: var(--color-brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+    }
+
+    .sec {
+      margin-bottom: 2rem;
+    }
+
+    .sl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: var(--color-brand);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      margin-bottom: .75rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .ch {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .ci {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .ct {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cd {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .cb {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .b-brand { background: #E6F7F8; color: #088794; }
+    .b-tech { background: #EEEDFE; color: #3C3489; }
+    .b-dark { background: #111827; color: #fff; }
+
+    .dr {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .dr:last-child {
+      border-bottom: none;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-brand);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .dt {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+    }
+
+    .dt strong {
+      color: var(--color-text-primary);
+      font-weight: 600;
+    }
+
+    .sub {
+      padding: 1rem;
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      margin-bottom: .75rem;
+    }
+
+    .st {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ml-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .ml-table th {
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      background: var(--color-background-secondary);
+      border-bottom: 1px solid var(--color-border-tertiary);
+    }
+
+    .ml-table td {
+      padding: 12px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      vertical-align: middle;
+      color: var(--color-text-secondary);
+    }
+
+    .spec-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid var(--color-border-tertiary);
+      margin-top: 1rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cta-primary {
+      background: var(--color-text-primary);
+      color: white;
+    }
+
+    .cta-secondary {
+      background: white;
+      border: 1px solid var(--color-border-secondary);
+      color: var(--color-text-primary);
+    }
+
+    @media (max-width: 600px) {
+      .g2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="doc">
+<!-- Cover / Header -->
+<div class="cover">
+<div class="cr">
+<div class="gem"><span class="material-symbols-outlined" style="font-size: 16px;">precision_manufacturing</span></div>
+<span class="" style="font-size: 14px; font-weight: 700; color: var(--color-brand);">Internal Document</span>
+</div>
+<div class="" style="font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: -0.5px;">Refind A001 제품 상세 페이지 기획안</div>
+<div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1.5rem;display:flex;gap:12px;align-items:center">
+<span class="" style="">Version 1.2</span>
+<span class="" style="color: var(--color-border-secondary);">|</span>
+<span class="" style="">2026.04.12</span>
+<span class="" style="color: var(--color-border-secondary);">|</span>
+<span class="" style="">By Stitch AI</span>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<span class="badge b-brand" style="">High-Precision</span>
+<span class="badge b-tech" style="">6-DOF Mechanism</span>
+<span class="badge b-brand" style="">Tashan Sensor Embedded</span>
+</div>
+</div>
+<!-- 01. Hero Section -->
+<div class="sec">
+<div class="sl" style="">01 · Hero Section (압도적 첫인상)</div>
+<div class="card" style="background: #111827; color: white;">
+<div style="margin-bottom: 1.5rem;">
+<span class="badge b-brand" style="margin-bottom: 12px;">Physical AI의 완성</span>
+<h2 class="" style="font-size: 24px; font-weight: 800; margin-bottom: 12px;">ROH-A001</h2>
+<p class="" style="font-size: 14px; color: rgb(156, 163, 175); max-width: 500px;">인간의 손을 완벽히 모사한 6자유도 메커니즘으로 로봇 자동화의 새로운 한계를 개척합니다.</p>
+</div>
+<div style="display: flex; gap: 10px;">
+<div class="cta-btn b-brand" style="color: rgb(8, 135, 148); cursor: pointer;">
+<span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+          기술 사양서 다운로드
+        </div>
+<div class="cta-btn" style="border: 1px solid rgb(55, 65, 81); color: white; cursor: pointer;">
+          협업 문의하기
+        </div>
+</div>
+<div class="" style="margin-top: 2rem; border-top: 1px solid rgb(55, 65, 81); padding-top: 1.5rem; font-size: 12px; color: rgb(107, 114, 128);">
+        * 다크 모드 배경의 고해상도 A001 렌더링 이미지 혹은 정교한 움직임을 보여주는 루프 영상 배치 예정
+      </div>
+</div>
+</div>
+<!-- 02. Core Value -->
+<div class="sec">
+<div class="sl" style="">02 · Core Value (왜 A001인가?)</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="card">
+<div class="ch">
+<div class="ci" style="background:#F0FDF4; color:#15803D"><span class="material-symbols-outlined" style="">settings_suggest</span></div>
+<div class="ct" style="font-size: 14px;">Precision Engineering</div>
+</div>
+<div class="cb" style="font-size: 12px;">인간과 유사한 6자유도(DOF) 구조로 비정형 물체에 대한 완벽한 파지(Grasping) 구현</div>
+</div>
+<div class="card">
+<div class="ch">
+<div class="ci" style="background:#EFF6FF; color:#1D4ED8"></div>
+<div class="ct" style="font-size: 14px;"><br></div>
+</div>
+<div class="cb" style="font-size: 12px;"><br></div>
+</div>
+<div class="card">
+<div class="ch">
+<div class="ci" style="background:#F5F3FF; color:#6D28D9"><span class="material-symbols-outlined" style="">hub</span></div>
+<div class="ct" style="font-size: 14px;">Seamless Integration</div>
+</div>
+<div class="cb" style="font-size: 12px;">ROS2, Python, C++ 기반의 오픈 SDK 제공으로 어떤 로봇 플랫폼에도 즉시 연동</div>
+</div>
+</div>
+</div>
+<!-- 03. Technical Deep Dive -->
+<div class="sec">
+<div class="sl" style="">03 · Technical Deep Dive (하드웨어의 정수)</div>
+<div class="card">
+<div class="sub">
+<div class="st" style=""><span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-brand);">bolt</span> 01. 메커니즘의 혁신</div>
+<div class="dr"><div class="dot"></div><div class="dt" style=""><strong>구동부:</strong> 고정밀 서보 모터와 자체 개발된 와이어 구동 시스템의 결합</div></div>
+<div class="dr"><div class="dot"></div><div class="dt" style=""><strong>성능:</strong> 파워 그립(Power grip) 시 최대 <strong>30kg의 하중(Payload)</strong>을 견딜 수 있음</div></div>
+</div>
+<div class="sub" style="margin-bottom:0">
+<div class="st" style=""><span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-brand);">memory</span> 02. 지능형 제어 시스템</div>
+<div class="dr"><div class="dot"></div><div class="dt" style=""><strong>데이터 피드백:</strong> 관절 각도, 속도, 토크 데이터 실시간 출력</div></div>
+<div class="dr"><div class="dot"></div><div class="dt" style=""><strong>플랫폼 지원:</strong> 연구 및 2차 개발을 위한 ROS 및 ROS2 플랫폼용 SDK 제공</div></div>
+</div>
+</div>
+</div>
+<!-- 04. Connectivity -->
+<div class="sec">
+<div class="sl" style="">04 · Connectivity (개발자를 위한 배려)</div>
+<div class="card">
+<div class="ch">
+<div class="ci" style="background:#FFF7ED; color:#C2410C"><span class="material-symbols-outlined" style="">terminal</span></div>
+<div>
+<div class="ct" style="">Developer-Friendly Ecosystem</div>
+<div class="cd" style="">B2B 고객 중 실무자인 연구원들이 가장 반기는 핵심 호환성</div>
+</div>
+</div>
+<div class="g2">
+<div class="sub">
+<div class="st" style="font-size: 13px;">Plug &amp; Play</div>
+<div class="cb" style="font-size: 11px;">Realman, Elephant Robotics 등 글로벌 협동 로봇과 하드웨어 규격 호환 가능</div>
+</div>
+<div class="sub">
+<div class="st" style="font-size: 13px;">Protocol Library</div>
+<div class="cb" style="font-size: 11px;">Serial, ModBus-RTU, CAN 프로토콜을 폭넓게 지원하여 범용성 극대화</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 05. Use Cases -->
+<div class="sec">
+<div class="sl" style="">05 · Use Cases (실증 사례)</div>
+<div class="card">
+<div class="dr">
+<div class="gem" style="background: rgb(243, 244, 246); color: rgb(75, 85, 99); font-size: 12px;">01</div>
+<div class="dt" style=""><strong>연구소/대학 AI</strong> — 파지 알고리즘 연구 및 고정밀 데이터 수집을 통한 논문 성과 극대화</div>
+</div>
+<div class="dr">
+<div class="gem" style="background: rgb(243, 244, 246); color: rgb(75, 85, 99); font-size: 12px;">02</div>
+<div class="dt" style=""><strong>휴머노이드 제조</strong> — 차세대 로봇 인터페이스로서 인간 수준의 작업 수행 능력 확보</div>
+</div>
+<div class="dr" style="border:none">
+<div class="gem" style="background: rgb(243, 244, 246); color: rgb(75, 85, 99); font-size: 12px;">03</div>
+<div class="dt" style=""><strong>스마트 팩토리</strong> — 비정형 물체 선별(Picking) 및 공정 자동화 범위 확대 및 불량률 감소</div>
+</div>
+<div style="margin-top:1.5rem; border-radius: 8px; overflow: hidden;">
+<div class="" style="background: rgb(249, 250, 251); padding: 2rem; text-align: center; border: 1px dashed var(--color-border-secondary); color: var(--color-text-tertiary); font-size: 12px;">
+          [실제 로봇팔에 장착되어 작동하는 모습 - 정밀 조립, 표면 가공 등 영상/이미지 배치 영역]
+        </div>
+</div>
+</div>
+</div>
+<!-- 06. Product Lineup & Specs -->
+<div class="sec">
+<div class="sl" style="">06 · Product Lineup &amp; Specs (상세 사양 비교)</div>
+<div class="card" style="padding: 0; overflow: hidden;">
+<div style="padding: 1.5rem 1.5rem 0.5rem;">
+<div class="ct" style="">모델별 상세 사양 비교</div>
+<div class="cd" style="">용도에 맞는 최적의 로봇 핸드 모델을 선택하세요.</div>
+</div>
+<div style="overflow-x: auto;">
+<table class="ml-table">
+<thead>
+<tr>
+<th class="" style="">구분</th>
+<th class="" style="color: var(--color-brand);">ROH-A001 (표준형)</th>
+<th class="" style="">ROH-AP001 (포스 피드백)</th>
+<th class="" style="">ROH-AP002 (고성능)</th>
+<th class="" style="">ROH-Lite (보급형)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="" style="">가동 관절 / DOF</td>
+<td class="" style="">11개 / 6 DOF</td>
+<td class="" style="">11개 / 6 DOF</td>
+<td class="" style="">11개 / 6 DOF</td>
+<td class="" style="">6 DOF 메커니즘</td>
+</tr>
+<tr>
+<td class="" style="">무게 (손목 포함)</td>
+<td class="" style="">545g ± 5g</td>
+<td class="" style="">640g ± 5g</td>
+<td class="" style="">575g ± 5g</td>
+<td class="" style=""><b _ngcontent-ng-c3373384692="" data-start-index="670" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve;">457g ± 5g</b></td>
+</tr>
+<tr>
+<td class="" style="">구동 속도</td>
+<td class="" style="">1.0초</td>
+<td class="" style="">0.7초</td>
+<td class="" style="">0.7초</td>
+<td class="" style=""><b _ngcontent-ng-c3373384692="" data-start-index="705" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve;">0.7초</b></td>
+</tr>
+<tr>
+<td class="" style="">포스/촉각 센서</td>
+<td class="" style="">미탑재</td>
+<td class="" style="">Tashan 포스 센서</td>
+<td class="" style="">3D 포스 + 팜 매트릭스</td>
+<td class="" style="">미탑재</td>
+</tr>
+<tr>
+<td class="" style="">통신 인터페이스</td>
+<td class="" style="">RS485</td>
+<td class="" style="">UART, RS485, CAN FD</td>
+<td class="" style="">UART, RS485, CAN FD</td>
+<td class="" style=""><b _ngcontent-ng-c3373384692="" data-start-index="757" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve;">RS-485, Modbus</b></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="padding: 1.5rem;">
+<img alt="Product Specs Table" class="spec-img" src="https://lh3.googleusercontent.com/aida/ADBb0ujWGKpYTEVXRUeTiiHrsx9TtZ5KklrrAW_LBUpsHKYhk330oI7n8Ro2EivuZJDcNKFBoEFC8Mq-g8dxA181eYq_HV51vPZe7MAh_-T0xZUt4oi73vx1b3IaxFH0lTI9T_DKGOBjWpO1RQU8xwYoPWBUm8KW25BEHjxOhIQYJTLavrm77_gtuBG7cx1cUi_xoquiKB-mIV3maw8p6Zb5Q2igX6667gYS_yAglqmxS712XajqJZjec53xld0ok0eQ22YyMfIHJ98jOw" style="">
+<p class="" style="font-size: 11px; color: var(--color-text-tertiary); margin-top: 8px; text-align: center;">▲ 상세 스펙 가이드 (이미지 참조)</p>
+</div>
+</div>
+</div>
+<!-- 07. Trust & Contact -->
+<div class="sec">
+<div class="sl" style="">07 · Trust &amp; Contact (전문적인 마무리)</div>
+<div class="card">
+<div class="sub" style="background:#fff; border: 1px solid var(--color-border-tertiary);">
+<div class="st" style="">Partnership</div>
+<div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:12px; margin-top:1rem">
+<div class="" style="height: 40px; background: rgb(243, 244, 246); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: rgb(156, 163, 175);">Partner Logo</div>
+<div class="" style="height: 40px; background: rgb(243, 244, 246); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: rgb(156, 163, 175);">Partner Logo</div>
+<div class="" style="height: 40px; background: rgb(243, 244, 246); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: rgb(156, 163, 175);">Partner Logo</div>
+<div class="" style="height: 40px; background: rgb(243, 244, 246); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: rgb(156, 163, 175);">Partner Logo</div>
+</div>
+</div>
+<div class="ch" style="margin-top:1.5rem">
+<div class="ci" style="background:var(--color-brand); color:white"><span class="material-symbols-outlined" style="">support_agent</span></div>
+<div>
+<div class="ct" style="">Professional Support</div>
+<div class="cb" style="">리파인은 단순한 판매를 넘어 최적화된 기술 지원 및 커스텀 솔루션을 제공합니다.</div>
+</div>
+</div>
+<div style="display:flex; gap:10px; margin-top:1rem">
+<div class="cta-btn cta-primary" style="flex: 1 1 0%; justify-content: center;">
+<span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+        기술 사양서 다운로드
+      </div>
+<div class="cta-btn cta-secondary" style="flex: 1 1 0%; justify-content: center;">
+        협업 문의하기
+      </div>
+</div>
+<div class="" style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--color-border-tertiary); font-size: 11px; color: var(--color-text-tertiary); text-align: center;">
+        본사: 강원도 원주시 | 기술 지원: support@refind.ai | TEL: 02-XXX-XXXX
+      </div>
+</div>
+</div>
+</div>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

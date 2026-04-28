@@ -1,0 +1,151 @@
+import Image from "next/image";
+import Link from "next/link";
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function AP002Page({ params }: PageProps) {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+
+  return (
+    <div className="pt-16 min-h-screen bg-white">
+
+      {/* Hero */}
+      <section className="py-24 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0"
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(102,157,253,0.08) 0%, transparent 45%)" }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+              Robot Hand · Tactile Intelligence
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP002</h1>
+            <p className="text-sm text-[#0AABBA] font-semibold mb-5">{isKo ? "로봇에게 '촉각'을 부여하다" : "Giving Robots the Sense of Touch"}</p>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "3D 포스센서 매트릭스와 11×5 팜(Palm) 센서로 구현하는 차세대 고정밀 센싱 솔루션."
+                : "Next-generation high-precision sensing solution realized through 3D force sensor matrix and 11×5 palm sensor."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href={`/${locale}/inquiry`}
+                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                {isKo ? "협업 문의하기" : "Contact Us"}
+              </Link>
+              <Link href={`/${locale}/products/robot-hand`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "제품 목록" : "All Models"}
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-72 md:h-96">
+            <Image src="/products/robot-hand/ap002.jpeg" alt="ROH-AP002" fill
+              className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "핵심 가치" : "Core Value"}</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { icon: "🧠", title: "Multidimensional", desc: isKo ? "손가락 끝 3D 포스센서와 손바닥 고밀도 도트 매트릭스로 인간 수준의 촉각 데이터 수집" : "Human-level tactile data acquisition with fingertip 3D force sensors and high-density palm dot matrix" },
+              { icon: "⚡", title: "Ultra-Responsive", desc: isKo ? "0.7초 구동 속도와 6자유도 메커니즘으로 실시간 피드백 제어 최적화" : "Real-time feedback control optimization with 0.7s actuation speed and 6-DOF mechanism" },
+              { icon: "🔌", title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN FD interface support" },
+            ].map((v, i) => (
+              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+                <div className="text-3xl mb-4">{v.icon}</div>
+                <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Deep Dive */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "기술 상세" : "Technical Deep Dive"}</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "3D 포스 & 팜 매트릭스 센서" : "3D Force & Palm Matrix Sensor"}</h3>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <span className="font-semibold text-gray-900">{isKo ? "손가락 센싱" : "Finger Sensing"}</span>
+                  <p className="text-gray-500 mt-1">{isKo ? "말단 부위 3D 포스센싱(방향 분해능 1°) 및 기절골 수직항력 측정" : "Distal 3D force sensing (1° angular resolution) and proximal phalanx normal force measurement"}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-900">{isKo ? "손바닥 매트릭스" : "Palm Matrix"}</span>
+                  <p className="text-gray-500 mt-1">{isKo ? "11×5 도트 매트릭스 배치로 비정형 물체의 접촉면 정밀 파악 (150Hz)" : "11×5 dot matrix layout for precise contact surface mapping of irregular objects (150Hz)"}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-gray-900">{isKo ? "핑거 패드" : "Finger Pad"}</span>
+                  <p className="text-gray-500 mt-1">{isKo ? "터치스크린 조작이 가능한 핑거 패드 인터페이스 지원" : "Finger pad interface supporting touchscreen operation"}</p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "주요 사양" : "Key Specs"}</h3>
+              <div className="space-y-0 text-sm">
+                {[
+                  [isKo ? "가동 관절" : "Active Joints", "11개 / 6 DOF"],
+                  [isKo ? "무게" : "Weight", "575g ± 5g"],
+                  [isKo ? "구동 속도" : "Speed", isKo ? "0.7초" : "0.7s"],
+                  [isKo ? "팜 샘플링" : "Palm Sampling", "150Hz"],
+                  [isKo ? "손가락 샘플링" : "Finger Sampling", "50Hz"],
+                  [isKo ? "통신" : "Comm.", "UART, RS485, CAN FD"],
+                ].map(([k, v], i, arr) => (
+                  <div key={i} className={`flex justify-between py-2.5 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
+                    <span className="text-gray-500">{k}</span>
+                    <span className="font-semibold text-gray-900">{v}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { title: isKo ? "AI 촉각 학습 연구소" : "AI Tactile Learning Lab", desc: isKo ? "물체의 질감·강도·형태를 학습해 인간 수준의 정교한 파지 알고리즘 개발" : "Learn object texture, hardness, and shape to develop human-level grasping algorithms" },
+              { title: isKo ? "정밀 조립 자동화" : "Precision Assembly Automation", desc: isKo ? "미세한 힘 조절이 필수적인 전자 부품 조립 및 실시간 품질 검수 라인에 최적" : "Ideal for electronic component assembly and real-time quality inspection requiring fine force control" },
+              { title: isKo ? "차세대 휴머노이드" : "Next-Gen Humanoid", desc: isKo ? "인간과 유사한 촉각 피드백으로 로봇과 환경 간의 상호작용 지능 향상" : "Human-like tactile feedback to elevate robot-environment interaction intelligence" },
+            ].map((u, i) => (
+              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+                <div className="w-8 h-8 rounded-lg bg-[#E6F7F8] text-[#0AABBA] flex items-center justify-center text-xs font-bold mb-4">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-4">{isKo ? "기술 혁신을 직접 경험해보세요" : "Experience the Innovation Firsthand"}</h2>
+          <p className="text-white/50 mb-8 text-sm">
+            {isKo ? "리파인은 단순한 판매를 넘어 최적화된 기술 지원 및 커스텀 솔루션을 제공합니다." : "Refind goes beyond sales — we provide optimized technical support and custom solutions."}
+          </p>
+          <Link href={`/${locale}/inquiry`}
+            className="inline-flex items-center px-8 py-3.5 bg-[#0AABBA] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            {isKo ? "협업 문의하기" : "Contact Us"}
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,23 @@
+# HD EMG (BioFlex nano 32)
+
+## BioFlex nano 32 특징
+
+- 32곳의 근전도를 동시에 측정 가능합니다. (128ch까지 확장 가능)
+- sampling rate: 4,096Hz
+- resolution: 24bit
+- Analog bandwidth: 0~8000Hz
+- Noise: <1uV
+- Input range: +/- 150mV
+
+## 관련논문
+
+![HD EMG (BioFlex nano 32) - 생체신호 전송 케이블](https://prod-files-secure.s3.us-west-2.amazonaws.com/9c73c4b6-e8fc-43af-b0b7-82658bcf2651/b8afa767-8d5a-44ed-aa3a-9f31f6d4c34c/20241128_151703.jpg)
+
+![HD EMG (BioFlex nano 32) - 기기 크기](https://prod-files-secure.s3.us-west-2.amazonaws.com/9c73c4b6-e8fc-43af-b0b7-82658bcf2651/60583a4a-4a3a-4afa-9689-af825c791b43/20241128_144207.jpg)
+
+갤럭시 21 울트라와 비교
+
+- **Nature, vol(614)**, pp. 456–462 (2023), **A universal interface for plug-and-play assembly of stretchable devices**
+- 주소: https://www.nature.com/articles/s41586-022-05579-z
+- IEEE T NEUR SYS REH, vol(31), pp. 2477-2485 (2023), **Using Flexible and Stretchable Surface Electromyography Electrode Array to Evaluate Congenital Muscular Torticollis in Children**
+- 주소: https://ieeexplore.ieee.org/abstract/document/10113349

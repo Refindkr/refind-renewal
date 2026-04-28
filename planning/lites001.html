@@ -1,0 +1,430 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ROHand LiteS001 - Technical Specification</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#f0edec",
+                        "on-secondary-fixed": "#001c37",
+                        "primary-container": "#0aabba",
+                        "on-background": "#1c1b1b",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-surface-variant": "#3d494b",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#e97f1e",
+                        "on-tertiary-container": "#522700",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "surface-container-high": "#ebe7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary": "#006972",
+                        "surface-dim": "#dcd9d9",
+                        "primary-fixed-dim": "#58d7e7",
+                        "inverse-surface": "#313030",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-container": "#00393f",
+                        "tertiary": "#934b00",
+                        "on-secondary-container": "#004579",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-fixed-variant": "#00497f",
+                        "outline-variant": "#bcc9cb",
+                        "secondary-container": "#73b4ff",
+                        "inverse-primary": "#58d7e7",
+                        "surface-tint": "#006972",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004f56",
+                        "on-error-container": "#93000a",
+                        "secondary": "#0061a6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001f23",
+                        "error": "#ba1a1a",
+                        "background": "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed-dim": "#a0c9ff",
+                        "outline": "#6d797b",
+                        "primary-fixed": "#8ff2ff",
+                        "surface-bright": "#fcf9f8",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-manrope { font-family: 'Manrope', sans-serif; }
+        .glass-effect {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-[#1c1b1b]/70 backdrop-blur-xl shadow-sm border-b border-outline-variant/10">
+<div class="flex items-center justify-between px-8 py-4 max-w-full mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba] text-2xl" style="">architecture</span>
+<span class="text-xl font-extrabold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8] uppercase" style="">ROHand LiteS001</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#006972] font-semibold border-b-2 border-[#006972] font-manrope text-sm tracking-tight transition-all duration-300" href="#hero" style=""><br></a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#006972] font-manrope text-sm tracking-tight transition-all duration-300" href="#core-value" style=""><br></a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#006972] font-manrope text-sm tracking-tight transition-all duration-300" href="#technical" style=""><br></a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#006972] font-manrope text-sm tracking-tight transition-all duration-300" href="#specs" style=""><br></a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-5 py-2 rounded-xl text-sm font-bold tracking-tight hover:opacity-90 transition-all active:scale-95" style="">Download PDF</button>
+</div>
+</div>
+<whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></header>
+<!-- Side Navigation Drawer (NavigationDrawer) -->
+<aside class="fixed right-0 top-0 h-full w-64 z-[60] flex flex-col p-6 bg-[#fcf9f8] dark:bg-[#1c1b1b] rounded-r-none border-l dark:border-[#2a2928] shadow-2xl hidden lg:flex mt-16">
+<div class="mb-8">
+<span class="font-manrope font-bold text-[#1c1b1b] dark:text-[#fcf9f8] text-lg" style="">Blueprint PRD</span>
+<div class="h-1 w-8 bg-primary mt-1"></div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-4 p-3 bg-[#e5e2e1] dark:bg-[#3a3938] text-[#006972] font-bold transition-colors duration-200 group" href="#hero" style="">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">rocket_launch</span>
+<span class="font-manrope uppercase tracking-widest text-[10px]" style="">01 Hero</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-colors duration-200 group" href="#core-value" style="">
+<span class="material-symbols-outlined" style="">verified</span>
+<span class="font-manrope uppercase tracking-widest text-[10px]" style="">02 Core Value</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-colors duration-200 group" href="#technical" style="">
+<span class="material-symbols-outlined" style="">memory</span>
+<span class="font-manrope uppercase tracking-widest text-[10px]" style="">03 Technical Deep Dive</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-colors duration-200 group" href="#audience" style="">
+<span class="material-symbols-outlined" style="">groups</span>
+<span class="font-manrope uppercase tracking-widest text-[10px]" style="">04 Target Audience</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-colors duration-200 group" href="#specs" style="">
+<span class="material-symbols-outlined" style="">settings_input_component</span>
+<span class="font-manrope uppercase tracking-widest text-[10px]" style="">05 Specs</span>
+</a>
+</nav>
+</aside>
+<main class="lg:pr-64 pt-20">
+<!-- Section 01: Hero -->
+<section class="min-h-[707px] flex flex-col justify-center px-8 md:px-20 py-20 relative overflow-hidden bg-surface-container-low" id="hero">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent blur-3xl"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-primary/10 text-primary px-3 py-1 text-xs font-bold font-manrope tracking-widest uppercase rounded" style="">v1.0.4 - Release</span>
+<span class="bg-on-surface/5 text-on-surface/60 px-3 py-1 text-xs font-bold font-manrope tracking-widest uppercase rounded" style="">Lite Series 001</span>
+</div>
+<h2 class="text-primary font-manrope font-semibold tracking-wide mb-4 text-xl" style="">The Standard for Everyone</h2>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight mb-8" style="">
+                    성능은 타협하지 않고<br>
+                    문턱은 낮췄다, <span class="text-primary" style="">ROHand Lite</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl leading-relaxed mb-12" style="">
+                    ROHand Lite는 정밀한 6축 제어와 사용자 중심의 인터페이스를 결합한 고성능 로봇용 핸드입니다.&nbsp;</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all active:scale-95" style="">
+                        기술 사양서 다운로드
+                        <span class="material-symbols-outlined" style="">arrow_downward</span>
+</button>
+<button class="border border-outline-variant px-8 py-4 rounded-xl font-bold text-on-surface hover:bg-surface-container-highest transition-all" style="">
+                        협업 문의하기
+                    </button>
+</div>
+<whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></div>
+</section>
+<!-- Section 02: Core Value -->
+<section class="px-8 md:px-20 py-32 bg-surface" id="core-value">
+<div class="mb-16">
+<span class="font-manrope text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4 block" style="">02 Core Value</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface" style="">핵심 가치 제안</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group p-10 bg-surface-container-low rounded-xl border-b-4 border-transparent hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl" style="">precision_manufacturing</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4" style="">Essential Performance</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">
+                        산업용 수준의 반복 정밀도(±0.2mm)를 실현하여 고도화된 연구 및 생산 작업을 완벽하게 수행합니다.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="group p-10 bg-surface-container-low rounded-xl border-b-4 border-transparent hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl" style="">universal_currency_alt</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4" style=""><br></h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style=""><br></p>
+</div>
+<!-- Card 3 -->
+<div class="group p-10 bg-surface-container-low rounded-xl border-b-4 border-transparent hover:border-primary transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+<div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl" style="">auto_fix_high</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-4" style="">Simple &amp; Robust</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">
+                        직관적인 통합 제어 환경을 통해 복잡한 세팅 없이도 즉각적인 운영이 가능하도록 견고하게 설계되었습니다.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Section 03: Technical Deep Dive -->
+<section class="px-8 md:px-20 py-32 bg-surface-container-low relative" id="technical">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row gap-16">
+<div class="w-full md:w-1/3">
+<span class="font-manrope text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4 block" style="">03 Deep Dive</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface mb-8" style="">기술적 심층 분석</h2>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                            LiteS001의 모든 구성 요소는 엔지니어링 최적화를 통해 탄생했습니다. 단순함을 넘어선 정교함을 확인하십시오.
+                        </p>
+</div>
+<div class="w-full md:w-2/3 grid gap-12">
+<div class="flex gap-6 items-start">
+<span class="text-primary font-manrope font-extrabold text-4xl opacity-20" style="">01</span>
+<div>
+<h4 class="text-xl font-headline font-bold mb-3" style="">6-DOF Mechanism</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4" style="">
+                                    인간의 손가락 관절 구조를 모방한 6축 자유도는 유연한 움직임을 보장합니다. 고성능 스테퍼 모터와 정밀 감속기의 결합으로 부드러운 모션을 구현합니다.
+                                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-primary">
+<span class="text-[10px] uppercase font-bold text-on-surface/40 block mb-1" style="">Payload</span>
+<span class="font-manrope font-bold text-on-surface" style="">Active force: ≥ 1.0 kgf</span>
+</div>
+<div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-secondary">
+<span class="text-[10px] uppercase font-bold text-on-surface/40 block mb-1" style="">Range</span>
+<span class="font-manrope font-bold text-on-surface" style=""></span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<span class="text-primary font-manrope font-extrabold text-4xl opacity-20" style="">02</span>
+<div>
+<h4 class="text-xl font-headline font-bold mb-3" style="">Integrated Control Environment</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4" style="">
+                                    독자적인 ROHand OS를 탑재하여 복잡한 코딩 없이 GUI 기반으로 작업을 정의할 수 있습니다. RS485 프로토콜을 완벽하게 지원합니다.
+                                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-primary">
+<span class="text-[10px] uppercase font-bold text-on-surface/40 block mb-1" style=""><br></span>
+<span class="font-manrope font-bold text-on-surface" style="">RS485 통신 및&nbsp;<span _ngcontent-ng-c3373384692="" data-start-index="465" class="ng-star-inserted" style="--tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; font-weight: bolder; font-size: 16px; white-space-collapse: preserve; color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;;">Linux와 임베디드 시스템용 SDK 제공</span></span>
+</div>
+<div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-secondary">
+<span class="text-[10px] uppercase font-bold text-on-surface/40 block mb-1" style=""><br></span>
+<span class="font-manrope font-bold text-on-surface" style=""><b _ngcontent-ng-c3373384692="" data-start-index="465" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve;">ROS/ROS2 패키지 지원
+</b></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></section>
+<!-- Section 04: Target Audience -->
+<section class="px-8 md:px-20 py-32 bg-surface" id="audience">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<span class="font-manrope text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4 block" style="">04 Target Audience</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold text-on-surface mb-6" style="">최적의 활용 분야</h2>
+<p class="text-on-surface-variant" style="">LiteS001은 비용 효율적인 솔루션을 찾는 모든 분야에 혁신을 가져옵니다.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container rounded-3xl p-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="">school</span>
+<h4 class="text-xl font-bold mb-4 font-headline" style="">Education &amp; Research</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">로봇 공학 교육 및 알고리즘 테스트를 위한 가장 현실적이고 경제적인 교구입니다.</p>
+</div>
+<div class="bg-surface-container-high rounded-3xl p-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="">biotech</span>
+<h4 class="text-xl font-bold mb-4 font-headline" style="">Startups &amp; Labs</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed" style="">프로토타입 제작 및 소규모 실험 자동화를 위한 강력한 파트너입니다.</p>
+</div>
+<div class="bg-surface-container rounded-3xl p-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="">precision_manufacturing</span>
+<h4 class="text-xl font-bold mb-4 font-headline" style="">Simple Automation</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed" style=""><b data-path-to-node="14,0,1,1,0" data-index-in-node="5" style="font-family: &quot;Google Sans Text&quot;, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important;"><span class="math-inline" data-math="\pm" data-index-in-node="5" style="line-height: 1.15 !important; margin-top: 0px !important;">$\pm$</span>0.2mm의 높은 반복 정밀도</b>로 단순 반복 공정이나 픽앤플레이스 작업에서 <b data-path-to-node="14,0,1,1,0" data-index-in-node="49" style="font-family: &quot;Google Sans Text&quot;, sans-serif !important; line-height: 1.15 !important; margin-top: 0px !important;">산업용 수준의 안정성</b>을 제공합니다.</p>
+</div>
+</div>
+</section>
+<!-- Section 05: Product Specs -->
+<section class="px-8 md:px-20 py-32 bg-on-background text-white" id="specs">
+<div class="max-w-5xl mx-auto">
+<div class="mb-16">
+<span class="font-manrope text-xs font-bold tracking-[0.3em] uppercase text-primary-container mb-4 block" style="">05 Technical Specs</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold" style="">제품 사양서</h2>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-white/10">
+<th class="py-6 px-4 font-manrope font-bold text-primary-container text-sm uppercase tracking-widest" style="">Parameter</th>
+<th class="py-6 px-4 font-manrope font-bold text-primary-container text-sm uppercase tracking-widest" style="">Specification</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5"><tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Measuring Position</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">6-DOF</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Bending/Stretching time for full range at maximum speed</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">0.7 Second</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Active force of each finger tip on stretched state</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">≥ 0.45kgf</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Rotation time of thumb for full range at maximum speed</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">0.7 Second</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Active force of each finger tip on bended state</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">≥ 1kgf</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Maximum active force of thumb tip</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">≥ 1kgf</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Maximum passive load for four fingers on bended state</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">8kg</td>
+</tr></tbody>
+</table>
+</div><div class="mt-20">
+<div class="mb-10">
+<h3 class="text-xl font-headline font-bold text-primary-container uppercase tracking-widest" style="">Dimensions &amp; Angles</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-white/10">
+<th class="py-6 px-4 font-manrope font-bold text-primary-container text-sm uppercase tracking-widest" style="">Measurement location</th>
+<th class="py-6 px-4 font-manrope font-bold text-primary-container text-sm uppercase tracking-widest" style="">Dimensions and angles</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Vertical distance (middle finger to wrist)</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">169 mm</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Vertical distance (thumb tip to wrist)</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">97 mm</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Thumb length</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">110 mm</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Max palm width</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">75 mm</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Wrist diameter</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">49 mm</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Max opening/closing (thumb side)</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">0 ~ 31 Degrees</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Max opening/closing (thumb to palm)</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">0 ~ 50 Degrees</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Thumb lateral rotation angle</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">0 ~ 90 Degrees</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">weight</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">457g±5g</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style=""><br></td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style=""><br></td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Maximum passive load for each fingers on bended state</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">3 Kg</td>
+</tr>
+<tr>
+<td class="py-6 px-4 text-white/60 font-medium" style="">Maximum passive load for each finger on stretched state</td>
+<td class="py-6 px-4 font-manrope font-bold text-xl" style="">2.25 Kg</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 06: Conclusion -->
+<section class="px-8 md:px-20 py-40 bg-surface-container-low text-center overflow-hidden relative">
+<div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
+<span class="text-[20rem] font-black font-manrope tracking-tighter" style="">FUTURE</span>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-5xl font-headline font-black text-on-surface mb-8" style="">The Future is Modular</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-12" style="">
+                    ROHand LiteS001은 단순히 기계적인 장치를 넘어, 더 많은 사람들에게 기술의 가치를 전달하기 위한 도구입니다. 지금 전체 기술 명세서를 확인하고 로봇 자동화의 미래를 만나보십시오.
+                </p>
+<button class="bg-primary hover:bg-primary/90 text-white px-12 py-5 rounded-xl font-bold text-lg flex items-center gap-3 mx-auto shadow-xl transition-all active:scale-95 group" style="">
+                    Full Blueprint Download (PDF)
+                    <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform" style="">picture_as_pdf</span>
+</button>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#f6f3f2] dark:bg-[#151413] w-full py-12 border-t border-[#e5e2e1]/30 dark:border-[#2a2928]">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-manrope font-black text-[#1c1b1b] dark:text-[#fcf9f8] text-xl" style="">ROHand Robotics</span>
+<p class="font-inter text-xs tracking-normal text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40" style="">© 2026 ROHand Robotics. Technical Specification LiteS001.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-xs tracking-normal text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors" href="#" style="">Documentation</a>
+<a class="font-inter text-xs tracking-normal text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors" href="#" style="">System Status</a>
+<a class="font-inter text-xs tracking-normal text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors" href="#" style="">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</main>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

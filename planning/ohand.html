@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ohand AI Myoelectric Prosthesis | Technical Blueprint</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#00497f",
+                        "inverse-primary": "#58d7e7",
+                        "inverse-on-surface": "#f3f0ef",
+                        "primary-fixed": "#8ff2ff",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-container": "#0aabba",
+                        "background": "#fcf9f8",
+                        "primary": "#006972",
+                        "surface-container-high": "#ebe7e7",
+                        "on-primary-fixed": "#001f23",
+                        "tertiary": "#934b00",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "outline": "#6d797b",
+                        "on-secondary-container": "#004579",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "surface-container": "#f0edec",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#004f56",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#73b4ff",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "secondary-fixed": "#d2e4ff",
+                        "on-background": "#1c1b1b",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface-dim": "#dcd9d9",
+                        "on-primary-container": "#00393f",
+                        "tertiary-container": "#e97f1e",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#006972",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#58d7e7",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#0061a6",
+                        "on-tertiary-container": "#522700",
+                        "secondary-fixed-dim": "#a0c9ff",
+                        "tertiary-fixed-dim": "#ffb782",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#bcc9cb",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#301400",
+                        "on-surface-variant": "#3d494b",
+                        "on-secondary-fixed": "#001c37"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fcf9f8; color: #1c1b1b; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(252, 249, 248, 0.7); backdrop-filter: blur(24px); }
+        .text-display-lg { font-size: 3.5rem; line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+        .text-headline-md { font-size: 1.75rem; line-height: 1.2; font-weight: 700; }
+        .text-label-md { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-[#1c1b1b]/70 backdrop-blur-md shadow-sm">
+<nav class="max-w-full flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba] text-3xl">precision_manufacturing</span>
+<span class="text-2xl font-bold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8]">Ohand AI</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-label-md text-[#006972] border-b-2 border-[#006972] hover:opacity-80 transition-opacity" href="#overview">Product Overview</a>
+<a class="text-label-md text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:opacity-80 transition-opacity" href="#features">Features</a>
+<a class="text-label-md text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:opacity-80 transition-opacity" href="#specs">Specifications</a>
+<a class="text-label-md text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:opacity-80 transition-opacity" href="#grips">Grip Modes</a>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-medium text-sm hover:opacity-90 transition-all active:scale-95 duration-200">
+                협업 문의하기
+            </button>
+</nav>
+</header>
+<main class="pt-24 pb-20">
+<!-- Hero / Section 01: Product Overview -->
+<section class="px-8 md:px-16 py-20 bg-surface-container-low" id="overview">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-8">
+<span class="text-label-md text-primary block mb-6">01 — 제품 개요</span>
+<h1 class="text-display-lg font-headline mb-8">인공지능 근전도 전자의수 (Ohand)</h1>
+<p class="text-xl text-on-surface/80 max-w-2xl leading-relaxed">상지절단 장애인을 위한 지능형 의수로서, 인공지능 알고리즘을 통한 동작 의도 파악 및 근전도(EMG) 센서를 활용한 정밀 제어 시스템을 구축합니다.</p>
+</div>
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-sm">
+<span class="text-label-md text-on-surface/50">Core Technology</span>
+<p class="mt-2 font-semibold">8채널 EMG 센서 융합 AI</p>
+</div>
+</div>
+</div>
+</section>
+<div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col md:flex-row gap-12 mt-20">
+<!-- NavigationDrawer (Sidebar Navigation) -->
+<aside class="hidden lg:block w-80 shrink-0 sticky top-32 h-fit bg-surface-container-low rounded-xl p-6 border border-outline-variant/15">
+<div class="mb-8">
+<span class="text-label-md text-on-surface/40">Reference</span>
+<h2 class="text-headline-md font-headline mt-1">Technical Blueprint</h2>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 p-3 bg-surface-container-highest dark:bg-[#2a2928] text-primary font-semibold rounded-md ease-in-out duration-300" href="#overview">
+<span class="material-symbols-outlined">info</span>
+<span class="text-label-md">Product Overview</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface/70 hover:bg-surface-container-highest transition-colors rounded-md" href="#features">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="text-label-md">Features</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface/70 hover:bg-surface-container-highest transition-colors rounded-md" href="#specs">
+<span class="material-symbols-outlined">biotech</span>
+<span class="text-label-md">Specifications</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface/70 hover:bg-surface-container-highest transition-colors rounded-md" href="#grips">
+<span class="material-symbols-outlined">front_hand</span>
+<span class="text-label-md">Grip Modes</span>
+</a>
+<a class="flex items-center gap-4 p-3 text-on-surface/70 hover:bg-surface-container-highest transition-colors rounded-md" href="#usecases">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-label-md">Use Cases</span>
+</a>
+</nav>
+</aside>
+<!-- Content Area -->
+<div class="flex-1 space-y-32">
+<!-- Section 02: Features -->
+<section class="scroll-mt-32" id="features">
+<div class="flex items-baseline gap-4 mb-12">
+<span class="text-headline-md font-headline text-primary-container">02</span>
+<h2 class="text-headline-md font-headline">주요 특징 (Features)</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="p-8 bg-surface-container-lowest border border-outline-variant/15 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">precision_manufacturing</span>
+<h3 class="text-xl font-bold mb-3">생체 모방 설계</h3>
+<p class="text-on-surface/70 leading-relaxed">27가지 정교한 동작 구현이 가능한 인체 공학적 메커니즘을 적용하였습니다.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant/15 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">psychology</span>
+<h3 class="text-xl font-bold mb-3">AI 및 센서 제어</h3>
+<p class="text-on-surface/70 leading-relaxed">8채널 EMG 센서를 통해 사용자의 근육 신호를 실시간 분석하여 자연스러운 움직임을 보장합니다.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant/15 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">smartphone</span>
+<h3 class="text-xl font-bold mb-3">전용 앱 연동</h3>
+<p class="text-on-surface/70 leading-relaxed">스마트폰 앱을 통해 동작 패턴 설정 및 실시간 모니터링이 가능합니다.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant/15 rounded-xl">
+<span class="material-symbols-outlined text-primary text-3xl mb-4">touch_app</span>
+<h3 class="text-xl font-bold mb-3">사용자 편의 기능</h3>
+<p class="text-on-surface/70 leading-relaxed">손등 버튼 제어, 수동 손목 회전, Message Beeper 알림 기능을 포함합니다.</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant/15 rounded-xl md:col-span-2">
+<h3 class="text-xl font-bold mb-4">디자인 사양 (Design Specifics)</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-medium">Soft Finger Pads</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-medium">Foldaway Finger Design</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 03: Specifications -->
+<section class="scroll-mt-32" id="specs">
+<div class="flex items-baseline gap-4 mb-12">
+<span class="text-headline-md font-headline text-primary-container">03</span>
+<h2 class="text-headline-md font-headline">주요 사양 (Specifications)</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/20 rounded-xl overflow-hidden border border-outline-variant/20">
+<div class="bg-surface p-8 text-center">
+<span class="text-label-md text-on-surface/50 block mb-2">동작 속도</span>
+<p class="text-3xl font-bold text-primary">1.0s <span class="text-lg font-normal">이하</span></p>
+</div>
+<div class="bg-surface p-8 text-center">
+<span class="text-label-md text-on-surface/50 block mb-2">파지력</span>
+<p class="text-3xl font-bold text-primary">0.450kg <span class="text-lg font-normal">이상</span></p>
+</div>
+<div class="bg-surface p-8 text-center">
+<span class="text-label-md text-on-surface/50 block mb-2">본체 무게</span>
+<p class="text-3xl font-bold text-primary">500g <span class="text-lg font-normal">± 5g</span></p>
+</div>
+<div class="bg-surface p-8 text-center">
+<span class="text-label-md text-on-surface/50 block mb-2">배터리</span>
+<p class="text-3xl font-bold text-primary">12h <span class="text-lg font-normal">지속</span></p>
+</div>
+</div>
+</section>
+<!-- Section 04: Grip Modes -->
+<section class="scroll-mt-32" id="grips">
+<div class="flex items-baseline gap-4 mb-12">
+<span class="text-headline-md font-headline text-primary-container">04</span>
+<h2 class="text-headline-md font-headline">그립 모드 및 동작 패턴</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Mode 1 -->
+<div class="p-8 bg-surface-container border border-outline-variant/10 rounded-xl">
+<h3 class="text-label-md text-primary mb-6">Lateral Mode — 외측 모드</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">주먹쥐기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">마우스</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">열쇠 집기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">포인트</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">컬럼</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">접시</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">Salute</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">젓가락</span>
+</div>
+</div>
+<!-- Mode 2 -->
+<div class="p-8 bg-surface-container border border-outline-variant/10 rounded-xl">
+<h3 class="text-label-md text-primary mb-6">Opposition Mode 1 — 반대 모드 1</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">핀치 3종</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">파워</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">쥐기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">들어올리기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">접시</span>
+</div>
+</div>
+<!-- Mode 3 -->
+<div class="p-8 bg-surface-container border border-outline-variant/10 rounded-xl">
+<h3 class="text-label-md text-primary mb-6">Opposition Mode 2 — 반대 모드 2</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">세손가락 집기 5종</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">파워</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">쥐기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">물건들기</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">접시</span>
+</div>
+</div>
+<!-- Special -->
+<div class="p-8 bg-surface-container border border-outline-variant/10 rounded-xl">
+<h3 class="text-label-md text-primary mb-6">Special Actions — 기타 특수 동작</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">컬럼</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">접시</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">경례</span>
+<span class="px-3 py-1 bg-surface-container-lowest rounded-full text-sm font-medium">젓가락</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 05: Use Cases -->
+<section class="scroll-mt-32" id="usecases">
+<div class="flex items-baseline gap-4 mb-12">
+<span class="text-headline-md font-headline text-primary-container">05</span>
+<h2 class="text-headline-md font-headline">주요 활용 사례</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+<div class="text-center group">
+<div class="aspect-square bg-surface-container-highest rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl group-hover:text-white">night_shelter</span>
+</div>
+<h4 class="text-xl font-bold mb-2">일상생활</h4>
+<p class="text-on-surface/60 text-sm">식사, 개인 위생, 가사 노동 등</p>
+</div>
+<div class="text-center group">
+<div class="aspect-square bg-surface-container-highest rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl group-hover:text-white">fitness_center</span>
+</div>
+<h4 class="text-xl font-bold mb-2">스포츠 및 레저</h4>
+<p class="text-on-surface/60 text-sm">가벼운 운동, 취미 스포츠 활동</p>
+</div>
+<div class="text-center group">
+<div class="aspect-square bg-surface-container-highest rounded-full flex items-center justify-center mb-6 group-hover:bg-primary-container transition-colors duration-300">
+<span class="material-symbols-outlined text-4xl group-hover:text-white">handyman</span>
+</div>
+<h4 class="text-xl font-bold mb-2">작업 및 취미</h4>
+<p class="text-on-surface/60 text-sm">정밀 작업, 도구 사용, 창작 활동</p>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<div class="bg-primary p-12 rounded-2xl flex flex-col items-center text-center gap-8">
+<h2 class="text-headline-md font-headline text-white">기술 혁신을 직접 경험해보세요</h2>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-surface-container-low transition-colors">
+                            기술 사양서 다운로드
+                        </button>
+<button class="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors">
+                            협업 문의하기
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#e5e2e1]/20 bg-[#f6f3f2] dark:bg-[#1c1b1b]">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-[#1c1b1b] text-xl">Ohand AI</span>
+<p class="text-xs text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50">© 2026 Ohand AI Myoelectric Systems. All Rights Reserved.</p>
+</div>
+<div class="flex flex-wrap gap-8 justify-center">
+<a class="text-label-md text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] transition-colors" href="#">기술 사양서 다운로드</a>
+<a class="text-label-md text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] transition-colors underline decoration-[#006972]" href="#">협업 문의하기</a>
+<a class="text-label-md text-[#1c1b1b]/50 dark:text-[#fcf9f8]/50 hover:text-[#006972] transition-colors" href="#">개인정보처리방침</a>
+</div>
+</div>
+</footer>
+</body></html>

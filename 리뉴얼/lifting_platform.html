@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Lifting Platform PRD - 제품 상세 사양</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bcc9cb",
+                    "surface-container-low": "#f6f3f2",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "on-primary-container": "#00393f",
+                    "surface-container-high": "#ebe7e7",
+                    "on-primary-fixed": "#001f23",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#fcf9f8",
+                    "tertiary-fixed-dim": "#ffb782",
+                    "primary-fixed-dim": "#58d7e7",
+                    "surface-tint": "#006972",
+                    "background": "#fcf9f8",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#004f56",
+                    "surface-container-highest": "#e5e2e1",
+                    "surface": "#fcf9f8",
+                    "primary-container": "#0aabba",
+                    "on-surface": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#00497f",
+                    "on-secondary-fixed": "#001c37",
+                    "secondary-container": "#73b4ff",
+                    "on-background": "#1c1b1b",
+                    "on-tertiary-container": "#522700",
+                    "primary": "#006972",
+                    "outline": "#6d797b",
+                    "surface-variant": "#e5e2e1",
+                    "tertiary-container": "#e97f1e",
+                    "on-secondary-container": "#004579",
+                    "inverse-on-surface": "#f3f0ef",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#313030",
+                    "on-surface-variant": "#3d494b",
+                    "secondary-fixed": "#d2e4ff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "secondary": "#0061a6",
+                    "inverse-primary": "#58d7e7",
+                    "tertiary": "#934b00",
+                    "surface-dim": "#dcd9d9",
+                    "on-tertiary-fixed": "#301400",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#a0c9ff",
+                    "surface-container": "#f0edec",
+                    "primary-fixed": "#8ff2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1c1b1b;
+            font-family: 'Inter', sans-serif;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-[#1c1b1b]/70 backdrop-blur-xl shadow-sm dark:shadow-none h-16 flex justify-between items-center px-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba]" style="">architecture</span>
+<span class="text-xl font-bold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8] font-headline" style="">Lifting Platform PRD</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<nav class="flex gap-6">
+<a class="text-[#006972] dark:text-[#0aabba] font-medium transition-colors hover:bg-[#e5e2e1] dark:hover:bg-[#3d3c3b] px-3 py-1 rounded" href="#" style="">Docs</a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 font-medium transition-colors hover:bg-[#e5e2e1] dark:hover:bg-[#3d3c3b] px-3 py-1 rounded" href="#" style="">Components</a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 font-medium transition-colors hover:bg-[#e5e2e1] dark:hover:bg-[#3d3c3b] px-3 py-1 rounded" href="#" style="">History</a>
+</nav>
+<span class="material-symbols-outlined text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 cursor-pointer" style="">more_vert</span>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-72 p-6 bg-[#fcf9f8] dark:bg-[#1c1b1b] hidden md:block border-r border-outline-variant/10">
+<div class="mb-10">
+<h2 class="font-headline text-2xl font-black text-[#1c1b1b] dark:text-[#fcf9f8] mb-1" style="">PRD Index</h2>
+<div class="h-1 w-12 bg-primary rounded-full"></div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-4 p-3 rounded-xl bg-[#e5e2e1] dark:bg-[#3d3c3b] text-[#006972] dark:text-[#0aabba] font-bold transition-all duration-300" href="#overview" style="">
+<span class="material-symbols-outlined" style="">description</span>
+<span class="font-label text-sm tracking-wide uppercase" style="">Overview</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-all duration-300" href="#specifications" style="">
+<span class="material-symbols-outlined" style="">settings_input_component</span>
+<span class="font-label text-sm tracking-wide uppercase" style="">Specifications</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-all duration-300" href="#architecture" style="">
+<span class="material-symbols-outlined" style="">account_tree</span>
+<span class="font-label text-sm tracking-wide uppercase" style="">Architecture</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-all duration-300" href="#roadmap" style="">
+<span class="material-symbols-outlined" style="">event_upcoming</span>
+<span class="font-label text-sm tracking-wide uppercase" style="">Roadmap</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-xl text-[#1c1b1b]/70 dark:text-[#fcf9f8]/70 hover:bg-[#f6f3f2] dark:hover:bg-[#2a2928] transition-all duration-300" href="#risk" style="">
+<span class="material-symbols-outlined" style="">warning</span>
+<span class="font-label text-sm tracking-wide uppercase" style="">Risk Assessment</span>
+</a>
+</nav>
+<whale-grammar data-role="underline"></whale-grammar></aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-72 pt-16 pb-24 md:pb-12 px-6 md:px-16 min-h-screen">
+<div class="max-w-6xl mx-auto py-12">
+<!-- Hero Section / 01 Overview -->
+<section class="mb-24" id="overview">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+<div class="max-w-3xl">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block" style="">01 Overview</span>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight" style="">정밀 협동 로봇을 위한<br>
+<span class="text-primary" style="">고성능 리프팅 플랫폼</span>
+</h1>
+</div>
+</div>
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-7">
+<p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed mb-8" style="">
+                            스마트 팩토리와 자동화 물류의 핵심 요소를 재정의합니다. 본 리프팅 플랫폼은 대형 하물을 안전하고 정밀하게 수직 이동시키기 위해 설계되었으며, AGV 및 AMR 시스템과의 완벽한 통합을 지원합니다.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-transform active:scale-95 shadow-md" style="">
+<span class="material-symbols-outlined" style="">download</span>
+                                기술 사양서 다운로드
+                            </button>
+<button class="bg-surface-container-highest text-on-surface px-8 py-4 rounded-xl font-bold border border-outline-variant/20 hover:bg-surface-container-high transition-colors" style="">
+                                협업 문의하기
+                            </button>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 bg-surface-container-low p-8 rounded-3xl border border-outline-variant/10">
+<div class="space-y-6">
+<div>
+<h4 class="text-xs font-label text-primary font-bold tracking-widest uppercase mb-2" style="">Capacity</h4>
+<p class="text-4xl font-headline font-bold" style="">80kg</p>
+<p class="text-sm text-on-surface-variant mt-1" style="">팔레트 및 부품 이송 최적화</p>
+</div>
+<div class="h-[1px] bg-outline-variant/20"></div>
+<div>
+<h4 class="text-xs font-label text-primary font-bold tracking-widest uppercase mb-2" style="">Integration</h4>
+<p class="text-2xl font-headline font-bold" style="">AGV / AMR Native</p>
+<p class="text-sm text-on-surface-variant mt-1" style="">다양한 로봇 베이스와 호환 가능한 인터페이스</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 02 Core Technology -->
+<section class="mb-24" id="technology">
+<div class="mb-12">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block" style="">02 Core Technology</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight" style="">핵심 기술 구현</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group p-8 rounded-3xl bg-surface-container-lowest shadow-sm border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="">electric_bolt</span>
+</div>
+<h3 class="text-xl font-bold mb-4" style="">통합 모터 및 액추에이터</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                            독자적인 고출력 서보 모터 시스템과 고성능 선형 액추에이터를 통합하여 진동을 최소화하고 리프팅 속도를 최적화했습니다.
+                        </p>
+</div>
+<div class="group p-8 rounded-3xl bg-surface-container-lowest shadow-sm border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="">precision_manufacturing</span>
+</div>
+<h3 class="text-xl font-bold mb-4" style="">정밀 높이 제어 시스템</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                            ±0.1mm 수준의 초정밀 정지 정밀도를 보장하는 엔코더 피드백 루프를 통해 안전한 하물 안착 및 이송이 가능합니다.
+                        </p>
+</div>
+<div class="group p-8 rounded-3xl bg-surface-container-lowest shadow-sm border border-transparent hover:border-primary/20 transition-all duration-300">
+<div class="w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="">security</span>
+</div>
+<h3 class="text-xl font-bold mb-4" style="">산업용 안전 표준 준수</h3>
+<p class="text-on-surface-variant leading-relaxed" style="">
+                            비상 정지 메커니즘과 과부하 보호 센서가 내장되어 있어 극한의 산업 현장에서도 작업자와 장비를 보호합니다.
+                        </p>
+</div>
+</div>
+</section>
+<!-- 03 Key Features -->
+<section class="mb-24" id="features">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="w-full md:w-1/2">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block" style="">03 Key Features</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-8" style="">혁신적인 특징</h2>
+<ul class="space-y-6">
+<li class="flex gap-4" style="">
+<span class="material-symbols-outlined text-primary mt-1" style="">check_circle</span>
+<div>
+<h4 class="font-bold text-lg" style="">컴팩트한 저상형 설계</h4>
+<p class="text-on-surface-variant" style="">플랫폼 자체 높이를 최소화하여 협소한 공간의 로봇 하부 장착에 용이합니다.</p>
+</div>
+</li>
+<li class="flex gap-4" style="">
+<span class="material-symbols-outlined text-primary mt-1" style="">check_circle</span>
+<div>
+<h4 class="font-bold text-lg" style="">플러그 앤 플레이 통합</h4>
+<p class="text-on-surface-variant" style="">표준화된 통신 프로토콜(CANopen, EtherCAT)을 지원하여 시스템 연동이 빠릅니다.</p>
+</div>
+</li>
+<li class="flex gap-4" style="">
+<span class="material-symbols-outlined text-primary mt-1" style="">check_circle</span>
+<div>
+<h4 class="font-bold text-lg" style="">고신뢰성 유지보수</h4>
+<p class="text-on-surface-variant" style="">자체 진단 센서를 통한 예지 보전 기능으로 가동 중지 시간을 획기적으로 줄였습니다.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+<div class="bg-primary/5 aspect-square rounded-3xl p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-3xl text-primary mb-4" style="">grid_view</span>
+<p class="font-bold" style="">Modular Design</p>
+</div>
+<div class="bg-surface-container-high aspect-square rounded-3xl p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant mb-4" style="">smart_toy</span>
+<p class="font-bold" style="">AMR Ready</p>
+</div>
+<div class="bg-surface-container-high aspect-square rounded-3xl p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant mb-4" style="">settings_suggest</span>
+<p class="font-bold" style="">Fast Setup</p>
+</div>
+<div class="bg-primary aspect-square rounded-3xl p-8 flex flex-col justify-end">
+<span class="material-symbols-outlined text-3xl text-white mb-4" style="">verified_user</span>
+<p class="font-bold text-white" style="">CE Certified</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 Specifications -->
+<section class="mb-24" id="specifications">
+<div class="bg-inverse-surface text-inverse-on-surface rounded-[2rem] overflow-hidden">
+<div class="p-10 md:p-16">
+<div class="mb-12">
+<span class="font-label text-primary-fixed-dim font-bold tracking-[0.2em] uppercase text-xs mb-4 block" style="">04 Specifications</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight" style="">상세 사양 데이터</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">최대 가반하중 (Payload)</span>
+<span class="font-headline font-bold text-xl" style="">80kg</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">리프팅 스트로크 (Stroke)</span>
+<span class="font-headline font-bold text-xl" style="">0 - 950mm</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">리프팅 속도 (Speed)</span>
+<span class="font-headline font-bold text-xl" style="">245 mm/s</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">입력 전압 (Voltage)</span>
+<span class="font-headline font-bold text-xl" style="">DC 24V / 48V Compatible</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">통신 인터페이스</span>
+<span class="font-headline font-bold text-xl" style=""><span _ngcontent-ng-c2126329125="" data-start-index="700" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; font-weight: 400; white-space-collapse: preserve; background-color: rgb(255, 255, 255);"> </span><b _ngcontent-ng-c2126329125="" data-start-index="701" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">CAN, RS485, Modbus</b></span>
+</div>
+<div class="flex justify-between items-center border-b border-white/10 pb-4">
+<span class="text-white/60" style="">운용 온도 범위</span>
+<span class="font-headline font-bold text-xl" style=""><b _ngcontent-ng-c2126329125="" data-start-index="1070" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">0°C ~ 50°C</b></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 Application -->
+<section class="mb-12" id="application">
+<div class="mb-12">
+<span class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block" style="">05 Application</span>
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-4" style="">적용 분야</h2>
+<p class="text-on-surface-variant max-w-2xl" style=""><b _ngcontent-ng-c2126329125="" data-start-index="1231" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">Realman(리얼맨) 로봇 암</b><span _ngcontent-ng-c2126329125="" data-start-index="1248" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">이나 </span><b _ngcontent-ng-c2126329125="" data-start-index="1251" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">양팔 로봇</b><span _ngcontent-ng-c2126329125="" data-start-index="1256" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">을 장착하여 수직 작업 범위를 확장하는 데 특화된 장치</span></p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low p-10 rounded-3xl">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="">warehouse</span>
+<h3 class="text-2xl font-bold mb-4" style="">물류 창고 / 서비스 로봇 분야</h3>
+<p class="text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="264" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">높은 선반(Rack) 피킹 및 적재 작업
+식당이나 호텔 등에서 다단 트레이를 활용 한 서빙</b></p>
+</div>
+<div class="bg-surface-container-low p-10 rounded-3xl">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" style="">factory</span>
+<h3 class="text-2xl font-bold mb-4" style="">스마트 팩토리/연구 및 교육 R&amp;D</h3>
+<p class="text-on-surface-variant" style=""><b _ngcontent-ng-c2126329125="" data-start-index="420" class="ng-star-inserted" style="color: rgb(48, 48, 48); font-family: &quot;Google Sans Text&quot;; font-size: 16px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);">다양한 높이의 컨베이어 라인 대응 가능
+공간 인지 및 고난도 로봇 제어 연구를 위한 핵심 장비</b></p>
+</div>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="mt-32 pt-24 border-t border-outline-variant/20 text-center">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter mb-12 leading-tight" style="">
+                    최고의 자동화 파트너와<br><span class="text-primary" style="">지금 바로 시작하세요</span>
+</h2>
+<div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+<button class="w-full md:w-auto bg-gradient-to-r from-primary to-primary-container text-white px-12 py-5 rounded-xl font-bold text-lg shadow-xl hover:opacity-90 transition-all active:scale-95" style="">
+                        협업 문의하기
+                    </button>
+<button class="w-full md:w-auto bg-white text-on-surface border border-outline-variant/30 px-12 py-5 rounded-xl font-bold text-lg hover:bg-surface-container-low transition-all" style="">
+                        기술 사양서 다운로드 (PDF)
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full h-20 flex justify-around items-center px-4 z-50 md:hidden bg-[#fcf9f8]/80 dark:bg-[#1c1b1b]/80 backdrop-blur-2xl border-t border-[#e5e2e1]/30 shadow-[0_-4px_20px_rgba(28,27,27,0.03)]">
+<div class="flex flex-col items-center justify-center text-[#006972] dark:text-[#0aabba] scale-110 transition-transform">
+<span class="material-symbols-outlined" style="">article</span>
+<span class="font-label text-[10px] uppercase tracking-[0.05em] mt-1" style="">Docs</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40">
+<span class="material-symbols-outlined" style="">extension</span>
+<span class="font-label text-[10px] uppercase tracking-[0.05em] mt-1" style="">Components</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40">
+<span class="material-symbols-outlined" style="">history</span>
+<span class="font-label text-[10px] uppercase tracking-[0.05em] mt-1" style="">History</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40">
+<span class="material-symbols-outlined" style="">settings</span>
+<span class="font-label text-[10px] uppercase tracking-[0.05em] mt-1" style="">Settings</span>
+</div>
+</nav>
+<!-- Floating Action Button Suppression (Per Mandate) -->
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

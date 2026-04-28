@@ -26,10 +26,11 @@ export default function Navbar({ locale }: NavbarProps) {
 
   const productLinks = [
     { href: `/${locale}/products/robot-hand`, label: t("robotHand") },
+    { href: `/${locale}/products/prosthetic`, label: t("prosthetic") },
     { href: `/${locale}/products/collaborative-robot`, label: t("collaborativeRobot") },
-    { href: `/${locale}/products/physical-ai`, label: t("physicalAI") },
     { href: `/${locale}/products/humanoid`, label: t("humanoid") },
     { href: `/${locale}/products/body-enhancement`, label: t("bodyEnhancement") },
+    { href: `/${locale}/products/physical-ai`, label: t("physicalAI") },
   ];
 
   useEffect(() => {

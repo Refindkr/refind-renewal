@@ -1,0 +1,389 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>REALMAN Technical Specification | PRD Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#a0c9ff",
+                      "tertiary-fixed-dim": "#ffb782",
+                      "outline-variant": "#bcc9cb",
+                      "on-tertiary-fixed-variant": "#703700",
+                      "on-tertiary-container": "#522700",
+                      "on-secondary-fixed": "#001c37",
+                      "primary": "#006972",
+                      "on-secondary-fixed-variant": "#00497f",
+                      "background": "#fcf9f8",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#004579",
+                      "on-primary-fixed": "#001f23",
+                      "primary-container": "#0aabba",
+                      "outline": "#6d797b",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#004f56",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#ebe7e7",
+                      "surface-dim": "#dcd9d9",
+                      "surface-bright": "#fcf9f8",
+                      "surface-container": "#f0edec",
+                      "error": "#ba1a1a",
+                      "secondary": "#0061a6",
+                      "inverse-primary": "#58d7e7",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#f3f0ef",
+                      "inverse-surface": "#313030",
+                      "tertiary": "#934b00",
+                      "secondary-fixed": "#d2e4ff",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#8ff2ff",
+                      "on-background": "#1c1b1b",
+                      "surface-container-low": "#f6f3f2",
+                      "tertiary-fixed": "#ffdcc5",
+                      "surface-tint": "#006972",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-container": "#73b4ff",
+                      "on-tertiary-fixed": "#301400",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#00393f",
+                      "surface": "#fcf9f8",
+                      "primary-fixed-dim": "#58d7e7",
+                      "on-surface": "#1c1b1b",
+                      "surface-variant": "#e5e2e1",
+                      "on-surface-variant": "#3d494b",
+                      "tertiary-container": "#e97f1e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-editorial-gradient {
+            background: linear-gradient(135deg, #006972 0%, #0aabba 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .bento-grid { display: flex; flex-direction: column; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-stone-950/70 backdrop-blur-xl shadow-[0_2px_10px_rgba(28,27,27,0.02)]">
+<nav class="flex justify-between items-center px-8 h-20 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba]" data-icon="terminal" style="">terminal</span>
+<span class="text-xl font-extrabold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8] font-['Manrope']" style="">REALMAN SPEC</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#006972] dark:text-[#0aabba] border-b-2 border-[#006972] font-['Manrope'] tracking-tight font-bold transition-colors duration-200" href="#" style="">Overview</a>
+<a class="text-stone-500 dark:text-stone-400 font-['Manrope'] tracking-tight font-bold hover:text-[#006972] transition-colors duration-200" href="#" style="">Architecture</a>
+<a class="text-stone-500 dark:text-stone-400 font-['Manrope'] tracking-tight font-bold hover:text-[#006972] transition-colors duration-200" href="#" style="">Reference</a>
+</div>
+<div class="cursor-pointer active:opacity-70 h-10 w-10 bg-surface-container-highest rounded-full flex items-center justify-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface" data-icon="person" style="">person</span>
+</div>
+</nav>
+</header>
+<!-- Side Navigation (Web Only) -->
+<aside class="hidden md:flex h-full w-72 fixed left-0 flex-col pt-24 px-4 gap-2 bg-[#f6f3f2] dark:bg-stone-900 z-40">
+<div class="px-4 py-2 mb-4">
+<span class="text-lg font-bold text-stone-900 dark:text-stone-100 font-['Inter']" style="">Documentation</span>
+</div>
+<nav class="space-y-1">
+<div class="bg-white dark:bg-stone-800 text-[#006972] dark:text-[#0aabba] font-bold rounded-lg shadow-sm px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm uppercase tracking-wide cursor-pointer" style="">
+<span class="material-symbols-outlined" data-icon="subject" style="">subject</span> Overview
+            </div>
+<div class="text-stone-600 dark:text-stone-400 px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm uppercase tracking-wide hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all cursor-pointer" style="">
+<span class="material-symbols-outlined" data-icon="account_tree" style="">account_tree</span> Architecture
+            </div>
+<div class="text-stone-600 dark:text-stone-400 px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm uppercase tracking-wide hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all cursor-pointer" style="">
+<span class="material-symbols-outlined" data-icon="api" style="">api</span> API Reference
+            </div>
+<div class="text-stone-600 dark:text-stone-400 px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm uppercase tracking-wide hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all cursor-pointer" style="">
+<span class="material-symbols-outlined" data-icon="database" style="">database</span> Data Models
+            </div>
+<div class="text-stone-600 dark:text-stone-400 px-4 py-3 flex items-center gap-3 font-['Inter'] text-sm uppercase tracking-wide hover:bg-white/50 dark:hover:bg-stone-800/50 transition-all cursor-pointer" style="">
+<span class="material-symbols-outlined" data-icon="verified_user" style="">verified_user</span> Compliance
+            </div>
+</nav>
+</aside>
+<main class="md:pl-72 pt-20">
+<!-- 01 Hero Section -->
+<section class="min-h-[707px] flex flex-col justify-center px-8 md:px-16 bg-surface">
+<div class="max-w-4xl">
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-sm mb-6" style="">Internal Technical Resource 2026</span>
+<h1 class="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-8" style="">
+                    Embodied Intelligence의 시작<br>
+<span class="text-editorial-gradient" style="">로봇, 지능을 입다.</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl leading-relaxed" style="">
+                    Realman은 단순한 하드웨어를 넘어, AI가 물리적 세계와 상호작용하는 근간을 제공합니다. 고도의 정밀함과 지능형 데이터를 결합한 차세대 로봇 플랫폼의 규격서입니다.
+                </p>
+<div class="mt-12 flex gap-4">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-md shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform" style="">기술 사양서 다운로드</button>
+<button class="px-8 py-4 bg-surface-container-highest text-on-surface font-bold rounded-md hover:bg-surface-container-high transition-colors" style="">협업 문의하기</button>
+</div>
+</div>
+</section>
+<!-- 02 Brand Value -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-low">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="md:sticky md:top-32 max-w-sm">
+<span class="text-primary font-bold text-3xl" style="">02</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight" style="">Brand Value</h2>
+<p class="text-on-surface-variant mt-4" style="">물리 지능의 인프라를 구축합니다.</p>
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+<div class="p-8 bg-surface rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="settings_input_component" style="">settings_input_component</span>
+<h3 class="text-xl font-bold mb-3" style="">Infrastructure for AI</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">AI 알고리즘이 실제 환경에서 구동될 수 있는 최적의 신경망과 관절 구조를 지원합니다.</p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="lan" style="">lan</span>
+<h3 class="text-xl font-bold mb-3" style="">Hardware+Data+Network</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">하드웨어 성능을 넘어, 데이터 전송과 네트워크 연동이 통합된 에코시스템을 제공합니다.</p>
+</div>
+<div class="p-8 bg-surface rounded-xl border border-outline-variant/10 md:col-span-2">
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="verified" style="">verified</span>
+<h3 class="text-xl font-bold mb-3" style="">Reliability</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed" style="">산업군과 연구 현장에서 검증된 99.9%의 가동 신뢰성을 보장합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 Product Lineup -->
+<section class="py-24 px-8 md:px-16 bg-surface">
+<div class="mb-16">
+<span class="text-primary font-bold text-3xl" style="">03</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight" style="">Product Lineup</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group p-8 bg-surface-container-low rounded-2xl hover:bg-primary transition-all duration-300">
+<h3 class="text-2xl font-bold group-hover:text-white" style="">RM Series</h3>
+<p class="mt-4 text-on-surface-variant group-hover:text-white/80" style="">고성능 전문가용 | 산업 표준 및 초경량 휴머노이드 로봇팔</p>
+<div class="mt-8 border-t border-outline-variant/30 pt-4 flex justify-between items-center group-hover:border-white/30">
+<span class="text-xs font-bold uppercase tracking-widest group-hover:text-white" style="">Industrial Standard</span>
+<span class="material-symbols-outlined group-hover:text-white" data-icon="arrow_forward" style="">arrow_forward</span>
+</div>
+</div>
+<div class="group p-8 bg-surface-container-low rounded-2xl hover:bg-primary transition-all duration-300">
+<h3 class="text-2xl font-bold group-hover:text-white" style="">ECO Series</h3>
+<p class="mt-4 text-on-surface-variant group-hover:text-white/80" style="">경제성과 효율성 | 경제적인 로봇팔</p>
+<div class="mt-8 border-t border-outline-variant/30 pt-4 flex justify-between items-center group-hover:border-white/30">
+<span class="text-xs font-bold uppercase tracking-widest group-hover:text-white" style="">Cost Efficient</span>
+<span class="material-symbols-outlined group-hover:text-white" data-icon="arrow_forward" style="">arrow_forward</span>
+</div>
+</div>
+<div class="group p-8 bg-surface-container-low rounded-2xl hover:bg-primary transition-all duration-300">
+<h3 class="text-2xl font-bold group-hover:text-white" style=""><br></h3>
+<p class="mt-4 text-on-surface-variant group-hover:text-white/80" style=""><br></p>
+<div class="mt-8 border-t border-outline-variant/30 pt-4 flex justify-between items-center group-hover:border-white/30">
+<span class="text-xs font-bold uppercase tracking-widest group-hover:text-white" style=""><br></span>
+<span class="material-symbols-outlined group-hover:text-white" data-icon="arrow_forward" style="">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 Technical Core -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<span class="text-primary font-bold text-3xl" style="">04</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight mb-16" style="">Technical Core</h2>
+<div class="bento-grid">
+<div class="col-span-8 p-12 bg-[#fcf9f8] border border-outline-variant/10 rounded-3xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-primary font-bold tracking-widest text-xs uppercase mb-4" style="">Core Tech 01</h4>
+<h3 class="text-3xl font-bold mb-6" style="">Integrated Joint Modules</h3>
+<p class="text-on-surface-variant max-w-lg" style="">드라이버, 모터, 감속기, 엔코더를 하나의 초소형 모듈에 통합했습니다. 높은 토크 밀도와 정밀한 제어력을 동시에 확보했습니다.</p>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-5">
+<span class="material-symbols-outlined text-[20rem]" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+</div>
+</div>
+<div class="col-span-4 p-12 bg-primary-container text-on-primary-container rounded-3xl">
+<h4 class="font-bold tracking-widest text-xs uppercase mb-4" style="">Core Tech 02</h4>
+<h3 class="text-3xl font-bold mb-6" style="">Ultra-lightweight body</h3>
+<p class="opacity-90" style="">항공우주 등급의 알루미늄 합금을 적용하여 로봇 본체 무게를 획기적으로 줄였습니다.</p>
+</div>
+<div class="col-span-12 p-12 bg-surface-container-highest rounded-3xl flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1">
+<h4 class="text-primary font-bold tracking-widest text-xs uppercase mb-4" style="">Core Tech 03</h4>
+<h3 class="text-3xl font-bold mb-6" style="">Open Ecosystem</h3>
+<p class="text-on-surface-variant" style="">ROS1/ROS2, Python, C++, SDK를 지원하여 전 세계 개발자들이 즉시 개발에 착수할 수 있는 오픈 아키텍처를 지향합니다.</p>
+</div>
+<div class="flex gap-4">
+<div class="h-16 w-16 bg-white rounded-xl shadow-sm flex items-center justify-center font-bold text-primary" style="">ROS2</div>
+<div class="h-16 w-16 bg-white rounded-xl shadow-sm flex items-center justify-center font-bold text-primary" style="">SDK</div>
+<div class="h-16 w-16 bg-white rounded-xl shadow-sm flex items-center justify-center font-bold text-primary" style="">Py</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 Intelligence Service -->
+<section class="py-24 px-8 md:px-16 bg-on-surface text-surface">
+<div class="max-w-4xl">
+<span class="text-primary-container font-bold text-3xl" style="">05</span>
+<h2 class="font-headline text-5xl font-bold mt-4 tracking-tight mb-8" style="">고장 없이 3만 시간&nbsp; 이상 연속 작동 가능</h2>
+<div class="flex items-center gap-6 mb-12">
+<div class="text-6xl font-extrabold text-primary-container" style="">30,000+</div>
+<div class="text-xl font-medium text-surface/70 leading-tight" style="">Data Points<br>Captured Hourly</div>
+</div>
+<h3 class="text-2xl font-bold mb-4" style="">AI 학습 데이터 (Data Flywheel)</h3>
+<p class="text-surface/60 text-lg leading-relaxed mb-8" style="">
+                    REALMAN은 하드웨어와 클라우드를 실시간으로 연결하여 고도화된 행동 데이터를 수집합니다. 수집된 데이터는 AI 모델의 강화학습(RL)에 재투입되어 로봇의 지능을 지속적으로 진화시키는 '데이터 플라이휠' 구조를 완성합니다.
+                </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-4 border border-surface/10 rounded-lg">
+<span class="text-[10px] uppercase font-bold tracking-widest block mb-2 text-primary-container" style="">Capture</span>
+<div class="text-sm" style="">Real-time Vision</div>
+</div>
+<div class="p-4 border border-surface/10 rounded-lg">
+<span class="text-[10px] uppercase font-bold tracking-widest block mb-2 text-primary-container" style="">Process</span>
+<div class="text-sm" style="">Edge Computing</div>
+</div>
+<div class="p-4 border border-surface/10 rounded-lg">
+<span class="text-[10px] uppercase font-bold tracking-widest block mb-2 text-primary-container" style="">Learn</span>
+<div class="text-sm" style="">Cloud Training</div>
+</div>
+<div class="p-4 border border-surface/10 rounded-lg">
+<span class="text-[10px] uppercase font-bold tracking-widest block mb-2 text-primary-container" style="">Deploy</span>
+<div class="text-sm" style="">OTA Updates</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 06 Application -->
+<section class="py-24 px-8 md:px-16 bg-surface">
+<span class="text-primary font-bold text-3xl" style="">06</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight mb-16" style="">Application</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-1 w-full aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="storefront" style="">storefront</span>
+<span class="font-bold" style="">Commercial</span>
+</div>
+<div class="p-1 w-full aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="medical_services" style="">medical_services</span>
+<span class="font-bold" style="">Healthcare</span>
+</div>
+<div class="p-1 w-full aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="science" style="">science</span>
+<span class="font-bold" style="">Research</span>
+</div>
+<div class="p-1 w-full aspect-square bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="potted_plant" style="">potted_plant</span>
+<span class="font-bold" style="">Inspection</span>
+</div>
+</div>
+</section>
+<!-- 07 Spec Comparison -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-low">
+<div class="max-w-5xl mx-auto">
+<span class="text-primary font-bold text-3xl" style="">07</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight mb-12" style="">Spec Comparison</h2>
+<div class="overflow-hidden rounded-2xl border border-outline-variant/10 shadow-sm bg-white">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-highest">
+<tr>
+<th class="p-6 font-bold text-sm uppercase tracking-wider border-b border-outline-variant/10" style="">Specification</th>
+<th class="p-6 font-bold text-sm uppercase tracking-wider border-b border-outline-variant/10 text-primary" style="">RM65 Series</th>
+<th class="p-6 font-bold text-sm uppercase tracking-wider border-b border-outline-variant/10" style="">ECO 65<br></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr>
+<td class="p-6 font-medium text-on-surface-variant" style="">Payload</td>
+<td class="p-6 font-bold" style="">5 kg</td>
+<td class="p-6" style="">5 kg</td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface-variant" style="">Total Weight</td>
+<td class="p-6 font-bold" style="">7.2 kg</td>
+<td class="p-6" style="">7.8kg</td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface-variant" style="">Max Reach</td>
+<td class="p-6 font-bold" style="">650&nbsp; mm</td>
+<td class="p-6" style="">610 mm</td>
+</tr>
+<tr>
+<td class="p-6 font-medium text-on-surface-variant" style="">Repeatability</td>
+<td class="p-6 font-bold" style="">±0.05 mm</td>
+<td class="p-6" style="">±0.05 mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 08 Trust & Quality -->
+<section class="py-24 px-8 md:px-16 bg-surface">
+<div class="flex flex-col md:flex-row gap-12 items-center bg-[#fcf9f8] p-12 rounded-3xl border-2 border-primary/10">
+<div class="flex-1">
+<span class="text-primary font-bold text-3xl" style="">08</span>
+<h2 class="font-headline text-4xl font-bold mt-4 tracking-tight" style="">Trust &amp; Quality</h2>
+<p class="mt-6 text-on-surface-variant text-lg" style="">
+                        전 세계 어디서나 최상의 성능을 유지할 수 있도록 글로벌 지원 네트워크와 국제 안전 표준을 준수합니다.
+                    </p>
+<div class="mt-8 flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-outline-variant/30 text-sm font-bold" style="">
+<span class="material-symbols-outlined text-primary" data-icon="public" style="">public</span> Global Support
+                        </div>
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-outline-variant/30 text-sm font-bold" style="">
+<span class="material-symbols-outlined text-primary" data-icon="health_and_safety" style="">health_and_safety</span> ISO 10218-1
+                        </div>
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-outline-variant/30 text-sm font-bold" style="">
+<span class="material-symbols-outlined text-primary" data-icon="shield_check" style="">shield</span> Certified Safety
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#fcf9f8] dark:bg-stone-950 border-t border-stone-100 dark:border-stone-900">
+<div class="flex flex-col items-center gap-4 max-w-7xl mx-auto px-8 text-center">
+<div class="flex gap-8 mb-4">
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:underline transition-opacity" href="#" style="">Support</a>
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:underline transition-opacity" href="#" style="">Repository</a>
+<a class="font-['Inter'] text-xs text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:underline transition-opacity" href="#" style="">Changelog</a>
+</div>
+<p class="font-['Inter'] text-xs text-stone-400" style="">© 2026 The Intelligent Canvas. Internal Technical Resource.</p>
+</div>
+</footer>
+</main>
+</body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

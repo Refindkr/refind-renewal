@@ -1,0 +1,361 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-container": "#73b4ff",
+                  "outline-variant": "#bcc9cb",
+                  "on-primary-fixed-variant": "#004f56",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed": "#301400",
+                  "tertiary": "#934b00",
+                  "surface-container-high": "#ebe7e7",
+                  "inverse-primary": "#58d7e7",
+                  "surface-container-highest": "#e5e2e1",
+                  "on-surface-variant": "#3d494b",
+                  "primary-fixed": "#8ff2ff",
+                  "primary-fixed-dim": "#58d7e7",
+                  "outline": "#6d797b",
+                  "on-background": "#1c1b1b",
+                  "on-tertiary-fixed-variant": "#703700",
+                  "tertiary-fixed": "#ffdcc5",
+                  "surface-container": "#f0edec",
+                  "on-primary": "#ffffff",
+                  "error-container": "#ffdad6",
+                  "tertiary-fixed-dim": "#ffb782",
+                  "tertiary-container": "#e97f1e",
+                  "surface-dim": "#dcd9d9",
+                  "surface-container-low": "#f6f3f2",
+                  "background": "#fcf9f8",
+                  "on-secondary-fixed": "#001c37",
+                  "on-surface": "#1c1b1b",
+                  "primary-container": "#0aabba",
+                  "error": "#ba1a1a",
+                  "inverse-on-surface": "#f3f0ef",
+                  "on-secondary-container": "#004579",
+                  "on-secondary-fixed-variant": "#00497f",
+                  "surface-container-lowest": "#ffffff",
+                  "surface": "#fcf9f8",
+                  "secondary-fixed-dim": "#a0c9ff",
+                  "secondary-fixed": "#d2e4ff",
+                  "on-primary-container": "#00393f",
+                  "surface-tint": "#006972",
+                  "on-tertiary": "#ffffff",
+                  "surface-bright": "#fcf9f8",
+                  "on-tertiary-container": "#522700",
+                  "secondary": "#0061a6",
+                  "surface-variant": "#e5e2e1",
+                  "primary": "#006972",
+                  "on-primary-fixed": "#001f23",
+                  "on-secondary": "#ffffff",
+                  "on-error": "#ffffff",
+                  "inverse-surface": "#313030"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "fontFamily": {
+                  "headline": ["Manrope"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    .font-manrope { font-family: 'Manrope', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .glass-nav { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fcf9f8]/70 dark:bg-[#1c1b1b]/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 h-20 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#006972] dark:text-[#0aabba]" data-icon="precision_manufacturing" style="">precision_manufacturing</span>
+<span class="text-xl font-extrabold tracking-tighter text-[#1c1b1b] dark:text-[#fcf9f8] font-manrope" style="">Elephant Robotics</span>
+</div>
+<nav class="hidden md:flex gap-12 text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 font-manrope tracking-tight font-bold">
+<a class="text-[#006972] dark:text-[#0aabba] font-bold border-b-2 border-[#006972] transition-colors duration-300" href="#" style="">TASHAN SENSOR</a>
+<a class="hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors duration-300 ease-in-out duration-200" href="#" style="">SOLUTIONS</a>
+<a class="hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors duration-300 ease-in-out duration-200" href="#" style="">DOCUMENTATION</a>
+<a class="hover:text-[#006972] dark:hover:text-[#0aabba] transition-colors duration-300 ease-in-out duration-200" href="#" style="">CONTACT</a>
+</nav>
+</div>
+</header>
+<main class="pt-32 pb-20">
+<!-- 01 HERO SECTION -->
+<section class="px-8 max-w-[1440px] mx-auto mb-40">
+<div class="flex flex-col items-start gap-8">
+<div class="flex items-center gap-4">
+<span class="text-primary font-label tracking-[0.2em] text-xs font-bold uppercase" style="">Product Specification v2.6</span>
+<div class="h-[1px] w-12 bg-primary/30"></div>
+</div>
+<h1 class="font-headline text-[3.5rem] md:text-[5rem] leading-[1.1] tracking-[-0.03em] font-extrabold max-w-4xl" style="">
+          촉각 센서 Tactile Sensing <br>
+<span class="text-primary" style="">(TASHAN SENSOR)</span>
+</h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl leading-relaxed" style="">
+          차세대 로봇을 위한 고정밀 멀티모달 촉각 지능. 미세한 압력부터 비접촉 근접 감지까지, 인간의 감각을 넘어서는 정밀도를 제공합니다.
+        </p>
+<div class="flex flex-wrap gap-4 mt-8">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-manrope font-bold rounded-md shadow-lg shadow-primary/20 hover:opacity-90 transition-all" style="">
+            기술 사양서 다운로드
+          </button>
+<button class="px-8 py-4 bg-surface-container-highest text-on-surface font-manrope font-bold rounded-md hover:bg-surface-container-high transition-all" style="">
+            협업 문의하기
+          </button>
+</div>
+</div>
+</section>
+<!-- 02 CORE VALUE (ASymmetric Grid) -->
+<section class="bg-surface-container-low py-32">
+<div class="px-8 max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+<h2 class="font-headline text-3xl font-bold tracking-tight" style="">01 CORE VALUE</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/30 mt-4 hidden md:block"></div>
+<p class="font-body text-on-surface-variant max-w-sm" style="">감각의 한계를 돌파하는 3대 핵심 기술력. 데이터 중심의 로봇 제어를 가능케 합니다.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-10 bg-surface-container-lowest rounded-xl flex flex-col gap-6 group hover:shadow-xl transition-all duration-500">
+<span class="text-primary-container font-headline text-4xl font-extrabold opacity-30" style="">01</span>
+<h3 class="font-headline text-2xl font-bold leading-tight" style="">Ultra-High <br>Sensitivity</h3>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">미세 접촉 및 극소 압력 변화를 감지합니다. 0.01N 이하의 초미세 하중 데이터 처리가 가능합니다.</p>
+</div>
+<div class="p-10 bg-surface-container-lowest rounded-xl flex flex-col gap-6 group hover:shadow-xl transition-all duration-500 md:mt-12">
+<span class="text-primary-container font-headline text-4xl font-extrabold opacity-30" style="">02</span>
+<h3 class="font-headline text-2xl font-bold leading-tight" style="">Dynamic Tangent <br>Force Sensing</h3>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">전단력 및 미끄러짐을 실시간으로 감지하여 물체 파지 시 최적의 파지력을 자율적으로 조절합니다.</p>
+</div>
+<div class="p-10 bg-surface-container-lowest rounded-xl flex flex-col gap-6 group hover:shadow-xl transition-all duration-500">
+<span class="text-primary-container font-headline text-4xl font-extrabold opacity-30" style="">03</span>
+<h3 class="font-headline text-2xl font-bold leading-tight" style="">Proximity <br>Perception</h3>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">물체와 접촉하기 전 거리를 감지하는 비접촉 인지 기술로 충돌 방지 및 정밀 정렬을 수행합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 TECHNICAL DEEP DIVE -->
+<section class="py-32 px-8 max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-5">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-8" style="">02 TECHNICAL DEEP DIVE</h2>
+<p class="font-headline text-4xl md:text-5xl font-bold leading-tight mb-8" style="">Multi-Modal <br>Tactile Information</p>
+<p class="font-body text-on-surface-variant leading-relaxed mb-12" style="">
+            단순한 압력 센서를 넘어선 종합 데이터 플랫폼. 다섯 가지 핵심 정보를 동시에 분석하여 로봇에게 인간 수준의 촉각 지능을 부여합니다.
+          </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4 p-4 border-l-4 border-primary bg-surface-container-low">
+<span class="font-manrope font-bold text-primary" style="">150Hz</span>
+<span class="font-body text-on-surface-variant" style="">Real-time High Sampling Rate</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-px bg-outline-variant/20 rounded-xl overflow-hidden shadow-2xl shadow-primary/5">
+<div class="p-8 bg-surface text-on-surface">
+<h4 class="font-label text-xs tracking-widest text-primary font-bold mb-2" style="">FORCE / TORQUE</h4>
+<p class="font-body" style="">3축 및 6축 벡터 데이터 기반의 정밀 힘 분석</p>
+</div>
+<div class="p-8 bg-surface text-on-surface">
+<h4 class="font-label text-xs tracking-widest text-primary font-bold mb-2" style="">PRESSURE MATRIX</h4>
+<p class="font-body" style="">고해상도 압력 분포 맵핑을 통한 형상 인지</p>
+</div>
+<div class="p-8 bg-surface text-on-surface">
+<h4 class="font-label text-xs tracking-widest text-primary font-bold mb-2" style="">TEMPERATURE</h4>
+<p class="font-body" style="">환경 및 물체의 표면 온도 변화 감지 (±0.1°C)</p>
+</div>
+<div class="p-8 bg-surface text-on-surface">
+<h4 class="font-label text-xs tracking-widest text-primary font-bold mb-2" style="">MATERIAL TEXTURE</h4>
+<p class="font-body" style="">표면 거칠기 분석을 통한 재질 분류 알고리즘</p>
+</div>
+<div class="p-8 bg-surface text-on-surface sm:col-span-2">
+<h4 class="font-label text-xs tracking-widest text-primary font-bold mb-2" style="">PROXIMITY DISTANCE</h4>
+<p class="font-body" style="">비접촉 상태에서의 0-50mm 범위 내 거절 거리를 실시간 트래킹</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 INTEGRATION (Bento Style) -->
+<section class="bg-inverse-surface text-inverse-on-surface py-32">
+<div class="px-8 max-w-[1440px] mx-auto">
+<div class="mb-20 text-center">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-4" style="">03 INTEGRATION</h2>
+<p class="font-body opacity-60" style="">Seamless developer experience with industrial standards.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="p-12 bg-[#2a2a2a] rounded-xl flex flex-col justify-between aspect-[16/9]">
+<div>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-primary" data-icon="terminal" style="">terminal</span>
+</div>
+<h3 class="font-headline text-4xl font-bold mb-4" style="">NVIDIA Isaac Sim</h3>
+<p class="opacity-70 font-body leading-relaxed max-w-md" style="">가상 환경에서의 고충실도 촉각 시뮬레이션을 지원합니다. PhysX 기반의 데이터 모델링을 통해 학습 시간을 단축하십시오.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="" style="">View Plugin Specs</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward" style="">arrow_forward</span>
+</div>
+</div>
+<div class="p-12 bg-[#2a2a2a] rounded-xl flex flex-col justify-between aspect-[16/9]">
+<div>
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="settings_input_component" style="">settings_input_component</span>
+</div>
+<h3 class="font-headline text-4xl font-bold mb-4" style=""><br></h3>
+<p class="opacity-70 font-body leading-relaxed max-w-md" style=""><br></p>
+</div>
+<div class="flex items-center gap-2 text-primary-container font-bold">
+<span class="" style=""><br></span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward" style="">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 USE CASES -->
+<section class="py-32 px-8 max-w-[1440px] mx-auto">
+<div class="mb-20">
+<h2 class="font-headline text-3xl font-bold tracking-tight mb-2" style="">04 USE CASES</h2>
+<div class="h-1 w-20 bg-primary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-6">
+<div class="text-6xl font-headline font-black text-outline-variant/10" style="">01</div>
+<h4 class="font-headline text-2xl font-bold" style="">정밀 조립<br>Precision Assembly</h4>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">전자 기기 및 부품의 정밀 체결 시 발생하는 미세한 저항을 감지하여 불량률을 0%에 가깝게 유지합니다.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="text-6xl font-headline font-black text-outline-variant/10" style="">02</div>
+<h4 class="font-headline text-2xl font-bold" style="">비정형 물체 파지<br>Fragile Object Handling</h4>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">과일, 육류, 얇은 유리 등 강성 파악이 어려운 물체를 파손 없이 안전하게 운반하기 위한 가변 파지력을 제공합니다.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="text-6xl font-headline font-black text-outline-variant/10" style="">03</div>
+<h4 class="font-headline text-2xl font-bold" style="">HRI<br>Human-Robot Interaction</h4>
+<p class="font-body text-on-surface-variant leading-relaxed" style="">인간과의 협업 시 충돌을 사전에 인지하거나, 부드러운 상호작용을 위한 물리적 반응 메커니즘을 구축합니다.</p>
+</div>
+</div>
+</section>
+<!-- 06 SENSOR MATRIX (Technical Table) -->
+<section class="py-32 bg-surface-container-low">
+<div class="px-8 max-w-[1440px] mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-3xl font-bold tracking-tight" style="">05 SENSOR MATRIX</h2>
+<p class="font-body text-on-surface-variant mt-2" style="">Technical Specification by Model</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-primary"><th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">MODEL</th>
+<th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">STRUCTURE</th>
+<th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">RANGE</th>
+<th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">RESOLUTION</th>
+<th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">PROXIMITY</th>
+<th class="py-6 px-4 font-manrope font-bold text-sm tracking-widest text-primary" style="">FEATURES</th></tr>
+</thead>
+<tbody class="font-body text-on-surface"><tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-F-A</td>
+<td class="py-6 px-4" style="">3D Force</td>
+<td class="py-6 px-4" style="">0-20N</td>
+<td class="py-6 px-4" style="">0.1N</td>
+<td class="py-6 px-4" style="">≥1cm</td>
+<td class="py-6 px-4 text-sm" style="">고정밀 3축 벡터</td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-F-A2</td>
+<td class="py-6 px-4" style="">Matrix</td>
+<td class="py-6 px-4" style="">0-50N</td>
+<td class="py-6 px-4" style="">0.1N</td>
+<td class="py-6 px-4" style="">≥1cm</td>
+<td class="py-6 px-4 text-sm" style="">광범위 압력 감지</td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-F-B</td>
+<td class="py-6 px-4" style="">Multu-modal</td>
+<td class="py-6 px-4" style="">0-20N</td>
+<td class="py-6 px-4" style="">0.1N</td>
+<td class="py-6 px-4" style="">≥1cm</td>
+<td class="py-6 px-4 text-sm" style="">다기능 복합 인지</td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-F-C</td>
+<td class="py-6 px-4" style="">Multu-modal</td>
+<td class="py-6 px-4" style="">0-20N</td>
+<td class="py-6 px-4" style="">0.1N</td>
+<td class="py-6 px-4" style="">≥2cm</td>
+<td class="py-6 px-4 text-sm" style="">확장된 근접 감지</td>
+</tr>
+<tr class="border-b border-outline-variant/20 hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-E-A</td>
+<td class="py-6 px-4" style="">3D Force</td>
+<td class="py-6 px-4" style="">0-50N</td>
+<td class="py-6 px-4" style="">0.1N</td>
+<td class="py-6 px-4" style="">≥1.5cm</td>
+<td class="py-6 px-4 text-sm" style="">그리퍼용 3축 감지</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-6 px-4 font-bold" style="">TS-E-B</td>
+<td class="py-6 px-4" style="">Matrix</td>
+<td class="py-6 px-4" style="">0-50N</td>
+<td class="py-6 px-4" style="">0.05N</td>
+<td class="py-6 px-4" style="">≥1.5cm</td>
+<td class="py-6 px-4 text-sm" style="">그리퍼용 초정밀 압력 분포</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 07 TRUST & CONTACT -->
+<section class="py-32 px-8 max-w-[1440px] mx-auto text-center">
+<h2 class="font-headline text-xl font-bold tracking-widest text-on-surface-variant/40 mb-16 uppercase" style="">Partnerships &amp; Trust</h2>
+<div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-12 mb-24 grayscale opacity-60">
+<span class="font-manrope text-2xl font-black tracking-tighter" style="">SAMSUNG</span>
+<span class="font-manrope text-2xl font-black tracking-tighter" style="">KIMM</span>
+<span class="font-manrope text-2xl font-black tracking-tighter" style="">NATIONAL REHABILITATION CENTER</span>
+<span class="font-manrope text-2xl font-black tracking-tighter" style="">KAIST</span>
+<span class="font-manrope text-2xl font-black tracking-tighter" style="">HYUNDAI ROBOTICS</span>
+</div>
+<div class="max-w-4xl mx-auto p-12 bg-primary rounded-2xl text-on-primary">
+<h3 class="font-headline text-3xl font-bold mb-6" style="">전문적인 도입 상담이 필요하신가요?</h3>
+<p class="font-body mb-10 opacity-90 text-lg" style="">Elephant Robotics의 엔지니어링 팀이 귀사의 비즈니스 요구사항에 최적화된 촉각 솔루션을 제안해 드립니다.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<input class="px-6 py-4 bg-white/10 border border-white/20 rounded-md placeholder:text-white/40 focus:ring-2 ring-white/50 outline-none flex-grow max-w-sm" placeholder="이메일 주소를 입력하세요" type="email">
+<button class="px-10 py-4 bg-white text-primary font-bold rounded-md hover:bg-opacity-90 transition-all" style="">상담 신청</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-20 bg-[#f6f3f2] dark:bg-[#1c1b1b]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-8">
+<div class="font-inter text-xs tracking-widest uppercase text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40" style="">
+        © 2026 Elephant Robotics. All rights reserved. Precision Engineering Division.
+      </div>
+<div class="flex gap-8">
+<a class="font-inter text-xs tracking-widest uppercase text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#" style="">Internal Specs</a>
+<a class="font-inter text-xs tracking-widest uppercase text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#" style="">Technical Documentation</a>
+<a class="font-inter text-xs tracking-widest uppercase text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#" style="">API Reference</a>
+<a class="font-inter text-xs tracking-widest uppercase text-[#1c1b1b]/40 dark:text-[#fcf9f8]/40 hover:text-[#006972] dark:hover:text-[#0aabba] underline decoration-2 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#" style="">Compliance</a>
+</div>
+</div>
+</footer>
+<whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>

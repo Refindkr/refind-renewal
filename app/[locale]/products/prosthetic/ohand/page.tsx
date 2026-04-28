@@ -1,0 +1,162 @@
+import Image from "next/image";
+import Link from "next/link";
+
+interface PageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function OhandPage({ params }: PageProps) {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+
+  const gripModes = isKo
+    ? [
+        { mode: "외측 모드 (Lateral Mode)", grips: ["주먹쥐기", "마우스", "열쇠 집기", "포인트", "컬럼", "접시", "Salute", "젓가락"] },
+        { mode: "반대 모드 1 (Opposed Mode 1)", grips: ["핀치 3종", "파워", "쥐기", "들어올리기", "접시"] },
+        { mode: "반대 모드 2 (Opposed Mode 2)", grips: ["세손가락 집기 5종", "파워", "쥐기", "물건들기", "접시"] },
+      ]
+    : [
+        { mode: "Lateral Mode", grips: ["Fist", "Mouse", "Key", "Point", "Column", "Plate", "Salute", "Chopsticks"] },
+        { mode: "Opposed Mode 1", grips: ["3 Pinch types", "Power", "Grasp", "Lift", "Plate"] },
+        { mode: "Opposed Mode 2", grips: ["5 Tripod types", "Power", "Grasp", "Lift", "Plate"] },
+      ];
+
+  return (
+    <div className="pt-16 min-h-screen bg-white">
+
+      {/* Hero */}
+      <section className="py-24 bg-gray-950 relative overflow-hidden">
+        <div className="absolute inset-0"
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0,105,114,0.2) 0%, transparent 55%)" }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+              Prosthetic Hand · AI Myoelectric
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">Ohand</h1>
+            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+              {isKo ? "인공지능 근전도 전자의수" : "AI Myoelectric Prosthetic Hand"}
+            </p>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "8채널 EMG 센서와 인공지능 알고리즘으로 27가지 동작 패턴을 구현하는 지능형 전자의수. 일상의 자유를 되찾아드립니다."
+                : "An intelligent prosthetic hand that realizes 27 motion patterns with 8-channel EMG sensors and AI algorithms. Restore freedom to everyday life."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href={`/${locale}/inquiry`}
+                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                {isKo ? "협업 문의하기" : "Contact Us"}
+              </Link>
+              <Link href={`/${locale}/products/prosthetic`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "제품 목록" : "All Models"}
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-72 md:h-96">
+            <Image src="/products/prosthetic/ohand_pinch_hd.png" alt="Ohand" fill
+              className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: "🤖", title: isKo ? "생체 모방 설계" : "Biomimetic Design", desc: isKo ? "사람 손의 구조와 동작을 모방해 27가지 다양한 동작 구현 가능" : "Mimics human hand structure and motion, enabling 27 diverse motion patterns" },
+              { icon: "🧠", title: isKo ? "AI & EMG 제어" : "AI & EMG Control", desc: isKo ? "8채널 EMG 센서로 근육 신호를 실시간 분석해 자연스러운 움직임 보장" : "Real-time muscle signal analysis with 8-channel EMG sensors for natural movement" },
+              { icon: "📱", title: isKo ? "전용 앱 연동" : "Dedicated App", desc: isKo ? "스마트폰 앱으로 동작 패턴 설정 및 근전도 경계치 실시간 조절" : "Set motion patterns and adjust EMG thresholds in real-time via smartphone app" },
+              { icon: "🔋", title: isKo ? "12시간 배터리" : "12h Battery", desc: isKo ? "내부 배터리 기준 약 12시간 연속 사용 가능. 하루 종일 안심 착용." : "Approximately 12 hours of continuous use on internal battery. Wear all day with confidence." },
+            ].map((v, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+                <div className="text-2xl mb-4">{v.icon}</div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2">{v.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 사양" : "Specifications"}</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
+            {[
+              { label: isKo ? "동작 속도" : "Motion Speed", value: "1.0s", unit: isKo ? "이하" : "or less" },
+              { label: isKo ? "파지력" : "Grip Force", value: "0.45kg", unit: isKo ? "이상" : "or more" },
+              { label: isKo ? "본체 무게" : "Weight", value: "500g", unit: "± 5g" },
+              { label: isKo ? "배터리" : "Battery", value: "12h", unit: isKo ? "지속" : "continuous" },
+            ].map((s, i) => (
+              <div key={i} className="bg-white p-8 text-center">
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide block mb-2">{s.label}</span>
+                <p className="text-3xl font-extrabold text-[#006972]">{s.value} <span className="text-base font-normal text-gray-400">{s.unit}</span></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Grip Modes */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">{isKo ? "그립 모드" : "Grip Modes"}</p>
+          <p className="text-sm text-gray-400 mb-10">{isKo ? "총 27가지 동작 패턴을 3가지 모드로 구성" : "27 total motion patterns organized in 3 modes"}</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {gripModes.map((mode, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+                <h3 className="text-xs font-bold text-[#0AABBA] uppercase tracking-wide mb-4">{mode.mode}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {mode.grips.map((g) => (
+                    <span key={g} className="text-xs px-2.5 py-1 bg-gray-50 text-gray-600 rounded-full border border-gray-200">{g}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { icon: "🏠", title: isKo ? "일상생활" : "Daily Life", desc: isKo ? "물 마시기, 필기구 사용, 식사, 개인 위생, 가사 노동 등 일상 동작 수행" : "Daily activities including drinking water, writing, eating, personal hygiene, and household tasks" },
+              { icon: "🏃", title: isKo ? "스포츠 & 레저" : "Sports & Leisure", desc: isKo ? "자전거 타기, 가벼운 운동, 취미 스포츠 활동에 자유롭게 참여" : "Freely participate in cycling, light exercise, and hobby sports activities" },
+              { icon: "🔧", title: isKo ? "작업 & 취미" : "Work & Hobbies", desc: isKo ? "전자기기 조립, 그림 그리기 등 정밀 작업 및 다양한 취미 활동" : "Precision tasks and diverse hobbies including electronic assembly and drawing" },
+            ].map((u, i) => (
+              <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100 text-center">
+                <div className="text-4xl mb-4">{u.icon}</div>
+                <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-[#006972]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-4">{isKo ? "기술 혁신을 직접 경험해보세요" : "Experience the Innovation Firsthand"}</h2>
+          <p className="text-white/60 mb-8 text-sm">
+            {isKo ? "리파인은 단순한 판매를 넘어 최적화된 기술 지원 및 커스텀 솔루션을 제공합니다." : "Refind goes beyond sales — we provide optimized technical support and custom solutions."}
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href={`/${locale}/inquiry`}
+              className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
+              {isKo ? "협업 문의하기" : "Contact Us"}
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

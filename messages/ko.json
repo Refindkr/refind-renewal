@@ -2,8 +2,9 @@
   "nav": {
     "products": "제품",
     "robotHand": "로봇핸드",
+    "prosthetic": "전자의수",
     "collaborativeRobot": "협동로봇",
-    "physicalAI": "피지컬 AI",
+    "physicalAI": "피지컬 AI / BCI",
     "humanoid": "휴머노이드 로봇",
     "bodyEnhancement": "신체증강기기",
     "about": "회사소개",

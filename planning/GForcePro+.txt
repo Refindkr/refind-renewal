@@ -1,0 +1,52 @@
+근전도 측정 암밴드(GForcePro+)
+## GForcePro+
+
+- 8채널 건식 근전도
+- 1개의 IMU
+- Raw 근전도 신호 획득 (전용 동글 사용)
+- Raw IMU 신호 (전용 동글 사용)
+- 전용 APP에서 최대 16까지 동작 구분 가능
+- 다양한 SDK 제공
+- gForceJoint(별도 구매) 이용시 아두이노 보드와 연동 가능
+
+## 기능
+
+- 전용앱은 http://gforce-portal.oymotion.com에서 다운로드 가능
+- 앱설치 시 설정메뉴에서 기본 언어를 영어로 설정되어 있어야 앱언어가 영어로 설치
+- 사용할 근전도 수를 지정 가능(최대 8개)
+- 동작 학습시 하나의 동작을 30초 동안 반복해야하며 최소 5회 이상 동일한 동작 반복
+- 학습 후 일부 스마트폰과 페어링이 안된는 경우 앱을 껐다 켜거나 전원을 껐다 켜면 다시 연결 가능
+
+## 암밴드 착용 방법
+
+- 원하는 부위에 착용
+- 다만 전극이 피부에 전부 닿아야 함
+
+## 기타
+
+- 방수가 되지 않음
+- 사용하고 난 후 피부에 표시 가능성
+
+![근전도 측정 암밴드(GforcePro+) - 8ch 근전도와 1 IMU 내장된 근전도 암밴드](attachment:f090fc99-0ae0-4a17-8439-79b9812e0420:11278931-3264-42ee-aacd-968d74d97f98.png)
+
+![근전도 암밴드 (GFocePro+) - 앱 화면](attachment:f2fa33f6-0186-448c-b4c3-7a691af292c5:a3a4d460-a95d-4ec9-a96b-226c619d20e0.png)
+
+![근전도 암밴드 (GFocePro+) - 앱 화면](https://prod-files-secure.s3.us-west-2.amazonaws.com/9c73c4b6-e8fc-43af-b0b7-82658bcf2651/823be913-d315-468b-a025-05c8258a514e/ca924a95-d976-4528-a39e-b503938eaacd.png)
+
+![근전도 암밴드 (GFocePro+) - 구성품](attachment:1676ba9d-257f-42c2-8009-568eda3cbb84:0b594ba5-1a00-47b0-ac27-61380a0b1607.png)
+
+# **관련참고자료**
+
+- Standford University ARMLab
+    - https://arm.stanford.edu/research/robotic-intent-estimation/
+    - https://github.com/armlabstanford/proact (https://github.com/armlabstanford/proact)
+
+https://www.youtube.com/watch?v=Il9N8hQZjtg
+
+https://www.youtube.com/watch?v=nDoYPyPyk1g
+
+# ⬇️ 자료다운로드 ⬇️
+
+[EMG_Armband_GFORCEPRO.pdf](https://prod-files-secure.s3.us-west-2.amazonaws.com/9c73c4b6-e8fc-43af-b0b7-82658bcf2651/22d3786c-4fdf-4774-b0cd-8827ff82e1b7/EMG_Armband_GFORCEPRO.pdf)
+
+# [**문의하기 >**](https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA)

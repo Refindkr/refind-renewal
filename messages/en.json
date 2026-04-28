@@ -2,8 +2,9 @@
   "nav": {
     "products": "Products",
     "robotHand": "Robot Hand",
+    "prosthetic": "Prosthetic Hand",
     "collaborativeRobot": "Collaborative Robot",
-    "physicalAI": "Physical AI",
+    "physicalAI": "Physical AI / BCI",
     "humanoid": "Humanoid Robot",
     "bodyEnhancement": "Body Enhancement",
     "about": "About",

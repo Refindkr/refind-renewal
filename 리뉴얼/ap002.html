@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    :root {
+      --color-text-primary: #111111;
+      --color-text-secondary: #4B5563;
+      --color-text-tertiary: #9CA3AF;
+      --color-border-primary: #E5E7EB;
+      --color-border-secondary: #D1D5DB;
+      --color-border-tertiary: #F3F4F6;
+      --color-background-primary: #FFFFFF;
+      --color-background-secondary: #F9FAFB;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --font-sans: 'Manrope', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--color-text-primary); background-color: #fff; line-height: 1.6; }
+    .doc { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem; }
+    
+    .cover { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 2.5rem; margin-bottom: 2rem; background: var(--color-background-primary); box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    .cr { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+    .gem { width: 32px; height: 32px; border-radius: 9px; background: #0AABBA; display: flex; align-items: center; justify-content: center; font-size: 16px; color: white; }
+    
+    .sec { margin-bottom: 2.5rem; }
+    .sl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: #0AABBA; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border-tertiary); }
+    
+    .card { background: var(--color-background-primary); border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-bottom: 0.75rem; }
+    .ch { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.75rem; }
+    .ci { width: 36px; height: 36px; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .ct { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .cd { font-size: 13px; color: var(--color-text-secondary); }
+    
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    
+    .sub { padding: 1rem; background: var(--color-background-secondary); border-radius: var(--border-radius-md); margin-bottom: 0.75rem; }
+    .st { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--color-text-primary); }
+    
+    .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; vertical-align: middle; text-transform: uppercase; }
+    .b-teal { background: #E6F7F8; color: #0AABBA; }
+    .b-orange { background: #FFF7ED; color: #EA580C; }
+    .b-blue { background: #EFF6FF; color: #2563EB; }
+    
+    .dr { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--color-border-tertiary); }
+    .dr:last-child { border-bottom: none; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: #0AABBA; flex-shrink: 0; margin-top: 8px; }
+    .dt { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+    .dt strong { color: var(--color-text-primary); font-weight: 600; }
+
+    .hero-img { width: 100%; border-radius: 12px; margin-top: 1.5rem; border: 1px solid var(--color-border-tertiary); overflow: hidden; }
+    .hero-img img { width: 100%; display: block; filter: brightness(0.95); }
+
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+    .spec-table th { padding: 12px; text-align: left; background: var(--color-background-secondary); color: var(--color-text-secondary); font-weight: 600; border-bottom: 1px solid var(--color-border-tertiary); }
+    .spec-table td { padding: 12px; border-bottom: 1px solid var(--color-border-tertiary); color: var(--color-text-secondary); }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table td:first-child { font-weight: 600; color: var(--color-text-primary); width: 30%; }
+
+    .cta-button { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: 1px solid var(--color-border-secondary); }
+    .cta-primary { background: #111; color: #fff; border-color: #111; }
+    .cta-secondary { background: #fff; color: #111; }
+
+    @media(max-width:600px) { .g2, .g3 { grid-template-columns: 1fr; } .doc { padding: 1.5rem 1rem; } }
+  </style>
+</head>
+<body>
+<div class="doc">
+<!-- Section 1: Hero Section -->
+<div class="cover">
+<div class="cr">
+<div class="gem"><span class="material-symbols-outlined" style="font-size: 18px;">precision_manufacturing</span></div>
+<span style="font-size: 14px; font-weight: 700; color: rgb(10, 171, 186); letter-spacing: 1px;" class="">TACTILE INTELLIGENCE</span>
+</div>
+<h1 style="font-size: 32px; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -1px;" class="">[PRD] Refind AP002 상세 페이지 기획안</h1>
+<p style="font-size: 15px; color: var(--color-text-secondary); margin-bottom: 1.5rem; max-width: 640px;" class="">
+      로봇에게 '촉각'을 부여하다. 3D 포스 센서 매트릭스와 11x5 팜(Palm) 센서로 구현하는 차세대 고정밀 센싱 솔루션, ROHand AP002.
+    </p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem">
+<div class="cta-button cta-primary" style="">기술 사양서 다운로드</div>
+<div class="cta-button cta-secondary" style="">협업 문의하기</div>
+</div>
+<div class="hero-img">
+<img alt="Refind AP002 Hero Image" src="https://lh3.googleusercontent.com/aida/ADBb0uhwTN8xJAoXbMFKPdTbJZBFKKu-WooUbmkGrjA6qOfWyLREwqoqJ_YIjJ0MP1nGfMZobL82Bn8aIBVchcRQQ08hG4ztR1QFDyx9tY0VvND6ZlXDs_0vr6LnU8WxKDba9vr7elKrn0Pn-lmE1_vM5xEC6GVRAZPpaTMGUEaIG_smXnVIIdVxyfuuFuYiXN4AohXD9jsfiBEqyYVQRifO0b5oJqqWNHtxhhLYxJZYQ0-2CuQVuUSNNVeW2_tO-BF2zw88UuVlkirIxlc" class="" style="">
+<div style="padding: 12px; background: rgb(249, 250, 251); border-top: 1px solid rgb(243, 244, 246); font-size: 11px; color: var(--color-text-tertiary); text-align: center;" class="">
+        비주얼 컨셉: 다크 모드 배경 내 3D 포스 센서 매트릭스 Heatmap 시각화
+      </div>
+</div>
+</div>
+<!-- Section 2: Core Value -->
+<div class="sec">
+<div class="sl" style="">02 · Core Value</div>
+<div class="g3">
+<div class="card">
+<div class="ch"><div class="ci" style="background:#E6F7F8;color:#0AABBA"><span class="material-symbols-outlined" style="">layers</span></div></div>
+<div class="ct" style="">Multidimensional</div>
+<div class="cd" style="">손가락 끝 3D 포스 센서와 손바닥 고밀도 도트 매트릭스로 인간 수준의 촉각 데이터 수집.</div>
+</div>
+<div class="card">
+<div class="ch"><div class="ci" style="background:#FFF7ED;color:#EA580C"><span class="material-symbols-outlined" style="">speed</span></div></div>
+<div class="ct" style="">Ultra-Responsive</div>
+<div class="cd" style="">0.7초의 구동 속도와 6자유도(DOF) 메커니즘으로 실시간 피드백 제어 최적화.</div>
+</div>
+<div class="card">
+<div class="ch"><div class="ci" style="background:#EFF6FF;color:#2563EB"><span class="material-symbols-outlined" style="">hub</span></div></div>
+<div class="ct" style="">Versatile Connectivity</div>
+<div class="cd" style="">UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장.</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Technical Deep Dive -->
+<div class="sec">
+<div class="sl" style="">03 · Technical Deep Dive</div>
+<div class="card">
+<div class="st" style="">3D 포스 &amp; 팜 매트릭스 센서</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style=""><strong>손가락 센싱</strong> — 말단 부위 3D 포스 센싱(방향 분해능 1º) 및 기절골 수직항력 측정</div>
+</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style=""><strong>손바닥 매트릭스</strong> — 11x5 도트 매트릭스 배치로 비정형 물체의 접촉면 정밀 파악 (150Hz)</div>
+</div>
+</div>
+<div class="card">
+<div class="st" style="">정밀 제어 및 데이터 출력</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style=""><strong>실시간 데이터 스트림</strong> — 관절별 각도, 속도, 토크 및 고차원 촉각 데이터 출력 (AI 학습 최적화)</div>
+</div>
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style=""><strong>핑거 패드 기능</strong> — 터치스크린 조작이 가능한 핑거 패드 인터페이스 지원</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Connectivity -->
+<div class="sec">
+<div class="sl" style="">04 · Connectivity &amp; Development</div>
+<div class="g2">
+<div class="sub">
+<div class="st" style="">Protocol Support</div>
+<div class="dt" style="">Serial, ModBus-RTU, CAN 프로토콜 완벽 지원. 기존 레거시 시스템과의 즉각적인 통합이 가능합니다.</div>
+</div>
+<div class="sub">
+<div class="st" style="">Open SDK Environment</div>
+<div class="dt" style="">ROS 및 ROS2 플랫폼을 위한 전용 SDK 제공. 연구원의 2차 개발 편의성을 극대화합니다.</div>
+</div>
+</div>
+<div class="card">
+<div class="dr">
+<div class="dot"></div>
+<div class="dt" style=""><strong>통합 케이블 설계</strong> — CAN FD 지원으로 복잡한 배선 없이 안정적인 통신 인프라 구축</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Use Cases -->
+<div class="sec">
+<div class="sl" style="">05 · Use Cases</div>
+<div class="card">
+<div class="dr">
+<div class="dt" style="width: 100%;">
+<div style="font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;" class="">AI 촉각 학습 연구소</div>
+          물체의 질감, 강도, 형태를 학습하여 인간 수준의 정교한 파지 알고리즘을 개발하는 핵심 도구로 활용됩니다.
+        </div>
+</div>
+<div class="dr">
+<div class="dt" style="width: 100%;">
+<div style="font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;" class="">정밀 조립 자동화 공정</div>
+          미세한 힘 조절이 필수적인 전자 부품 조립 및 실시간 품질 검수 라인에 최적화된 감각 피드백을 제공합니다.
+        </div>
+</div>
+<div class="dr">
+<div class="dt" style="width: 100%;">
+<div style="font-weight: 700; color: var(--color-text-primary); margin-bottom: 4px;" class="">차세대 휴머노이드 인터페이스</div>
+          인간과 유사한 촉각 피드백을 통해 로봇과 환경 간의 상호작용 지능을 한 단계 높입니다.
+        </div>
+</div>
+</div>
+</div>
+<!-- Section 6: Product Lineup & Specs -->
+<div class="sec">
+<div class="sl" style="">06 · Product Lineup &amp; Specs</div>
+<div class="card" style="padding:0; overflow:hidden">
+<table class="spec-table">
+<thead>
+<tr>
+<th class="" style="">사양 항목</th>
+<th class="" style=""><br></th>
+<th class="" style="">Refind AP001</th>
+<th style="background: rgb(230, 247, 248); color: rgb(10, 171, 186);" class="">Refind AP002</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="" style="">센서 밀도 (Palm)</td>
+<td class="" style=""><br></td>
+<td class="" style="">11x5 Matrix</td>
+<td style="font-weight: 700; color: rgb(10, 171, 186);" class="">11x5 Matrix</td>
+</tr>
+<tr>
+<td class="" style="">3D 포스 센싱</td>
+<td class="" style=""><br></td>
+<td class="" style=""><span style="color: rgb(10, 171, 186); font-weight: 700;">Finger + Palm</span></td>
+<td style="font-weight: 700; color: rgb(10, 171, 186);" class="">Finger + Palm</td>
+</tr>
+<tr>
+<td class="" style="">샘플링 속도</td>
+<td class="" style=""><br></td>
+<td class="" style="">150Hz</td>
+<td style="font-weight: 700; color: rgb(10, 171, 186);" class="">150Hz</td>
+</tr>
+<tr>
+<td class="" style="">인터페이스</td>
+<td class="" style=""><br></td>
+<td class="" style="">UART,RS485,CAN FD</td>
+<td style="font-weight: 700; color: rgb(10, 171, 186);" class=""><span style="color: rgb(75, 85, 99); font-weight: 400;">UART,RS485,CAN FD</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 7: Trust & Contact -->
+<div class="sec">
+<div class="sl" style="">07 · Trust &amp; Contact</div>
+<div class="card">
+<div class="ch">
+<div class="ci" style="background:var(--color-background-secondary);color:var(--color-text-secondary)"><span class="material-symbols-outlined" style="">verified</span></div>
+<div>
+<div class="ct" style=""><br></div>
+<div class="cd" style=""><br></div>
+</div>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px">
+<span class="badge b-teal" style=""><br></span>
+<span class="badge b-teal" style=""><br></span>
+<span class="badge b-teal" style=""><br></span>
+<span class="badge b-teal" style=""><br></span>
+</div>
+<div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--color-border-tertiary); display:flex; justify-content:space-between; align-items:center">
+<div style="font-size: 13px; color: var(--color-text-secondary);" class="">
+<strong>Refind Robotics</strong> | 2024 Product Plan
+        </div>
+<div class="cta-button cta-primary" style="padding: 8px 16px;">
+          기술 미팅 신청 <span class="material-symbols-outlined" style="font-size: 14px;">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body><whale-grammar data-role="tooltip"></whale-grammar><whale-grammar data-role="mirror"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar><whale-grammar data-role="underline"></whale-grammar></html>
