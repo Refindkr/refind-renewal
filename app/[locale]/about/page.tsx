@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
@@ -48,8 +49,14 @@ export default async function AboutPage({ params }: PageProps) {
 
             <div className="bg-gray-50 rounded-3xl p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">{t("ci.title")}</h3>
-              <div className="flex items-center justify-center mb-6">
-                <span className="text-6xl font-black text-primary-400">rf</span>
+              <div className="flex items-center justify-center mb-6 py-4">
+                <Image
+                  src="/logo.png"
+                  alt="Refind Logo"
+                  width={200}
+                  height={67}
+                  className="h-16 w-auto object-contain"
+                />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">{t("ci.description")}</p>
             </div>

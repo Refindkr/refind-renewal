@@ -18,7 +18,7 @@
 | 인증 | NextAuth.js v4 (Credentials Provider) |
 | ORM | Prisma v5 |
 | DB (개발) | SQLite (`prisma/dev.db`) |
-| DB (배포) | PostgreSQL (Supabase 예정) |
+| DB (배포) | PostgreSQL (Supabase) |
 
 ---
 
@@ -27,56 +27,112 @@
 ```
 refind-renewal/
 ├── app/
-│   ├── layout.tsx                          # 루트 레이아웃 (/ → /ko 리다이렉트)
-│   ├── page.tsx                            # 루트 페이지 (/ → /ko 리다이렉트)
+│   ├── layout.tsx
+│   ├── page.tsx                            # / → /ko 리다이렉트
 │   ├── [locale]/
-│   │   ├── layout.tsx                      # 로케일 레이아웃 (Navbar, Footer, Provider 포함)
-│   │   ├── globals.css                     # 전역 스타일 (Tailwind + Pretendard 폰트)
+│   │   ├── layout.tsx                      # Navbar, Footer, Provider
+│   │   ├── globals.css
 │   │   ├── page.tsx                        # 홈페이지
 │   │   ├── about/page.tsx                  # 회사소개
 │   │   ├── inquiry/
 │   │   │   ├── page.tsx                    # 문의게시판 목록
-│   │   │   ├── new/page.tsx                # 문의 작성 (로그인 필요)
+│   │   │   ├── new/page.tsx                # 문의 작성
 │   │   │   └── [id]/page.tsx              # 문의 상세
 │   │   ├── products/
-│   │   │   ├── robot-hand/page.tsx         # 로봇핸드
-│   │   │   ├── collaborative-robot/page.tsx # 협동로봇
-│   │   │   ├── physical-ai/page.tsx        # 피지컬 AI
-│   │   │   ├── humanoid/page.tsx           # 휴머노이드 로봇
-│   │   │   └── body-enhancement/page.tsx   # 신체증강기기
+│   │   │   ├── robot-hand/
+│   │   │   │   ├── page.tsx               # 로봇핸드 카테고리
+│   │   │   │   ├── a001/page.tsx
+│   │   │   │   ├── ap001/page.tsx
+│   │   │   │   ├── ap002/page.tsx
+│   │   │   │   └── lite/page.tsx
+│   │   │   ├── collaborative-robot/
+│   │   │   │   ├── page.tsx               # 협동로봇 카테고리
+│   │   │   │   ├── realman/page.tsx
+│   │   │   │   ├── elephant-robotics/page.tsx
+│   │   │   │   └── myagv/page.tsx
+│   │   │   ├── humanoid/
+│   │   │   │   ├── page.tsx               # 휴머노이드 카테고리
+│   │   │   │   ├── realbot/page.tsx
+│   │   │   │   ├── embodied-dual-arm/page.tsx
+│   │   │   │   └── lifting-platform/page.tsx
+│   │   │   ├── guohua-robot/page.tsx       # Guohua Robot (휴머노이드 서브)
+│   │   │   ├── body-enhancement/
+│   │   │   │   ├── page.tsx               # 신체증강기기 카테고리
+│   │   │   │   ├── ore-3000/page.tsx
+│   │   │   │   └── oyfm-7000/page.tsx
+│   │   │   ├── prosthetic/
+│   │   │   │   ├── page.tsx               # 전자의수 카테고리 (신체증강기기 서브)
+│   │   │   │   ├── ohand/page.tsx
+│   │   │   │   └── ohandlite/page.tsx
+│   │   │   ├── robot-support/page.tsx      # 로봇 보조기 (신체증강기기 서브)
+│   │   │   └── physical-ai/
+│   │   │       ├── page.tsx               # 피지컬 AI 카테고리
+│   │   │       ├── gforcepro/page.tsx
+│   │   │       └── bcibmi/page.tsx
 │   │   └── auth/
-│   │       ├── login/page.tsx              # 로그인
-│   │       └── register/page.tsx           # 회원가입
+│   │       ├── login/page.tsx
+│   │       └── register/page.tsx
 │   └── api/
-│       ├── auth/[...nextauth]/route.ts     # NextAuth API
-│       ├── register/route.ts               # 회원가입 API
+│       ├── auth/[...nextauth]/route.ts
+│       ├── register/route.ts
 │       └── inquiry/
-│           ├── route.ts                    # 문의 목록/작성 API
-│           └── [id]/route.ts              # 문의 상세 API
+│           ├── route.ts
+│           └── [id]/route.ts
 ├── components/
-│   ├── SessionProvider.tsx                 # NextAuth 세션 클라이언트 프로바이더
+│   ├── SessionProvider.tsx
 │   ├── layout/
-│   │   ├── Navbar.tsx                      # 네비게이션 바 (드롭다운, 모바일 메뉴, 언어 전환)
-│   │   └── Footer.tsx                      # 푸터
+│   │   ├── Navbar.tsx                      # 대메뉴 + 호버 서브메뉴
+│   │   └── Footer.tsx
 │   └── ui/
-│       └── ProductPage.tsx                 # 제품 페이지 공통 컴포넌트
+│       ├── ProductPage.tsx
+│       ├── ProductCategoryPage.tsx
+│       └── AdminAnswerForm.tsx
 ├── i18n/
-│   ├── routing.ts                          # 로케일 라우팅 설정 (ko, en)
-│   └── request.ts                          # next-intl 서버 설정
+│   ├── routing.ts
+│   └── request.ts
 ├── lib/
-│   ├── prisma.ts                           # Prisma 클라이언트 싱글톤
-│   └── auth.ts                             # NextAuth 옵션 (authOptions)
+│   ├── prisma.ts
+│   └── auth.ts
 ├── messages/
-│   ├── ko.json                             # 한국어 번역
-│   └── en.json                             # 영어 번역
+│   ├── ko.json
+│   └── en.json
 ├── prisma/
-│   ├── schema.prisma                       # DB 스키마 (User, Inquiry, Answer)
-│   └── dev.db                              # SQLite DB 파일 (개발용)
-├── .env                                    # 환경변수
-├── middleware.ts                           # next-intl 미들웨어 (로케일 라우팅)
-├── next.config.ts                          # Next.js + next-intl 설정
-├── tailwind.config.ts                      # Tailwind 설정 (primary 컬러: #669DFD)
+│   ├── schema.prisma
+│   └── dev.db
+├── public/
+│   ├── logo.png                            # 리파인 로고
+│   └── products/
+│       ├── robot-hand/
+│       ├── prosthetic/
+│       ├── collaborative-robot/
+│       ├── humanoid/
+│       ├── body-enhancement/
+│       ├── sensors/
+│       └── platform/
+├── img/                                    # 원본 이미지 소스 폴더 (public에 복사해서 사용)
+├── .env
+├── middleware.ts
+├── next.config.ts
+├── tailwind.config.ts
 └── tsconfig.json
+```
+
+---
+
+## 네비게이션 구조 (현재)
+
+```
+[로봇핸드]          [협동로봇]              [휴머노이드 로봇]         [신체증강기기]          [피지컬 AI]     | [회사소개] [게시판*]
+├ ROH-A001         ├ Realman              ├ Realbot               전자의수 ─────────     ├ gForcePro+
+├ ROH-AP001        ├ Elephant Robotics    ├ Guohua Robot          ├ Ohand               └ BCI/BMI
+├ ROH-AP002        └ MyAGV               ├ Embodied Dual Arm      ├ OhandLite
+└ ROH-Lite                               └ Lifting Platform       ─────────────
+                                                                  ├ ORE-3000
+                                                                  ├ OYFM-7000
+                                                                  ─────────────
+                                                                  └ 로봇 보조기
+
+* 게시판은 아직 "문의게시판" 단일 → 변경 예정
 ```
 
 ---
@@ -85,19 +141,37 @@ refind-renewal/
 
 ```
 /                          → /ko (자동 리다이렉트)
-/ko                        홈 (한국어)
-/en                        홈 (영어)
+/[locale]                  홈
 /[locale]/about            회사소개
 /[locale]/products/robot-hand
+/[locale]/products/robot-hand/a001
+/[locale]/products/robot-hand/ap001
+/[locale]/products/robot-hand/ap002
+/[locale]/products/robot-hand/lite
 /[locale]/products/collaborative-robot
-/[locale]/products/physical-ai
+/[locale]/products/collaborative-robot/realman
+/[locale]/products/collaborative-robot/elephant-robotics
+/[locale]/products/collaborative-robot/myagv
 /[locale]/products/humanoid
+/[locale]/products/humanoid/realbot
+/[locale]/products/humanoid/embodied-dual-arm
+/[locale]/products/humanoid/lifting-platform
+/[locale]/products/guohua-robot
 /[locale]/products/body-enhancement
+/[locale]/products/body-enhancement/ore-3000
+/[locale]/products/body-enhancement/oyfm-7000
+/[locale]/products/prosthetic
+/[locale]/products/prosthetic/ohand
+/[locale]/products/prosthetic/ohandlite
+/[locale]/products/robot-support
+/[locale]/products/physical-ai
+/[locale]/products/physical-ai/gforcepro
+/[locale]/products/physical-ai/bcibmi
 /[locale]/inquiry          문의게시판 목록
 /[locale]/inquiry/new      문의 작성 (로그인 필요)
 /[locale]/inquiry/[id]     문의 상세
-/[locale]/auth/login       로그인
-/[locale]/auth/register    회원가입
+/[locale]/auth/login
+/[locale]/auth/register
 ```
 
 ---
@@ -121,7 +195,7 @@ model User {
   id        String   @id @default(cuid())
   name      String
   email     String   @unique
-  password  String   // bcrypt 해시
+  password  String
   company   String?
   phone     String?
   role      String   @default("user")  // "user" | "admin"
@@ -132,11 +206,11 @@ model User {
 
 model Inquiry {
   id        String   @id @default(cuid())
-  category  String   // product | purchase | as | partnership | other
+  category  String
   subject   String
   content   String
   isPrivate Boolean  @default(false)
-  status    String   @default("pending")  // pending | answered
+  status    String   @default("pending")
   authorId  String
   answer    Answer?
 }
@@ -154,9 +228,9 @@ model Answer {
 ## 환경변수 (.env)
 
 ```env
-DATABASE_URL="file:./dev.db"                    # 개발: SQLite
-NEXTAUTH_SECRET="변경필요-랜덤문자열"              # 배포 시 반드시 변경
-NEXTAUTH_URL="http://localhost:3000"             # 배포 시 실제 도메인으로 변경
+DATABASE_URL="postgresql://..."          # Supabase PostgreSQL
+NEXTAUTH_SECRET="..."                    # 랜덤 base64 문자열
+NEXTAUTH_URL="http://localhost:3000"     # 배포 시 실제 도메인으로 변경
 ```
 
 ---
@@ -169,53 +243,50 @@ npm run dev
 # → http://localhost:3000
 ```
 
-## 빌드
-
-```bash
-npm run build
-npm run start
-```
-
-## DB 초기화 / 스키마 변경 시
-
-```bash
-npx prisma db push       # 스키마 → DB 동기화
-npx prisma studio        # DB GUI 관리 도구
-```
-
 ---
 
 ## 디자인 시스템
 
 - **Primary 색상**: `#669DFD` (파란색 계열)
 - **폰트**: Pretendard Variable (CDN), Inter (폴백)
-- **다크 배경**: 히어로/헤더 섹션 `from-gray-900 to-gray-800`
+- **히어로**: 블랙 배경 + 우측 제품 이미지 (invert 처리)
 - **카드 스타일**: 흰 배경 + `rounded-2xl` + 얇은 보더
 
 ---
 
-## 배포 진행 현황
+## 배포 현황
 
 ### ✅ 완료
 - [x] Next.js 프로젝트 생성 및 전체 코드 작성
-- [x] 로컬 개발 서버 실행 확인 (`http://localhost:3000`)
+- [x] 로컬 개발 서버 실행 확인
 - [x] GitHub 저장소 생성 및 코드 업로드
   - 저장소: https://github.com/taeseong88/refind-renewal
-- [x] Supabase 프로젝트 생성
-  - 프로젝트명: refind-renewal
-  - Region: Northeast Asia (Seoul)
-  - DB 호스트: `aws-1-ap-northeast-2.pooler.supabase.com`
-- [x] Prisma 스키마 SQLite → PostgreSQL 변경
-- [x] `.env` DATABASE_URL Supabase Session Pooler(5432)로 교체
-  - 연결 방식: Session Pooler (포트 5432) — Transaction(6543)은 prisma db push 불가
-- [x] `npx prisma db push` 로 Supabase DB 테이블 생성 완료
+- [x] Supabase 프로젝트 생성 및 DB 테이블 생성
+- [x] 전체 제품 페이지 (카테고리 + 상세) 작성
+- [x] 네비게이션 대메뉴 + 호버 서브메뉴 구현
+- [x] 실제 로고 이미지 적용 (Navbar, About 페이지)
+- [x] 홈 히어로 배경 이미지 적용
 
-### ⏳ 다음 단계
-- [ ] Vercel 배포
+### 📋 다음 작업 (우선순위 순)
+- [ ] **게시판 메뉴 개편**
+  - 네비바 "문의게시판" → "게시판"으로 변경
+  - 게시판 하위 메뉴 3개 추가: 문의게시판 / 공지사항 / 카드뉴스
+  - 공지사항 페이지 신규 제작
+  - 카드뉴스 페이지 신규 제작
+- [ ] **이미지 교체**
+  - ORE-3000 이미지 변경 (현재 HDE.jpg 잘못 사용 중)
+  - OYFM-7000 이미지 변경 (현재 HDE.jpg 잘못 사용 중)
+- [ ] **SEO 설정**
+  - `app/sitemap.ts` 생성
+  - `app/robots.ts` 생성
+  - 각 페이지별 `metadata` (title, description) 개별 설정
+- [ ] **Vercel 배포**
   - vercel.com → GitHub 저장소 연결
   - 환경변수 설정 (DATABASE_URL, NEXTAUTH_SECRET, NEXTAUTH_URL)
-- [ ] 배포 완료 후 URL 확인
-- [ ] Supabase DB 비밀번호 변경 (보안)
+- [ ] **배포 후 작업**
+  - 구글서치콘솔 사이트맵 제출
+  - Supabase DB 비밀번호 변경 (보안)
+  - CLAUDE.md NEXTAUTH_URL 실제 도메인으로 업데이트
 
 ---
 
@@ -225,12 +296,7 @@ npx prisma studio        # DB GUI 관리 도구
 |------|--------|------|
 | 프론트+백엔드 | Vercel | Next.js 공식 플랫폼, 무료 |
 | 데이터베이스 | Supabase (PostgreSQL) | 무료 500MB |
-| 도메인 | 카페24 도메인 연결 가능 | DNS A레코드 변경 |
-
-### Supabase 전환 시 변경 사항
-1. `.env`의 `DATABASE_URL`을 Supabase PostgreSQL 연결 문자열로 교체
-2. `npx prisma db push` 실행
-3. `prisma/schema.prisma`의 `provider = "sqlite"` → `"postgresql"` 변경
+| 도메인 | 카페24 도메인 연결 | DNS A레코드 변경 |
 
 ---
 
