@@ -49,6 +49,20 @@ export default function Navbar({ locale }: NavbarProps) {
       ],
     },
     {
+      href: `/${locale}/products/physical-ai`,
+      label: t("physicalAI"),
+      icon: "🧠",
+      desc: isKo ? "BCI·촉각 센서 솔루션" : "BCI & tactile sensor solutions",
+      children: [
+        { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI" },
+        { href: `/${locale}/products/physical-ai/eeg`, label: "EEG" },
+        { href: `/${locale}/products/physical-ai/gforcepro`, label: isKo ? "근전도 측정 암밴드" : "EMG Armband" },
+        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG" },
+        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 포스센서" : "Tashan Force Sensor" },
+        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR" },
+      ],
+    },
+    {
       href: `/${locale}/products/humanoid`,
       label: t("humanoid"),
       icon: "🧑‍🦯",
@@ -72,20 +86,6 @@ export default function Navbar({ locale }: NavbarProps) {
         { href: `/${locale}/products/body-enhancement/ore-3000`, label: "ORE-3000" },
         { href: `/${locale}/products/body-enhancement/oyfm-7000`, label: "OYFM-7000" },
         { href: `/${locale}/products/robot-support`, label: isKo ? "로봇 보조기" : "Robot Support" },
-      ],
-    },
-    {
-      href: `/${locale}/products/physical-ai`,
-      label: t("physicalAI"),
-      icon: "🧠",
-      desc: isKo ? "BCI·촉각 센서 솔루션" : "BCI & tactile sensor solutions",
-      children: [
-        { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI" },
-        { href: `/${locale}/products/physical-ai/eeg`, label: "EEG" },
-        { href: `/${locale}/products/physical-ai/gforcepro`, label: isKo ? "근전도 측정 암밴드" : "EMG Armband" },
-        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG" },
-        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 포스센서" : "Tashan Force Sensor" },
-        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR" },
       ],
     },
   ];
