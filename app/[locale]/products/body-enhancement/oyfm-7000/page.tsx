@@ -85,7 +85,7 @@ export default async function OYFM7000Page({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/body-enhancement/HDE.jpg" alt="OYFM-7000" fill
+            <Image src="/products/body-enhancement/OYFM-7000.jpeg" alt="OYFM-7000" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

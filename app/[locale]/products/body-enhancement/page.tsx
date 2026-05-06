@@ -39,7 +39,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
           tagline: isKo
             ? "상지 재활 및 근력 증강을 위한 로봇 운동기. 4채널 EMG 내장, 3가지 운동 모드."
             : "Robotic exercise device for upper limb rehabilitation and strength enhancement. 4-channel EMG, 3 exercise modes.",
-          image: "/products/body-enhancement/HDE.jpg",
+          image: "/products/body-enhancement/ORE-3000.jpeg",
           tags: isKo ? ["4채널 EMG", "3운동 모드", "무선"] : ["4ch EMG", "3 Exercise Modes", "Wireless"],
         },
         {
@@ -49,7 +49,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
           tagline: isKo
             ? "손가락 재활·보조를 위한 경량 외골격. 4채널 EMG로 운동 의도 파악, 0°~70° 운동 범위."
             : "Lightweight exoskeleton for finger rehabilitation and assistance. 4-channel EMG intent detection, 0°–70° range of motion.",
-          image: "/products/body-enhancement/HDE.jpg",
+          image: "/products/body-enhancement/OYFM-7000.jpeg",
           tags: isKo ? ["손가락 재활", "EMG 보조", "경량"] : ["Finger Rehab", "EMG Assist", "Lightweight"],
         },
       ]}

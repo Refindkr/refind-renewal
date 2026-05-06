@@ -104,7 +104,7 @@ export default async function ORE3000Page({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/body-enhancement/HDE.jpg" alt="ORE-3000" fill
+            <Image src="/products/body-enhancement/ORE-3000.jpeg" alt="ORE-3000" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

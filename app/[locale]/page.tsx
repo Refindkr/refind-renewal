@@ -63,7 +63,7 @@ export default async function HomePage({ params }: PageProps) {
       title: tp("bodyEnhancement.title"),
       desc: tp("bodyEnhancement.description"),
       number: "05",
-      image: "/products/body-enhancement/HDE.jpg",
+      image: "/products/body-enhancement/ORE-3000.jpeg",
     },
     {
       href: `/${locale}/products/physical-ai`,
