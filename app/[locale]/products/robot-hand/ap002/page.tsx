@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "ROH-AP002 로봇핸드 (고성능 촉각)" : "ROH-AP002 Robot Hand (Tactile Intelligence)",
+    description: isKo
+      ? "3D 포스센서 + 11×5 팜 촉각 매트릭스로 인간 수준의 촉각 데이터 수집. 575g 경량 설계."
+      : "3D force sensor + 11×5 palm tactile matrix for human-level tactile data acquisition. 575g lightweight design.",
+  };
 }
 
 export default async function AP002Page({ params }: PageProps) {

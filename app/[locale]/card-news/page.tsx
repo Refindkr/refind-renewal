@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "카드뉴스" : "Card News",
+    description: isKo
+      ? "리파인의 제품과 기술을 쉽게 소개하는 카드뉴스. 로봇핸드, 전자의수, 협동로봇 등 최신 소식."
+      : "Card news introducing Refind products and technology in an easy-to-read format.",
+  };
 }
 
 export default async function CardNewsPage({ params }: PageProps) {

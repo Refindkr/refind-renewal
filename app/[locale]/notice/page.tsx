@@ -1,7 +1,20 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "공지사항" : "Notice",
+    description: isKo
+      ? "리파인주식회사 공지사항. 제품 업데이트, 회사 소식 등 최신 정보를 확인하세요."
+      : "Refind Inc. official notices. Check the latest product updates and company announcements.",
+    robots: { index: false },
+  };
 }
 
 export default async function NoticePage({ params }: PageProps) {

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "회사소개" : "About Us",
+    description: isKo
+      ? "리파인주식회사 회사 소개. Re(다시) + Find(찾다) — 역경 이후 자기 자신을 다시 발견하는 것을 돕는 첨단 로봇 기술 기업."
+      : "About Refind Inc. Re + Find — a cutting-edge robotics company helping people rediscover themselves after adversity.",
+  };
 }
 
 export default async function AboutPage({ params }: PageProps) {

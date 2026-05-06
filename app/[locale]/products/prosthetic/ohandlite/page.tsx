@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "OhandLite 경량 전자의수" : "OhandLite Lightweight Prosthetic Hand",
+    description: isKo
+      ? "기존 대비 27% 경량화(363.5g). 장시간 착용에 최적화된 2채널 EMG 전자의수."
+      : "27% lighter than standard (363.5g). 2-channel EMG prosthetic optimized for extended daily wear.",
+  };
 }
 
 export default async function OhandLitePage({ params }: PageProps) {

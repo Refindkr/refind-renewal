@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "GForcePro+ EMG 암밴드" : "GForcePro+ EMG Armband",
+    description: isKo
+      ? "8채널 건식 EMG + 9축 IMU 암밴드. 최대 16가지 제스처 인식 및 로봇 제어 연동."
+      : "8-channel dry EMG + 9-axis IMU armband. Up to 16 gesture recognition patterns with robot control integration.",
+  };
 }
 
 export default async function GForceProPage({ params }: PageProps) {

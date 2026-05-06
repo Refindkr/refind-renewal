@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "OYFM-7000 손가락 재활 외골격" : "OYFM-7000 Finger Rehabilitation Exoskeleton",
+    description: isKo
+      ? "손가락 재활·보조를 위한 경량 외골격. 4채널 EMG 운동 의도 감지, 0°~70° 운동 범위."
+      : "Lightweight exoskeleton for finger rehabilitation and assistance. 4-channel EMG intent detection, 0°–70° range of motion.",
+  };
 }
 
 export default async function OYFM7000Page({ params }: PageProps) {

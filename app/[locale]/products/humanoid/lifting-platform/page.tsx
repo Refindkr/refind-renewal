@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Lifting Platform 이동형 리프팅 플랫폼" : "Mobile Lifting Platform",
+    description: isKo
+      ? "이동형 리프팅 플랫폼. 다양한 로봇 팔과 결합해 이동·리프팅 자동화를 구현합니다."
+      : "Mobile lifting platform. Combine with various robot arms to implement mobility and lifting automation.",
+  };
 }
 
 export default async function LiftingPlatformPage({ params }: PageProps) {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -7,6 +8,18 @@ import { prisma } from "@/lib/prisma";
 interface PageProps {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ page?: string }>;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "문의게시판" : "Inquiry Board",
+    description: isKo
+      ? "리파인주식회사 문의게시판. 제품 구매, 기술 지원, 파트너십 등 다양한 문의를 남겨주세요."
+      : "Refind Inc. inquiry board. Leave inquiries about product purchases, technical support, partnerships, and more.",
+    robots: { index: false },
+  };
 }
 
 export default async function InquiryPage({ params, searchParams }: PageProps) {

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "ORE-3000 상지 재활 로봇" : "ORE-3000 Upper Limb Rehab Robot",
+    description: isKo
+      ? "상지 재활 및 근력 증강을 위한 로봇 운동기. 4채널 EMG 내장, 3가지 운동 모드 지원."
+      : "Robotic exercise device for upper limb rehabilitation and strength enhancement. 4-channel EMG, 3 exercise modes.",
+  };
 }
 
 export default async function ORE3000Page({ params }: PageProps) {

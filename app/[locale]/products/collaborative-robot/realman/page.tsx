@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "REALMAN 협동로봇" : "REALMAN Collaborative Robot",
+    description: isKo
+      ? "고정밀 6축 협동로봇. ROS2 지원 및 오픈 SDK 제공으로 연구소·스마트 팩토리 즉시 적용 가능."
+      : "High-precision 6-axis collaborative robot. ROS2 support and open SDK for instant research and industrial deployment.",
+  };
 }
 
 export default async function RealmanPage({ params }: PageProps) {

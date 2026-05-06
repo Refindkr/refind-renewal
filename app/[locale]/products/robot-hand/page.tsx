@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "로봇핸드" : "Robot Hand",
+    description: isKo
+      ? "리파인 로봇핸드 제품 라인업. 6자유도 11관절 와이어 구동 로봇핸드 — ROH-A001, ROH-AP001, ROH-AP002, ROH-Lite."
+      : "Refind robot hand product lineup. 6-DOF 11-joint wire-driven robot hands — ROH-A001, ROH-AP001, ROH-AP002, ROH-Lite.",
+  };
 }
 
 export default async function RobotHandPage({ params }: PageProps) {

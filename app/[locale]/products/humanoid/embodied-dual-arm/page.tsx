@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Embodied Dual Arm 양팔로봇" : "Embodied Dual Arm Robot",
+    description: isKo
+      ? "양팔 협업 로봇 플랫폼. 복잡한 조작·조립 작업을 위한 최적의 양팔 솔루션."
+      : "Dual-arm collaborative robot platform. The ideal dual-arm solution for complex manipulation and assembly tasks.",
+  };
 }
 
 export default async function EmbodiedDualArmPage({ params }: PageProps) {

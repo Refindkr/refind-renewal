@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Guohua Robot 서비스 휴머노이드" : "Guohua Robot Service Humanoid",
+    description: isKo
+      ? "서비스 특화 휴머노이드 로봇 LB-Daie 002. 고객 응대·안내·서비스 업무에 최적화된 AI 탑재 플랫폼."
+      : "Service-specialized humanoid robot LB-Daie 002. AI-powered platform optimized for customer interaction, guidance, and service operations.",
+  };
 }
 
 export default async function GuohuaRobotPage({ params }: PageProps) {

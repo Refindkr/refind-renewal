@@ -11,8 +11,25 @@ import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Refind - 리파인주식회사",
-  description: "로봇 기술 혁신으로 장애와 노화의 한계를 극복합니다",
+  title: {
+    default: "Refind | 리파인주식회사",
+    template: "%s | Refind 리파인주식회사",
+  },
+  description: "리파인주식회사 — 로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술로 장애와 노화의 한계를 극복합니다.",
+  keywords: ["리파인", "Refind", "로봇핸드", "전자의수", "협동로봇", "휴머노이드", "촉각센서", "BCI", "재활로봇"],
+  authors: [{ name: "리파인주식회사", url: "https://products.refind.kr" }],
+  creator: "리파인주식회사",
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "Refind 리파인주식회사",
+    title: "Refind | 리파인주식회사",
+    description: "로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술 솔루션",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function LocaleLayout({

@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "신체증강기기" : "Body Enhancement",
+    description: isKo
+      ? "리파인 신체증강기기 제품 라인업. EMG 기반 웨어러블 재활·증강 기기 — ORE-3000, OYFM-7000."
+      : "Refind body enhancement device lineup. EMG-based wearable rehabilitation and enhancement devices — ORE-3000, OYFM-7000.",
+  };
 }
 
 export default async function BodyEnhancementPage({ params }: PageProps) {

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Realbot 휴머노이드 로봇" : "Realbot Humanoid Robot",
+    description: isKo
+      ? "풀바디 휴머노이드 로봇. 고자유도 관절과 정밀 제어로 다양한 서비스·산업 작업 수행."
+      : "Full-body humanoid robot with high-DOF joints and precise control for diverse service and industrial tasks.",
+  };
 }
 
 export default async function RealbotPage({ params }: PageProps) {

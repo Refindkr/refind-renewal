@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "ROH-A001 로봇핸드 (표준형)" : "ROH-A001 Robot Hand (Standard)",
+    description: isKo
+      ? "6자유도 11관절 와이어 구동 로봇핸드. 최대 30kg 파워 그립. ROS2, Python, C++ SDK 지원."
+      : "6-DOF 11-joint wire-driven robot hand. Up to 30kg power grip. Supports ROS2, Python, C++ SDK.",
+  };
 }
 
 export default async function A001Page({ params }: PageProps) {

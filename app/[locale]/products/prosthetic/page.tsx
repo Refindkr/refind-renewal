@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "전자의수" : "Prosthetic Hand",
+    description: isKo
+      ? "리파인 전자의수 제품 라인업. AI 근전도 제어 지능형 전자의수 — Ohand, OhandLite."
+      : "Refind prosthetic hand lineup. AI myoelectric intelligent prosthetic hands — Ohand, OhandLite.",
+  };
 }
 
 export default async function ProstheticPage({ params }: PageProps) {

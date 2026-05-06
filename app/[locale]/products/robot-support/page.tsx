@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "로봇 보조기" : "Robot Support Device",
+    description: isKo
+      ? "장애 및 노화로 인한 신체 기능 저하를 보완하는 로봇 보조기. 재활과 일상 복귀를 돕는 웨어러블 솔루션."
+      : "Robot support devices that supplement physical function loss due to disability or aging. Wearable solutions for rehabilitation and daily life.",
+  };
 }
 
 export default async function RobotSupportPage({ params }: PageProps) {

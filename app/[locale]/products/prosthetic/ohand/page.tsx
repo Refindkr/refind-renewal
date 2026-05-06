@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Ohand AI 전자의수" : "Ohand AI Prosthetic Hand",
+    description: isKo
+      ? "8채널 EMG + AI 알고리즘으로 27가지 동작 구현. 배터리 12시간 지속. 전용 앱 연동."
+      : "8-channel EMG + AI algorithm for 27 motion patterns. 12-hour battery life with dedicated app integration.",
+  };
 }
 
 export default async function OhandPage({ params }: PageProps) {

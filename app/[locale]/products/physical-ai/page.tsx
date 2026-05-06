@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "피지컬 AI / BCI" : "Physical AI / BCI",
+    description: isKo
+      ? "리파인 피지컬 AI 및 BCI 제품 라인업. 근전도·뇌파 생체신호 인터페이스 — GForcePro+, BCI/BMI 솔루션."
+      : "Refind Physical AI and BCI lineup. EMG and EEG biosignal interfaces — GForcePro+, BCI/BMI solutions.",
+  };
 }
 
 export default async function PhysicalAIPage({ params }: PageProps) {

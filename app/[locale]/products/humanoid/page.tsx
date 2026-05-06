@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "휴머노이드 로봇" : "Humanoid Robot",
+    description: isKo
+      ? "리파인 휴머노이드 로봇 제품 라인업. Realbot, Embodied Dual Arm, Lifting Platform, Guohua Robot."
+      : "Refind humanoid robot lineup. Realbot, Embodied Dual Arm, Lifting Platform, Guohua Robot.",
+  };
 }
 
 export default async function HumanoidPage({ params }: PageProps) {

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "Elephant Robotics 협동로봇" : "Elephant Robotics Collaborative Robot",
+    description: isKo
+      ? "컴팩트한 테이블탑 협동로봇. 교육·연구·경량 자동화에 최적화된 Elephant Robotics 플랫폼."
+      : "Compact tabletop collaborative robot. Elephant Robotics platform optimized for education, research, and lightweight automation.",
+  };
 }
 
 export default async function ElephantRoboticsPage({ params }: PageProps) {

@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "ROH-AP001 로봇핸드 (포스피드백)" : "ROH-AP001 Robot Hand (Force Sensing)",
+    description: isKo
+      ? "Tashan 내장 포스센서로 실시간 힘 피드백. 150Hz 샘플링, 640g 경량 설계. 정밀 조립·표면가공에 최적."
+      : "Tashan integrated force sensor for real-time force feedback. 150Hz sampling, 640g lightweight design. Ideal for precision assembly and surface finishing.",
+  };
 }
 
 export default async function AP001Page({ params }: PageProps) {

@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "협동로봇" : "Collaborative Robot",
+    description: isKo
+      ? "리파인 협동로봇 제품 라인업. REALMAN 6축 협동로봇, Elephant Robotics, MyAGV 자율이동로봇."
+      : "Refind collaborative robot lineup. REALMAN 6-axis cobot, Elephant Robotics, MyAGV autonomous mobile robot.",
+  };
 }
 
 export default async function CollaborativeRobotPage({ params }: PageProps) {

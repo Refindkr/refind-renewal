@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "ROH-Lite 로봇핸드 (보급형)" : "ROH-Lite Robot Hand (Economy)",
+    description: isKo
+      ? "가성비 6DOF 로봇핸드. 457g 경량, 빠른 구동으로 연구·교육용에 최적화된 보급형 로봇핸드."
+      : "Cost-effective 6-DOF robot hand. 457g lightweight design optimized for research and education.",
+  };
 }
 
 export default async function LitePage({ params }: PageProps) {

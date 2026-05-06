@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "BCI/BMI 생체신호 솔루션" : "BCI/BMI Biosignal Solutions",
+    description: isKo
+      ? "웨어러블 EEG(NURA/ORION)부터 고해상도 EMG(BioFlex nano 32)까지. 연구급 뇌파·근전도 측정 장비."
+      : "From wearable EEG (NURA/ORION) to high-resolution EMG (BioFlex nano 32). Research-grade brainwave and EMG measurement devices.",
+  };
 }
 
 export default async function BCIBMIPage({ params }: PageProps) {

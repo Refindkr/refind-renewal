@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "MyAGV 자율이동로봇" : "MyAGV Autonomous Mobile Robot",
+    description: isKo
+      ? "자율 이동 로봇 플랫폼. 협동로봇과 결합해 완전 자동화 셀 구성 가능한 모듈형 AMR."
+      : "Autonomous mobile robot platform. Modular AMR combinable with cobots to build fully automated cells.",
+  };
 }
 
 export default async function MyAGVPage({ params }: PageProps) {

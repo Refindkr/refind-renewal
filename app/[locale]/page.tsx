@@ -1,9 +1,27 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const isKo = locale === "ko";
+  return {
+    title: isKo ? "홈" : "Home",
+    description: isKo
+      ? "리파인주식회사 공식 홈페이지. 로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술로 장애와 노화의 한계를 극복합니다."
+      : "Official homepage of Refind Inc. Overcoming the limits of disability and aging with advanced robotics — robot hands, prosthetics, cobots, and humanoids.",
+    openGraph: {
+      title: isKo ? "Refind | 리파인주식회사" : "Refind Inc. — Advanced Robotics",
+      description: isKo
+        ? "로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술 솔루션"
+        : "Robot hands, prosthetics, collaborative robots, and humanoids",
+    },
+  };
 }
 
 export default async function HomePage({ params }: PageProps) {
