@@ -80,8 +80,11 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🧠",
       desc: isKo ? "BCI·촉각 센서 솔루션" : "BCI & tactile sensor solutions",
       children: [
-        { href: `/${locale}/products/physical-ai/gforcepro`, label: "gForcePro+" },
         { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI" },
+        { href: `/${locale}/products/physical-ai/eeg`, label: "EEG" },
+        { href: `/${locale}/products/physical-ai/gforcepro`, label: isKo ? "근전도 측정 암밴드" : "EMG Armband" },
+        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG" },
+        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 포스센서" : "Tashan Force Sensor" },
         { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR" },
       ],
     },
@@ -164,15 +167,20 @@ export default function Navbar({ locale }: NavbarProps) {
                       </Link>
                       {/* 하위 제품 */}
                       {link.children.map((child, idx) => (
-                        <div key={child.href}>
-                          {/* 신체증강기기: 전자의수 앞, 로봇보조기 앞에 구분선 */}
+                        <div key={`${child.href}-${idx}`}>
+                          {/* 신체증강기기: 전자의수 앞(idx 3), 로봇보조기 앞(idx 5)에 구분선 */}
                           {link.href.includes("body-enhancement") && (idx === 3 || idx === 5) && (
+                            <div className="my-1 mx-3 border-t border-gray-100" />
+                          )}
+                          {/* 피지컬AI: Tashan(idx 4), AVR/AMR(idx 5) 앞에 구분선 */}
+                          {link.href.includes("physical-ai") && (idx === 4 || idx === 5) && (
                             <div className="my-1 mx-3 border-t border-gray-100" />
                           )}
                           <Link
                             href={child.href}
                             className={`block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors ${
-                              link.href.includes("body-enhancement") && (idx === 0 || idx === 3 || idx === 5)
+                              (link.href.includes("body-enhancement") && (idx === 0 || idx === 3 || idx === 5)) ||
+                              (link.href.includes("physical-ai") && idx === 0)
                                 ? "font-semibold text-gray-800"
                                 : ""
                             }`}
