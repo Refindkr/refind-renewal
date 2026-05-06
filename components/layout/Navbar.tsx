@@ -46,7 +46,6 @@ export default function Navbar({ locale }: NavbarProps) {
       children: [
         { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman" },
         { href: `/${locale}/products/collaborative-robot/elephant-robotics`, label: "Elephant Robotics" },
-        { href: `/${locale}/products/collaborative-robot/myagv`, label: "MyAGV" },
       ],
     },
     {
@@ -83,6 +82,7 @@ export default function Navbar({ locale }: NavbarProps) {
       children: [
         { href: `/${locale}/products/physical-ai/gforcepro`, label: "gForcePro+" },
         { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI" },
+        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR" },
       ],
     },
   ];

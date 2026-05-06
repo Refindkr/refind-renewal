@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "피지컬 AI / BCI" : "Physical AI / BCI",
     description: isKo
-      ? "리파인 피지컬 AI 및 BCI 제품 라인업. 근전도·뇌파 생체신호 인터페이스 — GForcePro+, BCI/BMI 솔루션."
-      : "Refind Physical AI and BCI lineup. EMG and EEG biosignal interfaces — GForcePro+, BCI/BMI solutions.",
+      ? "리파인 피지컬 AI 및 BCI 제품 라인업. 근전도·뇌파 생체신호 인터페이스, AVR/AMR 자율이동로봇 — GForcePro+, BCI/BMI 솔루션."
+      : "Refind Physical AI and BCI lineup. EMG/EEG biosignal interfaces, AVR/AMR autonomous mobile robots — GForcePro+, BCI/BMI solutions.",
   };
 }
 
@@ -61,6 +61,16 @@ export default async function PhysicalAIPage({ params }: PageProps) {
             : "High-sensitivity force sensor for robot hand integration. 0.1N–25N precision measurement, 150Hz sampling.",
           image: "/products/sensors/tashan.png",
           tags: isKo ? ["포스센서", "150Hz", "로봇핸드 내장"] : ["Force Sensor", "150Hz", "Embedded"],
+        },
+        {
+          slug: "avr-amr",
+          name: isKo ? "AVR/AMR 자율이동로봇" : "AVR/AMR Autonomous Mobile Robot",
+          nameEn: "AVR/AMR",
+          tagline: isKo
+            ? "라이다 기반 SLAM 자율주행 모바일 플랫폼. 협동로봇 암과 결합해 완전 자동화 셀 구성 가능."
+            : "LiDAR-based SLAM autonomous mobile platform. Combine with cobot arms to build fully automated cells.",
+          image: "/products/physical-ai/amr.jpg",
+          tags: isKo ? ["AMR", "SLAM", "자율이동", "모듈형"] : ["AMR", "SLAM", "Autonomous", "Modular"],
         },
       ]}
     />
