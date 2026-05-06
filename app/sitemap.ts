@@ -28,6 +28,9 @@ const staticPages = [
   { path: "/products/collaborative-robot/realman", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/elephant-robotics", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/avr-amr", priority: 0.8, changeFrequency: "monthly" },
+  // 로봇보조기 상세
+  { path: "/products/robot-support/hybridex", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/robot-support/step-booster", priority: 0.8, changeFrequency: "monthly" },
   // 휴머노이드 상세
   { path: "/products/humanoid/realbot", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/humanoid/embodied-dual-arm", priority: 0.8, changeFrequency: "monthly" },

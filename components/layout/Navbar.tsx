@@ -32,10 +32,10 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🤖",
       desc: isKo ? "6자유도 와이어 구동 로봇핸드" : "6-DOF wire-driven robot hand",
       children: [
-        { href: `/${locale}/products/robot-hand/a001`, label: "ROH-A001" },
-        { href: `/${locale}/products/robot-hand/ap001`, label: "ROH-AP001" },
-        { href: `/${locale}/products/robot-hand/ap002`, label: "ROH-AP002" },
-        { href: `/${locale}/products/robot-hand/lite`, label: "ROH-Lite" },
+        { href: `/${locale}/products/robot-hand/a001`, label: "ROH-A001", isGroup: false },
+        { href: `/${locale}/products/robot-hand/ap001`, label: "ROH-AP001", isGroup: false },
+        { href: `/${locale}/products/robot-hand/ap002`, label: "ROH-AP002", isGroup: false },
+        { href: `/${locale}/products/robot-hand/lite`, label: "ROH-Lite", isGroup: false },
       ],
     },
     {
@@ -44,22 +44,19 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "⚙️",
       desc: isKo ? "안전한 인간-로봇 협업" : "Safe human-robot collaboration",
       children: [
-        { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman" },
-        { href: `/${locale}/products/collaborative-robot/elephant-robotics`, label: "Elephant Robotics" },
+        { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman", isGroup: false },
+        { href: `/${locale}/products/collaborative-robot/elephant-robotics`, label: "Elephant Robotics", isGroup: false },
       ],
     },
     {
       href: `/${locale}/products/physical-ai`,
       label: t("physicalAI"),
       icon: "🧠",
-      desc: isKo ? "BCI·촉각 센서 솔루션" : "BCI & tactile sensor solutions",
+      desc: isKo ? "플랫폼·센서 솔루션" : "Platform & sensor solutions",
       children: [
-        { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI" },
-        { href: `/${locale}/products/physical-ai/eeg`, label: "EEG" },
-        { href: `/${locale}/products/physical-ai/gforcepro`, label: isKo ? "근전도 측정 암밴드" : "EMG Armband" },
-        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG" },
-        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 포스센서" : "Tashan Force Sensor" },
-        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR" },
+        { href: `/${locale}/products/physical-ai`, label: isKo ? "플랫폼" : "Platform", isGroup: true },
+        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: false },
+        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
       ],
     },
     {
@@ -68,24 +65,31 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🧑‍🦯",
       desc: isKo ? "차세대 휴머노이드 플랫폼" : "Next-gen humanoid platform",
       children: [
-        { href: `/${locale}/products/humanoid/realbot`, label: "Realbot" },
-        { href: `/${locale}/products/guohua-robot`, label: "Guohua Robot" },
-        { href: `/${locale}/products/humanoid/embodied-dual-arm`, label: "Embodied Dual Arm" },
-        { href: `/${locale}/products/humanoid/lifting-platform`, label: "Lifting Platform" },
+        { href: `/${locale}/products/humanoid/realbot`, label: "Realbot", isGroup: false },
+        { href: `/${locale}/products/guohua-robot`, label: "Guohua Robot", isGroup: false },
+        { href: `/${locale}/products/humanoid/embodied-dual-arm`, label: "Embodied Dual Arm", isGroup: false },
+        { href: `/${locale}/products/humanoid/lifting-platform`, label: "Lifting Platform", isGroup: false },
       ],
     },
     {
       href: `/${locale}/products/body-enhancement`,
       label: t("bodyEnhancement"),
       icon: "💪",
-      desc: isKo ? "재활·증강·의수 통합 솔루션" : "Rehab, enhancement & prosthetic solutions",
+      desc: isKo ? "의수·BCI·재활·보조기 솔루션" : "Prosthetics, BCI, rehab & support",
       children: [
-        { href: `/${locale}/products/prosthetic`, label: isKo ? "전자의수" : "Prosthetic Hand" },
-        { href: `/${locale}/products/prosthetic/ohand`, label: "Ohand" },
-        { href: `/${locale}/products/prosthetic/ohandlite`, label: "OhandLite" },
-        { href: `/${locale}/products/body-enhancement/ore-3000`, label: "ORE-3000" },
-        { href: `/${locale}/products/body-enhancement/oyfm-7000`, label: "OYFM-7000" },
-        { href: `/${locale}/products/robot-support`, label: isKo ? "로봇 보조기" : "Robot Support" },
+        { href: `/${locale}/products/prosthetic`, label: isKo ? "전자의수" : "Prosthetic Hand", isGroup: true },
+        { href: `/${locale}/products/prosthetic/ohand`, label: "Ohand", isGroup: false },
+        { href: `/${locale}/products/prosthetic/ohandlite`, label: "OhandLite", isGroup: false },
+        { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI", isGroup: true },
+        { href: `/${locale}/products/physical-ai/eeg`, label: isKo ? "Wearable EEG" : "Wearable EEG", isGroup: false },
+        { href: `/${locale}/products/physical-ai/gforcepro`, label: "GForcePro+", isGroup: false },
+        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG", isGroup: false },
+        { href: `/${locale}/products/body-enhancement`, label: isKo ? "로봇운동기" : "Exercise Robot", isGroup: true },
+        { href: `/${locale}/products/body-enhancement/ore-3000`, label: "ORE-3000", isGroup: false },
+        { href: `/${locale}/products/body-enhancement/oyfm-7000`, label: "OYFM-7000", isGroup: false },
+        { href: `/${locale}/products/robot-support`, label: isKo ? "로봇보조기" : "Robot Support", isGroup: true },
+        { href: `/${locale}/products/robot-support/hybridex`, label: "HYBRIDEX", isGroup: false },
+        { href: `/${locale}/products/robot-support/step-booster`, label: "STEP BOOSTER", isGroup: false },
       ],
     },
   ];
@@ -165,24 +169,19 @@ export default function Navbar({ locale }: NavbarProps) {
                       >
                         {isKo ? "전체 보기" : "View All"} →
                       </Link>
-                      {/* 하위 제품 */}
+                      {/* 하위 제품 — isGroup으로 3뎁스 구성 */}
                       {link.children.map((child, idx) => (
                         <div key={`${child.href}-${idx}`}>
-                          {/* 신체증강기기: 전자의수 앞(idx 3), 로봇보조기 앞(idx 5)에 구분선 */}
-                          {link.href.includes("body-enhancement") && (idx === 3 || idx === 5) && (
-                            <div className="my-1 mx-3 border-t border-gray-100" />
-                          )}
-                          {/* 피지컬AI: Tashan(idx 4), AVR/AMR(idx 5) 앞에 구분선 */}
-                          {link.href.includes("physical-ai") && (idx === 4 || idx === 5) && (
+                          {/* 그룹 헤더 앞에 구분선 (첫 번째 제외) */}
+                          {child.isGroup && idx > 0 && (
                             <div className="my-1 mx-3 border-t border-gray-100" />
                           )}
                           <Link
                             href={child.href}
-                            className={`block px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors ${
-                              (link.href.includes("body-enhancement") && (idx === 0 || idx === 3 || idx === 5)) ||
-                              (link.href.includes("physical-ai") && idx === 0)
-                                ? "font-semibold text-gray-800"
-                                : ""
+                            className={`block px-4 py-1.5 text-sm hover:bg-gray-50 transition-colors ${
+                              child.isGroup
+                                ? "font-semibold text-gray-800 hover:text-gray-900"
+                                : "text-gray-500 pl-6 hover:text-gray-800"
                             }`}
                           >
                             {child.label}
@@ -348,11 +347,15 @@ export default function Navbar({ locale }: NavbarProps) {
                 </Link>
                 {/* 모바일 서브메뉴 */}
                 <div className="ml-10 mt-0.5 mb-1 flex flex-wrap gap-x-1">
-                  {link.children.map((child) => (
+                  {link.children.map((child, idx) => (
                     <Link
-                      key={child.href}
+                      key={`${child.href}-${idx}`}
                       href={child.href}
-                      className="px-2.5 py-1 text-xs text-gray-500 hover:text-primary-500 hover:bg-primary-50 rounded-lg transition-colors"
+                      className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${
+                        child.isGroup
+                          ? "font-semibold text-gray-700 hover:text-primary-500 hover:bg-primary-50"
+                          : "text-gray-500 hover:text-primary-500 hover:bg-primary-50"
+                      }`}
                       onClick={() => setMobileOpen(false)}
                     >
                       {child.label}
