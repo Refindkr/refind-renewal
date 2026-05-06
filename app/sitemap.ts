@@ -42,6 +42,7 @@ const staticPages = [
   { path: "/products/prosthetic/ohand", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/prosthetic/ohandlite", priority: 0.8, changeFrequency: "monthly" },
   // 피지컬 AI 상세
+  { path: "/products/physical-ai/platform", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/bcibmi", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/eeg", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/gforcepro", priority: 0.8, changeFrequency: "monthly" },

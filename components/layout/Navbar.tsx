@@ -54,7 +54,7 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🧠",
       desc: isKo ? "플랫폼·센서 솔루션" : "Platform & sensor solutions",
       children: [
-        { href: `/${locale}/products/physical-ai`, label: isKo ? "플랫폼" : "Platform", isGroup: true },
+        { href: `/${locale}/products/physical-ai/platform`, label: isKo ? "플랫폼" : "Platform", isGroup: false },
         { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: false },
         { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
       ],
