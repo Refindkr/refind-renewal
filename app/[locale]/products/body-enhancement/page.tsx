@@ -63,7 +63,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
         {
           name: "GForcePro+",
           href: `/${locale}/products/physical-ai/gforcepro`,
-          image: "/products/sensors/tashan.png",
+          image: "/products/sensors/gforcepro.jpeg",
           tags: isKo ? ["sEMG", "IMU", "BT5.0"] : ["sEMG", "IMU", "BT5.0"],
         },
         {
