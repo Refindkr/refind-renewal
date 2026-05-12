@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "로봇핸드" : "Robot Hand",
     description: isKo
-      ? "리파인 로봇핸드 제품 라인업. 6자유도 11관절 와이어 구동 로봇핸드 — ROH-A001, ROH-AP001, ROH-AP002, ROH-Lite."
-      : "Refind robot hand product lineup. 6-DOF 11-joint wire-driven robot hands — ROH-A001, ROH-AP001, ROH-AP002, ROH-Lite.",
+      ? "리파인 로봇핸드 제품 라인업. 6자유도 11관절 와이어 구동 로봇핸드 — ROH-A002, ROH-AP001, ROH-AP002, ROH-Lite."
+      : "Refind robot hand product lineup. 6-DOF 11-joint wire-driven robot hands — ROH-A002, ROH-AP001, ROH-AP002, ROH-Lite.",
   };
 }
 
@@ -34,9 +34,9 @@ export default async function RobotHandPage({ params }: PageProps) {
       categorySlug="robot-hand"
       products={[
         {
-          slug: "a001",
-          name: isKo ? "ROH-A001 (표준형)" : "ROH-A001 (Standard)",
-          nameEn: "ROH-A001",
+          slug: "a002",
+          name: isKo ? "ROH-A002 (표준형)" : "ROH-A002 (Standard)",
+          nameEn: "ROH-A002",
           tagline: isKo
             ? "6자유도 11관절 와이어 구동 시스템. 최대 30kg 파워 그립 구현."
             : "6-DOF 11-joint wire-driven system. Up to 30kg power grip.",
