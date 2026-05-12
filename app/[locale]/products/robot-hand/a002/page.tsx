@@ -334,6 +334,31 @@ export default async function A002Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Brochure Download */}
+      <section className="py-14 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
+              {isKo ? "자료 다운로드" : "Download"}
+            </p>
+            <h3 className="text-lg font-extrabold text-white mb-1">
+              {isKo ? "ROH-A002 제품 브로셔" : "ROH-A002 Product Brochure"}
+            </h3>
+            <p className="text-sm text-white/40">PDF · ROHand_eng.pdf</p>
+          </div>
+          <a
+            href="/downloads/ROHand_eng.pdf"
+            download="ROHand_eng.pdf"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#669DFD] text-white font-bold rounded-full text-sm hover:bg-blue-400 transition-colors whitespace-nowrap shrink-0"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            {isKo ? "브로셔 다운로드" : "Download Brochure"}
+          </a>
+        </div>
+      </section>
+
       {/* Use Cases */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
