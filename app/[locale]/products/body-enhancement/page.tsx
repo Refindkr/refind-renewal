@@ -57,7 +57,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
         {
           name: "Wearable EEG",
           href: `/${locale}/products/physical-ai/eeg`,
-          image: "/products/sensors/2.jpeg",
+          image: "/products/sensors/eeg.jpeg",
           tags: isKo ? ["EEG", "무선"] : ["EEG", "Wireless"],
         },
         {
