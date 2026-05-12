@@ -131,6 +131,27 @@ export default async function A002Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Size Image */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            {isKo ? "치수 도면" : "Dimensions"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "제품 규격 및 치수" : "Product Dimensions"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/robot-hand/a002_size.jpg"
+              alt={isKo ? "ROH-A002 치수 도면" : "ROH-A002 Dimension Drawing"}
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Core Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
