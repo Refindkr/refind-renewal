@@ -337,13 +337,46 @@ export default async function A002Page({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-12 tracking-tight">
+            {isKo ? "다양한 환경에서의 실제 동작" : "Real-World Motion in Various Environments"}
+          </h2>
+
+          {/* GIF grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+            {[
+              { file: "ROhand.gif",               label: isKo ? "기본 동작" : "Basic Motion" },
+              { file: "rohandclick.gif",           label: isKo ? "클릭 동작" : "Click Motion" },
+              { file: "rohand_grap_shorts.gif",    label: isKo ? "파지 동작" : "Grasping" },
+              { file: "rohand_mov_shorts.gif",     label: isKo ? "이동 동작" : "Movement" },
+              { file: "rohand_g.gif",              label: isKo ? "제스처" : "Gesture" },
+              { file: "rohand_g2.gif",             label: isKo ? "제스처 2" : "Gesture 2" },
+              { file: "rohand_hu.gif",             label: isKo ? "휴머노이드 연동" : "Humanoid Integration" },
+              { file: "rohand_robot.gif",          label: isKo ? "로봇 암 연동" : "Robot Arm Integration" },
+            ].map((g, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300">
+                <div className="relative h-44 bg-gray-950 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={`/products/robot-hand/gif/${g.file}`}
+                    alt={g.label}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <p className="text-xs font-semibold text-gray-700 text-center">{g.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Use case text cards */}
           <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 num: "01",
+                gif: "rohand_bot15.gif",
                 title: isKo ? "연구소 / 대학 AI" : "Lab / University AI",
                 desc: isKo
                   ? "파지 알고리즘 연구 및 고정밀 데이터 수집을 통한 논문 성과 극대화"
@@ -351,6 +384,7 @@ export default async function A002Page({ params }: PageProps) {
               },
               {
                 num: "02",
+                gif: "rohand_r2.gif",
                 title: isKo ? "휴머노이드 제조" : "Humanoid Manufacturing",
                 desc: isKo
                   ? "차세대 로봇 인터페이스로서 인간 수준의 작업 수행 능력 확보"
@@ -358,16 +392,26 @@ export default async function A002Page({ params }: PageProps) {
               },
               {
                 num: "03",
+                gif: "rohand_robot4.gif",
                 title: isKo ? "스마트 팩토리" : "Smart Factory",
                 desc: isKo
                   ? "비정형 물체 선별(Picking) 및 공정 자동화 범위 확대, 불량률 감소"
                   : "Expand irregular object picking and process automation scope, reduce defect rates",
               },
             ].map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-xs font-bold text-gray-300 mb-3">{u.num}</div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="relative h-52 bg-gray-950 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={`/products/robot-hand/gif/${u.gif}`}
+                    alt={u.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="text-xs font-bold text-gray-300 mb-2">{u.num}</div>
+                  <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
+                </div>
               </div>
             ))}
           </div>
