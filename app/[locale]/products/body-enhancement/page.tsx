@@ -69,7 +69,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
         {
           name: "HD EMG",
           href: `/${locale}/products/physical-ai/hd-emg`,
-          image: "/products/sensors/3.jpeg",
+          image: "/products/sensors/hd-emg.jpg",
           tags: isKo ? ["32~128ch", "4096Hz"] : ["32–128ch", "4096Hz"],
         },
       ],
