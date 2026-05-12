@@ -20,7 +20,7 @@ const staticPages = [
   { path: "/products/guohua-robot", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-support", priority: 0.8, changeFrequency: "monthly" },
   // 로봇핸드 상세
-  { path: "/products/robot-hand/a001", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/robot-hand/a002", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-hand/ap001", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-hand/ap002", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-hand/lite", priority: 0.8, changeFrequency: "monthly" },

@@ -32,7 +32,7 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🤖",
       desc: isKo ? "6자유도 와이어 구동 로봇핸드" : "6-DOF wire-driven robot hand",
       children: [
-        { href: `/${locale}/products/robot-hand/a001`, label: "ROH-A001", isGroup: false },
+        { href: `/${locale}/products/robot-hand/a002`, label: "ROH-A002", isGroup: false },
         { href: `/${locale}/products/robot-hand/ap001`, label: "ROH-AP001", isGroup: false },
         { href: `/${locale}/products/robot-hand/ap002`, label: "ROH-AP002", isGroup: false },
         { href: `/${locale}/products/robot-hand/lite`, label: "ROH-Lite", isGroup: false },
