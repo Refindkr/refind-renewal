@@ -169,6 +169,27 @@ export default async function AP001Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Sensor Spec Image */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "센서 사양" : "Sensor Specifications"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "Tashan 포스센서 상세 스펙" : "Tashan Force Sensor Detail Specs"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/robot-hand/ap001_1.jpg"
+              alt={isKo ? "ROH-AP001 센서 스펙" : "ROH-AP001 Sensor Specs"}
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
