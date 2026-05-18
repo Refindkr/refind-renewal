@@ -59,6 +59,52 @@ export default async function AP001Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Features */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">
+            {isKo ? "특징" : "Features"}
+          </p>
+          <div className="space-y-4">
+            {[
+              { icon: "✋", text: isKo ? "전자의수 기술 노하우가 집약된 6자유도(6-DOF) 매커니즘으로 사람 손의 섬세한 움직임을 완벽 구현" : "6-DOF mechanism embodying prosthetic hand expertise — perfectly replicates delicate human hand movements" },
+              { icon: "🖐️", text: isKo ? "전용 데이터 글러브(Data Glove) 연동을 통한 실시간 원격 제어(Mirroring) 및 티칭 지원" : "Real-time remote control (mirroring) and teaching support via dedicated Data Glove integration" },
+              { icon: "💻", text: isKo ? "ROS / ROS2 패키지 및 Python/C++ API 제공으로 복잡한 세팅 없이 즉시 연구 개발 가능" : "ROS/ROS2 packages and Python/C++ API for immediate R&D without complex setup" },
+              { icon: "🔗", text: isKo ? "RS-485, Modbus 등 표준 통신 인터페이스 지원으로 다양한 로봇 팔 및 PLC와 손쉬운 연결" : "Standard RS-485 and Modbus interfaces for easy connection with various robot arms and PLCs" },
+              { icon: "🦾", text: isKo ? "전자의수로부터 파생된 제품으로 사람의 손동작 및 형태 등을 모방하여 사람의 손 기능 모방" : "Derived from prosthetic hand technology, mimicking human hand movements and form" },
+            ].map((f, i) => (
+              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl px-6 py-5 border border-gray-100">
+                <span className="text-2xl mt-0.5 shrink-0">{f.icon}</span>
+                <p className="text-sm text-gray-700 leading-relaxed">{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Video */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "제품 영상" : "Product Video"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "ROH-AP001 동작 영상" : "ROH-AP001 in Action"}
+          </h2>
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/t3EdUAprqBY"
+                title="ROH-AP001"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Core Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
