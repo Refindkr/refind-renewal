@@ -201,7 +201,7 @@ export default async function LitePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Size Image */}
+      {/* Size Image + Tables */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
@@ -210,7 +210,9 @@ export default async function LitePage({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "제품 규격 및 치수" : "Product Dimensions"}
           </h2>
-          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+
+          {/* Dimension image */}
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white mb-14">
             <Image
               src="/products/robot-hand/lite_2.jpeg"
               alt={isKo ? "ROH-Lite 치수 도면" : "ROH-Lite Dimension Drawing"}
@@ -218,6 +220,86 @@ export default async function LitePage({ params }: PageProps) {
               height={800}
               className="w-full h-auto object-contain"
             />
+          </div>
+
+          {/* Measurement location table */}
+          <div className="max-w-3xl mb-10">
+            <div className="overflow-hidden rounded-2xl border border-gray-100">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-100">
+                    <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 w-2/3">
+                      {isKo ? "측정 위치" : "Measurement Location"}
+                    </th>
+                    <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500">
+                      {isKo ? "치수 및 각도" : "Dimensions and Angles"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    [isKo ? "중지 끝에서 손목까지 수직 거리" : "Vertical distance from the tip of the middle finger to the wrist", "169 mm"],
+                    [isKo ? "엄지 끝에서 손목까지 수직 거리" : "Vertical distance from the thumb tip to wrist", "97 mm"],
+                    [isKo ? "엄지 길이" : "Thumb length", "110 mm"],
+                    [isKo ? "최대 손바닥 너비" : "Maximum palm width", "75 mm"],
+                    [isKo ? "손목 직경" : "Wrist diameter", "49 mm"],
+                    [isKo ? "엄지 측면 최대 개폐 각도" : "Maximum opening and closing angle of the thumb side", "0 ~ 31 Degrees"],
+                    [isKo ? "엄지와 손바닥 최대 개폐 각도" : "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50 Degrees"],
+                    [isKo ? "엄지 측면 회전 각도" : "Thumb lateral rotation angle", "0 ~ 90 Degrees"],
+                    [isKo ? "손가락 터치스크린 기능" : "Finger touch screen function", isKo ? "지원" : "Supported"],
+                  ].map(([label, val], i) => (
+                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Weight */}
+          <div className="max-w-3xl mb-10 flex items-center gap-3 bg-gray-50 rounded-2xl px-6 py-4 border border-gray-100">
+            <span className="text-sm font-semibold text-gray-500">{isKo ? "무게" : "Weight"}</span>
+            <span className="text-xl font-extrabold text-gray-900">457g ± 5g</span>
+          </div>
+
+          {/* Performance specs table */}
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-5">
+              {isKo ? "사양" : "Specifications"}
+            </p>
+            <div className="overflow-hidden rounded-2xl border border-gray-100">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-100">
+                    <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 w-2/3">
+                      {isKo ? "측정 항목" : "Measuring Position"}
+                    </th>
+                    <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500">
+                      {isKo ? "수치" : "Parameters"}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    [isKo ? "최대 속도 기준 완전 굴곡/신전 시간" : "Bending/stretching time for full range at maximum speed", "0.7 second"],
+                    [isKo ? "최대 속도 기준 엄지 전체 회전 시간" : "Rotation time of thumb for full range at maximum speed", "0.7 second"],
+                    [isKo ? "신전 상태 각 손가락 끝 능동 추력" : "Active force of each finger tip on stretched state", "≥ 0.45 Kgf"],
+                    [isKo ? "굴곡 상태 각 손가락 끝 능동 추력" : "Active force of each finger tip on bended state", "≥ 1 Kgf"],
+                    [isKo ? "엄지 끝 최대 능동 추력" : "Maximum active force of thumb tip", "≥ 1 Kgf"],
+                    [isKo ? "굴곡 상태 4손가락 최대 수동 하중" : "Maximum passive load for four fingers on bended state", "8 Kg"],
+                    [isKo ? "굴곡 상태 각 손가락 최대 수동 하중" : "Maximum passive load for each finger on bended state", "3 Kg"],
+                    [isKo ? "신전 상태 각 손가락 최대 수동 하중" : "Maximum passive load for each finger on stretched state", "2.25 Kg"],
+                  ].map(([label, val], i) => (
+                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
