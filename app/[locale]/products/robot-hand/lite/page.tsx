@@ -238,19 +238,22 @@ export default async function LitePage({ params }: PageProps) {
                 </thead>
                 <tbody>
                   {[
-                    [isKo ? "중지 끝에서 손목까지 수직 거리" : "Vertical distance from the tip of the middle finger to the wrist", "169 mm"],
-                    [isKo ? "엄지 끝에서 손목까지 수직 거리" : "Vertical distance from the thumb tip to wrist", "97 mm"],
-                    [isKo ? "엄지 길이" : "Thumb length", "110 mm"],
-                    [isKo ? "최대 손바닥 너비" : "Maximum palm width", "75 mm"],
-                    [isKo ? "손목 직경" : "Wrist diameter", "49 mm"],
-                    [isKo ? "엄지 측면 최대 개폐 각도" : "Maximum opening and closing angle of the thumb side", "0 ~ 31 Degrees"],
-                    [isKo ? "엄지와 손바닥 최대 개폐 각도" : "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50 Degrees"],
-                    [isKo ? "엄지 측면 회전 각도" : "Thumb lateral rotation angle", "0 ~ 90 Degrees"],
-                    [isKo ? "손가락 터치스크린 기능" : "Finger touch screen function", isKo ? "지원" : "Supported"],
-                  ].map(([label, val], i) => (
+                    ["중지 끝에서 손목까지 수직 거리", "Vertical distance from the tip of the middle finger to the wrist", "169 mm"],
+                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "97 mm"],
+                    ["엄지 길이", "Thumb length", "110 mm"],
+                    ["최대 손바닥 너비", "Maximum palm width", "75 mm"],
+                    ["손목 직경", "Wrist diameter", "49 mm"],
+                    ["엄지 측면 최대 개폐 각도", "Maximum opening and closing angle of the thumb side", "0 ~ 31°"],
+                    ["엄지와 손바닥 최대 개폐 각도", "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50°"],
+                    ["엄지 측면 회전 각도", "Thumb lateral rotation angle", "0 ~ 90°"],
+                    ["손가락 터치스크린 기능", "Finger touch screen function", isKo ? "지원" : "Supported"],
+                  ].map(([ko, en, val], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                      <td className="px-5 py-3 text-sm text-gray-600">
+                        <span className="block">{ko}</span>
+                        <span className="block text-xs text-gray-400">{en}</span>
+                      </td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -283,18 +286,21 @@ export default async function LitePage({ params }: PageProps) {
                 </thead>
                 <tbody>
                   {[
-                    [isKo ? "최대 속도 기준 완전 굴곡/신전 시간" : "Bending/stretching time for full range at maximum speed", "0.7 second"],
-                    [isKo ? "최대 속도 기준 엄지 전체 회전 시간" : "Rotation time of thumb for full range at maximum speed", "0.7 second"],
-                    [isKo ? "신전 상태 각 손가락 끝 능동 추력" : "Active force of each finger tip on stretched state", "≥ 0.45 Kgf"],
-                    [isKo ? "굴곡 상태 각 손가락 끝 능동 추력" : "Active force of each finger tip on bended state", "≥ 1 Kgf"],
-                    [isKo ? "엄지 끝 최대 능동 추력" : "Maximum active force of thumb tip", "≥ 1 Kgf"],
-                    [isKo ? "굴곡 상태 4손가락 최대 수동 하중" : "Maximum passive load for four fingers on bended state", "8 Kg"],
-                    [isKo ? "굴곡 상태 각 손가락 최대 수동 하중" : "Maximum passive load for each finger on bended state", "3 Kg"],
-                    [isKo ? "신전 상태 각 손가락 최대 수동 하중" : "Maximum passive load for each finger on stretched state", "2.25 Kg"],
-                  ].map(([label, val], i) => (
+                    ["최대 속도 기준 완전 굴곡/신전 시간", "Bending/stretching time for full range at maximum speed", "0.7 s"],
+                    ["최대 속도 기준 엄지 전체 회전 시간", "Rotation time of thumb for full range at maximum speed", "0.7 s"],
+                    ["신전 상태 각 손가락 끝 능동 추력", "Active force of each finger tip on stretched state", "≥ 0.45 kgf"],
+                    ["굴곡 상태 각 손가락 끝 능동 추력", "Active force of each finger tip on bended state", "≥ 1 kgf"],
+                    ["엄지 끝 최대 능동 추력", "Maximum active force of thumb tip", "≥ 1 kgf"],
+                    ["굴곡 상태 4손가락 최대 수동 하중", "Maximum passive load for four fingers on bended state", "8 kg"],
+                    ["굴곡 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on bended state", "3 kg"],
+                    ["신전 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on stretched state", "2.25 kg"],
+                  ].map(([ko, en, val], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                      <td className="px-5 py-3 text-sm text-gray-600">
+                        <span className="block">{ko}</span>
+                        <span className="block text-xs text-gray-400">{en}</span>
+                      </td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
