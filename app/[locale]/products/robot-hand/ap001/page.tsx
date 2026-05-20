@@ -229,20 +229,23 @@ export default async function AP001Page({ params }: PageProps) {
               </div>
               <div className="divide-y divide-gray-100 text-sm">
                 {[
-                  [isKo ? "중지 끝~손목 세로 거리" : "Middle finger tip to wrist (vertical)", "183 mm"],
-                  [isKo ? "엄지 끝~손목 세로 거리" : "Thumb tip to wrist (vertical)", "95 mm"],
-                  [isKo ? "엄지 길이" : "Thumb length", "111 mm"],
-                  [isKo ? "최대 손바닥 너비" : "Maximum palm width", "82 mm"],
-                  [isKo ? "손목 직경" : "Wrist diameter", "49 mm"],
-                  [isKo ? "엄지 측면 최대 개폐 각도" : "Thumb side max open/close angle", "0 ~ 31°"],
-                  [isKo ? "엄지~손바닥 최대 개폐 각도" : "Thumb to palm max open/close angle", "0 ~ 50°"],
-                  [isKo ? "엄지 측면 회전 각도" : "Thumb lateral rotation angle", "0 ~ 90°"],
-                  [isKo ? "터치스크린 조작" : "Touch screen function", isKo ? "지원" : "Supported"],
-                  [isKo ? "손가락 힘 피드백" : "Finger force feedback", isKo ? "지원" : "Supported"],
-                ].map(([k, v], i) => (
+                  ["중지 끝~손목 세로 거리", "Middle finger tip to wrist (vertical)", "183 mm"],
+                  ["엄지 끝~손목 세로 거리", "Thumb tip to wrist (vertical)", "95 mm"],
+                  ["엄지 길이", "Thumb length", "111 mm"],
+                  ["최대 손바닥 너비", "Maximum palm width", "82 mm"],
+                  ["손목 직경", "Wrist diameter", "49 mm"],
+                  ["엄지 측면 최대 개폐 각도", "Thumb side max open/close angle", "0 ~ 31°"],
+                  ["엄지~손바닥 최대 개폐 각도", "Thumb to palm max open/close angle", "0 ~ 50°"],
+                  ["엄지 측면 회전 각도", "Thumb lateral rotation angle", "0 ~ 90°"],
+                  ["터치스크린 조작", "Touch screen function", isKo ? "지원" : "Supported"],
+                  ["손가락 힘 피드백", "Finger force feedback", isKo ? "지원" : "Supported"],
+                ].map(([ko, en, v], i) => (
                   <div key={i} className="flex justify-between px-6 py-3">
-                    <span className="text-gray-500 pr-4">{k}</span>
-                    <span className="font-semibold text-gray-900 whitespace-nowrap">{v}</span>
+                    <span className="text-gray-500 pr-4">
+                      <span className="block">{ko}</span>
+                      <span className="block text-xs text-gray-400">{en}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap self-center">{v}</span>
                   </div>
                 ))}
               </div>
@@ -254,18 +257,21 @@ export default async function AP001Page({ params }: PageProps) {
               </div>
               <div className="divide-y divide-gray-100 text-sm">
                 {[
-                  [isKo ? "최대 속도 전 범위 굽힘/펴기 시간" : "Full-range bending/stretching at max speed", "0.7 s"],
-                  [isKo ? "엄지 전 범위 회전 시간" : "Thumb full-range rotation at max speed", "0.7 s"],
-                  [isKo ? "펴진 상태 각 손가락 끝 능동력" : "Active force per fingertip (stretched)", "≥ 0.5 kgf"],
-                  [isKo ? "굽힌 상태 각 손가락 끝 능동력" : "Active force per fingertip (bent)", "≥ 1 kgf"],
-                  [isKo ? "엄지 끝 최대 능동력" : "Max active force of thumb tip", "≥ 1 kgf"],
-                  [isKo ? "4손가락 굽힌 상태 최대 수동 하중" : "Max passive load for 4 fingers (bent)", "30 kg"],
-                  [isKo ? "각 손가락 굽힌 상태 최대 수동 하중" : "Max passive load per finger (bent)", "10 kg"],
-                  [isKo ? "각 손가락 펴진 상태 최대 수동 하중" : "Max passive load per finger (stretched)", "8 kg"],
-                ].map(([k, v], i) => (
+                  ["최대 속도 전 범위 굽힘/펴기 시간", "Full-range bending/stretching at max speed", "0.7 s"],
+                  ["엄지 전 범위 회전 시간", "Thumb full-range rotation at max speed", "0.7 s"],
+                  ["펴진 상태 각 손가락 끝 능동력", "Active force per fingertip (stretched)", "≥ 0.5 kgf"],
+                  ["굽힌 상태 각 손가락 끝 능동력", "Active force per fingertip (bent)", "≥ 1 kgf"],
+                  ["엄지 끝 최대 능동력", "Max active force of thumb tip", "≥ 1 kgf"],
+                  ["4손가락 굽힌 상태 최대 수동 하중", "Max passive load for 4 fingers (bent)", "30 kg"],
+                  ["각 손가락 굽힌 상태 최대 수동 하중", "Max passive load per finger (bent)", "10 kg"],
+                  ["각 손가락 펴진 상태 최대 수동 하중", "Max passive load per finger (stretched)", "8 kg"],
+                ].map(([ko, en, v], i) => (
                   <div key={i} className="flex justify-between px-6 py-3">
-                    <span className="text-gray-500 pr-4">{k}</span>
-                    <span className="font-semibold text-gray-900 whitespace-nowrap">{v}</span>
+                    <span className="text-gray-500 pr-4">
+                      <span className="block">{ko}</span>
+                      <span className="block text-xs text-gray-400">{en}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap self-center">{v}</span>
                   </div>
                 ))}
               </div>
