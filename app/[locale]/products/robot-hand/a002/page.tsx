@@ -168,19 +168,22 @@ export default async function A002Page({ params }: PageProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {[
-                    [isKo ? "중지 끝에서 손목까지 수직 거리" : "Vertical distance from the tip of the middle finger to the wrist", "184 mm"],
-                    [isKo ? "엄지 끝에서 손목까지 수직 거리" : "Vertical distance from the thumb tip to wrist", "93 mm"],
-                    [isKo ? "엄지 길이" : "Thumb length", "111 mm"],
-                    [isKo ? "최대 손바닥 너비" : "Maximum palm width", "83 mm"],
-                    [isKo ? "손목 직경" : "Wrist diameter", "49 mm"],
-                    [isKo ? "엄지 측면 최대 개폐 각도" : "Maximum opening and closing angle of the thumb side", "0 ~ 31 Degrees"],
-                    [isKo ? "엄지와 손바닥 최대 개폐 각도" : "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50 Degrees"],
-                    [isKo ? "엄지 측면 회전 각도" : "Thumb lateral rotation angle", "0 ~ 90 Degrees"],
-                    [isKo ? "손가락 터치스크린 기능" : "Finger touch screen function", isKo ? "지원" : "Supported"],
-                  ].map(([label, val], i) => (
+                    ["중지 끝에서 손목까지 수직 거리", "Vertical distance from the tip of the middle finger to the wrist", "184 mm"],
+                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "93 mm"],
+                    ["엄지 길이", "Thumb length", "111 mm"],
+                    ["최대 손바닥 너비", "Maximum palm width", "83 mm"],
+                    ["손목 직경", "Wrist diameter", "49 mm"],
+                    ["엄지 측면 최대 개폐 각도", "Maximum opening and closing angle of the thumb side", "0 ~ 31°"],
+                    ["엄지와 손바닥 최대 개폐 각도", "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50°"],
+                    ["엄지 측면 회전 각도", "Thumb lateral rotation angle", "0 ~ 90°"],
+                    ["손가락 터치스크린 기능", "Finger touch screen function", isKo ? "지원" : "Supported"],
+                  ].map(([ko, en, val], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                      <td className="px-5 py-3 text-sm text-gray-600">
+                        <span className="block">{ko}</span>
+                        <span className="block text-xs text-gray-400">{en}</span>
+                      </td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -213,19 +216,22 @@ export default async function A002Page({ params }: PageProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {[
-                    [isKo ? "완전 개방 → 완전 폐쇄 최소 시간" : "Fastest time from fully open to fully closed finger", "1.0 second"],
-                    [isKo ? "완전 폐쇄 → 완전 개방 최소 시간" : "Fastest time from fully closed to fully open finger", "1.0 second"],
-                    [isKo ? "엄지 측면 및 반대 손바닥 회전 최소 시간" : "Fastest time from thumb side and opposite palm rotation", "1.0 second"],
-                    [isKo ? "검지 끝 최대 능동 추력" : "Maximum active thrust force of the index finger tip", "≥ 0.45 Kgf"],
-                    [isKo ? "엄지 끝 최대 능동 추력" : "Maximum active thrust force of thumb tip", "≥ 1 Kgf"],
-                    [isKo ? "두세 손가락 최대 능동 집기력" : "Maximum active pinching force of two/three fingertips", "≥ 1 Kgf"],
-                    [isKo ? "최대 들어올림 하중 (파워그립)" : "Maximum weight lifted (power grip)", "30 Kg"],
-                    [isKo ? "단일 손가락 최대 정적 하중 (파워그립)" : "Maximum single finger static load (power grip)", "10 Kg"],
-                    [isKo ? "단일 손가락 끝 최대 정적 하중 (평면 신장)" : "Maximum static load on fingertip of single finger (flat extension)", "8 Kg"],
-                  ].map(([label, val], i) => (
+                    ["완전 개방 → 완전 폐쇄 최소 시간", "Fastest time from fully open to fully closed finger", "1.0 s"],
+                    ["완전 폐쇄 → 완전 개방 최소 시간", "Fastest time from fully closed to fully open finger", "1.0 s"],
+                    ["엄지 측면 및 반대 손바닥 회전 최소 시간", "Fastest time from thumb side and opposite palm rotation", "1.0 s"],
+                    ["검지 끝 최대 능동 추력", "Maximum active thrust force of the index finger tip", "≥ 0.45 kgf"],
+                    ["엄지 끝 최대 능동 추력", "Maximum active thrust force of thumb tip", "≥ 1 kgf"],
+                    ["두세 손가락 최대 능동 집기력", "Maximum active pinching force of two/three fingertips", "≥ 1 kgf"],
+                    ["최대 들어올림 하중 (파워그립)", "Maximum weight lifted (power grip)", "30 kg"],
+                    ["단일 손가락 최대 정적 하중 (파워그립)", "Maximum single finger static load (power grip)", "10 kg"],
+                    ["단일 손가락 끝 최대 정적 하중 (평면 신장)", "Maximum static load on fingertip of single finger (flat extension)", "8 kg"],
+                  ].map(([ko, en, val], i) => (
                     <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                      <td className="px-5 py-3 text-sm text-gray-600">{label}</td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD]">{val}</td>
+                      <td className="px-5 py-3 text-sm text-gray-600">
+                        <span className="block">{ko}</span>
+                        <span className="block text-xs text-gray-400">{en}</span>
+                      </td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
