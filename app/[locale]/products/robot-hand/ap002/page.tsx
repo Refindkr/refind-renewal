@@ -123,6 +123,27 @@ export default async function AP002Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Size Image */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "치수 도면" : "Dimensions"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "제품 규격 및 치수" : "Product Dimensions"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/robot-hand/ap002_size.png"
+              alt={isKo ? "ROH-AP002 치수 도면" : "ROH-AP002 Dimension Drawing"}
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Size & Performance Specs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -351,6 +372,27 @@ export default async function AP002Page({ params }: PageProps) {
                 <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery Cases */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "납품 사례" : "Delivery Cases"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "실제 적용 사례" : "Real-World Applications"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/robot-hand/ap002_delivery.jpg"
+              alt={isKo ? "ROH-AP002 납품 사례" : "ROH-AP002 Delivery Cases"}
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
       </section>
