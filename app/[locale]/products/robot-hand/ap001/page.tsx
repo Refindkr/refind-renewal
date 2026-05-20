@@ -302,6 +302,82 @@ export default async function AP001Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Use Cases — GIF */}
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "활용 사례" : "Use Cases"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
+            {isKo ? "다양한 환경에서의 실제 동작" : "Real-World Motion in Various Environments"}
+          </h2>
+
+          {/* GIF grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+            {[
+              { file: "ROhand.gif",            label: isKo ? "기본 동작" : "Basic Motion" },
+              { file: "rohandclick.gif",        label: isKo ? "클릭 동작" : "Click" },
+              { file: "rohand_grap_shorts.gif", label: isKo ? "파지 동작" : "Grasping" },
+              { file: "rohand_mov_shorts.gif",  label: isKo ? "이동 동작" : "Movement" },
+              { file: "rohand_g.gif",           label: isKo ? "제스처" : "Gesture" },
+              { file: "rohand_g2.gif",          label: isKo ? "제스처 2" : "Gesture 2" },
+              { file: "rohand_hu.gif",          label: isKo ? "휴머노이드" : "Humanoid" },
+              { file: "rohand_robot.gif",       label: isKo ? "로봇 암 연동" : "Robot Arm" },
+            ].map((g, i) => (
+              <div key={i} className="group relative aspect-video overflow-hidden rounded-xl cursor-pointer">
+                <img
+                  src={`/products/robot-hand/gif/${g.file}`}
+                  alt={g.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-2.5 left-3 text-xs font-semibold text-white/90">{g.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Use case cards */}
+          <div className="grid md:grid-cols-3 gap-3 mt-10">
+            {[
+              {
+                num: "01",
+                gif: "rohand_bot15.gif",
+                title: isKo ? "정밀 조립 자동화" : "Precision Assembly",
+                desc: isKo ? "포스 피드백으로 부품 결합 시 발생하는 힘을 실시간 감지해 파손 방지 및 공정 품질 즉각 검수" : "Real-time force detection during assembly prevents damage and enables instant quality inspection",
+              },
+              {
+                num: "02",
+                gif: "rohand_r2.gif",
+                title: isKo ? "표면 가공 자동화" : "Surface Finishing",
+                desc: isKo ? "일정 압력 유지가 필요한 샌딩·연마 공정 자동화로 작업 결과물의 균일성 확보" : "Automate sanding and polishing requiring constant pressure for consistent, uniform results",
+              },
+              {
+                num: "03",
+                gif: "rohand_robot4.gif",
+                title: isKo ? "의료 / 바이오 자동화" : "Medical / Bio Automation",
+                desc: isKo ? "섬세한 바이오 시료 취급과 힘 피드백 기반 원격 수술 로봇 연구 환경에 최적" : "Ideal for delicate bio-sample handling and force-feedback-based surgical robot research",
+              },
+            ].map((u, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={`/products/robot-hand/gif/${u.gif}`}
+                    alt={u.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+                <div className="p-5">
+                  <div className="text-xs font-bold text-white/20 mb-1.5">{u.num}</div>
+                  <h3 className="text-sm font-bold text-white mb-1.5">{u.title}</h3>
+                  <p className="text-xs text-white/50 leading-relaxed">{u.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
