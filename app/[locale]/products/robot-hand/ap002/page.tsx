@@ -123,6 +123,75 @@ export default async function AP002Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Size & Performance Specs */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "제품 사이즈 & 성능" : "Size & Performance"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
+            {isKo ? "ROH-AP002 상세 스펙" : "ROH-AP002 Detailed Specifications"}
+          </h2>
+          <p className="text-sm text-gray-500 mb-10">{isKo ? "무게: 575g ± 5g" : "Weight: 575g ± 5g"}</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Measurement Table */}
+            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+              <div className="px-6 py-4 border-b border-gray-100">
+                <h3 className="text-sm font-bold text-gray-900">{isKo ? "치수 측정" : "Measurement"}</h3>
+              </div>
+              <div className="divide-y divide-gray-100 text-sm">
+                {[
+                  ["중지 끝~손목 세로 거리", "Vertical distance from the tip of the middle finger to the wrist", "183 mm"],
+                  ["엄지 끝~손목 세로 거리", "Vertical distance from the thumb tip to wrist", "97 mm"],
+                  ["엄지 길이", "Thumb length", "113 mm"],
+                  ["최대 손바닥 너비", "Maximum palm width", "82 mm"],
+                  ["손목 직경", "Wrist diameter", "49 mm"],
+                  ["엄지 측면 최대 개폐 각도", "Maximum opening and closing angle of the thumb side", "0 ~ 31°"],
+                  ["엄지~손바닥 최대 개폐 각도", "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50°"],
+                  ["엄지 측면 회전 각도", "Thumb lateral rotation angle", "0 ~ 90°"],
+                  ["터치스크린 조작", "Finger touch screen function", isKo ? "지원" : "Supported"],
+                  ["손가락 힘 피드백", "Finger force feedback", isKo ? "지원" : "Supported"],
+                ].map(([ko, en, v], i) => (
+                  <div key={i} className="flex justify-between px-6 py-3">
+                    <span className="text-gray-500 pr-4">
+                      <span className="block">{ko}</span>
+                      <span className="block text-xs text-gray-400">{en}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap self-center">{v}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Performance Table */}
+            <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+              <div className="px-6 py-4 border-b border-gray-100">
+                <h3 className="text-sm font-bold text-gray-900">{isKo ? "성능 측정" : "Performance"}</h3>
+              </div>
+              <div className="divide-y divide-gray-100 text-sm">
+                {[
+                  ["최대 속도 전 범위 굽힘/펴기 시간", "Bending/stretching time for full range at maximum speed", "0.7 s"],
+                  ["최대 속도 기준 엄지 전체 회전 시간", "Rotation time of thumb for full range at maximum speed", "0.7 s"],
+                  ["펴진 상태 각 손가락 끝 능동력", "Active force of each finger tip on stretched state", "≥ 0.5 kgf"],
+                  ["굽힌 상태 각 손가락 끝 능동력", "Active force of each finger tip on bended state", "≥ 1 kgf"],
+                  ["엄지 끝 최대 능동력", "Maximum active force of thumb tip", "≥ 1 kgf"],
+                  ["4손가락 굽힌 상태 최대 수동 하중", "Maximum passive load for four fingers on bended state", "30 kg"],
+                  ["각 손가락 굽힌 상태 최대 수동 하중", "Maximum passive load for each finger on bended state", "10 kg"],
+                  ["각 손가락 펴진 상태 최대 수동 하중", "Maximum passive load for each finger on stretched state", "8 kg"],
+                ].map(([ko, en, v], i) => (
+                  <div key={i} className="flex justify-between px-6 py-3">
+                    <span className="text-gray-500 pr-4">
+                      <span className="block">{ko}</span>
+                      <span className="block text-xs text-gray-400">{en}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap self-center">{v}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* YouTube Video */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
