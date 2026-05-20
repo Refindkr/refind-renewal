@@ -192,6 +192,27 @@ export default async function AP002Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Structure Image */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            {isKo ? "제품 구조" : "Product Structure"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "ROH-AP002 구조도" : "ROH-AP002 Structure Diagram"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/robot-hand/ap002_structure.png"
+              alt={isKo ? "ROH-AP002 구조도" : "ROH-AP002 Structure Diagram"}
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Sensor Spec Image */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
