@@ -132,6 +132,37 @@ export default async function RealmanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Features */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            {isKo ? "제품 특징" : "Features"}
+          </p>
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            {isKo ? "정밀함과 유연함으로 완성되는 차세대 스마트 자동화" : "Next-Generation Smart Automation Built on Precision and Flexibility"}
+          </h2>
+          <p className="text-base text-gray-500 leading-relaxed max-w-3xl mb-12">
+            {isKo
+              ? "산업 현장과 연구 환경 모두에서 활용 가능한 고정밀·고효율 협동로봇 솔루션을 제공합니다. REALMAN 시리즈는 사람과 함께 일할 수 있도록 설계되어 안전성, 직관적 제어, 그리고 유연한 작업 대응성을 갖춘 차세대 협동로봇입니다. 제조, 검사, 연구, 교육 등 다양한 분야에서 사용이 가능합니다."
+              : "Providing high-precision, high-efficiency collaborative robot solutions applicable in both industrial and research environments. The REALMAN series is designed to work alongside humans — a next-generation collaborative robot with built-in safety, intuitive control, and flexible task adaptability. Suitable for manufacturing, inspection, research, education, and more."}
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: "🎯", title: isKo ? "고정밀 제어" : "High Precision", desc: isKo ? "±0.05mm 반복 정밀도로 섬세한 작업 환경에 최적" : "±0.05mm repeatability for demanding precision tasks" },
+              { icon: "🤝", title: isKo ? "안전한 협동" : "Safe Collaboration", desc: isKo ? "사람과 나란히 일할 수 있는 안전 설계 및 충돌 감지" : "Safety-first design with collision detection for human-robot collaboration" },
+              { icon: "🖥️", title: isKo ? "직관적 제어" : "Intuitive Control", desc: isKo ? "ROS2·Python·C++ SDK 지원으로 빠른 개발 및 통합" : "ROS2, Python, C++ SDK for rapid development and integration" },
+              { icon: "🏭", title: isKo ? "다분야 적용" : "Multi-Industry", desc: isKo ? "제조·검사·연구·교육 등 다양한 현장에 즉시 투입 가능" : "Instantly deployable across manufacturing, inspection, R&D, and education" },
+            ].map((f, i) => (
+              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                <div className="text-2xl mb-4">{f.icon}</div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Core Tech */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
