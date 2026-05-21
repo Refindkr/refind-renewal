@@ -261,6 +261,40 @@ export default async function RealmanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Use Cases — GIF */}
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            {isKo ? "활용 사례" : "Use Cases"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
+            {isKo ? "다양한 환경에서의 실제 동작" : "Real-World Motion in Various Environments"}
+          </h2>
+
+          {/* GIF grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { file: "1.gif",   label: isKo ? "동작 1" : "Motion 1" },
+              { file: "2.gif",   label: isKo ? "동작 2" : "Motion 2" },
+              { file: "3.gif",   label: isKo ? "동작 3" : "Motion 3" },
+              { file: "4.gif",   label: isKo ? "동작 4" : "Motion 4" },
+              { file: "5..gif",  label: isKo ? "동작 5" : "Motion 5" },
+              { file: "6.gif",   label: isKo ? "동작 6" : "Motion 6" },
+            ].map((g, i) => (
+              <div key={i} className="group relative aspect-video overflow-hidden rounded-xl cursor-pointer">
+                <img
+                  src={`/products/collaborative-robot/gif/${g.file}`}
+                  alt={g.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-2.5 left-3 text-xs font-semibold text-white/90">{g.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
