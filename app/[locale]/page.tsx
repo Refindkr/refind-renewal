@@ -147,7 +147,7 @@ export default async function HomePage({ params }: PageProps) {
       <section className="bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100">
           {[
-            { value: "2021", label: "설립연도" },
+            { value: "2020", label: "설립연도" },
             { value: "5+", label: "제품 라인업" },
             { value: "AI", label: "물리적 지능" },
             { value: "∞", label: "가능성의 한계" },
