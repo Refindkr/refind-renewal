@@ -261,6 +261,44 @@ export default async function RealmanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Product Lineup */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            {isKo ? "제품 라인업" : "Product Lineup"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "REALMAN 시리즈 모델" : "REALMAN Series Models"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+            {[
+              { file: "RM65.jpeg",  name: "RM65",   desc: isKo ? "6축 · 페이로드 5kg · 도달 650mm" : "6-axis · 5kg payload · 650mm reach" },
+              { file: "RM75.jpeg",  name: "RM75",   desc: isKo ? "6축 · 페이로드 7kg · 도달 750mm" : "6-axis · 7kg payload · 750mm reach" },
+              { file: "RML63.jpeg", name: "RML63",  desc: isKo ? "6축 경량형 · 도달 630mm" : "6-axis lightweight · 630mm reach" },
+              { file: "ECO62.jpeg", name: "ECO62",  desc: isKo ? "경제형 6축 · 도달 620mm" : "Economy 6-axis · 620mm reach" },
+              { file: "ECO65.jpeg", name: "ECO65",  desc: isKo ? "경제형 6축 · 도달 650mm" : "Economy 6-axis · 650mm reach" },
+              { file: "GEN72.jpeg", name: "GEN72",  desc: isKo ? "7축 · 페이로드 2kg · 도달 720mm" : "7-axis · 2kg payload · 720mm reach" },
+            ].map((p, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                <div className="relative h-52 bg-gray-50">
+                  <Image
+                    src={`/products/collaborative-robot/${p.file}`}
+                    alt={p.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="px-5 py-4 border-t border-gray-100">
+                  <h3 className="text-sm font-bold text-gray-900 mb-1">{p.name}</h3>
+                  <p className="text-xs text-gray-400">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases — GIF */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
