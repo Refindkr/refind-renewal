@@ -22,12 +22,13 @@ export default async function RealmanPage({ params }: PageProps) {
   const isKo = locale === "ko";
 
   const specs = [
-    { label: isKo ? "페이로드" : "Payload", rm65: "5 kg", eco65: "5 kg" },
-    { label: isKo ? "전체 무게" : "Total Weight", rm65: "7.2 kg", eco65: "7.8 kg" },
-    { label: isKo ? "최대 도달 거리" : "Max Reach", rm65: "650 mm", eco65: "610 mm" },
-    { label: isKo ? "반복 정밀도" : "Repeatability", rm65: "±0.05 mm", eco65: "±0.05 mm" },
-    { label: isKo ? "자유도" : "DOF", rm65: "6", eco65: "6" },
-    { label: isKo ? "연속 작동 시간" : "Continuous Operation", rm65: "30,000+ hrs", eco65: "30,000+ hrs" },
+    { model: "RM65",  dof: 6, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.2 kg",  repeat: "±0.05 mm", reach: "610 mm" },
+    { model: "RM75",  dof: 7, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.8 kg",  repeat: "±0.05 mm", reach: "610 mm" },
+    { model: "RML63", dof: 6, payload: "3 kg",  maxPayload: "5 kg",  weight: "10 kg",   repeat: "±0.05 mm", reach: "900 mm" },
+    { model: "ECO65", dof: 6, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.8 kg",  repeat: "±0.05 mm", reach: "610 mm" },
+    { model: "ECO62", dof: 6, payload: "1 kg",  maxPayload: "2 kg",  weight: "3.3 kg",  repeat: "±0.05 mm", reach: "355 mm" },
+    { model: "ECO63", dof: 6, payload: "3 kg",  maxPayload: "5 kg",  weight: "9.5 kg",  repeat: "±0.05 mm", reach: "900 mm" },
+    { model: "GEN72", dof: 7, payload: "2 kg",  maxPayload: "-",     weight: "6.6 kg",  repeat: "±1 mm",    reach: "600 mm" },
   ];
 
   const coreValues = [
@@ -236,23 +237,29 @@ export default async function RealmanPage({ params }: PageProps) {
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "모델 비교 사양" : "Model Comparison"}
           </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+            <table className="w-full text-sm">
               <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-6 text-sm font-bold text-gray-500 uppercase tracking-wider">
-                    {isKo ? "사양" : "Specification"}
-                  </th>
-                  <th className="text-center py-4 px-6 text-sm font-bold text-gray-900">RM65 Series</th>
-                  <th className="text-center py-4 px-6 text-sm font-bold text-gray-900">ECO 65</th>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "모델" : "Model"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">DOF</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "정격 페이로드" : "Rated Payload"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "최대 페이로드" : "Max Payload"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "무게" : "Weight"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "반복 정밀도" : "Repeatability"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "도달 거리" : "Reach"}</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-gray-50">
                 {specs.map((s, i) => (
-                  <tr key={s.label} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                    <td className="py-4 px-6 text-sm text-gray-500 font-medium">{s.label}</td>
-                    <td className="py-4 px-6 text-sm text-gray-900 font-semibold text-center">{s.rm65}</td>
-                    <td className="py-4 px-6 text-sm text-gray-900 text-center">{s.eco65}</td>
+                  <tr key={s.model} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                    <td className="px-5 py-3.5 font-bold text-[#0aabba]">{s.model}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.dof}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.payload}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.maxPayload}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.weight}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.repeat}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{s.reach}</td>
                   </tr>
                 ))}
               </tbody>
@@ -272,12 +279,12 @@ export default async function RealmanPage({ params }: PageProps) {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { file: "RM65.jpeg",  name: "RM65",   desc: isKo ? "6축 · 페이로드 5kg · 도달 650mm" : "6-axis · 5kg payload · 650mm reach" },
-              { file: "RM75.jpeg",  name: "RM75",   desc: isKo ? "6축 · 페이로드 7kg · 도달 750mm" : "6-axis · 7kg payload · 750mm reach" },
-              { file: "RML63.jpeg", name: "RML63",  desc: isKo ? "6축 경량형 · 도달 630mm" : "6-axis lightweight · 630mm reach" },
-              { file: "ECO62.jpeg", name: "ECO62",  desc: isKo ? "경제형 6축 · 도달 620mm" : "Economy 6-axis · 620mm reach" },
-              { file: "ECO65.jpeg", name: "ECO65",  desc: isKo ? "경제형 6축 · 도달 650mm" : "Economy 6-axis · 650mm reach" },
-              { file: "GEN72.jpeg", name: "GEN72",  desc: isKo ? "7축 · 페이로드 2kg · 도달 720mm" : "7-axis · 2kg payload · 720mm reach" },
+              { file: "RM65.jpeg",  name: "RM65",   desc: isKo ? "6축 · 정격 5kg · 도달 610mm" : "6-axis · 5kg payload · 610mm reach" },
+              { file: "RM75.jpeg",  name: "RM75",   desc: isKo ? "7축 · 정격 5kg · 도달 610mm" : "7-axis · 5kg payload · 610mm reach" },
+              { file: "RML63.jpeg", name: "RML63",  desc: isKo ? "6축 · 정격 3kg · 도달 900mm" : "6-axis · 3kg payload · 900mm reach" },
+              { file: "ECO62.jpeg", name: "ECO62",  desc: isKo ? "6축 · 정격 1kg · 도달 355mm" : "6-axis · 1kg payload · 355mm reach" },
+              { file: "ECO65.jpeg", name: "ECO65",  desc: isKo ? "6축 · 정격 5kg · 도달 610mm" : "6-axis · 5kg payload · 610mm reach" },
+              { file: "GEN72.jpeg", name: "GEN72",  desc: isKo ? "7축 · 정격 2kg · 도달 600mm" : "7-axis · 2kg payload · 600mm reach" },
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
                 <div className="relative h-52 bg-gray-50">
