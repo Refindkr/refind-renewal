@@ -359,6 +359,112 @@ export default async function RealmanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Compound Robot */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            {isKo ? "복합 로봇" : "Compound Robot"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+            {isKo ? "이동성 + 작업성 + 지능을 결합한 차세대 복합 로봇 솔루션" : "Next-Gen Compound Robot: Mobility + Manipulation + Intelligence"}
+          </h2>
+          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-3">
+            {isKo
+              ? "이동 플랫폼(AMR) + 로봇팔(Robotic Arm) + AI 기능을 결합한 최신 Compound Robot(복합 로봇) 제품을 공급합니다."
+              : "We supply the latest Compound Robot products combining a mobile platform (AMR) + robotic arm + AI capabilities."}
+          </p>
+          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-12">
+            {isKo
+              ? "복합 로봇은 이동하면서 작업을 수행할 수 있어 기존 자동화 설비가 해결하지 못한 다품종 소량 생산, 공정 간 이송·작업 통합, 서비스·의료·교육 분야까지 폭넓은 영역을 지원합니다."
+              : "Compound robots can move and work simultaneously — addressing challenges unmet by traditional automation: high-mix low-volume production, inter-process transfer, and broad applications in service, healthcare, and education."}
+          </p>
+
+          {/* Key Features */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {[
+              { icon: "🚗", title: isKo ? "이동+작업 통합" : "Mobility + Work", desc: isKo ? "한 대의 로봇이 이동, 작업, 운반을 동시 수행" : "One robot handles movement, tasks, and transport simultaneously" },
+              { icon: "🏭", title: isKo ? "다양한 산업 적용" : "Multi-Industry", desc: isKo ? "제조, 물류, 의료 돌봄, 교육 및 AI 연구에 활용 가능" : "Applicable in manufacturing, logistics, healthcare, education, and AI research" },
+              { icon: "🛡️", title: isKo ? "협업 안전 설계" : "Safe Collaboration", desc: isKo ? "센서 기반 충돌 감지 및 안전 알고리즘으로 사람과 함께 작업 가능" : "Sensor-based collision detection and safety algorithms for human-robot co-work" },
+              { icon: "🧠", title: isKo ? "AI 기반 지능형 작업" : "AI-Powered Tasks", desc: isKo ? "비전, 경로 최적화, 압력 제어, 물체 인식 등 다양한 AI 기능과 결합 가능" : "Integrates vision, path optimization, pressure control, and object recognition" },
+            ].map((f, i) => (
+              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                <div className="text-2xl mb-3">{f.icon}</div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Model Grid */}
+          <h3 className="text-lg font-extrabold text-gray-900 mb-6">
+            {isKo ? "Compound Robot 라인업" : "Compound Robot Lineup"}
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mb-14">
+            {[
+              { file: "ai-massage.jpeg",              name: "AI Massage Robot",                  desc: isKo ? "1암 · 2–3kg · 헬스케어" : "1-arm · 2–3kg · Healthcare" },
+              { file: "dual-arm-compound.jpeg",       name: "Dual Arm CR",                       desc: isKo ? "2암 · 3–5kg · 양손 자동화" : "2-arm · 3–5kg · Dual-hand automation" },
+              { file: "compound-lifting.jpeg",        name: "Compound Lifting Robot",            desc: isKo ? "1암 · 3–5kg · 물류·고중량" : "1-arm · 3–5kg · Logistics & heavy load" },
+              { file: "embodied-ai-platform.jpeg",    name: "Embodied AI Platform",              desc: isKo ? "2암 · 0.5kg · 연구·AI" : "2-arm · 0.5kg · Research & AI" },
+              { file: "single-arm-compound.jpeg",     name: "Single Arm CR",                     desc: isKo ? "1암 · 5kg · 서비스 자동화" : "1-arm · 5kg · Service automation" },
+              { file: "dual-arm-composite-lifting.jpeg", name: "Dual-arm Composite Lifting",    desc: isKo ? "2암 · 3–5kg · 산업 플래그십" : "2-arm · 3–5kg · Industrial flagship" },
+            ].map((p, i) => (
+              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+                <div className="relative h-52 bg-gray-50">
+                  <Image
+                    src={`/products/collaborative-robot/compound/${p.file}`}
+                    alt={p.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="px-5 py-4 border-t border-gray-100">
+                  <h3 className="text-sm font-bold text-gray-900 mb-1">{p.name}</h3>
+                  <p className="text-xs text-gray-400">{p.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Spec Table */}
+          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "모델명" : "Model"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "팔 개수" : "Arms"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "팔 페이로드" : "Arm Payload"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "이동 플랫폼" : "Mobile Platform"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "리프팅" : "Lifting"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "비전/센싱" : "Vision/Sensing"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "특징" : "Feature"}</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  ["AI Massage Robot",                "1", "2–3 kg", isKo ? "O" : "Yes", isKo ? "X" : "No",  "3D Vision + Pressure", isKo ? "헬스케어" : "Healthcare"],
+                  ["Dual Arm CR",                    "2", "3–5 kg", isKo ? "O" : "Yes", isKo ? "X" : "No",  "LiDAR + RGBD",          isKo ? "양손 자동화" : "Dual-hand automation"],
+                  ["Compound Lifting Robot",          "1", "3–5 kg", isKo ? "O" : "Yes", "10–20 kg",         "SLAM",                  isKo ? "물류·고중량" : "Logistics & heavy load"],
+                  ["Embodied AI Platform",            "2", "0.5 kg", isKo ? "X" : "No",  isKo ? "X" : "No", "Depth Vision",          isKo ? "연구·AI" : "Research & AI"],
+                  ["Single Arm CR",                  "1", "5 kg",   isKo ? "O" : "Yes", isKo ? "X" : "No",  "Vision + SLAM",         isKo ? "서비스 자동화" : "Service automation"],
+                  ["Dual-arm Composite Lifting Robot","2", "3–5 kg", isKo ? "O" : "Yes", "10–20 kg",         "LiDAR",                 isKo ? "산업 플래그십" : "Industrial flagship"],
+                ].map(([model, arms, payload, mobile, lift, vision, feature], i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                    <td className="px-5 py-3.5 font-bold text-[#0aabba] whitespace-nowrap">{model}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{arms}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{payload}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{mobile}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{lift}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700 text-xs">{vision}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{feature}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-gray-950 text-center">
         <div className="max-w-2xl mx-auto px-6">
