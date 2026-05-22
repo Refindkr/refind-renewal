@@ -115,44 +115,6 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Product Images */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
-            {isKo ? "제품 이미지" : "Product Images"}
-          </p>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
-            {isKo ? "Tashan 센서 라인업" : "Tashan Sensor Lineup"}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"].map((file, i) => (
-              <div key={i} className="relative h-48 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
-                <Image
-                  src={`/products/sensors/tashan/${file}`}
-                  alt={`Tashan Sensor ${i + 1}`}
-                  fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
-            {["51-tashan.jpg", "52-tashan.jpg", "53-tashan.jpg"].map((file, i) => (
-              <div key={i} className="relative h-56 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
-                <Image
-                  src={`/products/sensors/tashan/${file}`}
-                  alt={`Tashan Detail ${i + 1}`}
-                  fill
-                  className="object-contain p-4"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Spec Table */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
