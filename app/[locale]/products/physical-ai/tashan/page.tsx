@@ -181,6 +181,29 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* YouTube Video */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            {isKo ? "제품 영상" : "Product Video"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "Tashan 센서 동작 영상" : "Tashan Sensor in Action"}
+          </h2>
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative w-full aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/_-5LqwTmi9o"
+                title="Tashan Tactile Sensor"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Use Cases GIF */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
