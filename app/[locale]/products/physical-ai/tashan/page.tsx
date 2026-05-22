@@ -124,7 +124,17 @@ export default async function TashanPage({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "Tashan 센서 모델 비교" : "Tashan Sensor Model Comparison"}
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="flex flex-col lg:flex-row gap-8 items-start mb-8">
+            <div className="relative w-full lg:w-80 shrink-0 h-72 bg-white rounded-2xl border border-gray-100 overflow-hidden">
+              <Image
+                src="/products/sensors/tashan/52-tashan.jpg"
+                alt="Tashan Sensor Models"
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 1024px) 100vw, 320px"
+              />
+            </div>
+            <div className="flex-1 overflow-x-auto rounded-2xl border border-gray-100 self-stretch">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
@@ -166,6 +176,7 @@ export default async function TashanPage({ params }: PageProps) {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </section>
