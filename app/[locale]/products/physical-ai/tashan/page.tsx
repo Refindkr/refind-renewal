@@ -10,10 +10,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "Tashan 포스센서" : "Tashan Force Sensor",
+    title: isKo ? "Tashan 촉각 센서" : "Tashan Tactile Sensor",
     description: isKo
-      ? "로봇핸드 내장형 고감도 포스센서. 0.1N~25N 정밀 측정, 150Hz 샘플링으로 실시간 힘 피드백 구현."
-      : "High-sensitivity force sensor for robot hand integration. 0.1N–25N precision measurement with 150Hz sampling for real-time force feedback.",
+      ? "힘·압력·근접·마찰·재질까지 감지하는 차세대 멀티모달 촉각 센서. NVIDIA Isaac Sim 공식 등록 파트너."
+      : "Next-generation multi-modal tactile sensor detecting force, pressure, proximity, friction, and material. Official NVIDIA Isaac Sim partner.",
   };
 }
 
@@ -32,18 +32,18 @@ export default async function TashanPage({ params }: PageProps) {
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
-              Physical AI · Force Sensor
+              Physical AI · Tactile Sensing
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
-              Tashan
+              Tashan Sensor
             </h1>
             <p className="text-sm text-[#669DFD] font-semibold mb-5">
-              {isKo ? "힘을 느끼는 로봇의 감각" : "The Sense of Force for Robots"}
+              {isKo ? "힘을 느끼는 로봇의 감각" : "The Sense of Touch for Robots"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "로봇핸드에 내장되는 고감도 포스센서. 0.1N에서 25N까지 정밀하게 측정하며, 150Hz 샘플링으로 실시간 힘 피드백을 구현합니다."
-                : "High-sensitivity force sensor integrated into robot hands. Precisely measures 0.1N to 25N with 150Hz sampling for real-time force feedback."}
+                ? "첨단 촉각 센싱 기술은 단순한 힘 감지를 넘어 촉감·압력·근접·마찰·재질 변화까지 읽어내는 새로운 차원의 로봇 감각을 가능하게 합니다. 사람의 손처럼 섬세하게 반응하는 로봇 핸드는 제조·서비스·의료 분야의 정밀성을 크게 확장합니다."
+                : "Advanced tactile sensing technology goes beyond simple force detection — enabling a new dimension of robot senses that read touch, pressure, proximity, friction, and material changes. Robot hands that respond as delicately as human hands greatly expand precision in manufacturing, service, and medical robotics."}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href={`/${locale}/inquiry`}
@@ -58,8 +58,8 @@ export default async function TashanPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[400px]">
             <Image
-              src="/products/sensors/tashan.png"
-              alt="Tashan Force Sensor"
+              src="/products/sensors/tashan/tashan.png"
+              alt="Tashan Tactile Sensor"
               fill
               className="object-contain drop-shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -68,34 +68,41 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Core Values */}
+      {/* Key Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
             {isKo ? "핵심 특징" : "Key Features"}
           </p>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                icon: "🎯",
-                title: isKo ? "고정밀 측정" : "High-Precision Measurement",
+                icon: "🧠",
+                title: isKo ? "멀티모달 촉각 정보" : "Multi-Modal Tactile Info",
                 desc: isKo
-                  ? "0.1N에서 25N까지 정밀하게 측정. 섬세한 물체 파지부터 강한 그립까지 전 구간에서 힘을 감지합니다."
-                  : "Precise measurement from 0.1N to 25N. Detects force across the full range from delicate object gripping to strong grip.",
+                  ? "힘·압력 분포·온도·재질·근접 거리를 동시에 감지. 다중 센서 융합으로 정확한 조작을 구현합니다."
+                  : "Simultaneously detects force, pressure distribution, temperature, material, and proximity. Multi-sensor fusion enables precise manipulation.",
               },
               {
                 icon: "⚡",
-                title: isKo ? "150Hz 실시간 피드백" : "150Hz Real-time Feedback",
+                title: isKo ? "초고감도 센싱" : "Ultra-High Sensitivity",
                 desc: isKo
-                  ? "150Hz 고속 샘플링으로 실시간 힘 데이터를 제공. 로봇핸드의 정밀 토크 제어를 가능하게 합니다."
-                  : "Provides real-time force data with 150Hz high-speed sampling. Enables precise torque control of robot hands.",
+                  ? "수 그램 단위의 미세한 힘도 감지. 반응 지연을 최소화해 정밀 조립 및 실험용 로봇에 최적화됩니다."
+                  : "Detects forces as small as a few grams. Minimizes response delay for precision assembly and experimental robots.",
               },
               {
-                icon: "🔧",
-                title: isKo ? "로봇핸드 내장형" : "Robot Hand Integrated",
+                icon: "📡",
+                title: isKo ? "비접촉 근접 감지" : "Proximity Perception",
                 desc: isKo
-                  ? "ROH-AP001, ROH-AP002 로봇핸드에 내장되어 물체의 재질과 형태에 따른 지능형 파지를 구현합니다."
-                  : "Integrated into ROH-AP001 and ROH-AP002 robot hands for intelligent grasping based on object material and shape.",
+                  ? "물체에 닿기 전 1~2cm 거리에서 존재를 미리 감지. 사전 회피 제어와 소프트 터치를 구현합니다."
+                  : "Detects object presence 1–2cm before contact. Enables pre-emptive avoidance control and soft touch.",
+              },
+              {
+                icon: "🔄",
+                title: isKo ? "동적 마찰력 센싱" : "Dynamic Tangent Force",
+                desc: isKo
+                  ? "미끄럼 발생을 실시간 예측해 파지력을 자동 조정. 동적 작업 환경에서의 안전성을 향상합니다."
+                  : "Real-time slip prediction with automatic grip force adjustment. Improves safety in dynamic work environments.",
               },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
@@ -108,35 +115,219 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Specs */}
+      {/* Product Images */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
-            {isKo ? "기술 사양" : "Technical Specs"}
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            {isKo ? "제품 이미지" : "Product Images"}
           </p>
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl">
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "측정 사양" : "Measurement Specs"}</h3>
-              <div className="space-y-3 text-sm">
-                {[
-                  { k: isKo ? "측정 범위" : "Measurement Range", v: "0.1N ~ 25N" },
-                  { k: isKo ? "샘플링 레이트" : "Sampling Rate", v: "150Hz" },
-                  { k: isKo ? "통신 인터페이스" : "Communication", v: "UART / RS485 / CAN FD" },
-                  { k: isKo ? "탑재 모델" : "Compatible Models", v: "ROH-AP001, ROH-AP002" },
-                ].map((s, i) => (
-                  <div key={i} className="flex justify-between py-2 border-b border-gray-200">
-                    <span className="text-gray-500">{s.k}</span>
-                    <span className="font-semibold text-gray-900">{s.v}</span>
-                  </div>
-                ))}
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "Tashan 센서 라인업" : "Tashan Sensor Lineup"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg"].map((file, i) => (
+              <div key={i} className="relative h-48 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+                <Image
+                  src={`/products/sensors/tashan/${file}`}
+                  alt={`Tashan Sensor ${i + 1}`}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
               </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+            {["51-tashan.jpg", "52-tashan.jpg", "53-tashan.jpg"].map((file, i) => (
+              <div key={i} className="relative h-56 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+                <Image
+                  src={`/products/sensors/tashan/${file}`}
+                  alt={`Tashan Detail ${i + 1}`}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Spec Table */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            {isKo ? "제품 사양" : "Specifications"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "Tashan 센서 모델 비교" : "Tashan Sensor Model Comparison"}
+          </h2>
+          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "모델" : "Model"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "센싱 방식" : "Sensing Type"}</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
+                    <span className="block">Normal Force Range</span>
+                  </th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
+                    <span className="block">Normal Resolution</span>
+                  </th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
+                    <span className="block">Tangential Resolution</span>
+                  </th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">Accuracy</th>
+                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
+                    {isKo ? "비접촉 감지" : "Proximity"}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  ["TS-F-A",  "3D Force Sensing",                "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
+                  ["TS-F-A2", "Matrix Sensing",                  "0 – 50 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
+                  ["TS-F-B",  "Multi-modal Sensing",             "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
+                  ["TS-F-C",  "Multi-modal Sensing (Nail Type)", "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 2 cm"],
+                  ["TS-E-A",  "3D Force Sensing",                "0 – 50 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1.5 cm"],
+                  ["TS-E-B",  "Matrix Sensing",                  "0 – 50 N", "0.05 N", "0.25 N", "5% FS", "≥ 1.5 cm"],
+                ].map(([model, type, range, normal, tangential, acc, prox], i) => (
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                    <td className="px-5 py-3.5 font-bold text-[#669DFD] whitespace-nowrap">{model}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-600 text-xs">{type}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700 font-medium">{range}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{normal}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{tangential}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{acc}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-700">{prox}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases GIF */}
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            {isKo ? "활용 사례" : "Use Cases"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
+            {isKo ? "다양한 환경에서의 실제 동작" : "Real-World Applications"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+            {[
+              { file: "image.gif",  label: isKo ? "정밀 파지" : "Precision Grasping" },
+              { file: "image2.gif", label: isKo ? "비정형 물체 파지" : "Fragile Object Handling" },
+              { file: "image3.gif", label: isKo ? "인간-로봇 협업" : "Human-Robot Interaction" },
+              { file: "image4.gif", label: isKo ? "AI 강화학습" : "AI Reinforcement Learning" },
+            ].map((g, i) => (
+              <div key={i} className="group relative aspect-video overflow-hidden rounded-xl">
+                <img
+                  src={`/products/sensors/tashan/${g.file}`}
+                  alt={g.label}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <span className="absolute bottom-2.5 left-3 text-xs font-semibold text-white/90">{g.label}</span>
+              </div>
+            ))}
+          </div>
+          <div className="grid md:grid-cols-4 gap-5">
+            {[
+              { num: "01", title: isKo ? "정밀 전자부품 조립" : "Precision Assembly", desc: isKo ? "미세 힘 감지로 부품 파손 없이 정밀 조립 자동화" : "Automate precision assembly without part damage via fine force detection" },
+              { num: "02", title: isKo ? "비정형 물체 파지" : "Fragile Object Handling", desc: isKo ? "파손 주의 물체도 안전하게 핸들링하는 지능형 그립 제어" : "Intelligent grip control for safe handling of fragile and irregular objects" },
+              { num: "03", title: isKo ? "협동로봇 안전 HRI" : "Safe HRI", desc: isKo ? "사람 접촉 감지 및 즉각 반응으로 안전한 인간-로봇 협업 구현" : "Safe human-robot collaboration through touch detection and instant response" },
+              { num: "04", title: isKo ? "AI 강화학습 & 디지털 트윈" : "AI Learning & Digital Twin", desc: isKo ? "NVIDIA Isaac Sim 연동으로 촉각 데이터 기반 AI 학습 가속화" : "Accelerate tactile data-based AI learning via NVIDIA Isaac Sim integration" },
+            ].map((u, i) => (
+              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="text-xs font-bold text-white/20 mb-2">{u.num}</div>
+                <h3 className="text-sm font-bold text-white mb-2">{u.title}</h3>
+                <p className="text-xs text-white/50 leading-relaxed">{u.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision-Touch Fusion */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            Vision–Touch Fusion
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            {isKo ? "로봇이 '보고' 동시에 '느끼는' 새로운 지능의 시대" : "A New Era of Intelligence — Robots That See and Feel Simultaneously"}
+          </h2>
+          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-10">
+            {isKo
+              ? "Vision–Touch Fusion 플랫폼은 카메라 기반의 시각 정보(Vision)와 AI 촉각 센서(Touch)를 통합합니다. Vision만 의존하는 로봇은 빛, 그림자, 반사광, 가려진 물체 등에 취약하지만, Vision–Touch Fusion에서 촉각은 시각의 불확실성을 보완하고 시각은 촉각의 한계를 보완합니다."
+              : "The Vision–Touch Fusion platform integrates camera-based visual information (Vision) with AI tactile sensors (Touch). Robots relying solely on vision are vulnerable to lighting, shadows, reflections, and occluded objects — but in Vision–Touch Fusion, touch compensates for visual uncertainty and vision compensates for tactile limitations."}
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div className="text-2xl mb-4">👁️</div>
+              <h3 className="text-sm font-bold text-gray-900 mb-2">Vision</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                {isKo ? "카메라 기반 물체 인식, 위치 추정, 경로 계획. 넓은 시야와 빠른 공간 인식을 담당합니다." : "Camera-based object recognition, position estimation, and path planning. Handles wide field of view and fast spatial awareness."}
+              </p>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div className="text-2xl mb-4">✋</div>
+              <h3 className="text-sm font-bold text-gray-900 mb-2">Touch</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                {isKo ? "접촉 순간의 힘·질감·미끄럼을 실시간 감지. 시각이 놓치는 세밀한 물리적 정보를 보완합니다." : "Real-time detection of force, texture, and slip at the moment of contact. Supplements the fine physical information that vision misses."}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* NVIDIA Isaac Sim */}
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+              NVIDIA Isaac Sim
+            </p>
+            <h2 className="text-2xl font-extrabold text-white mb-4 tracking-tight">
+              {isKo ? "NVIDIA Isaac Sim 공식 촉각 센서 파트너" : "Official Tactile Sensor Partner for NVIDIA Isaac Sim"}
+            </h2>
+            <p className="text-sm text-white/60 leading-relaxed mb-8">
+              {isKo
+                ? "NVIDIA Isaac Sim에서 촉각 센서로 유일하게 등록된 파트너입니다. AI 기반 로봇 개발, 시뮬레이션, 데이터 생성, 강화학습, 디지털 트윈 운영 전 영역에 걸쳐 활용할 수 있습니다."
+                : "The only tactile sensor officially registered in NVIDIA Isaac Sim. Applicable across AI-based robot development, simulation, data generation, reinforcement learning, and digital twin operations."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {[
+                isKo ? "AI 로봇 개발" : "AI Robot Dev",
+                isKo ? "시뮬레이션" : "Simulation",
+                isKo ? "데이터 생성" : "Data Generation",
+                isKo ? "강화학습" : "Reinforcement Learning",
+                isKo ? "디지털 트윈" : "Digital Twin",
+              ].map((tag, i) => (
+                <span key={i} className="px-3 py-1.5 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="relative h-64 md:h-80">
+            <Image
+              src="/products/sensors/tashan/image.png"
+              alt="NVIDIA Isaac Sim Integration"
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Related Products */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
             {isKo ? "탑재 제품" : "Products with Tashan"}
@@ -155,12 +346,12 @@ export default async function TashanPage({ params }: PageProps) {
               },
             ].map((p, i) => (
               <Link key={i} href={p.href}
-                className="flex items-center gap-4 bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-400 hover:shadow-sm transition-all group">
+                className="flex items-center gap-4 bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all group">
                 <div className="flex-1">
-                  <div className="text-sm font-bold text-gray-900 mb-1 group-hover:text-primary-500 transition-colors">{p.name}</div>
+                  <div className="text-sm font-bold text-gray-900 mb-1">{p.name}</div>
                   <div className="text-xs text-gray-400">{p.desc}</div>
                 </div>
-                <svg className="w-4 h-4 text-gray-300 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gray-300 group-hover:text-[#669DFD] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
