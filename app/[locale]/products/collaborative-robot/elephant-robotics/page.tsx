@@ -33,15 +33,15 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
         ? ["초소형 6축 로봇암", "가벼운 하중 대응", "데스크탑에서 즉시 사용 가능", "합리적인 가격대"]
         : ["Ultra-compact 6-axis robot arm", "Light payload support", "Ready to use on desktop", "Affordable price"],
       specs: [
-        [isKo ? "자유도" : "DOF", "6" + (isKo ? "축" : "-axis")],
-        [isKo ? "작업 반경" : "Working Radius", "280 mm"],
-        [isKo ? "가반하중" : "Payload", "250 g"],
-        [isKo ? "반복 정밀도" : "Repeatability", "±0.5 mm"],
-        [isKo ? "구동 방식" : "Drive", isKo ? "서보 모터" : "Servo Motor"],
-        [isKo ? "제어 방식" : "Control", "Python / ROS"],
-        [isKo ? "전원 공급" : "Power", "DC " + (isKo ? "어댑터" : "Adapter")],
-        [isKo ? "설치 형태" : "Installation", isKo ? "데스크탑" : "Desktop"],
-        [isKo ? "주요 분야" : "Application", isKo ? "교육, 로봇 입문, 기초 연구" : "Education, Intro to Robotics, Basic Research"],
+        ["자유도", "DOF", "6" + (isKo ? "축" : "-axis")],
+        ["작업 반경", "Working Radius", "280 mm"],
+        ["가반하중", "Payload", "250 g"],
+        ["반복 정밀도", "Repeatability", "±0.5 mm"],
+        ["구동 방식", "Drive", isKo ? "서보 모터" : "Servo Motor"],
+        ["제어 방식", "Control", "Python / ROS"],
+        ["전원 공급", "Power", "DC " + (isKo ? "어댑터" : "Adapter")],
+        ["설치 형태", "Installation", isKo ? "데스크탑" : "Desktop"],
+        ["주요 분야", "Application", isKo ? "교육, 로봇 입문, 기초 연구" : "Education, Intro to Robotics, Basic Research"],
       ],
     },
     {
@@ -55,15 +55,15 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
         ? ["6축 구조 유지", "향상된 작업 반경", "안정적인 반복 동작", "다양한 엔드이펙터 실험 가능"]
         : ["6-axis structure", "Improved working radius", "Stable repetitive motion", "Supports various end-effector experiments"],
       specs: [
-        [isKo ? "자유도" : "DOF", "6" + (isKo ? "축" : "-axis")],
-        [isKo ? "작업 반경" : "Working Radius", "320 mm"],
-        [isKo ? "가반하중" : "Payload", "500 g"],
-        [isKo ? "반복 정밀도" : "Repeatability", "±0.5 mm"],
-        [isKo ? "구동 방식" : "Drive", isKo ? "서보 모터" : "Servo Motor"],
-        [isKo ? "제어 방식" : "Control", "Python / ROS"],
-        [isKo ? "전원 공급" : "Power", "DC " + (isKo ? "어댑터" : "Adapter")],
-        [isKo ? "설치 형태" : "Installation", isKo ? "데스크탑" : "Desktop"],
-        [isKo ? "주요 분야" : "Application", isKo ? "교육, 연구실, 알고리즘 테스트" : "Education, Lab, Algorithm Testing"],
+        ["자유도", "DOF", "6" + (isKo ? "축" : "-axis")],
+        ["작업 반경", "Working Radius", "320 mm"],
+        ["가반하중", "Payload", "500 g"],
+        ["반복 정밀도", "Repeatability", "±0.5 mm"],
+        ["구동 방식", "Drive", isKo ? "서보 모터" : "Servo Motor"],
+        ["제어 방식", "Control", "Python / ROS"],
+        ["전원 공급", "Power", "DC " + (isKo ? "어댑터" : "Adapter")],
+        ["설치 형태", "Installation", isKo ? "데스크탑" : "Desktop"],
+        ["주요 분야", "Application", isKo ? "교육, 연구실, 알고리즘 테스트" : "Education, Lab, Algorithm Testing"],
       ],
     },
     {
@@ -77,15 +77,15 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
         ? ["6축 소형 cobot 구조", "넓은 작업 반경", "다양한 제어 실험 가능", "데모 및 기술 시연에 적합"]
         : ["6-axis compact cobot", "Wide working radius", "Supports diverse control experiments", "Ideal for demos and tech showcases"],
       specs: [
-        [isKo ? "자유도" : "DOF", "6" + (isKo ? "축" : "-axis")],
-        [isKo ? "작업 반경" : "Working Radius", "630 mm"],
-        [isKo ? "가반하중" : "Payload", "1 kg"],
-        [isKo ? "반복 정밀도" : "Repeatability", "±0.5 mm"],
-        [isKo ? "구동 방식" : "Drive", isKo ? "서보 모터" : "Servo Motor"],
-        [isKo ? "제어 방식" : "Control", "Python / ROS"],
-        [isKo ? "전원 공급" : "Power", isKo ? "외부 전원 공급 장치" : "External Power Supply"],
-        [isKo ? "설치 형태" : "Installation", isKo ? "데스크탑 / 작업대" : "Desktop / Workbench"],
-        [isKo ? "주요 분야" : "Application", isKo ? "연구, 개발, 개념 검증, 시연" : "Research, Development, PoC, Demo"],
+        ["자유도", "DOF", "6" + (isKo ? "축" : "-axis")],
+        ["작업 반경", "Working Radius", "630 mm"],
+        ["가반하중", "Payload", "1 kg"],
+        ["반복 정밀도", "Repeatability", "±0.5 mm"],
+        ["구동 방식", "Drive", isKo ? "서보 모터" : "Servo Motor"],
+        ["제어 방식", "Control", "Python / ROS"],
+        ["전원 공급", "Power", isKo ? "외부 전원 공급 장치" : "External Power Supply"],
+        ["설치 형태", "Installation", isKo ? "데스크탑 / 작업대" : "Desktop / Workbench"],
+        ["주요 분야", "Application", isKo ? "연구, 개발, 개념 검증, 시연" : "Research, Development, PoC, Demo"],
       ],
     },
   ];
@@ -198,10 +198,13 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
                     </span>
                   </div>
                   <div className="divide-y divide-gray-100">
-                    {p.specs.map(([k, v], i) => (
+                    {p.specs.map(([ko, en, v], i) => (
                       <div key={i} className="flex justify-between px-5 py-2.5 text-sm">
-                        <span className="text-gray-500">{k}</span>
-                        <span className="font-semibold text-gray-900">{v}</span>
+                        <span className="text-gray-500 pr-4">
+                          <span className="block">{ko}</span>
+                          <span className="block text-xs text-gray-400">{en}</span>
+                        </span>
+                        <span className="font-semibold text-gray-900 whitespace-nowrap self-center">{v}</span>
                       </div>
                     ))}
                   </div>
