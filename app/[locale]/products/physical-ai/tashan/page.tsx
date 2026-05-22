@@ -190,16 +190,26 @@ export default async function TashanPage({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "Tashan 센서 동작 영상" : "Tashan Sensor in Action"}
           </h2>
-          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl">
-            <div className="relative w-full aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/_-5LqwTmi9o"
-                title="Tashan Tactile Sensor"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              { id: "_-5LqwTmi9o", title: isKo ? "Tashan 센서 동작 시연" : "Tashan Sensor Demo" },
+              { id: "jN6dp4Qjaz4", title: isKo ? "Tashan 센서 활용 사례" : "Tashan Sensor Application" },
+            ].map((v, i) => (
+              <div key={i}>
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                  <div className="relative w-full aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${v.id}`}
+                      title={v.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </div>
+                <p className="text-sm font-semibold text-gray-700 mt-3 text-center">{v.title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
