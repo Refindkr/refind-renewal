@@ -262,30 +262,66 @@ export default async function TashanPage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
-            Vision–Touch Fusion
+            Vision–Touch Fusion Technology Platform
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
             {isKo ? "로봇이 '보고' 동시에 '느끼는' 새로운 지능의 시대" : "A New Era of Intelligence — Robots That See and Feel Simultaneously"}
           </h2>
+          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-3">
+            {isKo
+              ? "Vision–Touch Fusion 플랫폼은 카메라 기반의 시각 정보(Vision)와 AI 촉각 센서(Touch)를 통합하여 로봇이 사람의 인지 과정처럼 환경을 이해하도록 만드는 차세대 지능형 인터페이스입니다."
+              : "The Vision–Touch Fusion platform integrates camera-based visual information (Vision) with AI tactile sensors (Touch) — a next-generation intelligent interface that enables robots to understand their environment like human cognition."}
+          </p>
           <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-10">
             {isKo
-              ? "Vision–Touch Fusion 플랫폼은 카메라 기반의 시각 정보(Vision)와 AI 촉각 센서(Touch)를 통합합니다. Vision만 의존하는 로봇은 빛, 그림자, 반사광, 가려진 물체 등에 취약하지만, Vision–Touch Fusion에서 촉각은 시각의 불확실성을 보완하고 시각은 촉각의 한계를 보완합니다."
-              : "The Vision–Touch Fusion platform integrates camera-based visual information (Vision) with AI tactile sensors (Touch). Robots relying solely on vision are vulnerable to lighting, shadows, reflections, and occluded objects — but in Vision–Touch Fusion, touch compensates for visual uncertainty and vision compensates for tactile limitations."}
+              ? "이 기술은 단순한 물체 인식이나 힘 감지를 넘어, 기계가 스스로 사물을 보고 판단하고 조작하는 능력을 극적으로 향상시킵니다."
+              : "Beyond simple object recognition or force detection, this technology dramatically enhances a machine's ability to see, judge, and manipulate objects on its own."}
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-              <div className="text-2xl mb-4">👁️</div>
-              <h3 className="text-sm font-bold text-gray-900 mb-2">Vision</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                {isKo ? "카메라 기반 물체 인식, 위치 추정, 경로 계획. 넓은 시야와 빠른 공간 인식을 담당합니다." : "Camera-based object recognition, position estimation, and path planning. Handles wide field of view and fast spatial awareness."}
-              </p>
+
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-12">
+            {/* Image */}
+            <div className="relative w-full h-80 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+              <Image
+                src="/products/sensors/tashan/53-tashan.jpg"
+                alt="Vision-Touch Fusion Platform"
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-              <div className="text-2xl mb-4">✋</div>
-              <h3 className="text-sm font-bold text-gray-900 mb-2">Touch</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                {isKo ? "접촉 순간의 힘·질감·미끄럼을 실시간 감지. 시각이 놓치는 세밀한 물리적 정보를 보완합니다." : "Real-time detection of force, texture, and slip at the moment of contact. Supplements the fine physical information that vision misses."}
+            {/* Text */}
+            <div>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-4">
+                Vision + Tactile = {isKo ? "초정밀 물체 이해" : "Ultra-Precise Object Understanding"}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                {isKo
+                  ? "로봇은 카메라로 물체의 형상·위치·재질을 파악하고, 촉각센서로 힘·압력·미끄럼·질감·접촉 상태를 동시에 분석합니다."
+                  : "Robots use cameras to understand object shape, position, and material — while tactile sensors simultaneously analyze force, pressure, slip, texture, and contact state."}
               </p>
+              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {isKo
+                    ? "Vision만 의존하는 로봇은 빛, 그림자, 반사광, 가려진 물체 등에 취약합니다. 하지만 Vision–Touch Fusion은 촉각이 시각의 불확실성을 보완하고 시각이 촉각의 한계를 보완하여 어떤 환경에서도 높은 안정성을 유지합니다."
+                    : "Robots relying solely on vision are vulnerable to lighting, shadows, reflections, and occluded objects. But Vision–Touch Fusion keeps touch compensating for visual uncertainty and vision compensating for tactile limitations — maintaining high stability in any environment."}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div className="text-xl mb-2">👁️</div>
+                  <h4 className="text-xs font-bold text-gray-900 mb-1">Vision</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    {isKo ? "형상·위치·재질 파악" : "Shape, position & material"}
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div className="text-xl mb-2">✋</div>
+                  <h4 className="text-xs font-bold text-gray-900 mb-1">Touch</h4>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    {isKo ? "힘·압력·미끄럼·질감" : "Force, pressure, slip & texture"}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
