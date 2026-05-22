@@ -176,6 +176,7 @@ export default async function TashanPage({ params }: PageProps) {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </section>
