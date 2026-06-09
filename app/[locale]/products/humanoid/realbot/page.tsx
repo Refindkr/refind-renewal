@@ -183,13 +183,38 @@ export default async function RealbotPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Use Cases */}
+      {/* Use Cases GIF */}
       <section className="py-24 bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Applications</p>
-          <h2 className="text-4xl font-extrabold mb-16 tracking-tight">
+          <h2 className="text-4xl font-extrabold mb-12 tracking-tight">
             {isKo ? "다양한 산업에서 인간과 협력합니다" : "Collaborating with Humans Across Industries"}
           </h2>
+
+          {/* GIF 시연 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { src: "/products/humanoid/gif/realbot_1.gif", label: isKo ? "보행 동작" : "Walking Motion" },
+              { src: "/products/humanoid/gif/realbot_2.gif", label: isKo ? "팔 제어" : "Arm Control" },
+              { src: "/products/humanoid/gif/realbot_3.gif", label: isKo ? "물체 조작" : "Object Manipulation" },
+              { src: "/products/humanoid/gif/realbot_5.gif", label: isKo ? "협력 작업" : "Collaborative Task" },
+            ].map((g, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl bg-white/5 border border-white/10 group">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={g.src}
+                    alt={g.label}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <p className="text-xs font-semibold text-white/60">{g.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 응용 분야 카드 */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {useCases.map((u, i) => (
               <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-7">
