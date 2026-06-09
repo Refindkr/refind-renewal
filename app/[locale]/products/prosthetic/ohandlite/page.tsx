@@ -115,22 +115,33 @@ export default async function OhandLitePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Use Cases */}
+      {/* Use Cases GIF */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "활용 사례" : "Use Cases"}</p>
-          <div className="grid md:grid-cols-3 gap-5">
+          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
+            {isKo ? "가볍게, 자유롭게" : "Light & Free"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { title: isKo ? "피로 감소" : "Fatigue Reduction", desc: isKo ? "장시간 의수를 착용하고 외부 활동을 해야 하는 직장인 또는 학생에게 최적" : "Ideal for office workers or students who need to wear prosthetics for extended external activities" },
-              { title: isKo ? "일상 활동" : "Daily Activities", desc: isKo ? "가벼운 물건 집기, 타이핑, 문 열기 등 일상적인 동작을 자연스럽게 수행" : "Naturally perform everyday motions like picking up light objects, typing, and opening doors" },
-              { title: isKo ? "신체적 부담 최소화" : "Minimal Physical Burden", desc: isKo ? "근력이 약한 고령자나 장시간 착용이 필요한 사용자에게 최적의 선택" : "The optimal choice for elderly users with reduced muscle strength or those requiring extended wear" },
-            ].map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="w-8 h-8 rounded-lg bg-[#E6F7F8] text-[#0AABBA] flex items-center justify-center text-xs font-bold mb-4">
-                  {String(i + 1).padStart(2, "0")}
+              { src: "/products/prosthetic/gif/feed_1.gif", label: isKo ? "음료 잡기" : "Holding Cup" },
+              { src: "/products/prosthetic/gif/feed_2.gif", label: isKo ? "식사하기" : "Eating" },
+              { src: "/products/prosthetic/gif/feed_3.gif", label: isKo ? "물건 집기" : "Picking Object" },
+              { src: "/products/prosthetic/gif/feed_4.gif", label: isKo ? "핀치 동작" : "Pinch Grip" },
+              { src: "/products/prosthetic/gif/feed_5.gif", label: isKo ? "파지 동작" : "Power Grasp" },
+              { src: "/products/prosthetic/gif/feed_6.gif", label: isKo ? "정밀 집기" : "Precision Grip" },
+            ].map((g, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl bg-gray-900 group">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={g.src}
+                    alt={g.label}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
+                <div className="px-4 py-3">
+                  <p className="text-xs font-semibold text-white/70">{g.label}</p>
+                </div>
               </div>
             ))}
           </div>
