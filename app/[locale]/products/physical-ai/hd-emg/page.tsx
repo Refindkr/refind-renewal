@@ -56,7 +56,7 @@ export default async function HDEMGPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[400px]">
             <Image
-              src="/products/sensors/3.jpeg"
+              src="/products/physical-ai/hd-emg.jpg"
               alt="BioFlex nano 32 HD EMG"
               fill
               className="object-contain drop-shadow-2xl"
