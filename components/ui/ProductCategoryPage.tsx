@@ -3,6 +3,7 @@ import Link from "next/link";
 
 interface ProductCard {
   slug: string;
+  href?: string;
   name: string;
   nameEn: string;
   tagline: string;
@@ -54,7 +55,7 @@ export default function ProductCategoryPage({
             {products.map((product) => (
               <Link
                 key={product.slug}
-                href={`/${locale}/products/${categorySlug}/${product.slug}`}
+                href={product.href ?? `/${locale}/products/${categorySlug}/${product.slug}`}
                 className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-100 transition-all duration-300"
               >
                 {/* Image */}

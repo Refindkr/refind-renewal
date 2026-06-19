@@ -43,7 +43,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tags: isKo ? ["풀바디", "고자유도", "정밀제어"] : ["Full-Body", "High-DOF", "Precise Control"],
         },
         {
-          slug: "realbot",
+          slug: "embodied-dual-arm",
           name: isKo ? "Embodied Dual Arm" : "Embodied Dual Arm",
           nameEn: "Embodied Dual Arm Robot",
           tagline: isKo
@@ -53,7 +53,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tags: isKo ? ["양팔", "협업", "정밀조작"] : ["Dual-Arm", "Collaborative", "Precision"],
         },
         {
-          slug: "realbot",
+          slug: "lifting-platform",
           name: isKo ? "Lifting Platform" : "Lifting Platform",
           nameEn: "Mobile Lifting Platform",
           tagline: isKo
@@ -63,7 +63,8 @@ export default async function HumanoidPage({ params }: PageProps) {
           tags: isKo ? ["이동형", "리프팅", "모듈형"] : ["Mobile", "Lifting", "Modular"],
         },
         {
-          slug: "realbot",
+          slug: "guohua-robot",
+          href: `/${locale}/products/guohua-robot`,
           name: "Guohua Robot",
           nameEn: "Guohua Service Humanoid",
           tagline: isKo
