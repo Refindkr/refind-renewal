@@ -99,7 +99,7 @@ export default async function EEGPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[400px]">
             <Image
-              src="/products/sensors/2.jpeg"
+              src="/products/physical-ai/wearable-eeg.jpeg"
               alt="EEG System"
               fill
               className="object-contain drop-shadow-2xl"
