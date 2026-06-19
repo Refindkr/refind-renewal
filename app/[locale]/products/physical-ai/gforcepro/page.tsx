@@ -116,7 +116,7 @@ export default async function GForceProPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/sensors/tashan.png" alt="GForcePro+" fill
+            <Image src="/products/physical-ai/gforce.jpeg" alt="GForcePro+" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>
