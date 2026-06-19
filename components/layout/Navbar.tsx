@@ -273,6 +273,18 @@ export default function Navbar({ locale }: NavbarProps) {
                 <span className={`text-sm ${isTransparent ? "text-white/70" : "text-gray-600"}`}>
                   {session.user?.name}
                 </span>
+                {(session.user as { role?: string })?.role === "admin" && (
+                  <Link
+                    href={`/${locale}/admin`}
+                    className={`text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${
+                      isTransparent
+                        ? "bg-[#669DFD]/20 text-[#669DFD] hover:bg-[#669DFD]/30"
+                        : "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                    }`}
+                  >
+                    관리자
+                  </Link>
+                )}
                 <button
                   onClick={() => signOut({ callbackUrl: `/${locale}` })}
                   className={`text-sm transition-colors ${
