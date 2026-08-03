@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "Embodied Dual Arm 양팔로봇" : "Embodied Dual Arm Robot",
+    title: isKo ? "Dual arm vertical Lift 양팔로봇" : "Dual arm vertical Lift Robot",
     description: isKo
       ? "양팔 협업 로봇 플랫폼. 복잡한 조작·조립 작업을 위한 최적의 양팔 솔루션."
       : "Dual-arm collaborative robot platform. The ideal dual-arm solution for complex manipulation and assembly tasks.",
@@ -58,7 +58,7 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
               Humanoid · Dual Arm
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight">
-              {isKo ? "Embodied\nDual Arm" : "Embodied\nDual Arm"}
+              {isKo ? "Dual arm\nvertical Lift" : "Dual arm\nvertical Lift"}
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
@@ -66,10 +66,12 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
                 : "Dual-arm robot platform modeled after the human upper body. High-DOF arms work together to automate delicate tasks that only humans could perform."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/humanoid`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
@@ -115,10 +117,12 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인 전문가가 최적의 도입 방안을 설계해 드립니다." : "Refind experts will design the optimal deployment plan."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

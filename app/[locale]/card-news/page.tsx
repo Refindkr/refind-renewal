@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
+import { stripHtml } from "@/lib/html";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,8 +24,12 @@ export default async function CardNewsPage({ params }: PageProps) {
   const { locale } = await params;
   const isKo = locale === "ko";
 
-  // 추후 콘텐츠 추가 예정
-  const cards: { id: number; title: string; date: string; image: string; desc: string }[] = [];
+  const session = await getServerSession(authOptions);
+  const isAdmin = (session?.user as { role?: string })?.role === "admin";
+
+  const cards = await prisma.cardNews.findMany({
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -45,6 +53,16 @@ export default async function CardNewsPage({ params }: PageProps) {
       {/* 카드 그리드 */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
+          {isAdmin && (
+            <div className="flex justify-end mb-6">
+              <Link
+                href={`/${locale}/admin/card-news/new`}
+                className="px-5 py-2.5 bg-primary-400 text-white rounded-lg font-medium hover:bg-primary-500 transition-colors text-sm"
+              >
+                + 글쓰기
+              </Link>
+            </div>
+          )}
           {cards.length === 0 ? (
             <div className="text-center py-32">
               <p className="text-4xl mb-4">📰</p>
@@ -55,23 +73,28 @@ export default async function CardNewsPage({ params }: PageProps) {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cards.map((card) => (
-                <div
+                <Link
                   key={card.id}
-                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group"
+                  href={`/${card.slug}`}
+                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group"
                 >
                   <div className="h-52 bg-gray-100 overflow-hidden">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                    {card.thumbnail && (
+                      <img
+                        src={card.thumbnail}
+                        alt={card.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    )}
                   </div>
                   <div className="p-5">
-                    <p className="text-xs text-gray-400 mb-2">{card.date}</p>
+                    <p className="text-xs text-gray-400 mb-2">
+                      {new Date(card.createdAt).toLocaleDateString("ko-KR")}
+                    </p>
                     <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">{card.title}</h3>
-                    <p className="text-xs text-gray-500 line-clamp-2">{card.desc}</p>
+                    <p className="text-xs text-gray-500 line-clamp-2">{stripHtml(card.content)}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}

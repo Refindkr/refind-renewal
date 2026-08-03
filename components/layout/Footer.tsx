@@ -31,11 +31,11 @@ export default async function Footer({ locale }: FooterProps) {
             </h3>
             <ul className="space-y-3">
               {[
+                { href: `/${locale}/products/physical-ai`, label: tn("physicalAI") },
                 { href: `/${locale}/products/robot-hand`, label: tn("robotHand") },
                 { href: `/${locale}/products/collaborative-robot`, label: tn("collaborativeRobot") },
-                { href: `/${locale}/products/physical-ai`, label: tn("physicalAI") },
                 { href: `/${locale}/products/humanoid`, label: tn("humanoid") },
-                { href: `/${locale}/products/body-enhancement`, label: tn("bodyEnhancement") },
+                { href: `/${locale}/products/prosthetic`, label: tn("bodyEnhancement") },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -64,12 +64,14 @@ export default async function Footer({ locale }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link
-                  href={`/${locale}/inquiry`}
+                <a
+                  href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm hover:text-white transition-colors duration-200"
                 >
                   {tn("inquiry")}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

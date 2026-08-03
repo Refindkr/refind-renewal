@@ -93,10 +93,12 @@ export default async function AVRAMRPage({ params }: PageProps) {
                 : "Mobile robot platform combining autonomous navigation with a collaborative robot arm. SLAM-based self-navigation optimized for education, research, and automation environments."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "도입 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/physical-ai`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "피지컬 AI 전체 보기" : "All Physical AI"}
@@ -241,10 +243,12 @@ export default async function AVRAMRPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인 전문가가 최적의 솔루션을 제안해 드립니다." : "Refind experts will propose the optimal solution."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
 

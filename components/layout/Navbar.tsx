@@ -11,6 +11,8 @@ interface NavbarProps {
   locale: string;
 }
 
+const INQUIRY_FORM_URL = "https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA";
+
 export default function Navbar({ locale }: NavbarProps) {
   const t = useTranslations("nav");
   const { data: session } = useSession();
@@ -27,6 +29,20 @@ export default function Navbar({ locale }: NavbarProps) {
 
   const productLinks = [
     {
+      href: `/${locale}/products/physical-ai`,
+      label: t("physicalAI"),
+      icon: "🧠",
+      desc: isKo ? "액추에이터·플랫폼·센서 솔루션" : "Actuators, platform & sensor solutions",
+      children: [
+        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
+        { href: `/${locale}/products/physical-ai/actuator`, label: isKo ? "액추에이터" : "Actuator", isGroup: false },
+        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: false },
+        { href: `/${locale}/products/physical-ai/platform`, label: isKo ? "플랫폼" : "Platform", isGroup: true },
+        { href: `/${locale}/products/physical-ai/platform/dual-arm`, label: isKo ? "듀얼암 로봇 플랫폼" : "Dual-Arm Robot Platform", isGroup: false },
+        { href: `/${locale}/products/physical-ai/platform/teleoperation-kit`, label: isKo ? "원격조작 키트" : "Teleoperation Kit", isGroup: false },
+      ],
+    },
+    {
       href: `/${locale}/products/robot-hand`,
       label: t("robotHand"),
       icon: "🤖",
@@ -35,7 +51,9 @@ export default function Navbar({ locale }: NavbarProps) {
         { href: `/${locale}/products/robot-hand/a002`, label: "ROH-A002", isGroup: false },
         { href: `/${locale}/products/robot-hand/ap001`, label: "ROH-AP001", isGroup: false },
         { href: `/${locale}/products/robot-hand/ap002`, label: "ROH-AP002", isGroup: false },
+        { href: `/${locale}/products/robot-hand/ap003`, label: "ROH-AP003", isGroup: false },
         { href: `/${locale}/products/robot-hand/lite`, label: "ROH-Lite", isGroup: false },
+        { href: `/${locale}/products/robot-hand/motion-capture-glove`, label: isKo ? "모션 캡처 글러브" : "Motion Capture Glove", isGroup: false },
       ],
     },
     {
@@ -44,19 +62,11 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "⚙️",
       desc: isKo ? "안전한 인간-로봇 협업" : "Safe human-robot collaboration",
       children: [
-        { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman", isGroup: false },
+        { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman", isGroup: true },
+        { href: `/${locale}/products/collaborative-robot/realman/rm65-75`, label: "RM65/75", isGroup: false },
+        { href: `/${locale}/products/collaborative-robot/realman/rml63`, label: "RML63", isGroup: false },
+        { href: `/${locale}/products/collaborative-robot/realman/eco`, label: "ECO 62/63/65", isGroup: false },
         { href: `/${locale}/products/collaborative-robot/elephant-robotics`, label: "Elephant Robotics", isGroup: false },
-      ],
-    },
-    {
-      href: `/${locale}/products/physical-ai`,
-      label: t("physicalAI"),
-      icon: "🧠",
-      desc: isKo ? "플랫폼·센서 솔루션" : "Platform & sensor solutions",
-      children: [
-        { href: `/${locale}/products/physical-ai/platform`, label: isKo ? "플랫폼" : "Platform", isGroup: false },
-        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: false },
-        { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
       ],
     },
     {
@@ -65,28 +75,34 @@ export default function Navbar({ locale }: NavbarProps) {
       icon: "🧑‍🦯",
       desc: isKo ? "차세대 휴머노이드 플랫폼" : "Next-gen humanoid platform",
       children: [
-        { href: `/${locale}/products/humanoid/realbot`, label: "Realbot", isGroup: false },
+        { href: `/${locale}/products/humanoid/realbot`, label: "REALMAN", isGroup: true },
+        { href: `/${locale}/products/humanoid/realbot`, label: "REALBOT S2", isGroup: false },
+        { href: `/${locale}/products/humanoid/realbot-l2`, label: "REALBOT L2", isGroup: false },
+        { href: `/${locale}/products/humanoid/realbot-01`, label: "REALBOT01", isGroup: false },
+        { href: `/${locale}/products/humanoid/embodied-dual-arm`, label: "Dual arm vertical Lift", isGroup: false },
+        { href: `/${locale}/products/humanoid/lifting-platform`, label: "Single arm vertical lift", isGroup: false },
         { href: `/${locale}/products/guohua-robot`, label: "Guohua Robot", isGroup: false },
-        { href: `/${locale}/products/humanoid/embodied-dual-arm`, label: "Embodied Dual Arm", isGroup: false },
-        { href: `/${locale}/products/humanoid/lifting-platform`, label: "Lifting Platform", isGroup: false },
+        { href: `/${locale}/products/humanoid/robot-arm`, label: isKo ? "로봇암 (RX 시리즈)" : "Robot Arm (RX Series)", isGroup: true },
+        { href: `/${locale}/products/humanoid/robot-arm/rx75`, label: isKo ? "RX75-표준형" : "RX75 Standard", isGroup: false },
+        { href: `/${locale}/products/humanoid/robot-arm/rx75s`, label: isKo ? "RX75S-표준형" : "RX75S Standard", isGroup: false },
+        { href: `/${locale}/products/humanoid/robot-arm/rx75-vision`, label: isKo ? "RX75-비전형" : "RX75 Vision", isGroup: false },
+        { href: `/${locale}/products/humanoid/robot-arm/rx71`, label: isKo ? "RX71-표준형" : "RX71 Standard", isGroup: false },
       ],
     },
     {
-      href: `/${locale}/products/body-enhancement`,
+      href: `/${locale}/products/prosthetic`,
       label: t("bodyEnhancement"),
       icon: "💪",
       desc: isKo ? "의수·BCI·재활·보조기 솔루션" : "Prosthetics, BCI, rehab & support",
       children: [
         { href: `/${locale}/products/prosthetic`, label: isKo ? "전자의수" : "Prosthetic Hand", isGroup: true },
         { href: `/${locale}/products/prosthetic/ohand`, label: "Ohand", isGroup: false },
+        { href: `/${locale}/products/prosthetic/ohand-s001`, label: "Ohand S001", isGroup: false },
         { href: `/${locale}/products/prosthetic/ohandlite`, label: "OhandLite", isGroup: false },
         { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI", isGroup: true },
         { href: `/${locale}/products/physical-ai/eeg`, label: isKo ? "Wearable EEG" : "Wearable EEG", isGroup: false },
         { href: `/${locale}/products/physical-ai/gforcepro`, label: "GForcePro+", isGroup: false },
         { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG", isGroup: false },
-        { href: `/${locale}/products/body-enhancement`, label: isKo ? "로봇운동기" : "Exercise Robot", isGroup: true },
-        { href: `/${locale}/products/body-enhancement/ore-3000`, label: "ORE-3000", isGroup: false },
-        { href: `/${locale}/products/body-enhancement/oyfm-7000`, label: "OYFM-7000", isGroup: false },
         { href: `/${locale}/products/robot-support`, label: isKo ? "로봇보조기" : "Robot Support", isGroup: true },
         { href: `/${locale}/products/robot-support/hybridex`, label: "HYBRIDEX", isGroup: false },
         { href: `/${locale}/products/robot-support/step-booster`, label: "STEP BOOSTER", isGroup: false },
@@ -231,12 +247,14 @@ export default function Navbar({ locale }: NavbarProps) {
               {hoveredMenu === "board" && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 z-50 pt-2">
                   <div className="bg-white shadow-xl rounded-2xl border border-gray-100 py-2 min-w-[150px]">
-                    <Link
-                      href={`/${locale}/inquiry`}
+                    <a
+                      href={INQUIRY_FORM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
                     >
                       {t("inquiry")}
-                    </Link>
+                    </a>
                     <Link
                       href={`/${locale}/notice`}
                       className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
@@ -295,26 +313,14 @@ export default function Navbar({ locale }: NavbarProps) {
                 </button>
               </div>
             ) : (
-              <>
-                <Link
-                  href={`/${locale}/auth/login`}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                    isTransparent ? "text-white/80 hover:text-white" : "text-gray-700 hover:text-gray-900"
-                  }`}
-                >
-                  {t("login")}
-                </Link>
-                <Link
-                  href={`/${locale}/auth/register`}
-                  className={`px-4 py-2 text-sm font-semibold rounded-full transition-all ${
-                    isTransparent
-                      ? "bg-white text-black hover:bg-white/90"
-                      : "bg-gray-900 text-white hover:bg-gray-700"
-                  }`}
-                >
-                  {t("register")}
-                </Link>
-              </>
+              <Link
+                href={`/${locale}/auth/login`}
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                  isTransparent ? "text-white/80 hover:text-white" : "text-gray-700 hover:text-gray-900"
+                }`}
+              >
+                {t("login")}
+              </Link>
             )}
           </div>
 
@@ -390,13 +396,15 @@ export default function Navbar({ locale }: NavbarProps) {
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mt-4 mb-2 px-3">
               {t("board")}
             </p>
-            <Link
-              href={`/${locale}/inquiry`}
+            <a
+              href={INQUIRY_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
               onClick={() => setMobileOpen(false)}
             >
               {t("inquiry")}
-            </Link>
+            </a>
             <Link
               href={`/${locale}/notice`}
               className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
@@ -429,22 +437,13 @@ export default function Navbar({ locale }: NavbarProps) {
                 {t("logout")}
               </button>
             ) : (
-              <div className="flex gap-3">
-                <Link
-                  href={`/${locale}/auth/login`}
-                  className="text-sm text-gray-600"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t("login")}
-                </Link>
-                <Link
-                  href={`/${locale}/auth/register`}
-                  className="text-sm bg-gray-900 text-white px-4 py-1.5 rounded-full"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {t("register")}
-                </Link>
-              </div>
+              <Link
+                href={`/${locale}/auth/login`}
+                className="text-sm text-gray-600"
+                onClick={() => setMobileOpen(false)}
+              >
+                {t("login")}
+              </Link>
             )}
           </div>
         </div>

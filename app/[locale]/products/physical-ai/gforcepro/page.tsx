@@ -105,10 +105,12 @@ export default async function GForceProPage({ params }: PageProps) {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "제품 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/physical-ai`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Products"}
@@ -238,13 +240,15 @@ export default async function GForceProPage({ params }: PageProps) {
             {isKo ? "제품 구매 및 연구 협력 문의를 보내주세요." : "Send your purchase and research collaboration inquiries."}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={`/${locale}/inquiry`}
+            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
               {isKo ? "문의하기" : "Contact Us"}
               <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
             <Link href={`/${locale}/products/physical-ai`}
               className="inline-flex items-center px-8 py-4 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
               {isKo ? "다른 제품 보기" : "Other Products"}

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -21,15 +24,12 @@ export default async function NoticePage({ params }: PageProps) {
   const { locale } = await params;
   const isKo = locale === "ko";
 
-  // 추후 DB 연동 예정 — 현재는 정적 샘플 데이터
-  const notices = [
-    {
-      id: 1,
-      title: isKo ? "리파인주식회사 홈페이지가 새롭게 오픈했습니다." : "Refind Inc. website has been newly launched.",
-      date: "2025-05-01",
-      important: true,
-    },
-  ];
+  const session = await getServerSession(authOptions);
+  const isAdmin = (session?.user as { role?: string })?.role === "admin";
+
+  const notices = await prisma.notice.findMany({
+    orderBy: { createdAt: "desc" },
+  });
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -48,6 +48,16 @@ export default async function NoticePage({ params }: PageProps) {
       {/* 목록 */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
+          {isAdmin && (
+            <div className="flex justify-end mb-6">
+              <Link
+                href={`/${locale}/admin/notice/new`}
+                className="px-5 py-2.5 bg-primary-400 text-white rounded-lg font-medium hover:bg-primary-500 transition-colors text-sm"
+              >
+                + 글쓰기
+              </Link>
+            </div>
+          )}
           {notices.length === 0 ? (
             <div className="text-center py-24 text-gray-400">
               {isKo ? "등록된 공지사항이 없습니다." : "No notices available."}
@@ -55,18 +65,16 @@ export default async function NoticePage({ params }: PageProps) {
           ) : (
             <div className="divide-y divide-gray-100">
               {notices.map((notice) => (
-                <div
+                <Link
                   key={notice.id}
-                  className="flex items-center gap-4 py-5 hover:bg-gray-50 px-3 rounded-xl transition-colors cursor-pointer"
+                  href={`/${notice.slug}`}
+                  className="flex items-center gap-4 py-5 hover:bg-gray-50 px-3 rounded-xl transition-colors"
                 >
-                  {notice.important && (
-                    <span className="shrink-0 px-2 py-0.5 text-[11px] font-bold text-primary-500 bg-primary-50 border border-primary-200 rounded-full">
-                      {isKo ? "중요" : "Important"}
-                    </span>
-                  )}
                   <p className="flex-1 text-sm font-medium text-gray-800">{notice.title}</p>
-                  <span className="shrink-0 text-xs text-gray-400">{notice.date}</span>
-                </div>
+                  <span className="shrink-0 text-xs text-gray-400">
+                    {new Date(notice.createdAt).toLocaleDateString("ko-KR")}
+                  </span>
+                </Link>
               ))}
             </div>
           )}

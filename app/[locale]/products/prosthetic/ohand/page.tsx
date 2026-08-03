@@ -56,10 +56,12 @@ export default async function OhandPage({ params }: PageProps) {
                 : "An intelligent prosthetic hand that realizes 27 motion patterns with 8-channel EMG sensors and AI algorithms. Restore freedom to everyday life."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/prosthetic`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Models"}
@@ -178,10 +180,12 @@ export default async function OhandPage({ params }: PageProps) {
             {isKo ? "리파인은 단순한 판매를 넘어 최적화된 기술 지원 및 커스텀 솔루션을 제공합니다." : "Refind goes beyond sales — we provide optimized technical support and custom solutions."}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={`/${locale}/inquiry`}
+            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
               {isKo ? "협업 문의하기" : "Contact Us"}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

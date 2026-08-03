@@ -44,10 +44,12 @@ export default async function OhandLitePage({ params }: PageProps) {
                 : "27% lighter than standard Ohand at 363.5g. A 2-channel EMG lightweight prosthetic for users who need extended wear."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/prosthetic`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Models"}
@@ -155,10 +157,12 @@ export default async function OhandLitePage({ params }: PageProps) {
           <p className="text-white/60 mb-8 text-sm">
             {isKo ? "리파인의 전문가 그룹이 제품 도입부터 최적화까지 함께합니다." : "Refind's expert team supports you from product introduction to optimization."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

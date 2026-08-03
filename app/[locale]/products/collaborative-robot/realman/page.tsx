@@ -10,99 +10,77 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "REALMAN 협동로봇" : "REALMAN Collaborative Robot",
+    title: isKo ? "협동로봇 Cobot (REALMAN)" : "Collaborative Robot Cobot (REALMAN)",
     description: isKo
-      ? "고정밀 6축 협동로봇. ROS2 지원 및 오픈 SDK 제공으로 연구소·스마트 팩토리 즉시 적용 가능."
-      : "High-precision 6-axis collaborative robot. ROS2 support and open SDK for instant research and industrial deployment.",
+      ? "RM65/75, RML63, ECO 62/63/65 — REALMAN 협동로봇 라인업."
+      : "RM65/75, RML63, ECO 62/63/65 — the REALMAN collaborative robot lineup.",
   };
 }
 
-export default async function RealmanPage({ params }: PageProps) {
+export default async function RealmanCategoryPage({ params }: PageProps) {
   const { locale } = await params;
   const isKo = locale === "ko";
 
-  const specs = [
-    { model: "RM65",  dof: 6, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.2 kg",  repeat: "±0.05 mm", reach: "610 mm" },
-    { model: "RM75",  dof: 7, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.8 kg",  repeat: "±0.05 mm", reach: "610 mm" },
-    { model: "RML63", dof: 6, payload: "3 kg",  maxPayload: "5 kg",  weight: "10 kg",   repeat: "±0.05 mm", reach: "900 mm" },
-    { model: "ECO65", dof: 6, payload: "5 kg",  maxPayload: "9 kg",  weight: "7.8 kg",  repeat: "±0.05 mm", reach: "610 mm" },
-    { model: "ECO62", dof: 6, payload: "1 kg",  maxPayload: "2 kg",  weight: "3.3 kg",  repeat: "±0.05 mm", reach: "355 mm" },
-    { model: "ECO63", dof: 6, payload: "3 kg",  maxPayload: "5 kg",  weight: "9.5 kg",  repeat: "±0.05 mm", reach: "900 mm" },
-    { model: "GEN72", dof: 7, payload: "2 kg",  maxPayload: "-",     weight: "6.6 kg",  repeat: "±1 mm",    reach: "600 mm" },
-  ];
-
-  const coreValues = [
+  const products = [
     {
-      icon: "⚙️",
-      title: isKo ? "통합 관절 모듈" : "Integrated Joint Modules",
-      desc: isKo
-        ? "드라이버, 모터, 감속기, 엔코더를 하나의 초소형 모듈에 통합하여 높은 토크 밀도와 정밀한 제어력을 동시에 확보했습니다."
-        : "Driver, motor, reducer, and encoder integrated into one ultra-compact module for high torque density and precise control.",
+      href: `/${locale}/products/collaborative-robot/realman/rm65-75`,
+      image: "/products/collaborative-robot/RM65.jpeg",
+      name: isKo ? "협동로봇 (RM65/75)" : "Cobot (RM65/75)",
+      nameEn: "Ultra-Lightweight 6-Axis Collaborative Robot",
+      tagline: isKo
+        ? "무게 약 7kg에 5kg 페이로드를 제공하는 초경량 협동로봇. 이동형 로봇 위에도 쉽게 탑재할 수 있습니다. 주용도: 정밀 제조, 협동 로봇."
+        : "An ultra-lightweight cobot with a 5kg payload at just ~7kg — easy to mount on mobile platforms. Ideal for precision manufacturing and collaborative work.",
+      tags: isKo ? ["6/7축", "5kg", "±0.05mm"] : ["6/7-Axis", "5kg", "±0.05mm"],
     },
     {
-      icon: "🔧",
-      title: isKo ? "초경량 바디" : "Ultra-lightweight Body",
-      desc: isKo
-        ? "항공우주 등급의 알루미늄 합금을 적용하여 로봇 본체 무게를 획기적으로 줄이면서도 최고의 강성을 유지합니다."
-        : "Aerospace-grade aluminum alloy dramatically reduces body weight while maintaining maximum rigidity.",
+      href: `/${locale}/products/collaborative-robot/realman/rml63`,
+      image: "/products/collaborative-robot/RML63.jpeg",
+      name: isKo ? "협동로봇 (RML63)" : "Cobot (RML63)",
+      nameEn: "Human-like Arm Design Cobot",
+      tagline: isKo
+        ? "사람 팔처럼 긴 구조의 협동로봇. 최대 917mm의 긴 작업반경과 2.8m/s TCP 속도로 장거리 작업과 서비스 로봇에 적합합니다."
+        : "A cobot with a human-like long-reach arm — up to 917mm reach and 2.8m/s TCP speed, ideal for long-range work and service robots.",
+      tags: isKo ? ["6축", "917mm", "2.8m/s"] : ["6-Axis", "917mm", "2.8m/s"],
     },
     {
-      icon: "🌐",
-      title: isKo ? "오픈 에코시스템" : "Open Ecosystem",
-      desc: isKo
-        ? "ROS1/ROS2, Python, C++, SDK를 지원하여 전 세계 개발자들이 즉시 개발에 착수할 수 있는 오픈 아키텍처를 지향합니다."
-        : "Supports ROS1/ROS2, Python, C++, and SDK, enabling developers worldwide to start building immediately.",
-    },
-  ];
-
-  const useCases = [
-    {
-      title: isKo ? "상업 서비스" : "Commercial",
-      desc: isKo ? "리테일, F&B, 서비스 환경에서의 자동화 솔루션" : "Automation solutions for retail, F&B, and service environments",
-    },
-    {
-      title: isKo ? "의료·헬스케어" : "Healthcare",
-      desc: isKo ? "수술 보조, 약품 조제, 환자 케어 자동화" : "Surgery assistance, medication dispensing, patient care automation",
-    },
-    {
-      title: isKo ? "연구·검사" : "R&D / Inspection",
-      desc: isKo ? "정밀 검사, 실험실 자동화, AI 훈련 데이터 수집" : "Precision inspection, lab automation, AI training data collection",
+      href: `/${locale}/products/collaborative-robot/realman/eco`,
+      image: "/products/collaborative-robot/ECO65.jpeg",
+      name: isKo ? "협동로봇 (ECO 62/63/65)" : "Cobot (ECO 62/63/65)",
+      nameEn: "Economical Collaborative Robot",
+      tagline: isKo
+        ? "RM 시리즈의 핵심 기능은 유지하면서 구조를 단순화하고 원가를 낮춘 경제형 협동로봇. 주용도: 교육, 서비스, 경량 자동화."
+        : "An economical cobot that keeps the RM series' core functions while simplifying structure and cost. Ideal for education, service, and light automation.",
+      tags: isKo ? ["6축", "1~5kg", "전 관절 하드 브레이크"] : ["6-Axis", "1–5kg", "All-Hard Brake"],
     },
   ];
 
   return (
     <div className="pt-16 min-h-screen bg-white">
-
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(0,105,114,0.25) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(10,171,186,0.2) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
-              Collaborative Robot · Industrial
+              Collaborative Robot · Cobot
             </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
-              REALMAN
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
+              {isKo ? "협동로봇 Cobot (REALMAN)" : "Cobot (REALMAN)"}
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "Embodied Intelligence의 시작. AI가 물리적 세계와 상호작용하는 근간을 제공하는 차세대 협동 로봇 플랫폼."
-                : "The foundation of Embodied Intelligence — a next-generation collaborative robot platform bridging AI and the physical world."}
+                ? "가볍고 정밀하며 AI 및 휴머노이드 로봇 분야까지 고려해 설계된 REALMAN 협동로봇 라인업입니다."
+                : "REALMAN's collaborative robot lineup — lightweight, precise, and designed with AI and humanoid robotics in mind."}
             </p>
-            <div className="flex flex-wrap gap-3 mb-8">
-              {["ROS2", "Python", "C++", "SDK", "30,000+ hrs"].map((tag) => (
-                <span key={tag} className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
-                  {tag}
-                </span>
-              ))}
-            </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/collaborative-robot`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Models"}
@@ -116,377 +94,67 @@ export default async function RealmanPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-          {[
-            { value: "5 kg", label: isKo ? "최대 페이로드" : "Max Payload" },
-            { value: "650 mm", label: isKo ? "도달 거리" : "Max Reach" },
-            { value: "±0.05 mm", label: isKo ? "반복 정밀도" : "Repeatability" },
-            { value: "30,000+", label: isKo ? "연속 작동 시간(hrs)" : "Operation Hours" },
-          ].map((s) => (
-            <div key={s.label} className="py-10 px-8 text-center">
-              <div className="text-3xl font-extrabold text-gray-900 mb-1">{s.value}</div>
-              <div className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
-            {isKo ? "제품 특징" : "Features"}
-          </p>
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
-            {isKo ? "정밀함과 유연함으로 완성되는 차세대 스마트 자동화" : "Next-Generation Smart Automation Built on Precision and Flexibility"}
-          </h2>
-          <p className="text-base text-gray-500 leading-relaxed max-w-3xl mb-12">
-            {isKo
-              ? "산업 현장과 연구 환경 모두에서 활용 가능한 고정밀·고효율 협동로봇 솔루션을 제공합니다. REALMAN 시리즈는 사람과 함께 일할 수 있도록 설계되어 안전성, 직관적 제어, 그리고 유연한 작업 대응성을 갖춘 차세대 협동로봇입니다. 제조, 검사, 연구, 교육 등 다양한 분야에서 사용이 가능합니다."
-              : "Providing high-precision, high-efficiency collaborative robot solutions applicable in both industrial and research environments. The REALMAN series is designed to work alongside humans — a next-generation collaborative robot with built-in safety, intuitive control, and flexible task adaptability. Suitable for manufacturing, inspection, research, education, and more."}
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { icon: "🎯", title: isKo ? "고정밀 제어" : "High Precision", desc: isKo ? "±0.05mm 반복 정밀도로 섬세한 작업 환경에 최적" : "±0.05mm repeatability for demanding precision tasks" },
-              { icon: "🤝", title: isKo ? "안전한 협동" : "Safe Collaboration", desc: isKo ? "사람과 나란히 일할 수 있는 안전 설계 및 충돌 감지" : "Safety-first design with collision detection for human-robot collaboration" },
-              { icon: "🖥️", title: isKo ? "직관적 제어" : "Intuitive Control", desc: isKo ? "ROS2·Python·C++ SDK 지원으로 빠른 개발 및 통합" : "ROS2, Python, C++ SDK for rapid development and integration" },
-              { icon: "🏭", title: isKo ? "다분야 적용" : "Multi-Industry", desc: isKo ? "제조·검사·연구·교육 등 다양한 현장에 즉시 투입 가능" : "Instantly deployable across manufacturing, inspection, R&D, and education" },
-            ].map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="text-2xl mb-4">{f.icon}</div>
-                <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Tech */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">Core Technology</p>
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-16 tracking-tight">
-            {isKo ? "물리 지능의 인프라를 구축합니다" : "Building the Infrastructure for Physical Intelligence"}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {coreValues.map((c) => (
-              <div key={c.title} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <div className="text-3xl mb-5">{c.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{c.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Data Flywheel */}
-      <section className="py-24 bg-gray-950 text-white">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">AI Data Flywheel</p>
-            <h2 className="text-4xl font-extrabold mb-6 tracking-tight">
-              {isKo ? "데이터가 지능을 진화시킵니다" : "Data Drives Intelligence Evolution"}
-            </h2>
-            <p className="text-white/60 leading-relaxed mb-8">
-              {isKo
-                ? "REALMAN은 하드웨어와 클라우드를 실시간으로 연결하여 행동 데이터를 수집합니다. 수집된 데이터는 AI 강화학습(RL)에 재투입되어 로봇의 지능을 지속적으로 진화시키는 '데이터 플라이휠' 구조를 완성합니다."
-                : "REALMAN connects hardware and cloud in real time to collect behavioral data, which feeds back into AI reinforcement learning — completing a self-improving data flywheel."}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {[
-                { step: "01", label: isKo ? "실시간 캡처" : "Capture" },
-                { step: "02", label: isKo ? "엣지 처리" : "Process" },
-                { step: "03", label: isKo ? "클라우드 학습" : "Learn" },
-                { step: "04", label: isKo ? "OTA 배포" : "Deploy" },
-              ].map((f) => (
-                <div key={f.step} className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-sm">
-                  <span className="text-[#0aabba] font-bold">{f.step}</span>
-                  <span className="text-white/80">{f.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-            <div className="text-5xl font-extrabold text-[#0aabba] mb-2">30,000+</div>
-            <div className="text-white/50 text-sm mb-8">{isKo ? "고장 없이 연속 작동 가능 시간 (hrs)" : "Continuous operation hours without failure"}</div>
-            <div className="space-y-3">
-              {[
-                { k: isKo ? "Infrastructure for AI" : "Infrastructure for AI", v: "✓" },
-                { k: isKo ? "Hardware + Data + Network" : "Hardware + Data + Network", v: "✓" },
-                { k: "99.9% " + (isKo ? "가동 신뢰성" : "Uptime Reliability"), v: "✓" },
-                { k: "ISO 10218-1", v: "✓" },
-              ].map((r) => (
-                <div key={r.k} className="flex justify-between items-center text-sm border-b border-white/10 pb-3">
-                  <span className="text-white/60">{r.k}</span>
-                  <span className="text-[#0aabba] font-bold">{r.v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Spec Comparison */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">Specifications</p>
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
-            {isKo ? "모델 비교 사양" : "Model Comparison"}
-          </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "모델" : "Model"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">DOF</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "정격 페이로드" : "Rated Payload"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "최대 페이로드" : "Max Payload"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "무게" : "Weight"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "반복 정밀도" : "Repeatability"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "도달 거리" : "Reach"}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {specs.map((s, i) => (
-                  <tr key={s.model} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                    <td className="px-5 py-3.5 font-bold text-[#0aabba]">{s.model}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.dof}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.payload}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.maxPayload}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.weight}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.repeat}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{s.reach}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Lineup */}
+      {/* Product Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
-            {isKo ? "제품 라인업" : "Product Lineup"}
-          </p>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
-            {isKo ? "REALMAN 시리즈 모델" : "REALMAN Series Models"}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[
-              { file: "RM65.jpeg",  name: "RM65",   desc: isKo ? "6축 · 정격 5kg · 도달 610mm" : "6-axis · 5kg payload · 610mm reach" },
-              { file: "RM75.jpeg",  name: "RM75",   desc: isKo ? "7축 · 정격 5kg · 도달 610mm" : "7-axis · 5kg payload · 610mm reach" },
-              { file: "RML63.jpeg", name: "RML63",  desc: isKo ? "6축 · 정격 3kg · 도달 900mm" : "6-axis · 3kg payload · 900mm reach" },
-              { file: "ECO62.jpeg", name: "ECO62",  desc: isKo ? "6축 · 정격 1kg · 도달 355mm" : "6-axis · 1kg payload · 355mm reach" },
-              { file: "ECO65.jpeg", name: "ECO65",  desc: isKo ? "6축 · 정격 5kg · 도달 610mm" : "6-axis · 5kg payload · 610mm reach" },
-              { file: "GEN72.jpeg", name: "GEN72",  desc: isKo ? "7축 · 정격 2kg · 도달 600mm" : "7-axis · 2kg payload · 600mm reach" },
-            ].map((p, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-                <div className="relative h-52 bg-gray-50">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {products.map((product) => (
+              <Link
+                key={product.href}
+                href={product.href}
+                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+              >
+                <div className="relative h-48 bg-gray-100 overflow-hidden">
                   <Image
-                    src={`/products/collaborative-robot/${p.file}`}
-                    alt={p.name}
+                    src={product.image}
+                    alt={product.name}
                     fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
-                <div className="px-5 py-4 border-t border-gray-100">
-                  <h3 className="text-sm font-bold text-gray-900 mb-1">{p.name}</h3>
-                  <p className="text-xs text-gray-400">{p.desc}</p>
+                <div className="p-6">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {product.tags.map((tag) => (
+                      <span key={tag} className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#E6F7F8] text-[#0aabba] tracking-wide">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{product.name}</h3>
+                  <p className="text-xs text-gray-400 mb-3">{product.nameEn}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{product.tagline}</p>
+
+                  <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-[#0aabba] group-hover:gap-2 transition-all">
+                    {isKo ? "자세히 보기" : "Learn more"}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases — GIF */}
-      <section className="py-20 bg-gray-950">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
-            {isKo ? "활용 사례" : "Use Cases"}
-          </p>
-          <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
-            {isKo ? "다양한 환경에서의 실제 동작" : "Real-World Motion in Various Environments"}
-          </h2>
-
-          {/* GIF grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              { file: "1.gif",   label: isKo ? "동작 1" : "Motion 1" },
-              { file: "2.gif",   label: isKo ? "동작 2" : "Motion 2" },
-              { file: "3.gif",   label: isKo ? "동작 3" : "Motion 3" },
-              { file: "4.gif",   label: isKo ? "동작 4" : "Motion 4" },
-              { file: "5..gif",  label: isKo ? "동작 5" : "Motion 5" },
-              { file: "6.gif",   label: isKo ? "동작 6" : "Motion 6" },
-            ].map((g, i) => (
-              <div key={i} className="group relative aspect-video overflow-hidden rounded-xl cursor-pointer">
-                <img
-                  src={`/products/collaborative-robot/gif/${g.file}`}
-                  alt={g.label}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <span className="absolute bottom-2.5 left-3 text-xs font-semibold text-white/90">{g.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">Applications</p>
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
-            {isKo ? "다양한 산업 현장에서 활약합니다" : "Deployed Across Industries"}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {useCases.map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100">
-                <div className="text-xs font-mono text-gray-300 mb-3">{String(i + 1).padStart(2, "0")}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{u.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Compound Robot */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
-            {isKo ? "복합 로봇" : "Compound Robot"}
-          </p>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
-            {isKo ? "이동성 + 작업성 + 지능을 결합한 차세대 복합 로봇 솔루션" : "Next-Gen Compound Robot: Mobility + Manipulation + Intelligence"}
-          </h2>
-          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-3">
-            {isKo
-              ? "이동 플랫폼(AMR) + 로봇팔(Robotic Arm) + AI 기능을 결합한 최신 Compound Robot(복합 로봇) 제품을 공급합니다."
-              : "We supply the latest Compound Robot products combining a mobile platform (AMR) + robotic arm + AI capabilities."}
-          </p>
-          <p className="text-sm text-gray-500 leading-relaxed max-w-3xl mb-12">
-            {isKo
-              ? "복합 로봇은 이동하면서 작업을 수행할 수 있어 기존 자동화 설비가 해결하지 못한 다품종 소량 생산, 공정 간 이송·작업 통합, 서비스·의료·교육 분야까지 폭넓은 영역을 지원합니다."
-              : "Compound robots can move and work simultaneously — addressing challenges unmet by traditional automation: high-mix low-volume production, inter-process transfer, and broad applications in service, healthcare, and education."}
-          </p>
-
-          {/* Key Features */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-            {[
-              { icon: "🚗", title: isKo ? "이동+작업 통합" : "Mobility + Work", desc: isKo ? "한 대의 로봇이 이동, 작업, 운반을 동시 수행" : "One robot handles movement, tasks, and transport simultaneously" },
-              { icon: "🏭", title: isKo ? "다양한 산업 적용" : "Multi-Industry", desc: isKo ? "제조, 물류, 의료 돌봄, 교육 및 AI 연구에 활용 가능" : "Applicable in manufacturing, logistics, healthcare, education, and AI research" },
-              { icon: "🛡️", title: isKo ? "협업 안전 설계" : "Safe Collaboration", desc: isKo ? "센서 기반 충돌 감지 및 안전 알고리즘으로 사람과 함께 작업 가능" : "Sensor-based collision detection and safety algorithms for human-robot co-work" },
-              { icon: "🧠", title: isKo ? "AI 기반 지능형 작업" : "AI-Powered Tasks", desc: isKo ? "비전, 경로 최적화, 압력 제어, 물체 인식 등 다양한 AI 기능과 결합 가능" : "Integrates vision, path optimization, pressure control, and object recognition" },
-            ].map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                <div className="text-2xl mb-3">{f.icon}</div>
-                <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Model Grid */}
-          <h3 className="text-lg font-extrabold text-gray-900 mb-6">
-            {isKo ? "Compound Robot 라인업" : "Compound Robot Lineup"}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mb-14">
-            {[
-              { file: "ai-massage.jpeg",              name: "AI Massage Robot",                  desc: isKo ? "1암 · 2–3kg · 헬스케어" : "1-arm · 2–3kg · Healthcare" },
-              { file: "dual-arm-compound.jpeg",       name: "Dual Arm CR",                       desc: isKo ? "2암 · 3–5kg · 양손 자동화" : "2-arm · 3–5kg · Dual-hand automation" },
-              { file: "compound-lifting.jpeg",        name: "Compound Lifting Robot",            desc: isKo ? "1암 · 3–5kg · 물류·고중량" : "1-arm · 3–5kg · Logistics & heavy load" },
-              { file: "embodied-ai-platform.jpeg",    name: "Embodied AI Platform",              desc: isKo ? "2암 · 0.5kg · 연구·AI" : "2-arm · 0.5kg · Research & AI" },
-              { file: "single-arm-compound.jpeg",     name: "Single Arm CR",                     desc: isKo ? "1암 · 5kg · 서비스 자동화" : "1-arm · 5kg · Service automation" },
-              { file: "dual-arm-composite-lifting.jpeg", name: "Dual-arm Composite Lifting",    desc: isKo ? "2암 · 3–5kg · 산업 플래그십" : "2-arm · 3–5kg · Industrial flagship" },
-            ].map((p, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-                <div className="relative h-52 bg-gray-50">
-                  <Image
-                    src={`/products/collaborative-robot/compound/${p.file}`}
-                    alt={p.name}
-                    fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="px-5 py-4 border-t border-gray-100">
-                  <h3 className="text-sm font-bold text-gray-900 mb-1">{p.name}</h3>
-                  <p className="text-xs text-gray-400">{p.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Spec Table */}
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "모델명" : "Model"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "팔 개수" : "Arms"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "팔 페이로드" : "Arm Payload"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "이동 플랫폼" : "Mobile Platform"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "리프팅" : "Lifting"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "비전/센싱" : "Vision/Sensing"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-semibold text-gray-500">{isKo ? "특징" : "Feature"}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {[
-                  ["AI Massage Robot",                "1", "2–3 kg", isKo ? "O" : "Yes", isKo ? "X" : "No",  "3D Vision + Pressure", isKo ? "헬스케어" : "Healthcare"],
-                  ["Dual Arm CR",                    "2", "3–5 kg", isKo ? "O" : "Yes", isKo ? "X" : "No",  "LiDAR + RGBD",          isKo ? "양손 자동화" : "Dual-hand automation"],
-                  ["Compound Lifting Robot",          "1", "3–5 kg", isKo ? "O" : "Yes", "10–20 kg",         "SLAM",                  isKo ? "물류·고중량" : "Logistics & heavy load"],
-                  ["Embodied AI Platform",            "2", "0.5 kg", isKo ? "X" : "No",  isKo ? "X" : "No", "Depth Vision",          isKo ? "연구·AI" : "Research & AI"],
-                  ["Single Arm CR",                  "1", "5 kg",   isKo ? "O" : "Yes", isKo ? "X" : "No",  "Vision + SLAM",         isKo ? "서비스 자동화" : "Service automation"],
-                  ["Dual-arm Composite Lifting Robot","2", "3–5 kg", isKo ? "O" : "Yes", "10–20 kg",         "LiDAR",                 isKo ? "산업 플래그십" : "Industrial flagship"],
-                ].map(([model, arms, payload, mobile, lift, vision, feature], i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                    <td className="px-5 py-3.5 font-bold text-[#0aabba] whitespace-nowrap">{model}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{arms}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{payload}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{mobile}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{lift}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700 text-xs">{vision}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{feature}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gray-950 text-center">
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold text-white mb-6 tracking-tight">
-            {isKo ? "로봇의 미래를 함께 설계하십시오" : "Let's Design the Future of Robotics Together"}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+            {isKo ? "제품에 대해 궁금한 점이 있으신가요?" : "Have questions about our products?"}
           </h2>
-          <p className="text-white/50 mb-10">
-            {isKo ? "기술 사양서 요청 및 협업 문의를 보내주세요." : "Request technical specs or send a collaboration inquiry."}
+          <p className="text-gray-500 mb-6 text-sm">
+            {isKo ? "전문가가 직접 상담해드립니다. 지금 문의해주세요." : "Our experts are ready to help. Contact us today."}
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={`/${locale}/inquiry`}
-              className="inline-flex items-center px-8 py-4 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
-              {isKo ? "협업 문의하기" : "Contact Us"}
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link href={`/${locale}/products/collaborative-robot`}
-              className="inline-flex items-center px-8 py-4 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "다른 제품 보기" : "Other Products"}
-            </Link>
-          </div>
+          <a
+            href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-700 transition-colors text-sm"
+          >
+            {isKo ? "협업 문의하기" : "Contact Us"}
+          </a>
         </div>
       </section>
     </div>

@@ -115,10 +115,12 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
                 : "The myCobot series is optimized for education, research, robot development, and algorithm experimentation rather than industrial automation. Its compact size and intuitive control structure make it accessible from beginners to professional researchers."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "도입 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/collaborative-robot`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "협동로봇 전체 보기" : "All Collaborative Robots"}
@@ -265,10 +267,12 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인 전문가가 최적의 솔루션을 제안해 드립니다." : "Refind experts will propose the optimal solution."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

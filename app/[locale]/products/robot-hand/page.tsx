@@ -73,6 +73,26 @@ export default async function RobotHandPage({ params }: PageProps) {
           image: "/products/robot-hand/ROhandlite.png",
           tags: isKo ? ["6 DOF", "457g", "보급형"] : ["6 DOF", "457g", "Economy"],
         },
+        {
+          slug: "ap003",
+          name: isKo ? "ROH-AP003 (자기식 촉각 센서)" : "ROH-AP003 (Magnetic Tactile Sensors)",
+          nameEn: "ROH-AP003",
+          tagline: isKo
+            ? "자기식 촉각 센서로 수직압력·전단력·미끄러짐까지 감지하는 고성능 로봇 핸드."
+            : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
+          image: "/products/coming-soon.svg",
+          tags: isKo ? ["자기식 촉각", "626g", "6-DOF"] : ["Magnetic Tactile", "626g", "6-DOF"],
+        },
+        {
+          slug: "motion-capture-glove",
+          name: isKo ? "모션 캡처 글러브" : "Motion Capture Glove",
+          nameEn: "Motion Capture Glove",
+          tagline: isKo
+            ? "손가락·손목 움직임을 실시간으로 인식해 로봇 손을 원격 제어하는 전용 글러브."
+            : "A dedicated glove that recognizes finger and wrist motion in real time to remotely control robot hands.",
+          image: "/products/coming-soon.svg",
+          tags: isKo ? ["6 DOF", "BLE 4.2", "원격조작"] : ["6 DOF", "BLE 4.2", "Teleoperation"],
+        },
       ]}
     />
   );

@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { Suspense } from "react";
 
 interface PageProps {
@@ -14,8 +13,6 @@ interface PageProps {
 function LoginForm({ locale }: { locale: string }) {
   const t = useTranslations("auth.login");
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const registered = searchParams.get("registered");
 
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -48,12 +45,6 @@ function LoginForm({ locale }: { locale: string }) {
           <span className="text-3xl font-bold text-primary-400">refind</span>
           <h1 className="text-2xl font-bold text-gray-900 mt-4">{t("title")}</h1>
         </div>
-
-        {registered && (
-          <div className="mb-4 p-4 bg-green-50 border border-green-100 rounded-xl text-green-600 text-sm text-center">
-            회원가입이 완료되었습니다. 로그인해주세요.
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 border border-gray-100 space-y-4">
           {error && (
@@ -91,13 +82,6 @@ function LoginForm({ locale }: { locale: string }) {
           >
             {loading ? "처리 중..." : t("submit")}
           </button>
-
-          <p className="text-center text-sm text-gray-500 mt-4">
-            {t("noAccount")}{" "}
-            <Link href={`/${locale}/auth/register`} className="text-primary-400 font-medium hover:underline">
-              {t("registerLink")}
-            </Link>
-          </p>
         </form>
       </div>
     </div>

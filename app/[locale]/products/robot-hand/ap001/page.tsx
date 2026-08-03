@@ -42,10 +42,12 @@ export default async function AP001Page({ params }: PageProps) {
                 : "Experience optimized real-time force feedback and torque control with the integrated Tashan force sensor."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/robot-hand`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Models"}
@@ -406,10 +408,12 @@ export default async function AP001Page({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인은 단순한 판매를 넘어 최적화된 기술 지원 및 커스텀 솔루션을 제공합니다." : "Refind goes beyond sales — we provide optimized technical support and custom solutions."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-[#0AABBA] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

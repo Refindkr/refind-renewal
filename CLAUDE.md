@@ -1,9 +1,31 @@
 # Refind 웹사이트 리뉴얼 프로젝트
 
+## DB 안전 규칙 — 반드시 준수
+
+### 절대 실행 금지 명령어
+다음 명령어는 어떤 상황에서도 실행하지 말 것:
+- `prisma migrate reset`
+- `prisma db push --force-reset`
+- `DROP TABLE`, `TRUNCATE` (SQL 직접 실행)
+- `DELETE FROM` (WHERE 조건 없는 전체 삭제)
+- `prisma db seed` (프로덕션 환경에서)
+
+### DB 작업 원칙
+- 스키마 변경 시 반드시 사용자에게 먼저 설명하고 승인받을 것
+- `prisma migrate dev`는 개발 DB에서만 실행
+- 프로덕션 DB URL(`DATABASE_URL`)로 직접 데이터 조작 금지
+- 마이그레이션 실행 전 현재 스키마 상태 확인 필수
+
+---
+
 ## 프로젝트 개요
 
 리파인주식회사(https://products.refind.kr/) 공식 웹사이트 리뉴얼 프로젝트.
-기존 사이트의 콘텐츠와 사이트맵을 유지하면서 회원가입, 문의게시판(DB), 한국어/영어 다국어를 추가한 풀스택 웹사이트.
+기존 사이트의 콘텐츠와 사이트맵을 유지하면서 관리자 전용 로그인, 공지사항·카드뉴스 게시판(DB),
+한국어/영어 다국어를 추가한 풀스택 웹사이트.
+
+> 회원가입/문의게시판(DB) 기능은 제거됨 — 로그인은 관리자 계정 전용이고, 고객 문의는 네이버폼
+> 외부 링크로 받는다. 자세한 내용은 "인증 & 문의" 섹션 참고.
 
 ---
 
@@ -17,8 +39,9 @@
 | 다국어 | next-intl v3 (ko / en) |
 | 인증 | NextAuth.js v4 (Credentials Provider) |
 | ORM | Prisma v5 |
-| DB (개발) | SQLite (`prisma/dev.db`) |
-| DB (배포) | PostgreSQL (Supabase) |
+| DB | PostgreSQL (Supabase, 개발·배포 공통 — pooler 경유) |
+| 리치 텍스트 에디터 | Tiptap v3 |
+| 이미지 저장소 | Supabase Storage (`post-images` 버킷) |
 
 ---
 
@@ -34,10 +57,6 @@ refind-renewal/
 │   │   ├── globals.css
 │   │   ├── page.tsx                        # 홈페이지
 │   │   ├── about/page.tsx                  # 회사소개
-│   │   ├── inquiry/
-│   │   │   ├── page.tsx                    # 문의게시판 목록
-│   │   │   ├── new/page.tsx                # 문의 작성
-│   │   │   └── [id]/page.tsx              # 문의 상세
 │   │   ├── products/
 │   │   │   ├── robot-hand/
 │   │   │   │   ├── page.tsx               # 로봇핸드 카테고리
@@ -70,14 +89,12 @@ refind-renewal/
 │   │   │       ├── gforcepro/page.tsx
 │   │   │       └── bcibmi/page.tsx
 │   │   └── auth/
-│   │       ├── login/page.tsx
-│   │       └── register/page.tsx
+│   │       └── login/page.tsx              # 관리자 전용 로그인 (회원가입 없음)
 │   └── api/
 │       ├── auth/[...nextauth]/route.ts
-│       ├── register/route.ts
-│       └── inquiry/
-│           ├── route.ts
-│           └── [id]/route.ts
+│       ├── notice/route.ts
+│       ├── card-news/route.ts
+│       └── upload/route.ts
 ├── components/
 │   ├── SessionProvider.tsx
 │   ├── layout/
@@ -86,7 +103,9 @@ refind-renewal/
 │   └── ui/
 │       ├── ProductPage.tsx
 │       ├── ProductCategoryPage.tsx
-│       └── AdminAnswerForm.tsx
+│       ├── ComingSoonProduct.tsx
+│       ├── PostForm.tsx
+│       └── RichTextEditor.tsx
 ├── i18n/
 │   ├── routing.ts
 │   └── request.ts
@@ -121,19 +140,36 @@ refind-renewal/
 
 ## 네비게이션 구조 (현재)
 
-```
-[로봇핸드]          [협동로봇]              [휴머노이드 로봇]         [신체증강기기]          [피지컬 AI]     | [회사소개] [게시판*]
-├ ROH-A001         ├ Realman              ├ Realbot               전자의수 ─────────     ├ gForcePro+
-├ ROH-AP001        ├ Elephant Robotics    ├ Guohua Robot          ├ Ohand               └ BCI/BMI
-├ ROH-AP002        └ MyAGV               ├ Embodied Dual Arm      ├ OhandLite
-└ ROH-Lite                               └ Lifting Platform       ─────────────
-                                                                  ├ ORE-3000
-                                                                  ├ OYFM-7000
-                                                                  ─────────────
-                                                                  └ 로봇 보조기
+기존 노션 사이트(products.refind.kr)의 메뉴 이름·순서와 동일하게 맞춰져 있음 (SEO·사용자 혼란 방지 목적).
 
-* 게시판은 아직 "문의게시판" 단일 → 변경 예정
 ```
+[피지컬 AI & 로봇부속]   [휴머노이드 로봇손]   [협동로봇]              [휴머노이드 로봇]              [개인 신체 증강 기기]     | [회사소개] [게시판]
+├ 액추에이터             ├ ROH-A002          ├ Realman              ├ REALMAN ─────────           전자의수 ─────────
+├ 플랫폼                 ├ ROH-AP001         └ Elephant Robotics    ├ REALBOT S2                  ├ Ohand
+├ AVR/AMR               ├ ROH-AP002                                ├ REALBOT L2 (준비중)          ├ OhandLite
+└ Tashan 센서            └ ROH-Lite                                 ├ REALBOT01 (준비중)           ─────────────
+                                                                    ├ Dual arm vertical Lift       BCI/BMI ─────────
+                                                                    └ Single arm vertical lift     ├ Wearable EEG
+                                                                    ├ Guohua Robot                 ├ GForcePro+
+                                                                    └ 로봇암(RX 시리즈) (준비중)     └ HD EMG
+                                                                                                   ─────────────
+                                                                                                   └ 로봇보조기
+                                                                                                     ├ HYBRIDEX
+                                                                                                     └ STEP BOOSTER
+```
+
+- "로봇운동기"(ORE-3000, OYFM-7000)는 실제 판매 상품이 아니라 리뉴얼 중 잘못 추가된 항목이라 삭제됨
+- REALBOT L2 / REALBOT01 / 로봇암(RX 시리즈 4개 모델: RX75, RX75S, RX75-비전형, RX71) / Ohand S001은
+  스펙·이미지 자료 확보 전까지 "준비 중" placeholder 페이지로 연결 (`components/ui/ComingSoonProduct.tsx`)
+- "플랫폼"은 카테고리 페이지(`products/physical-ai/platform`)로, 하위에 듀얼암 로봇 플랫폼
+  (`platform/dual-arm`)과 원격조작 키트(`platform/teleoperation-kit`) 2개 상세 페이지를 둠
+- 휴머노이드 로봇손에 ROH-AP003(자기식 촉각 센서, `robot-hand/ap003`)과 모션 캡처 글러브
+  (`robot-hand/motion-capture-glove`) 추가. 실제 제품 사진이 없어 카테고리 그리드에서는
+  `/products/coming-soon.svg`를 사용 (다른 미확보 이미지 제품과 동일한 방식)
+- "Realman"도 카테고리 페이지(`collaborative-robot/realman`)로, 하위에 RM65/75
+  (`realman/rm65-75`), RML63(`realman/rml63`), ECO 62/63/65(`realman/eco`) 3개 상세 페이지를 둠
+- "게시판" 하위의 "문의게시판"은 내부 페이지가 아니라 **네이버폼 외부 링크**(새 탭)로 연결됨 —
+  자세한 내용은 아래 "인증 & 문의" 섹션 참고
 
 ---
 
@@ -143,36 +179,100 @@ refind-renewal/
 /                          → /ko (자동 리다이렉트)
 /[locale]                  홈
 /[locale]/about            회사소개
+/[locale]/products/physical-ai
+/[locale]/products/physical-ai/actuator
+/[locale]/products/physical-ai/platform
+/[locale]/products/physical-ai/platform/dual-arm
+/[locale]/products/physical-ai/platform/teleoperation-kit
+/[locale]/products/physical-ai/avr-amr
+/[locale]/products/physical-ai/tashan
+/[locale]/products/physical-ai/gforcepro
+/[locale]/products/physical-ai/bcibmi
+/[locale]/products/physical-ai/eeg
+/[locale]/products/physical-ai/hd-emg
 /[locale]/products/robot-hand
-/[locale]/products/robot-hand/a001
+/[locale]/products/robot-hand/a002
 /[locale]/products/robot-hand/ap001
 /[locale]/products/robot-hand/ap002
+/[locale]/products/robot-hand/ap003
 /[locale]/products/robot-hand/lite
+/[locale]/products/robot-hand/motion-capture-glove
 /[locale]/products/collaborative-robot
 /[locale]/products/collaborative-robot/realman
+/[locale]/products/collaborative-robot/realman/rm65-75
+/[locale]/products/collaborative-robot/realman/rml63
+/[locale]/products/collaborative-robot/realman/eco
 /[locale]/products/collaborative-robot/elephant-robotics
-/[locale]/products/collaborative-robot/myagv
 /[locale]/products/humanoid
-/[locale]/products/humanoid/realbot
-/[locale]/products/humanoid/embodied-dual-arm
-/[locale]/products/humanoid/lifting-platform
+/[locale]/products/humanoid/realbot            (REALBOT S2)
+/[locale]/products/humanoid/realbot-l2         (준비중)
+/[locale]/products/humanoid/realbot-01         (준비중)
+/[locale]/products/humanoid/embodied-dual-arm  (Dual arm vertical Lift)
+/[locale]/products/humanoid/lifting-platform   (Single arm vertical lift)
+/[locale]/products/humanoid/robot-arm          (로봇암 RX 시리즈, 준비중)
 /[locale]/products/guohua-robot
-/[locale]/products/body-enhancement
-/[locale]/products/body-enhancement/ore-3000
-/[locale]/products/body-enhancement/oyfm-7000
 /[locale]/products/prosthetic
 /[locale]/products/prosthetic/ohand
 /[locale]/products/prosthetic/ohandlite
 /[locale]/products/robot-support
-/[locale]/products/physical-ai
-/[locale]/products/physical-ai/gforcepro
-/[locale]/products/physical-ai/bcibmi
-/[locale]/inquiry          문의게시판 목록
-/[locale]/inquiry/new      문의 작성 (로그인 필요)
-/[locale]/inquiry/[id]     문의 상세
-/[locale]/auth/login
-/[locale]/auth/register
+/[locale]/products/robot-support/hybridex
+/[locale]/products/robot-support/step-booster
+/[locale]/notice           공지사항 목록
+/[locale]/card-news        카드뉴스 목록
+/[locale]/auth/login       관리자 전용 로그인 (회원가입 없음)
+
+/<slug>                    공지사항·카드뉴스 상세 (flat URL, locale 접두사 없음)
+                            예: /notice1, /card1
 ```
+
+### 공지사항·카드뉴스 flat URL (SEO 유지)
+
+기존 노션 사이트(`products.refind.kr/<페이지ID>`)와 동일하게, 공지사항·카드뉴스 게시글은
+`/ko/notice/...` 같은 locale 접두사 없이 도메인 바로 아래 `/<slug>` 형태로 노출된다 (기존
+구글 색인 URL 구조를 그대로 유지해 검색 순위 하락을 방지하기 위함).
+
+- DB: `Notice`, `CardNews` 모델에 사람이 읽을 수 있는 `slug`(예: `notice1`, `card1`) 필드 보유
+- 실제 라우트: `app/[locale]/post/[slug]/page.tsx` (내부적으로 `locale="ko"` 고정)
+- `middleware.ts`가 예약어(`about`, `products`, `inquiry`, `notice`, `card-news`, `auth`,
+  `admin`, `post`)가 아닌 단일 세그먼트 경로를 `/ko/post/<slug>`로 **rewrite**(URL 표시는
+  그대로 유지, 리다이렉트 아님) 처리
+- 새 게시글 slug를 예약어와 겹치지 않게 관리 (겹치면 그 슬러그는 접근 불가)
+
+### 공지사항·카드뉴스 작성 (관리자 전용)
+
+- `/[locale]/admin/notice/new`, `/[locale]/admin/card-news/new` — 슬러그 수동 입력 + 리치 텍스트
+  에디터([Tiptap](https://tiptap.dev)) 작성 폼. 네이버 블로그 등에서 복사한 서식(굵게/이미지 등)을
+  그대로 붙여넣기 가능 (붙여넣은 이미지가 외부 CDN URL이면 그 링크를 그대로 참조 — 우리 Storage로
+  자동 재업로드는 하지 않음)
+- 이미지는 에디터 툴바의 "이미지 업로드" 버튼 또는 대표 이미지 필드의 "업로드" 버튼으로 파일 선택 →
+  `POST /api/upload` → **Supabase Storage**(`post-images` 버킷, public)에 저장 → 공개 URL을
+  콘텐츠/썸네일에 삽입
+- `Notice.content`, `CardNews.content`는 plain text가 아니라 **HTML 문자열**로 저장됨.
+  상세 페이지(`app/[locale]/post/[slug]/page.tsx`)에서 `isomorphic-dompurify`로 sanitize한 뒤
+  `dangerouslySetInnerHTML`로 렌더링. 목록 페이지 미리보기는 `lib/html.ts`의 `stripHtml()`로
+  태그 제거 후 표시
+- 버킷은 `scripts/setup-storage-bucket.mjs`로 생성됨 (service_role 키로 1회 실행, 재실행해도 안전)
+
+---
+
+## 인증 & 문의
+
+- **회원가입 없음** — 공개 회원가입 폼(`/auth/register`, `POST /api/register`)은 완전히 제거됨.
+  로그인은 `/[locale]/auth/login` 하나뿐이고, DB에 미리 존재하는 `role: "admin"` 계정으로만 가능.
+- **관리자 계정 생성/재설정**: `scripts/create-admin.mjs`를 직접 실행해서 upsert.
+  ```bash
+  ADMIN_EMAIL='...' ADMIN_PASSWORD='...' node --env-file=.env scripts/create-admin.mjs
+  ```
+  (Node 20.6+ 의 `--env-file` 플래그로 `.env`를 로드 — dotenv 패키지 불필요)
+- **내부 문의게시판 제거됨** — 기존 `/inquiry`, `/inquiry/new`, `/inquiry/[id]` 페이지와
+  `app/api/inquiry/*` API, `AdminAnswerForm.tsx`는 전부 삭제됨. 사이트 전체의 "문의하기" CTA와
+  네비바 "게시판 > 문의게시판" 메뉴는 모두 **네이버폼 외부 링크**
+  (`https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA`, 새 탭)로 연결됨.
+  - `Navbar.tsx`의 `INQUIRY_FORM_URL` 상수에서 관리
+  - Prisma의 `Inquiry`/`Answer` 모델과 `User.inquiries`/`answers` 관계, 그리고 실제 DB 테이블은
+    **의도적으로 그대로 남겨둠** (스키마 변경·마이그레이션 없이 코드만 제거하는 방식으로 리스크 없이
+    진행). 필요 시 별도로 스키마 정리(테이블 drop)를 요청할 것 — DB 안전 규칙에 따라 사전 승인 필수.
+- `/admin` 대시보드는 더 이상 문의 관리 화면이 아니라 공지사항/카드뉴스 관리로 가는 허브 페이지.
 
 ---
 
@@ -180,15 +280,17 @@ refind-renewal/
 
 | Method | 경로 | 설명 | 인증 필요 |
 |--------|------|------|----------|
-| POST | `/api/register` | 회원가입 | X |
 | POST | `/api/auth/[...nextauth]` | 로그인/세션 | X |
-| GET | `/api/inquiry` | 문의 목록 | X (비공개 제외) |
-| POST | `/api/inquiry` | 문의 작성 | ✅ |
-| GET | `/api/inquiry/[id]` | 문의 상세 | X (비공개 제외) |
+| GET / POST | `/api/notice` | 공지사항 목록 / 작성 | POST만 관리자 |
+| GET / POST | `/api/card-news` | 카드뉴스 목록 / 작성 | POST만 관리자 |
+| POST | `/api/upload` | 이미지 업로드 (Supabase Storage) | ✅ 관리자 |
 
 ---
 
 ## DB 스키마 (Prisma)
+
+> `Inquiry`/`Answer` 모델은 코드에서는 더 이상 사용되지 않음 (내부 문의게시판 제거, 위 "인증 & 문의"
+> 참고). 스키마·DB 테이블은 그대로 남아있음 — 데이터 손실 없이 안전하게 두는 쪽을 선택함.
 
 ```prisma
 model User {
@@ -221,6 +323,25 @@ model Answer {
   inquiryId String   @unique
   authorId  String
 }
+
+// content는 HTML 문자열 (리치 텍스트 에디터 출력) — 상세 페이지에서 sanitize 후 렌더링
+model Notice {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   String
+  thumbnail String?
+  authorId  String
+}
+
+model CardNews {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   String
+  thumbnail String?
+  authorId  String
+}
 ```
 
 ---
@@ -228,10 +349,18 @@ model Answer {
 ## 환경변수 (.env)
 
 ```env
-DATABASE_URL="postgresql://..."          # Supabase PostgreSQL
+DATABASE_URL="postgresql://...pooler.supabase.com:6543/postgres?pgbouncer=true"  # Transaction pooler (앱 런타임 쿼리용)
+DIRECT_URL="postgresql://...pooler.supabase.com:5432/postgres"                   # Session pooler (마이그레이션/db push 전용)
 NEXTAUTH_SECRET="..."                    # 랜덤 base64 문자열
 NEXTAUTH_URL="http://localhost:3000"     # 배포 시 실제 도메인으로 변경
+SUPABASE_URL="https://xrtzdjkixwruetjgclwu.supabase.co"  # Storage 업로드용 (서버 전용)
+SUPABASE_SERVICE_ROLE_KEY="sb_secret_..."                 # service_role — 절대 클라이언트 노출 금지
 ```
+
+> **왜 pooler 주소를 쓰는가**: Supabase의 Direct connection(`db.<ref>.supabase.co:5432`)은 기본이 IPv6 전용이라, IPv6 라우팅이 안 되는 네트워크에서는 연결 자체가 안 된다. 대신 IPv4 호환되는 pooler 주소를 사용한다.
+> - `DATABASE_URL`(Transaction pooler, 6543)은 prepared statement를 재사용 못 해서 `?pgbouncer=true` 옵션이 필수 (없으면 `prepared statement already exists` 에러 발생).
+> - `DIRECT_URL`(Session pooler, 5432)은 `prisma db push` / `prisma migrate`처럼 DDL이 필요한 스키마 변경 전용. `schema.prisma`의 `datasource db`에 `directUrl = env("DIRECT_URL")`로 연결돼 있음.
+> - 이 프로젝트는 마이그레이션 히스토리 없이 `prisma db push`로 스키마를 관리 중 (`prisma/migrations` 폴더 없음, `migrate dev`는 비대화형 환경에서 에러 발생하므로 사용 금지).
 
 ---
 
@@ -266,13 +395,10 @@ npm run dev
 - [x] 네비게이션 대메뉴 + 호버 서브메뉴 구현
 - [x] 실제 로고 이미지 적용 (Navbar, About 페이지)
 - [x] 홈 히어로 배경 이미지 적용
+- [x] 게시판 메뉴 개편 (네비바 "게시판" 드롭다운: 문의게시판/공지사항/카드뉴스, 공지사항·카드뉴스 페이지 및 관리자 작성 폼 제작)
+- [x] 회원가입 제거, 관리자 전용 로그인 구조로 전환 (내부 문의게시판 삭제, 문의는 네이버폼 외부 링크로 대체)
 
 ### 📋 다음 작업 (우선순위 순)
-- [ ] **게시판 메뉴 개편**
-  - 네비바 "문의게시판" → "게시판"으로 변경
-  - 게시판 하위 메뉴 3개 추가: 문의게시판 / 공지사항 / 카드뉴스
-  - 공지사항 페이지 신규 제작
-  - 카드뉴스 페이지 신규 제작
 - [ ] **이미지 교체**
   - ORE-3000 이미지 변경 (현재 HDE.jpg 잘못 사용 중)
   - OYFM-7000 이미지 변경 (현재 HDE.jpg 잘못 사용 중)

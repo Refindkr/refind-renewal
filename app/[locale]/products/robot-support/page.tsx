@@ -91,10 +91,12 @@ export default async function RobotSupportPage({ params }: PageProps) {
                 : "Modular robotic workstation integrating multiple collaborative robot arms. Handle complex manufacturing and research processes on a single platform."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "도입 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/collaborative-robot`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "협동로봇 보기" : "Collaborative Robots"}
@@ -160,10 +162,12 @@ export default async function RobotSupportPage({ params }: PageProps) {
               ? "공정 환경과 목적에 맞는 최적의 로봇 보조기 구성을 제안해 드립니다."
               : "We'll propose the optimal robot support configuration for your process environment and objectives."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

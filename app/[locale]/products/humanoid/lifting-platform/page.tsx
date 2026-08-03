@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "Lifting Platform 이동형 리프팅 플랫폼" : "Mobile Lifting Platform",
+    title: isKo ? "Single arm vertical lift 이동형 리프팅 플랫폼" : "Single arm vertical lift",
     description: isKo
       ? "이동형 리프팅 플랫폼. 다양한 로봇 팔과 결합해 이동·리프팅 자동화를 구현합니다."
       : "Mobile lifting platform. Combine with various robot arms to implement mobility and lifting automation.",
@@ -58,7 +58,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
               Humanoid · Mobile Platform
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight leading-tight">
-              {isKo ? "Lifting\nPlatform" : "Lifting\nPlatform"}
+              {isKo ? "Single arm\nvertical lift" : "Single arm\nvertical lift"}
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
@@ -66,10 +66,12 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
                 : "Mobile work platform combining lifting column with collaborative robot arm. Maximizes vertical work range in factories and logistics warehouses."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "도입 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/humanoid`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
@@ -115,10 +117,12 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인 전문가가 현장에 맞는 최적 솔루션을 제안해 드립니다." : "Refind experts will propose the optimal solution for your environment."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

@@ -37,10 +37,12 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
               : "Wearable robotic support device that assists walking and enhances lower limb strength. Overcomes walking function deterioration due to aging or disease."}
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href={`/${locale}/inquiry`}
+            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
               {isKo ? "도입 문의하기" : "Contact Us"}
-            </Link>
+            </a>
             <Link href={`/${locale}/products/robot-support`}
               className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
               {isKo ? "로봇보조기 전체 보기" : "All Robot Support"}
@@ -55,10 +57,12 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
           <p className="text-gray-400 text-sm">
             {isKo ? "상세 스펙 준비 중입니다." : "Detailed specifications coming soon."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-8 inline-flex items-center px-6 py-3 bg-gray-900 text-white font-semibold rounded-full text-sm hover:bg-gray-700 transition-colors">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

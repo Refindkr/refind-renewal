@@ -43,7 +43,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
           tags: isKo ? ["6축", "ROS2", "오픈 SDK"] : ["6-Axis", "ROS2", "Open SDK"],
         },
         {
-          slug: "realman",
+          slug: "elephant-robotics",
           name: "Elephant Robotics",
           nameEn: "Elephant Robotics",
           tagline: isKo

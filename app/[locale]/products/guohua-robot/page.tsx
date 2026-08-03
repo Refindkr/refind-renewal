@@ -76,10 +76,12 @@ export default async function GuohuaRobotPage({ params }: PageProps) {
                 : "Next-generation humanoid service robot by Guohua Intelligence. AI-based autonomous navigation and high-DOF dual arms ready for diverse service environments."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "도입 문의" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/humanoid`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
@@ -144,10 +146,12 @@ export default async function GuohuaRobotPage({ params }: PageProps) {
               ? "리파인의 전문가가 최적의 도입 방안을 함께 설계해 드립니다."
               : "Refind experts will help design the optimal deployment solution for you."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

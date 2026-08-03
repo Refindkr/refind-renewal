@@ -44,10 +44,12 @@ export default async function HDEMGPage({ params }: PageProps) {
                 : "High-resolution EMG system expandable from 32 to 128 channels. Precisely captures fine neuromuscular signals with ultra-fast 4,096Hz sampling."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "솔루션 문의하기" : "Inquire Now"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/physical-ai/bcibmi`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
@@ -161,10 +163,12 @@ export default async function HDEMGPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "리파인 전문가가 연구 목적에 맞는 솔루션을 안내해 드립니다." : "Refind experts will guide you to the solution that fits your research goals."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

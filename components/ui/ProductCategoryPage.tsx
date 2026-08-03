@@ -109,12 +109,14 @@ export default function ProductCategoryPage({
               ? "전문가가 직접 상담해드립니다. 지금 문의해주세요."
               : "Our experts are ready to help. Contact us today."}
           </p>
-          <Link
-            href={`/${locale}/inquiry`}
+          <a
+            href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-gray-900 text-white font-semibold rounded-full hover:bg-gray-700 transition-colors text-sm"
           >
             {locale === "ko" ? "협업 문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

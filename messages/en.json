@@ -1,12 +1,12 @@
 {
   "nav": {
     "products": "Products",
-    "robotHand": "Robot Hand",
+    "robotHand": "Humanoid Robot Hand",
     "prosthetic": "Prosthetic Hand",
     "collaborativeRobot": "Collaborative Robot",
-    "physicalAI": "Physical AI",
+    "physicalAI": "Physical AI & Robot Parts",
     "humanoid": "Humanoid Robot",
-    "bodyEnhancement": "Body Enhancement",
+    "bodyEnhancement": "Personal Body Enhancement",
     "guohuaRobot": "Guohua Robot",
     "robotSupport": "Robot Support",
     "about": "About",
@@ -15,7 +15,6 @@
     "notice": "Notice",
     "cardNews": "Card News",
     "login": "Login",
-    "register": "Sign Up",
     "logout": "Logout",
     "myPage": "My Page"
   },
@@ -158,47 +157,6 @@
       "missionText": "Provide innovative robotic solutions that overcome the limitations of disability and aging"
     }
   },
-  "inquiry": {
-    "title": "Inquiry Board",
-    "description": "Leave your inquiries about products and services. Our team will respond promptly.",
-    "writeButton": "Write Inquiry",
-    "loginRequired": "Please login to write an inquiry",
-    "table": {
-      "no": "No.",
-      "category": "Category",
-      "title": "Title",
-      "author": "Author",
-      "date": "Date",
-      "status": "Status"
-    },
-    "status": {
-      "pending": "Pending",
-      "answered": "Answered"
-    },
-    "category": {
-      "product": "Product",
-      "purchase": "Purchase",
-      "as": "After Service",
-      "partnership": "Partnership",
-      "other": "Other"
-    },
-    "form": {
-      "title": "Write Inquiry",
-      "category": "Category",
-      "subject": "Subject",
-      "subjectPlaceholder": "Enter inquiry subject",
-      "content": "Content",
-      "contentPlaceholder": "Enter inquiry content",
-      "isPrivate": "Private",
-      "submit": "Submit",
-      "cancel": "Cancel"
-    },
-    "detail": {
-      "answer": "Answer",
-      "noAnswer": "No answer has been posted yet",
-      "back": "Back to list"
-    }
-  },
   "auth": {
     "login": {
       "title": "Login",
@@ -207,33 +165,7 @@
       "password": "Password",
       "passwordPlaceholder": "Enter your password",
       "submit": "Login",
-      "noAccount": "Don't have an account?",
-      "registerLink": "Sign Up",
       "error": "Invalid email or password"
-    },
-    "register": {
-      "title": "Sign Up",
-      "name": "Name",
-      "namePlaceholder": "Enter your name",
-      "email": "Email",
-      "emailPlaceholder": "Enter your email",
-      "password": "Password",
-      "passwordPlaceholder": "At least 8 characters",
-      "confirmPassword": "Confirm Password",
-      "confirmPasswordPlaceholder": "Re-enter your password",
-      "company": "Company (Optional)",
-      "companyPlaceholder": "Enter company name",
-      "phone": "Phone (Optional)",
-      "phonePlaceholder": "010-0000-0000",
-      "submit": "Sign Up",
-      "hasAccount": "Already have an account?",
-      "loginLink": "Login",
-      "success": "Registration completed successfully",
-      "errors": {
-        "emailExists": "This email is already in use",
-        "passwordMismatch": "Passwords do not match",
-        "passwordTooShort": "Password must be at least 8 characters"
-      }
     }
   },
   "footer": {

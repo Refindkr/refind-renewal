@@ -87,10 +87,12 @@ export default async function EEGPage({ params }: PageProps) {
                 : "From wearable EEG to high-density HD-EEG. We provide the optimal brainwave measurement system for your research purpose and environment."}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "솔루션 문의하기" : "Inquire Now"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/physical-ai/bcibmi`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
@@ -192,10 +194,12 @@ export default async function EEGPage({ params }: PageProps) {
           <p className="text-white/50 mb-8 text-sm">
             {isKo ? "연구 목적과 환경에 맞는 최적의 솔루션을 제안해 드립니다." : "We'll suggest the optimal solution for your research goals and environment."}
           </p>
-          <Link href={`/${locale}/inquiry`}
+          <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 bg-white text-gray-900 font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

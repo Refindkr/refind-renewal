@@ -51,12 +51,14 @@ export default function ProductPage({ locale, title, description, items, icon, c
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             {locale === "ko" ? "제품에 대해 궁금한 점이 있으신가요?" : "Have questions about our products?"}
           </h2>
-          <Link
-            href={`/${locale}/inquiry`}
+          <a
+            href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-primary-400 text-white font-semibold rounded-xl hover:bg-primary-500 transition-colors"
           >
             {locale === "ko" ? "문의하기" : "Contact Us"}
-          </Link>
+          </a>
         </div>
       </section>
     </div>

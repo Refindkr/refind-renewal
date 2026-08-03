@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "Realbot 휴머노이드 로봇" : "Realbot Humanoid Robot",
+    title: isKo ? "REALBOT S2 휴머노이드 로봇" : "REALBOT S2 Humanoid Robot",
     description: isKo
       ? "풀바디 휴머노이드 로봇. 고자유도 관절과 정밀 제어로 다양한 서비스·산업 작업 수행."
       : "Full-body humanoid robot with high-DOF joints and precise control for diverse service and industrial tasks.",
@@ -94,7 +94,7 @@ export default async function RealbotPage({ params }: PageProps) {
               Humanoid Robot · Full-body
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
-              REALBOT
+              REALBOT S2
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
@@ -109,10 +109,12 @@ export default async function RealbotPage({ params }: PageProps) {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/inquiry`}
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
-              </Link>
+              </a>
               <Link href={`/${locale}/products/humanoid`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "제품 목록" : "All Models"}
@@ -237,13 +239,15 @@ export default async function RealbotPage({ params }: PageProps) {
             {isKo ? "기술 사양서 요청 및 협업 문의를 보내주세요." : "Request technical specs or send a collaboration inquiry."}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href={`/${locale}/inquiry`}
+            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-gray-900 text-white font-semibold rounded-full text-sm hover:bg-gray-800 transition-colors">
               {isKo ? "협업 문의하기" : "Contact Us"}
               <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
+            </a>
             <Link href={`/${locale}/products/humanoid`}
               className="inline-flex items-center px-8 py-4 border border-gray-200 text-gray-700 font-semibold rounded-full text-sm hover:border-gray-400 transition-colors">
               {isKo ? "다른 제품 보기" : "Other Products"}

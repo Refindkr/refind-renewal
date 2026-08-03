@@ -9,10 +9,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "피지컬 AI" : "Physical AI",
+    title: isKo ? "피지컬 AI & 로봇부속" : "Physical AI & Robot Parts",
     description: isKo
-      ? "리파인 피지컬 AI 제품 라인업. 듀얼암 플랫폼, AVR/AMR 자율이동로봇, Tashan 포스센서."
-      : "Refind Physical AI lineup. Dual-arm platform, AVR/AMR autonomous mobile robot, Tashan force sensor.",
+      ? "리파인 피지컬 AI & 로봇부속 라인업. 액추에이터, 듀얼암 플랫폼, AVR/AMR 자율이동로봇, Tashan 포스센서."
+      : "Refind Physical AI & Robot Parts lineup. Actuator, dual-arm platform, AVR/AMR autonomous mobile robot, Tashan force sensor.",
   };
 }
 
@@ -23,15 +23,25 @@ export default async function PhysicalAIPage({ params }: PageProps) {
   return (
     <ProductCategoryPage
       locale={locale}
-      title={isKo ? "피지컬 AI" : "Physical AI"}
-      titleEn="Physical AI"
+      title={isKo ? "피지컬 AI & 로봇부속" : "Physical AI & Robot Parts"}
+      titleEn="Physical AI & Robot Parts"
       description={
         isKo
-          ? "듀얼암 로봇 플랫폼부터 자율이동로봇, 고감도 포스센서까지 — 실세계 AI 로보틱스를 위한 리파인의 Physical AI 솔루션."
-          : "From dual-arm robot platforms to autonomous mobile robots and high-sensitivity force sensors — Refind's Physical AI solutions for real-world robotics."
+          ? "액추에이터부터 듀얼암 로봇 플랫폼, 자율이동로봇, 고감도 포스센서까지 — 실세계 AI 로보틱스를 위한 리파인의 Physical AI & 로봇부속 솔루션."
+          : "From actuators to dual-arm robot platforms, autonomous mobile robots, and high-sensitivity force sensors — Refind's Physical AI & Robot Parts solutions for real-world robotics."
       }
       categorySlug="physical-ai"
       products={[
+        {
+          slug: "actuator",
+          name: isKo ? "액추에이터" : "Actuator",
+          nameEn: "Realman Actuator",
+          tagline: isKo
+            ? "Realman 공식 파트너로서 제공하는 고성능 로봇 액추에이터 솔루션."
+            : "High-performance robot actuator solutions provided as an official Realman partner.",
+          image: "/products/coming-soon.svg",
+          tags: isKo ? ["Realman", "공식 파트너"] : ["Realman", "Official Partner"],
+        },
         {
           slug: "platform",
           name: isKo ? "플랫폼" : "Platform",

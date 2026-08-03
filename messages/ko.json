@@ -1,12 +1,12 @@
 {
   "nav": {
     "products": "제품",
-    "robotHand": "로봇핸드",
+    "robotHand": "휴머노이드 로봇손",
     "prosthetic": "전자의수",
     "collaborativeRobot": "협동로봇",
-    "physicalAI": "피지컬 AI",
+    "physicalAI": "피지컬 AI & 로봇부속",
     "humanoid": "휴머노이드 로봇",
-    "bodyEnhancement": "신체증강기기",
+    "bodyEnhancement": "개인 신체 증강 기기",
     "guohuaRobot": "Guohua Robot",
     "robotSupport": "로봇 보조기",
     "about": "회사소개",
@@ -15,7 +15,6 @@
     "notice": "공지사항",
     "cardNews": "카드뉴스",
     "login": "로그인",
-    "register": "회원가입",
     "logout": "로그아웃",
     "myPage": "마이페이지"
   },
@@ -158,47 +157,6 @@
       "missionText": "장애와 노화의 한계를 극복하는 혁신적인 로봇 솔루션을 제공한다"
     }
   },
-  "inquiry": {
-    "title": "문의게시판",
-    "description": "제품 및 서비스에 관한 문의를 남겨주세요. 담당자가 빠르게 답변드리겠습니다.",
-    "writeButton": "문의 작성",
-    "loginRequired": "문의를 작성하려면 로그인이 필요합니다",
-    "table": {
-      "no": "번호",
-      "category": "분류",
-      "title": "제목",
-      "author": "작성자",
-      "date": "날짜",
-      "status": "상태"
-    },
-    "status": {
-      "pending": "답변대기",
-      "answered": "답변완료"
-    },
-    "category": {
-      "product": "제품문의",
-      "purchase": "구매문의",
-      "as": "A/S문의",
-      "partnership": "파트너십",
-      "other": "기타"
-    },
-    "form": {
-      "title": "문의 작성",
-      "category": "분류",
-      "subject": "제목",
-      "subjectPlaceholder": "문의 제목을 입력하세요",
-      "content": "내용",
-      "contentPlaceholder": "문의 내용을 입력하세요",
-      "isPrivate": "비공개",
-      "submit": "작성 완료",
-      "cancel": "취소"
-    },
-    "detail": {
-      "answer": "답변",
-      "noAnswer": "아직 답변이 등록되지 않았습니다",
-      "back": "목록으로"
-    }
-  },
   "auth": {
     "login": {
       "title": "로그인",
@@ -207,33 +165,7 @@
       "password": "비밀번호",
       "passwordPlaceholder": "비밀번호를 입력하세요",
       "submit": "로그인",
-      "noAccount": "계정이 없으신가요?",
-      "registerLink": "회원가입",
       "error": "이메일 또는 비밀번호가 올바르지 않습니다"
-    },
-    "register": {
-      "title": "회원가입",
-      "name": "이름",
-      "namePlaceholder": "이름을 입력하세요",
-      "email": "이메일",
-      "emailPlaceholder": "이메일을 입력하세요",
-      "password": "비밀번호",
-      "passwordPlaceholder": "8자 이상 입력하세요",
-      "confirmPassword": "비밀번호 확인",
-      "confirmPasswordPlaceholder": "비밀번호를 다시 입력하세요",
-      "company": "회사명 (선택)",
-      "companyPlaceholder": "회사명을 입력하세요",
-      "phone": "연락처 (선택)",
-      "phonePlaceholder": "010-0000-0000",
-      "submit": "가입하기",
-      "hasAccount": "이미 계정이 있으신가요?",
-      "loginLink": "로그인",
-      "success": "회원가입이 완료되었습니다",
-      "errors": {
-        "emailExists": "이미 사용 중인 이메일입니다",
-        "passwordMismatch": "비밀번호가 일치하지 않습니다",
-        "passwordTooShort": "비밀번호는 8자 이상이어야 합니다"
-      }
     }
   },
   "footer": {

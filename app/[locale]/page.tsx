@@ -59,11 +59,11 @@ export default async function HomePage({ params }: PageProps) {
       image: "/products/humanoid/realbot.jpeg",
     },
     {
-      href: `/${locale}/products/body-enhancement`,
+      href: `/${locale}/products/robot-support`,
       title: tp("bodyEnhancement.title"),
       desc: tp("bodyEnhancement.description"),
       number: "05",
-      image: "/products/body-enhancement/ORE-3000.jpeg",
+      image: "/products/prosthetic/ohand_pinch_hd.png",
     },
     {
       href: `/${locale}/products/physical-ai`,
@@ -238,7 +238,7 @@ export default async function HomePage({ params }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.map((product) => (
               <Link
-                key={product.href}
+                key={product.number}
                 href={product.href}
                 className="group relative bg-[#111] rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
               >
@@ -285,15 +285,17 @@ export default async function HomePage({ params }: PageProps) {
           <p className="text-lg text-white/40 mb-12">
             {t("contact.description")}
           </p>
-          <Link
-            href={`/${locale}/inquiry`}
+          <a
+            href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center px-10 py-5 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-200"
           >
             {t("contact.button")}
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </Link>
+          </a>
         </div>
       </section>
     </div>
