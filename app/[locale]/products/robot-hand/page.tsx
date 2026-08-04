@@ -80,7 +80,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           tagline: isKo
             ? "자기식 촉각 센서로 수직압력·전단력·미끄러짐까지 감지하는 고성능 로봇 핸드."
             : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
-          image: "/products/coming-soon.svg",
+          image: "/products/robot-hand/ap003/ap003.png",
           tags: isKo ? ["자기식 촉각", "626g", "6-DOF"] : ["Magnetic Tactile", "626g", "6-DOF"],
         },
         {

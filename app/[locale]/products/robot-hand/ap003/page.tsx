@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
@@ -81,30 +82,41 @@ export default async function AP003Page({ params }: PageProps) {
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(102,157,253,0.08) 0%, transparent 45%)" }}
         />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
-            Robot Hand · Magnetic Tactile Sensors
-          </span>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP003</h1>
-          <p className="text-sm text-[#0AABBA] font-semibold mb-5">
-            {isKo ? "자기식 촉각 센서로 사람의 손끝을 재현하다" : "Reproducing the Human Fingertip with Magnetic Tactile Sensing"}
-          </p>
-          <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
-            {isKo
-              ? "AP003는 Magnetic Tactile Sensor(자기식 촉각 센서)를 적용하여 사람의 손끝과 유사한 촉각 정보를 제공하는 고성능 로봇 핸드입니다."
-              : "AP003 is a high-performance robot hand that applies a Magnetic Tactile Sensor to provide tactile information similar to the human fingertip."}
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
-              {isKo ? "협업 문의하기" : "Contact Us"}
-            </a>
-            <Link href={`/${locale}/products/robot-hand`}
-              className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "제품 목록" : "All Models"}
-            </Link>
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+              Robot Hand · Magnetic Tactile Sensors
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP003</h1>
+            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+              {isKo ? "자기식 촉각 센서로 사람의 손끝을 재현하다" : "Reproducing the Human Fingertip with Magnetic Tactile Sensing"}
+            </p>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "AP003는 Magnetic Tactile Sensor(자기식 촉각 센서)를 적용하여 사람의 손끝과 유사한 촉각 정보를 제공하는 고성능 로봇 핸드입니다."
+                : "AP003 is a high-performance robot hand that applies a Magnetic Tactile Sensor to provide tactile information similar to the human fingertip."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                {isKo ? "협업 문의하기" : "Contact Us"}
+              </a>
+              <Link href={`/${locale}/products/robot-hand`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "제품 목록" : "All Models"}
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-72 md:h-96">
+            <Image
+              src="/products/robot-hand/ap003/ap003.png"
+              alt="ROH-AP003 Magnetic Tactile Sensor"
+              fill
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>

@@ -133,9 +133,9 @@ export default function Navbar({ locale }: NavbarProps) {
             <Image
               src="/logo.png"
               alt="Refind"
-              width={120}
-              height={40}
-              className={`h-8 w-auto object-contain transition-all duration-300 ${
+              width={150}
+              height={50}
+              className={`h-11 w-auto object-contain -translate-y-1 transition-all duration-300 ${
                 isTransparent ? "brightness-0 invert" : ""
               }`}
               priority
