@@ -118,15 +118,9 @@ export default async function RM6575Page({ params }: PageProps) {
               </Link>
             </div>
           </div>
-          <div className="relative h-72 md:h-96 grid grid-cols-2 gap-4">
-            <div className="relative">
-              <Image src="/products/collaborative-robot/RM65.jpeg" alt="RM65" fill
-                className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 50vw, 25vw" />
-            </div>
-            <div className="relative">
-              <Image src="/products/collaborative-robot/RM75.jpeg" alt="RM75" fill
-                className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 50vw, 25vw" />
-            </div>
+          <div className="relative h-72 md:h-96">
+            <Image src="/products/collaborative-robot/RM65.jpeg" alt="RM65 / RM75" fill
+              className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>
       </section>
