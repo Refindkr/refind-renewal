@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
@@ -195,27 +196,40 @@ export default async function ActuatorPage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHJ Series</p>
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
-            {isKo ? "정밀 각도 제어를 위한 고성능 서보 하모닉 액추에이터" : "High-Performance Servo Harmonic Actuators for Precise Angle Control"}
-          </h2>
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+            <div>
+              <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                {isKo ? "정밀 각도 제어를 위한 고성능 서보 하모닉 액추에이터" : "High-Performance Servo Harmonic Actuators for Precise Angle Control"}
+              </h2>
 
-          {/* MTBF badge */}
-          <div className="bg-gray-950 rounded-2xl p-8 mb-10">
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
-              {isKo ? "무고장 운전시간 5만 시간" : "50,000-Hour MTBF"}
-            </p>
-            <p className="text-sm text-white/60 leading-relaxed">
-              {isKo
-                ? "Realman의 모듈은 평균 무고장 운전시간(MTBF) 5만 시간을 달성하여 산업 현장에서 요구되는 최고 수준의 내구성을 제공합니다. (CRL3 인증 획득)"
-                : "Realman's modules achieve a mean time between failures (MTBF) of 50,000 hours, delivering the industry-leading durability required in industrial settings. (CRL3 certified)"}
-            </p>
+              {/* MTBF badge */}
+              <div className="bg-gray-950 rounded-2xl p-8 mb-6">
+                <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
+                  {isKo ? "무고장 운전시간 5만 시간" : "50,000-Hour MTBF"}
+                </p>
+                <p className="text-sm text-white/60 leading-relaxed">
+                  {isKo
+                    ? "Realman의 모듈은 평균 무고장 운전시간(MTBF) 5만 시간을 달성하여 산업 현장에서 요구되는 최고 수준의 내구성을 제공합니다. (CRL3 인증 획득)"
+                    : "Realman's modules achieve a mean time between failures (MTBF) of 50,000 hours, delivering the industry-leading durability required in industrial settings. (CRL3 certified)"}
+                </p>
+              </div>
+
+              <p className="text-gray-500 leading-relaxed">
+                {isKo
+                  ? "WHJ 시리즈는 매 각도를 오차 없이 정밀하게 제어하도록 설계된 고성능 서보 하모닉 액추에이터입니다."
+                  : "The WHJ series is a high-performance servo harmonic actuator designed to precisely control every angle with zero error."}
+              </p>
+            </div>
+            <div className="relative h-72 md:h-80 bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+              <Image
+                src="/products/physical-ai/actuator/whj-series.png"
+                alt="WHJ Series"
+                fill
+                className="object-contain p-6"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </div>
-
-          <p className="text-gray-500 leading-relaxed max-w-3xl mb-8">
-            {isKo
-              ? "WHJ 시리즈는 매 각도를 오차 없이 정밀하게 제어하도록 설계된 고성능 서보 하모닉 액추에이터입니다."
-              : "The WHJ series is a high-performance servo harmonic actuator designed to precisely control every angle with zero error."}
-          </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-10">
             {(isKo
@@ -247,11 +261,22 @@ export default async function ActuatorPage({ params }: PageProps) {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHJ Torque Series</p>
-          <p className="text-gray-500 leading-relaxed max-w-3xl mb-8">
-            {isKo
-              ? "관절급 포스 센싱으로 모든 인터랙션을 완벽하게 제어합니다. 정밀 조립, 연마, 폴리싱, 협업 안전 충돌 방지, 유연한 파지 등 다양한 응용 분야에 적합합니다."
-              : "Joint-level force sensing delivers complete control over every interaction. Suited for precision assembly, grinding, polishing, collaborative safety collision avoidance, and flexible gripping."}
-          </p>
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+            <p className="text-gray-500 leading-relaxed">
+              {isKo
+                ? "관절급 포스 센싱으로 모든 인터랙션을 완벽하게 제어합니다. 정밀 조립, 연마, 폴리싱, 협업 안전 충돌 방지, 유연한 파지 등 다양한 응용 분야에 적합합니다."
+                : "Joint-level force sensing delivers complete control over every interaction. Suited for precision assembly, grinding, polishing, collaborative safety collision avoidance, and flexible gripping."}
+            </p>
+            <div className="relative h-72 md:h-80 bg-white rounded-2xl border border-gray-100 overflow-hidden">
+              <Image
+                src="/products/physical-ai/actuator/whj-torque-series.png"
+                alt="WHJ Torque Series"
+                fill
+                className="object-contain p-6"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
           <SpecTable models={whjTorqueModels} rows={whjTorqueRows} />
         </div>
       </section>
@@ -260,11 +285,22 @@ export default async function ActuatorPage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHG Series</p>
-          <p className="text-gray-500 leading-relaxed max-w-3xl mb-8">
-            {isKo
-              ? "고성능 로봇용 고하중 구동 표준 모듈입니다. 산업 자동화, 협업로봇, 휴머노이드 로봇, 반도체 및 정밀 장비 등 다양한 분야에 적합합니다."
-              : "A high-load drive standard module for high-performance robots. Suited for industrial automation, collaborative robots, humanoid robots, semiconductors, and precision equipment."}
-          </p>
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+            <p className="text-gray-500 leading-relaxed">
+              {isKo
+                ? "고성능 로봇용 고하중 구동 표준 모듈입니다. 산업 자동화, 협업로봇, 휴머노이드 로봇, 반도체 및 정밀 장비 등 다양한 분야에 적합합니다."
+                : "A high-load drive standard module for high-performance robots. Suited for industrial automation, collaborative robots, humanoid robots, semiconductors, and precision equipment."}
+            </p>
+            <div className="relative h-72 md:h-80 bg-white rounded-2xl border border-gray-100 overflow-hidden">
+              <Image
+                src="/products/physical-ai/actuator/whg-series.png"
+                alt="WHG Series"
+                fill
+                className="object-contain p-6"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
           <SpecTable models={whgModels} rows={whgRows} />
         </div>
       </section>

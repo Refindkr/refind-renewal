@@ -39,7 +39,7 @@ export default async function PhysicalAIPage({ params }: PageProps) {
           tagline: isKo
             ? "Realman 공식 파트너로서 제공하는 고성능 로봇 액추에이터 솔루션."
             : "High-performance robot actuator solutions provided as an official Realman partner.",
-          image: "/products/coming-soon.svg",
+          image: "/products/physical-ai/actuator/whj-series.png",
           tags: isKo ? ["Realman", "공식 파트너"] : ["Realman", "Official Partner"],
         },
         {

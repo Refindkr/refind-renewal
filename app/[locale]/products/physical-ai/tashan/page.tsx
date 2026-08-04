@@ -122,14 +122,21 @@ export default async function TashanPage({ params }: PageProps) {
             {isKo ? "Tashan 센서 모델 비교" : "Tashan Sensor Model Comparison"}
           </h2>
           <div className="mb-8">
-            <div className="relative w-full max-w-2xl mx-auto h-96 bg-white rounded-2xl border border-gray-100 overflow-hidden mb-8">
-              <Image
-                src="/products/sensors/tashan/52-tashan.jpg"
-                alt="Tashan Sensor Models"
-                fill
-                className="object-contain p-6"
-                sizes="(max-width: 768px) 100vw, 672px"
-              />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+              {["TS-F-A", "TS-F-A2", "TS-F-B", "TS-F-C", "TS-E-A", "TS-E-B"].map((model) => (
+                <div key={model} className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                  <div className="relative h-32 bg-gray-50">
+                    <Image
+                      src={`/products/sensors/tashan/models/${model.toLowerCase()}.png`}
+                      alt={model}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 33vw, 16vw"
+                    />
+                  </div>
+                  <p className="text-center text-xs font-bold text-[#669DFD] py-2 border-t border-gray-100">{model}</p>
+                </div>
+              ))}
             </div>
             <div className="overflow-x-auto rounded-2xl border border-gray-100">
             <table className="w-full text-sm">

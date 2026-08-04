@@ -168,6 +168,8 @@ refind-renewal/
   `/products/coming-soon.svg`를 사용 (다른 미확보 이미지 제품과 동일한 방식)
 - "Realman"도 카테고리 페이지(`collaborative-robot/realman`)로, 하위에 RM65/75
   (`realman/rm65-75`), RML63(`realman/rml63`), ECO 62/63/65(`realman/eco`) 3개 상세 페이지를 둠
+- "AVR/AMR"도 카테고리 페이지(`physical-ai/avr-amr`)로, 하위에 모바일 로봇 플랫폼/myAGV 2023
+  (`avr-amr/myagv`)과 모바일 섀시(`avr-amr/mobile-chassis`) 2개 상세 페이지를 둠
 - "게시판" 하위의 "문의게시판"은 내부 페이지가 아니라 **네이버폼 외부 링크**(새 탭)로 연결됨 —
   자세한 내용은 아래 "인증 & 문의" 섹션 참고
 
@@ -185,6 +187,8 @@ refind-renewal/
 /[locale]/products/physical-ai/platform/dual-arm
 /[locale]/products/physical-ai/platform/teleoperation-kit
 /[locale]/products/physical-ai/avr-amr
+/[locale]/products/physical-ai/avr-amr/myagv
+/[locale]/products/physical-ai/avr-amr/mobile-chassis
 /[locale]/products/physical-ai/tashan
 /[locale]/products/physical-ai/gforcepro
 /[locale]/products/physical-ai/bcibmi

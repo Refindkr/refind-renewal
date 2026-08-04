@@ -35,7 +35,9 @@ export default function Navbar({ locale }: NavbarProps) {
       children: [
         { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
         { href: `/${locale}/products/physical-ai/actuator`, label: isKo ? "액추에이터" : "Actuator", isGroup: false },
-        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: false },
+        { href: `/${locale}/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: true },
+        { href: `/${locale}/products/physical-ai/avr-amr/myagv`, label: isKo ? "모바일 로봇 플랫폼 (myAGV 2023)" : "Mobile Robot Platform (myAGV 2023)", isGroup: false },
+        { href: `/${locale}/products/physical-ai/avr-amr/mobile-chassis`, label: isKo ? "모바일 섀시" : "Mobile Chassis", isGroup: false },
         { href: `/${locale}/products/physical-ai/platform`, label: isKo ? "플랫폼" : "Platform", isGroup: true },
         { href: `/${locale}/products/physical-ai/platform/dual-arm`, label: isKo ? "듀얼암 로봇 플랫폼" : "Dual-Arm Robot Platform", isGroup: false },
         { href: `/${locale}/products/physical-ai/platform/teleoperation-kit`, label: isKo ? "원격조작 키트" : "Teleoperation Kit", isGroup: false },

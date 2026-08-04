@@ -49,7 +49,9 @@
       "Bash(mkdir -p \"app/[locale]/products/collaborative-robot/realman/rm65-75\" \"app/[locale]/products/collaborative-robot/realman/rml63\" \"app/[locale]/products/collaborative-robot/realman/eco\")",
       "Bash(echo \"exit:$?\")",
       "Bash(rm -rf .next)",
-      "Bash(SUPABASE_URL= SUPABASE_SERVICE_ROLE_KEY= npx next build)"
+      "Bash(SUPABASE_URL= SUPABASE_SERVICE_ROLE_KEY= npx next build)",
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
+      "Bash(mkdir -p \"app/[locale]/products/physical-ai/avr-amr/myagv\" \"app/[locale]/products/physical-ai/avr-amr/mobile-chassis\")"
     ]
   }
 }

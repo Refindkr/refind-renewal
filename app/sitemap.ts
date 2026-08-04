@@ -31,6 +31,8 @@ const staticPages = [
   { path: "/products/collaborative-robot/realman/eco", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/elephant-robotics", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/avr-amr", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/physical-ai/avr-amr/myagv", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/physical-ai/avr-amr/mobile-chassis", priority: 0.8, changeFrequency: "monthly" },
   // 로봇보조기 상세
   { path: "/products/robot-support/hybridex", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-support/step-booster", priority: 0.8, changeFrequency: "monthly" },
