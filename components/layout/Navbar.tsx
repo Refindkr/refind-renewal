@@ -20,6 +20,7 @@ export default function Navbar({ locale }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
 
   const otherLocale = locale === "ko" ? "en" : "ko";
   const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
@@ -326,7 +327,10 @@ export default function Navbar({ locale }: NavbarProps) {
             className={`lg:hidden p-2 rounded-lg transition-colors ${
               isTransparent ? "text-white" : "text-gray-700"
             }`}
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => {
+              setMobileOpen(!mobileOpen);
+              setOpenMobileCategory(null);
+            }}
             aria-label="메뉴"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -343,41 +347,66 @@ export default function Navbar({ locale }: NavbarProps) {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6">
-          <div className="space-y-1 mb-4">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 px-3">
+          <div className="mb-4">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1 px-3">
               {t("products")}
             </p>
-            {productLinks.map((link) => (
-              <div key={link.href}>
-                <Link
-                  href={link.href}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <div>
-                    <div className="text-sm font-semibold text-gray-800">{link.label}</div>
-                    <div className="text-[11px] text-gray-400">{link.desc}</div>
-                  </div>
-                </Link>
-                {/* 모바일 서브메뉴 */}
-                <div className="ml-10 mt-0.5 mb-1 flex flex-wrap gap-x-1">
-                  {link.children.map((child, idx) => (
-                    <Link
-                      key={`${child.href}-${idx}`}
-                      href={child.href}
-                      className={`px-2.5 py-1 text-xs rounded-lg transition-colors ${
-                        child.isGroup
-                          ? "font-semibold text-gray-700 hover:text-primary-500 hover:bg-primary-50"
-                          : "text-gray-500 hover:text-primary-500 hover:bg-primary-50"
-                      }`}
-                      onClick={() => setMobileOpen(false)}
+            <div className="divide-y divide-gray-100">
+              {productLinks.map((link) => {
+                const isOpen = openMobileCategory === link.href;
+                return (
+                  <div key={link.href}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenMobileCategory(isOpen ? null : link.href)}
+                      className="w-full flex items-center justify-between gap-3 px-3 py-3 text-left"
+                      aria-expanded={isOpen}
                     >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+                      <div>
+                        <div className="text-sm font-semibold text-gray-800">{link.label}</div>
+                        <div className="text-[11px] text-gray-400">{link.desc}</div>
+                      </div>
+                      <svg
+                        className={`w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {/* 모바일 서브메뉴 — 아코디언 */}
+                    {isOpen && (
+                      <div className="pb-2">
+                        <Link
+                          href={link.href}
+                          className="block px-3 py-2 text-xs font-bold text-primary-500"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {isKo ? "전체 보기 →" : "View All →"}
+                        </Link>
+                        {link.children.map((child, idx) => (
+                          <div key={`${child.href}-${idx}`}>
+                            {child.isGroup && idx > 0 && (
+                              <div className="my-1 mx-3 border-t border-gray-100" />
+                            )}
+                            <Link
+                              href={child.href}
+                              className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
+                                child.isGroup
+                                  ? "font-semibold text-gray-800"
+                                  : "text-gray-500 pl-6"
+                              }`}
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="space-y-1 mb-6">

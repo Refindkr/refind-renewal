@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
@@ -94,33 +95,44 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
         />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
-            Physical AI · Platform
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
-            {isKo ? "원격조작 키트" : "Teleoperation Kit"}
-          </h1>
-          <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
-            {isKo
-              ? "사람의 팔처럼 직관적인 조작, 모든 프레임이 트레이닝 데이터. 체화지능 데이터 수집, 기능 검증, 가정 서비스 및 리테일 환경에 적합합니다."
-              : "Intuitive control just like a human arm — every frame becomes training data. Ideal for embodied AI data collection, functional verification, home service, and retail environments."}
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors"
-            >
-              {isKo ? "도입 문의하기" : "Contact Us"}
-            </a>
-            <Link
-              href={`/${locale}/products/physical-ai/platform`}
-              className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors"
-            >
-              {isKo ? "플랫폼 전체 보기" : "All Platforms"}
-            </Link>
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+              Physical AI · Platform
+            </span>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+              {isKo ? "원격조작 키트" : "Teleoperation Kit"}
+            </h1>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "사람의 팔처럼 직관적인 조작, 모든 프레임이 트레이닝 데이터. 체화지능 데이터 수집, 기능 검증, 가정 서비스 및 리테일 환경에 적합합니다."
+                : "Intuitive control just like a human arm — every frame becomes training data. Ideal for embodied AI data collection, functional verification, home service, and retail environments."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors"
+              >
+                {isKo ? "도입 문의하기" : "Contact Us"}
+              </a>
+              <Link
+                href={`/${locale}/products/physical-ai/platform`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors"
+              >
+                {isKo ? "플랫폼 전체 보기" : "All Platforms"}
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-72 md:h-96">
+            <Image
+              src="/products/physical-ai/platform/teleoperation-kit/gln-rx71.png"
+              alt="Teleoperation Kit"
+              fill
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
@@ -155,6 +167,20 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
+          <div className="grid grid-cols-3 gap-4 mb-10">
+            {[
+              { src: "/products/physical-ai/platform/teleoperation-kit/gln-rx71.png", label: "GLN-RX71" },
+              { src: "/products/physical-ai/platform/teleoperation-kit/gln-rx75.jpeg", label: "GLN-RX75" },
+              { src: "/products/physical-ai/platform/teleoperation-kit/aloha.png", label: "Aloha" },
+            ].map((m) => (
+              <div key={m.src} className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
+                <div className="relative h-56">
+                  <Image src={m.src} alt={m.label} fill className="object-contain p-4" sizes="(max-width: 768px) 33vw, 20vw" />
+                </div>
+                <p className="text-center text-xs font-bold text-[#669DFD] py-2 border-t border-gray-100">{m.label}</p>
+              </div>
+            ))}
+          </div>
           <SpecTable models={models} rows={rows} />
         </div>
       </section>
