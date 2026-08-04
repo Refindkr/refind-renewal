@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { supabaseAdmin, POST_IMAGES_BUCKET } from "@/lib/supabaseAdmin";
+import { getSupabaseAdmin, POST_IMAGES_BUCKET } from "@/lib/supabaseAdmin";
 
 const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/gif", "image/webp"];
 const MAX_SIZE = 5 * 1024 * 1024; // 5MB
@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
   const ext = file.name.split(".").pop() || "jpg";
   const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
 
+  const supabaseAdmin = getSupabaseAdmin();
   const { error } = await supabaseAdmin.storage
     .from(POST_IMAGES_BUCKET)
     .upload(path, file, { contentType: file.type });
