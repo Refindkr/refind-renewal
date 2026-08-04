@@ -23,21 +23,18 @@ export default async function RobotSupportPage({ params }: PageProps) {
 
   const features = [
     {
-      icon: "🦾",
       title: isKo ? "협동로봇 통합 플랫폼" : "Collaborative Robot Platform",
       desc: isKo
         ? "다수의 협동로봇 암을 하나의 플랫폼에서 통합 운용. 복잡한 조립·검사 공정을 단일 워크스테이션으로 처리합니다."
         : "Integrated operation of multiple collaborative robot arms on a single platform, handling complex assembly and inspection processes in one workstation.",
     },
     {
-      icon: "⚙️",
       title: isKo ? "유연한 확장성" : "Flexible Scalability",
       desc: isKo
         ? "모듈형 구조로 로봇 암의 수와 배치를 자유롭게 조정. 생산 라인 변경 없이 공정을 재구성할 수 있습니다."
         : "Modular structure allows free adjustment of robot arm quantity and arrangement, enabling process reconfiguration without line changes.",
     },
     {
-      icon: "📊",
       title: isKo ? "통합 제어 시스템" : "Integrated Control System",
       desc: isKo
         ? "단일 소프트웨어로 전체 플랫폼의 로봇 동작을 통합 제어. 실시간 모니터링과 원격 진단을 지원합니다."
@@ -124,7 +121,6 @@ export default async function RobotSupportPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

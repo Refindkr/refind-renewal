@@ -65,7 +65,6 @@ export default async function CardNewsPage({ params }: PageProps) {
           )}
           {cards.length === 0 ? (
             <div className="text-center py-32">
-              <p className="text-4xl mb-4">📰</p>
               <p className="text-gray-400 text-sm">
                 {isKo ? "등록된 카드뉴스가 없습니다." : "No card news available."}
               </p>

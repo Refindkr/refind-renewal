@@ -67,12 +67,11 @@ export default async function AP002Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "핵심 가치" : "Core Value"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: "🧠", title: "Multidimensional", desc: isKo ? "손가락 끝 3D 포스센서와 손바닥 고밀도 도트 매트릭스로 인간 수준의 촉각 데이터 수집" : "Human-level tactile data acquisition with fingertip 3D force sensors and high-density palm dot matrix" },
-              { icon: "⚡", title: "Ultra-Responsive", desc: isKo ? "0.7초 구동 속도와 6자유도 메커니즘으로 실시간 피드백 제어 최적화" : "Real-time feedback control optimization with 0.7s actuation speed and 6-DOF mechanism" },
-              { icon: "🔌", title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN FD interface support" },
+              { title: "Multidimensional", desc: isKo ? "손가락 끝 3D 포스센서와 손바닥 고밀도 도트 매트릭스로 인간 수준의 촉각 데이터 수집" : "Human-level tactile data acquisition with fingertip 3D force sensors and high-density palm dot matrix" },
+              { title: "Ultra-Responsive", desc: isKo ? "0.7초 구동 속도와 6자유도 메커니즘으로 실시간 피드백 제어 최적화" : "Real-time feedback control optimization with 0.7s actuation speed and 6-DOF mechanism" },
+              { title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN FD interface support" },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{v.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

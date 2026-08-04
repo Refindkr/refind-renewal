@@ -23,21 +23,18 @@ export default async function MyAGVPage({ params }: PageProps) {
 
   const features = [
     {
-      icon: "🚗",
       title: isKo ? "자율 이동 플랫폼" : "Autonomous Mobile Platform",
       desc: isKo
         ? "라이다 기반 SLAM 자율주행으로 맵 없이도 실내 환경을 탐색. 장애물을 스스로 감지하고 경로를 재설정합니다."
         : "LiDAR-based SLAM autonomous navigation explores indoor environments without pre-mapping. Detects obstacles and reroutes automatically.",
     },
     {
-      icon: "🦾",
       title: isKo ? "협동로봇 암 통합" : "Collaborative Arm Integration",
       desc: isKo
         ? "모바일 베이스 위에 협동로봇 암을 탑재하여 이동하면서 물체를 집고 운반하는 복합 작업이 가능합니다."
         : "Collaborative robot arm mounted on mobile base enables composite tasks of picking and transporting objects while moving.",
     },
     {
-      icon: "📱",
       title: isKo ? "원격 모니터링" : "Remote Monitoring",
       desc: isKo
         ? "태블릿 디스플레이와 소프트웨어를 통한 실시간 원격 제어 및 작업 상태 모니터링을 지원합니다."
@@ -99,7 +96,6 @@ export default async function MyAGVPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

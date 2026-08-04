@@ -23,31 +23,26 @@ export default async function A002Page({ params }: PageProps) {
 
   const features = [
     {
-      icon: "✋",
       text: isKo
         ? "전자의수 기술 노하우가 집약된 6자유도(6-DOF) 매커니즘으로 사람 손의 섬세한 움직임을 완벽 구현"
         : "6-DOF mechanism embodying prosthetic hand expertise — perfectly replicates delicate human hand movements",
     },
     {
-      icon: "🖐️",
       text: isKo
         ? "전용 데이터 글러브(Data Glove) 연동을 통한 실시간 원격 제어(Mirroring) 및 티칭 지원"
         : "Real-time remote control (mirroring) and teaching support via dedicated Data Glove integration",
     },
     {
-      icon: "💻",
       text: isKo
         ? "ROS / ROS2 패키지 및 Python/C++ API 제공으로 복잡한 세팅 없이 즉시 연구 개발 가능"
         : "ROS/ROS2 packages and Python/C++ API for immediate R&D without complex setup",
     },
     {
-      icon: "🔗",
       text: isKo
         ? "RS-485, Modbus 등 표준 통신 인터페이스 지원으로 다양한 로봇 팔 및 PLC와 손쉬운 연결"
         : "Standard RS-485 and Modbus interfaces for easy connection with various robot arms and PLCs",
     },
     {
-      icon: "🦾",
       text: isKo
         ? "전자의수로부터 파생된 제품으로 사람의 손동작 및 형태 등을 모방하여 사람의 손 기능 모방"
         : "Derived from prosthetic hand technology, mimicking human hand movements and form",
@@ -104,7 +99,6 @@ export default async function A002Page({ params }: PageProps) {
           <div className="space-y-4">
             {features.map((f, i) => (
               <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl px-6 py-5 border border-gray-100">
-                <span className="text-2xl mt-0.5 shrink-0">{f.icon}</span>
                 <p className="text-sm text-gray-700 leading-relaxed">{f.text}</p>
               </div>
             ))}
@@ -252,21 +246,18 @@ export default async function A002Page({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {[
               {
-                icon: "⚙️",
                 title: "Precision Engineering",
                 desc: isKo
                   ? "인간과 유사한 6자유도(DOF) 구조로 비정형 물체에 대한 완벽한 파지(Grasping) 구현"
                   : "6-DOF human-like structure enabling perfect grasping of irregular objects",
               },
               {
-                icon: "💪",
                 title: "High Payload",
                 desc: isKo
                   ? "파워 그립(Power grip) 시 최대 30kg 하중을 견디는 와이어 구동 시스템"
                   : "Wire-driven system withstanding up to 30kg payload in power grip mode",
               },
               {
-                icon: "🔗",
                 title: "Seamless Integration",
                 desc: isKo
                   ? "ROS2, Python, C++ 기반의 오픈 SDK 제공으로 어떤 로봇 플랫폼에도 즉시 연동"
@@ -274,7 +265,6 @@ export default async function A002Page({ params }: PageProps) {
               },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{v.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

@@ -22,11 +22,11 @@ export default async function AboutPage({ params }: PageProps) {
   const t = await getTranslations("about");
 
   const coreValues = [
-    { key: "innovation", icon: "💡", color: "bg-yellow-50 border-yellow-200" },
-    { key: "professionalism", icon: "⭐", color: "bg-blue-50 border-blue-200" },
-    { key: "ethics", icon: "🤝", color: "bg-green-50 border-green-200" },
-    { key: "collaboration", icon: "🌐", color: "bg-purple-50 border-purple-200" },
-    { key: "positivity", icon: "✨", color: "bg-pink-50 border-pink-200" },
+    { key: "innovation", color: "bg-yellow-50 border-yellow-200" },
+    { key: "professionalism", color: "bg-blue-50 border-blue-200" },
+    { key: "ethics", color: "bg-green-50 border-green-200" },
+    { key: "collaboration", color: "bg-purple-50 border-purple-200" },
+    { key: "positivity", color: "bg-pink-50 border-pink-200" },
   ] as const;
 
   const th = await getTranslations("home.coreValues");
@@ -81,9 +81,8 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {coreValues.map(({ key, icon, color }) => (
+            {coreValues.map(({ key, color }) => (
               <div key={key} className={`p-6 rounded-2xl border ${color} text-center`}>
-                <span className="text-4xl mb-3 block">{icon}</span>
                 <h3 className="font-bold text-gray-900 mb-2">{th(key)}</h3>
                 <p className="text-sm text-gray-600">{th(`${key}Text`)}</p>
               </div>
@@ -98,13 +97,12 @@ export default async function AboutPage({ params }: PageProps) {
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Contact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: t("founded"), value: t("foundedYear"), icon: "📅" },
-              { label: t("location"), value: t("locationText"), icon: "📍" },
-              { label: t("phone"), value: "070-4837-2829", icon: "📞" },
-              { label: t("email"), value: "refind@refind.kr", icon: "✉️" },
+              { label: t("founded"), value: t("foundedYear") },
+              { label: t("location"), value: t("locationText") },
+              { label: t("phone"), value: "070-4837-2829" },
+              { label: t("email"), value: "refind@refind.kr" },
             ].map((item) => (
               <div key={item.label} className="p-6 bg-gray-50 rounded-2xl">
-                <span className="text-2xl mb-3 block">{item.icon}</span>
                 <p className="text-sm text-gray-500 mb-1">{item.label}</p>
                 <p className="font-medium text-gray-900">{item.value}</p>
               </div>

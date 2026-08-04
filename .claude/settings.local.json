@@ -46,7 +46,10 @@
       "Bash(node \"C:\\\\Users\\\\riner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-riner-----claude-refind-renewal\\\\27d47ac4-0c00-4d8b-98b0-08bf519fd63d\\\\scratchpad\\\\replace-inquiry-links.mjs\")",
       "Bash(ADMIN_EMAIL='refind@refind.kr' ADMIN_PASSWORD='2829' node --env-file=.env scripts/create-admin.mjs)",
       "Bash(mkdir -p \"app/[locale]/products/physical-ai/platform/dual-arm\" \"app/[locale]/products/physical-ai/platform/teleoperation-kit\")",
-      "Bash(mkdir -p \"app/[locale]/products/collaborative-robot/realman/rm65-75\" \"app/[locale]/products/collaborative-robot/realman/rml63\" \"app/[locale]/products/collaborative-robot/realman/eco\")"
+      "Bash(mkdir -p \"app/[locale]/products/collaborative-robot/realman/rm65-75\" \"app/[locale]/products/collaborative-robot/realman/rml63\" \"app/[locale]/products/collaborative-robot/realman/eco\")",
+      "Bash(echo \"exit:$?\")",
+      "Bash(rm -rf .next)",
+      "Bash(SUPABASE_URL= SUPABASE_SERVICE_ROLE_KEY= npx next build)"
     ]
   }
 }

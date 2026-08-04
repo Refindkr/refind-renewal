@@ -67,12 +67,11 @@ export default async function LitePage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: "🪶", title: isKo ? "경량 설계" : "Lightweight Design", desc: isKo ? "457g의 가벼운 무게로 장시간 운용과 빠른 구동(0.7초)에 최적화" : "457g lightweight design optimized for long operation and fast actuation (0.7s)" },
-              { icon: "💰", title: isKo ? "합리적인 가격" : "Cost-Effective", desc: isKo ? "핵심 6DOF 기능을 유지하면서 연구·교육 예산에 맞는 최적의 가성비" : "Optimal cost-performance ratio for research and education budgets while maintaining core 6-DOF functionality" },
-              { icon: "🔗", title: isKo ? "즉시 연동" : "Easy Integration", desc: isKo ? "RS-485 및 Modbus 프로토콜 지원으로 기존 시스템에 빠르게 통합 가능" : "Quick integration with existing systems via RS-485 and Modbus protocol support" },
+              { title: isKo ? "경량 설계" : "Lightweight Design", desc: isKo ? "457g의 가벼운 무게로 장시간 운용과 빠른 구동(0.7초)에 최적화" : "457g lightweight design optimized for long operation and fast actuation (0.7s)" },
+              { title: isKo ? "합리적인 가격" : "Cost-Effective", desc: isKo ? "핵심 6DOF 기능을 유지하면서 연구·교육 예산에 맞는 최적의 가성비" : "Optimal cost-performance ratio for research and education budgets while maintaining core 6-DOF functionality" },
+              { title: isKo ? "즉시 연동" : "Easy Integration", desc: isKo ? "RS-485 및 Modbus 프로토콜 지원으로 기존 시스템에 빠르게 통합 가능" : "Quick integration with existing systems via RS-485 and Modbus protocol support" },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{v.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

@@ -23,21 +23,18 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
 
   const features = [
     {
-      icon: "⬆️",
       title: isKo ? "수직 리프팅 메커니즘" : "Vertical Lifting Mechanism",
       desc: isKo
         ? "전동 리프팅 컬럼으로 높이를 자유롭게 조절. 다양한 작업 높이에서 협동로봇 암이 최적 자세로 작업합니다."
         : "Electric lifting column allows free height adjustment. Collaborative robot arm works in optimal posture at various task heights.",
     },
     {
-      icon: "🚗",
       title: isKo ? "자율 이동 통합" : "Autonomous Mobile Integration",
       desc: isKo
         ? "바퀴형 모바일 베이스와 결합하여 공장 내 자유로운 이동과 리프팅 작업을 동시에 수행합니다."
         : "Combined with wheeled mobile base for simultaneous free movement and lifting operations within the factory.",
     },
     {
-      icon: "📦",
       title: isKo ? "물류·창고 최적화" : "Logistics & Warehouse Optimization",
       desc: isKo
         ? "높은 선반의 물품 적재·피킹부터 제조 라인의 부품 공급까지 다양한 물류 작업에 즉시 투입됩니다."
@@ -99,7 +96,6 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

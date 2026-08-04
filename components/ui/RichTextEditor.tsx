@@ -102,7 +102,7 @@ export default function RichTextEditor({ content, onChange }: Props) {
           disabled={uploading}
           className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50"
         >
-          {uploading ? "업로드 중..." : "🖼 이미지 업로드"}
+          {uploading ? "업로드 중..." : "이미지 업로드"}
         </button>
         <input ref={fileInputRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp" onChange={handleFileSelect} className="hidden" />
       </div>

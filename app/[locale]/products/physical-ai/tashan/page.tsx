@@ -79,28 +79,24 @@ export default async function TashanPage({ params }: PageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                icon: "🧠",
                 title: isKo ? "멀티모달 촉각 정보" : "Multi-Modal Tactile Info",
                 desc: isKo
                   ? "힘·압력 분포·온도·재질·근접 거리를 동시에 감지. 다중 센서 융합으로 정확한 조작을 구현합니다."
                   : "Simultaneously detects force, pressure distribution, temperature, material, and proximity. Multi-sensor fusion enables precise manipulation.",
               },
               {
-                icon: "⚡",
                 title: isKo ? "초고감도 센싱" : "Ultra-High Sensitivity",
                 desc: isKo
                   ? "수 그램 단위의 미세한 힘도 감지. 반응 지연을 최소화해 정밀 조립 및 실험용 로봇에 최적화됩니다."
                   : "Detects forces as small as a few grams. Minimizes response delay for precision assembly and experimental robots.",
               },
               {
-                icon: "📡",
                 title: isKo ? "비접촉 근접 감지" : "Proximity Perception",
                 desc: isKo
                   ? "물체에 닿기 전 1~2cm 거리에서 존재를 미리 감지. 사전 회피 제어와 소프트 터치를 구현합니다."
                   : "Detects object presence 1–2cm before contact. Enables pre-emptive avoidance control and soft touch.",
               },
               {
-                icon: "🔄",
                 title: isKo ? "동적 마찰력 센싱" : "Dynamic Tangent Force",
                 desc: isKo
                   ? "미끄럼 발생을 실시간 예측해 파지력을 자동 조정. 동적 작업 환경에서의 안전성을 향상합니다."
@@ -108,7 +104,6 @@ export default async function TashanPage({ params }: PageProps) {
               },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{v.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -310,14 +305,12 @@ export default async function TashanPage({ params }: PageProps) {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <div className="text-xl mb-2">👁️</div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Vision</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     {isKo ? "형상·위치·재질 파악" : "Shape, position & material"}
                   </p>
                 </div>
                 <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <div className="text-xl mb-2">✋</div>
                   <h4 className="text-xs font-bold text-gray-900 mb-1">Touch</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     {isKo ? "힘·압력·미끄럼·질감" : "Force, pressure, slip & texture"}

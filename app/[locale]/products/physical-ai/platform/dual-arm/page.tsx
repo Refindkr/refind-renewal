@@ -35,11 +35,11 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
   ];
 
   const useCases = [
-    { icon: "🤖", title: isKo ? "AI 로봇 데이터셋 구축" : "AI Robot Dataset Collection" },
-    { icon: "🧠", title: isKo ? "Embodied AI 행동 학습" : "Embodied AI Behavior Learning" },
-    { icon: "🦾", title: isKo ? "양팔 협동 로봇 연구" : "Dual-Arm Collaborative Robot Research" },
-    { icon: "🔬", title: isKo ? "반자동 작업 / 정밀 조작 테스트" : "Semi-automated Tasks / Precision Manipulation Test" },
-    { icon: "🏫", title: isKo ? "연구실·교육기관·산업 R&D" : "Lab / Educational Institute / Industry R&D" },
+    { title: isKo ? "AI 로봇 데이터셋 구축" : "AI Robot Dataset Collection" },
+    { title: isKo ? "Embodied AI 행동 학습" : "Embodied AI Behavior Learning" },
+    { title: isKo ? "양팔 협동 로봇 연구" : "Dual-Arm Collaborative Robot Research" },
+    { title: isKo ? "반자동 작업 / 정밀 조작 테스트" : "Semi-automated Tasks / Precision Manipulation Test" },
+    { title: isKo ? "연구실·교육기관·산업 R&D" : "Lab / Educational Institute / Industry R&D" },
   ];
 
   return (
@@ -111,7 +111,6 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {useCases.map((u, i) => (
               <div key={i} className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-gray-100">
-                <span className="text-2xl">{u.icon}</span>
                 <span className="text-sm font-medium text-gray-800">{u.title}</span>
               </div>
             ))}

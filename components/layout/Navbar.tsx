@@ -31,7 +31,6 @@ export default function Navbar({ locale }: NavbarProps) {
     {
       href: `/${locale}/products/physical-ai`,
       label: t("physicalAI"),
-      icon: "🧠",
       desc: isKo ? "액추에이터·플랫폼·센서 솔루션" : "Actuators, platform & sensor solutions",
       children: [
         { href: `/${locale}/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
@@ -45,7 +44,6 @@ export default function Navbar({ locale }: NavbarProps) {
     {
       href: `/${locale}/products/robot-hand`,
       label: t("robotHand"),
-      icon: "🤖",
       desc: isKo ? "6자유도 와이어 구동 로봇핸드" : "6-DOF wire-driven robot hand",
       children: [
         { href: `/${locale}/products/robot-hand/a002`, label: "ROH-A002", isGroup: false },
@@ -59,7 +57,6 @@ export default function Navbar({ locale }: NavbarProps) {
     {
       href: `/${locale}/products/collaborative-robot`,
       label: t("collaborativeRobot"),
-      icon: "⚙️",
       desc: isKo ? "안전한 인간-로봇 협업" : "Safe human-robot collaboration",
       children: [
         { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman", isGroup: true },
@@ -72,7 +69,6 @@ export default function Navbar({ locale }: NavbarProps) {
     {
       href: `/${locale}/products/humanoid`,
       label: t("humanoid"),
-      icon: "🧑‍🦯",
       desc: isKo ? "차세대 휴머노이드 플랫폼" : "Next-gen humanoid platform",
       children: [
         { href: `/${locale}/products/humanoid/realbot`, label: "REALMAN", isGroup: true },
@@ -92,7 +88,6 @@ export default function Navbar({ locale }: NavbarProps) {
     {
       href: `/${locale}/products/prosthetic`,
       label: t("bodyEnhancement"),
-      icon: "💪",
       desc: isKo ? "의수·BCI·재활·보조기 솔루션" : "Prosthetics, BCI, rehab & support",
       children: [
         { href: `/${locale}/products/prosthetic`, label: isKo ? "전자의수" : "Prosthetic Hand", isGroup: true },
@@ -357,7 +352,6 @@ export default function Navbar({ locale }: NavbarProps) {
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <span className="text-base">{link.icon}</span>
                   <div>
                     <div className="text-sm font-semibold text-gray-800">{link.label}</div>
                     <div className="text-[11px] text-gray-400">{link.desc}</div>

@@ -81,13 +81,12 @@ export default async function OhandPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: "🤖", title: isKo ? "생체 모방 설계" : "Biomimetic Design", desc: isKo ? "사람 손의 구조와 동작을 모방해 27가지 다양한 동작 구현 가능" : "Mimics human hand structure and motion, enabling 27 diverse motion patterns" },
-              { icon: "🧠", title: isKo ? "AI & EMG 제어" : "AI & EMG Control", desc: isKo ? "8채널 EMG 센서로 근육 신호를 실시간 분석해 자연스러운 움직임 보장" : "Real-time muscle signal analysis with 8-channel EMG sensors for natural movement" },
-              { icon: "📱", title: isKo ? "전용 앱 연동" : "Dedicated App", desc: isKo ? "스마트폰 앱으로 동작 패턴 설정 및 근전도 경계치 실시간 조절" : "Set motion patterns and adjust EMG thresholds in real-time via smartphone app" },
-              { icon: "🔋", title: isKo ? "12시간 배터리" : "12h Battery", desc: isKo ? "내부 배터리 기준 약 12시간 연속 사용 가능. 하루 종일 안심 착용." : "Approximately 12 hours of continuous use on internal battery. Wear all day with confidence." },
+              { title: isKo ? "생체 모방 설계" : "Biomimetic Design", desc: isKo ? "사람 손의 구조와 동작을 모방해 27가지 다양한 동작 구현 가능" : "Mimics human hand structure and motion, enabling 27 diverse motion patterns" },
+              { title: isKo ? "AI & EMG 제어" : "AI & EMG Control", desc: isKo ? "8채널 EMG 센서로 근육 신호를 실시간 분석해 자연스러운 움직임 보장" : "Real-time muscle signal analysis with 8-channel EMG sensors for natural movement" },
+              { title: isKo ? "전용 앱 연동" : "Dedicated App", desc: isKo ? "스마트폰 앱으로 동작 패턴 설정 및 근전도 경계치 실시간 조절" : "Set motion patterns and adjust EMG thresholds in real-time via smartphone app" },
+              { title: isKo ? "12시간 배터리" : "12h Battery", desc: isKo ? "내부 배터리 기준 약 12시간 연속 사용 가능. 하루 종일 안심 착용." : "Approximately 12 hours of continuous use on internal battery. Wear all day with confidence." },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
-                <div className="text-2xl mb-4">{v.icon}</div>
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

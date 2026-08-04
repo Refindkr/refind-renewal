@@ -23,21 +23,18 @@ export default async function GuohuaRobotPage({ params }: PageProps) {
 
   const features = [
     {
-      icon: "🤝",
       title: isKo ? "인간 친화적 설계" : "Human-Friendly Design",
       desc: isKo
         ? "인간의 체형과 동작을 모사한 유연한 관절 구조로 자연스러운 움직임과 안전한 인간-로봇 상호작용을 구현합니다."
         : "Flexible joint structure mimicking human body and motion for natural movement and safe human-robot interaction.",
     },
     {
-      icon: "🧠",
       title: isKo ? "AI 기반 자율 제어" : "AI-Based Autonomous Control",
       desc: isKo
         ? "딥러닝 기반의 자율 판단 알고리즘으로 복잡한 환경에서도 스스로 경로를 설정하고 작업을 수행합니다."
         : "Deep learning-based autonomous decision algorithms enable self-path planning and task execution even in complex environments.",
     },
     {
-      icon: "🔋",
       title: isKo ? "장시간 운용" : "Long-Duration Operation",
       desc: isKo
         ? "고용량 배터리 시스템과 효율적인 전력 관리로 장시간 연속 운용이 가능합니다."
@@ -109,7 +106,6 @@ export default async function GuohuaRobotPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

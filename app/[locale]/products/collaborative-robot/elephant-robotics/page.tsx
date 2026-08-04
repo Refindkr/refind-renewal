@@ -147,12 +147,11 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: "🔄", title: isKo ? "고자유도 6축 구동" : "High-DOF 6-Axis Motion", desc: isKo ? "6축 관절 구조로 인간 팔과 유사한 자유로운 동작이 가능. 좁은 공간에서도 정밀한 작업을 수행합니다." : "6-axis joint structure enables human arm-like freedom of motion, performing precise tasks even in confined spaces." },
-              { icon: "💻", title: isKo ? "쉬운 프로그래밍" : "Easy Programming", desc: isKo ? "Python, ROS, myBlockly 등 다양한 SDK 지원. 비전문가도 쉽게 자동화 작업을 구성할 수 있습니다." : "Supports Python, ROS, myBlockly and more. Anyone can configure automation tasks without deep expertise." },
-              { icon: "🎓", title: isKo ? "교육·연구 최적화" : "Education & Research Optimized", desc: isKo ? "로봇 공학 입문부터 고급 알고리즘 실험까지, 교육 현장과 연구소 모두에서 즉시 활용 가능합니다." : "From intro robotics to advanced algorithm experiments — instantly deployable in classrooms and research labs." },
+              { title: isKo ? "고자유도 6축 구동" : "High-DOF 6-Axis Motion", desc: isKo ? "6축 관절 구조로 인간 팔과 유사한 자유로운 동작이 가능. 좁은 공간에서도 정밀한 작업을 수행합니다." : "6-axis joint structure enables human arm-like freedom of motion, performing precise tasks even in confined spaces." },
+              { title: isKo ? "쉬운 프로그래밍" : "Easy Programming", desc: isKo ? "Python, ROS, myBlockly 등 다양한 SDK 지원. 비전문가도 쉽게 자동화 작업을 구성할 수 있습니다." : "Supports Python, ROS, myBlockly and more. Anyone can configure automation tasks without deep expertise." },
+              { title: isKo ? "교육·연구 최적화" : "Education & Research Optimized", desc: isKo ? "로봇 공학 입문부터 고급 알고리즘 실험까지, 교육 현장과 연구소 모두에서 즉시 활용 가능합니다." : "From intro robotics to advanced algorithm experiments — instantly deployable in classrooms and research labs." },
             ].map((f, i) => (
               <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

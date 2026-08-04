@@ -21,11 +21,11 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
   const isKo = locale === "ko";
 
   const specs = [
-    { icon: "🖐️", label: isKo ? "자유도" : "DOF", value: "6 DOF" },
-    { icon: "📡", label: isKo ? "통신 방식" : "Connectivity", value: "BLE 4.2" },
-    { icon: "📶", label: isKo ? "통신 거리" : "Range", value: "10m" },
-    { icon: "🤚", label: isKo ? "착용 방향" : "Hand Orientation", value: isKo ? "왼쪽 / 오른쪽" : "Left / Right" },
-    { icon: "📏", label: isKo ? "사이즈" : "Size", value: "L, S" },
+    { label: isKo ? "자유도" : "DOF", value: "6 DOF" },
+    { label: isKo ? "통신 방식" : "Connectivity", value: "BLE 4.2" },
+    { label: isKo ? "통신 거리" : "Range", value: "10m" },
+    { label: isKo ? "착용 방향" : "Hand Orientation", value: isKo ? "왼쪽 / 오른쪽" : "Left / Right" },
+    { label: isKo ? "사이즈" : "Size", value: "L, S" },
   ];
 
   return (
@@ -72,7 +72,6 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {specs.map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
-                <div className="text-2xl mb-3">{s.icon}</div>
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{s.label}</p>
                 <p className="text-lg font-extrabold text-gray-900">{s.value}</p>
               </div>

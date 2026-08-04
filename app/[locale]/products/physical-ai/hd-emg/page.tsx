@@ -94,23 +94,19 @@ export default async function HDEMGPage({ params }: PageProps) {
             <div className="space-y-4">
               {[
                 {
-                  icon: "📡",
                   title: isKo ? "초고속 샘플링" : "Ultra-Fast Sampling",
                   desc: isKo ? "4,096Hz의 샘플링으로 근육 수축의 미세한 타이밍 차이를 포착합니다." : "Captures subtle timing differences in muscle contractions with 4,096Hz sampling.",
                 },
                 {
-                  icon: "🔌",
                   title: isKo ? "확장성" : "Expandability",
                   desc: isKo ? "기본 32채널에서 최대 128채널까지 확장해 대근육군 전체 동시 측정이 가능합니다." : "Expandable from 32 to 128 channels for simultaneous measurement of entire muscle groups.",
                 },
                 {
-                  icon: "🧬",
                   title: isKo ? "연구급 정밀도" : "Research-Grade Precision",
                   desc: isKo ? "신경-근육 메커니즘 분석, 전자의수 제어 알고리즘 개발에 필요한 고품질 데이터를 제공합니다." : "Provides high-quality data for neuromuscular mechanism analysis and prosthetic control algorithm development.",
                 },
               ].map((f, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
-                  <div className="text-2xl mb-3">{f.icon}</div>
                   <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
                 </div>

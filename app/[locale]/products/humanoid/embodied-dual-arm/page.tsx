@@ -23,21 +23,18 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
 
   const features = [
     {
-      icon: "🦾",
       title: isKo ? "고자유도 양팔 시스템" : "High-DOF Dual Arm System",
       desc: isKo
         ? "좌우 독립 구동되는 양팔 구조로 양손 협력 작업이 가능. 복잡한 조립·분류·핸들링 공정을 자동화합니다."
         : "Independently actuated dual arms enable two-handed cooperative tasks, automating complex assembly, sorting, and handling processes.",
     },
     {
-      icon: "🧠",
       title: isKo ? "AI 기반 자율 제어" : "AI-Based Autonomous Control",
       desc: isKo
         ? "딥러닝 기반 비전 시스템으로 물체를 인식하고 최적 파지 전략을 스스로 결정합니다."
         : "Deep learning-based vision system recognizes objects and autonomously determines optimal grasping strategies.",
     },
     {
-      icon: "🔗",
       title: isKo ? "유연한 통합성" : "Flexible Integration",
       desc: isKo
         ? "ROS2 기반 오픈 아키텍처로 다양한 로봇핸드 및 센서와 즉시 연동 가능합니다."
@@ -99,7 +96,6 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-3xl mb-4">{f.icon}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

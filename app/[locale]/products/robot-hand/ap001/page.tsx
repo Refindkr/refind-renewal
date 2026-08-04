@@ -69,14 +69,13 @@ export default async function AP001Page({ params }: PageProps) {
           </p>
           <div className="space-y-4">
             {[
-              { icon: "✋", text: isKo ? "전자의수 기술 노하우가 집약된 6자유도(6-DOF) 매커니즘으로 사람 손의 섬세한 움직임을 완벽 구현" : "6-DOF mechanism embodying prosthetic hand expertise — perfectly replicates delicate human hand movements" },
-              { icon: "🖐️", text: isKo ? "전용 데이터 글러브(Data Glove) 연동을 통한 실시간 원격 제어(Mirroring) 및 티칭 지원" : "Real-time remote control (mirroring) and teaching support via dedicated Data Glove integration" },
-              { icon: "💻", text: isKo ? "ROS / ROS2 패키지 및 Python/C++ API 제공으로 복잡한 세팅 없이 즉시 연구 개발 가능" : "ROS/ROS2 packages and Python/C++ API for immediate R&D without complex setup" },
-              { icon: "🔗", text: isKo ? "RS-485, Modbus 등 표준 통신 인터페이스 지원으로 다양한 로봇 팔 및 PLC와 손쉬운 연결" : "Standard RS-485 and Modbus interfaces for easy connection with various robot arms and PLCs" },
-              { icon: "🦾", text: isKo ? "전자의수로부터 파생된 제품으로 사람의 손동작 및 형태 등을 모방하여 사람의 손 기능 모방" : "Derived from prosthetic hand technology, mimicking human hand movements and form" },
+              { text: isKo ? "전자의수 기술 노하우가 집약된 6자유도(6-DOF) 매커니즘으로 사람 손의 섬세한 움직임을 완벽 구현" : "6-DOF mechanism embodying prosthetic hand expertise — perfectly replicates delicate human hand movements" },
+              { text: isKo ? "전용 데이터 글러브(Data Glove) 연동을 통한 실시간 원격 제어(Mirroring) 및 티칭 지원" : "Real-time remote control (mirroring) and teaching support via dedicated Data Glove integration" },
+              { text: isKo ? "ROS / ROS2 패키지 및 Python/C++ API 제공으로 복잡한 세팅 없이 즉시 연구 개발 가능" : "ROS/ROS2 packages and Python/C++ API for immediate R&D without complex setup" },
+              { text: isKo ? "RS-485, Modbus 등 표준 통신 인터페이스 지원으로 다양한 로봇 팔 및 PLC와 손쉬운 연결" : "Standard RS-485 and Modbus interfaces for easy connection with various robot arms and PLCs" },
+              { text: isKo ? "전자의수로부터 파생된 제품으로 사람의 손동작 및 형태 등을 모방하여 사람의 손 기능 모방" : "Derived from prosthetic hand technology, mimicking human hand movements and form" },
             ].map((f, i) => (
               <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl px-6 py-5 border border-gray-100">
-                <span className="text-2xl mt-0.5 shrink-0">{f.icon}</span>
                 <p className="text-sm text-gray-700 leading-relaxed">{f.text}</p>
               </div>
             ))}
@@ -113,13 +112,12 @@ export default async function AP001Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "핵심 가치" : "Core Value"}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: "📡", title: "Integrated Force Sensing", desc: isKo ? "별도 외부 센서 없이 말단 부하를 정밀 측정, 섬세한 힘 조절 가능" : "Precise end-load measurement without external sensors for delicate force control" },
-              { icon: "🔄", title: "Bidirectional Feedback", desc: isKo ? "관절 각도+포스 데이터 결합으로 완성도 높은 로봇 경로 생성 지원" : "Joint angle + force data fusion for high-quality robot path generation and learning" },
-              { icon: "🏭", title: "Industrial Reliability", desc: isKo ? "반복 가압 환경에서도 변함없는 측정 정밀도와 내구성 보장" : "Guaranteed measurement precision and durability under repeated force application" },
-              { icon: "💻", title: "SDK Support", desc: isKo ? "Python, C++ 전용 라이브러리로 연구 및 공정 설계에 즉시 도입 가능" : "Dedicated Python and C++ libraries for instant deployment in research and process design" },
+              { title: "Integrated Force Sensing", desc: isKo ? "별도 외부 센서 없이 말단 부하를 정밀 측정, 섬세한 힘 조절 가능" : "Precise end-load measurement without external sensors for delicate force control" },
+              { title: "Bidirectional Feedback", desc: isKo ? "관절 각도+포스 데이터 결합으로 완성도 높은 로봇 경로 생성 지원" : "Joint angle + force data fusion for high-quality robot path generation and learning" },
+              { title: "Industrial Reliability", desc: isKo ? "반복 가압 환경에서도 변함없는 측정 정밀도와 내구성 보장" : "Guaranteed measurement precision and durability under repeated force application" },
+              { title: "SDK Support", desc: isKo ? "Python, C++ 전용 라이브러리로 연구 및 공정 설계에 즉시 도입 가능" : "Dedicated Python and C++ libraries for instant deployment in research and process design" },
             ].map((v, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
-                <div className="text-2xl mb-4">{v.icon}</div>
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

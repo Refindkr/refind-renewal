@@ -53,7 +53,6 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
 
       <section className="py-32 bg-white flex items-center justify-center">
         <div className="text-center">
-          <p className="text-4xl mb-4">🦿</p>
           <p className="text-gray-400 text-sm">
             {isKo ? "상세 스펙 준비 중입니다." : "Detailed specifications coming soon."}
           </p>
