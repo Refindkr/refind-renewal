@@ -15,7 +15,6 @@ const staticPages = [
   { path: "/products/collaborative-robot", priority: 0.9, changeFrequency: "monthly" },
   { path: "/products/humanoid", priority: 0.9, changeFrequency: "monthly" },
   { path: "/products/prosthetic", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/products/guohua-robot", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-support", priority: 0.8, changeFrequency: "monthly" },
   // 로봇핸드 상세
   { path: "/products/robot-hand/a002", priority: 0.8, changeFrequency: "monthly" },

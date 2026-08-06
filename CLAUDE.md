@@ -74,7 +74,6 @@ refind-renewal/
 │   │   │   │   ├── realbot/page.tsx
 │   │   │   │   ├── embodied-dual-arm/page.tsx
 │   │   │   │   └── lifting-platform/page.tsx
-│   │   │   ├── guohua-robot/page.tsx       # Guohua Robot (휴머노이드 서브)
 │   │   │   ├── body-enhancement/
 │   │   │   │   ├── page.tsx               # 신체증강기기 카테고리
 │   │   │   │   ├── ore-3000/page.tsx
@@ -146,11 +145,11 @@ refind-renewal/
 [피지컬 AI & 로봇부속]   [휴머노이드 로봇손]   [협동로봇]              [휴머노이드 로봇]              [개인 신체 증강 기기]     | [회사소개] [게시판]
 ├ 액추에이터             ├ ROH-A002          ├ Realman              ├ REALMAN ─────────           전자의수 ─────────
 ├ 플랫폼                 ├ ROH-AP001         └ Elephant Robotics    ├ REALBOT S2                  ├ Ohand
-├ AVR/AMR               ├ ROH-AP002                                ├ REALBOT L2 (준비중)          ├ OhandLite
-└ Tashan 센서            └ ROH-Lite                                 ├ REALBOT01 (준비중)           ─────────────
+├ AVR/AMR               ├ ROH-AP002                                ├ REALBOT L2                  ├ OhandLite
+└ Tashan 센서            └ ROH-Lite                                 ├ REALBOT 01                  ─────────────
                                                                     ├ Dual arm vertical Lift       BCI/BMI ─────────
                                                                     └ Single arm vertical lift     ├ Wearable EEG
-                                                                    ├ Guohua Robot                 ├ GForcePro+
+                                                                                                   ├ GForcePro+
                                                                     └ 로봇암(RX 시리즈) (준비중)     └ HD EMG
                                                                                                    ─────────────
                                                                                                    └ 로봇보조기
@@ -159,8 +158,11 @@ refind-renewal/
 ```
 
 - "로봇운동기"(ORE-3000, OYFM-7000)는 실제 판매 상품이 아니라 리뉴얼 중 잘못 추가된 항목이라 삭제됨
-- REALBOT L2 / REALBOT01 / 로봇암(RX 시리즈 4개 모델: RX75, RX75S, RX75-비전형, RX71) / Ohand S001은
+- "Guohua Robot"은 더 이상 취급하지 않는 상품이라 페이지·네비바·사이트맵에서 완전히 삭제됨
+- 로봇암(RX 시리즈 4개 모델: RX75, RX75S, RX75-비전형, RX71) / Ohand S001은
   스펙·이미지 자료 확보 전까지 "준비 중" placeholder 페이지로 연결 (`components/ui/ComingSoonProduct.tsx`)
+- REALBOT L2 / REALBOT 01은 실제 사진·스펙 확보 완료되어 정식 상세 페이지로 전환됨
+  (RealBot S2/L2/01 비교표를 세 페이지 모두에 포함, 서로 링크)
 - "플랫폼"은 카테고리 페이지(`products/physical-ai/platform`)로, 하위에 듀얼암 로봇 플랫폼
   (`platform/dual-arm`)과 원격조작 키트(`platform/teleoperation-kit`) 2개 상세 페이지를 둠
 - 휴머노이드 로봇손에 ROH-AP003(자기식 촉각 센서, `robot-hand/ap003`)과 모션 캡처 글러브
@@ -214,7 +216,6 @@ refind-renewal/
 /[locale]/products/humanoid/embodied-dual-arm  (Dual arm vertical Lift)
 /[locale]/products/humanoid/lifting-platform   (Single arm vertical lift)
 /[locale]/products/humanoid/robot-arm          (로봇암 RX 시리즈, 준비중)
-/[locale]/products/guohua-robot
 /[locale]/products/prosthetic
 /[locale]/products/prosthetic/ohand
 /[locale]/products/prosthetic/ohandlite

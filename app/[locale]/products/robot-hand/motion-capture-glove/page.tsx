@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
@@ -36,29 +37,40 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(102,157,253,0.08) 0%, transparent 45%)" }}
         />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
-            Robot Hand · Teleoperation
-          </span>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
-            {isKo ? "모션 캡처 글러브" : "Motion Capture Glove"}
-          </h1>
-          <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
-            {isKo
-              ? "Motion Capture Glove는 손가락과 손목의 움직임을 실시간으로 인식하여 로봇 손과 전자의수를 자연스럽게 제어하는 모션 캡처 글러브입니다. AI 연구, 휴머노이드, 덱스터러스 핸드, Teleoperation 등 다양한 로봇 시스템과 연동하여 직관적인 원격 제어를 제공합니다."
-              : "The Motion Capture Glove recognizes finger and wrist movement in real time to naturally control robot hands and prosthetic hands. It integrates with a wide range of robotic systems — AI research, humanoids, dexterous hands, and teleoperation — for intuitive remote control."}
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
-              {isKo ? "협업 문의하기" : "Contact Us"}
-            </a>
-            <Link href={`/${locale}/products/robot-hand`}
-              className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "제품 목록" : "All Models"}
-            </Link>
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+              Robot Hand · Teleoperation
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
+              {isKo ? "모션 캡처 글러브" : "Motion Capture Glove"}
+            </h1>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "Motion Capture Glove는 손가락과 손목의 움직임을 실시간으로 인식하여 로봇 손과 전자의수를 자연스럽게 제어하는 모션 캡처 글러브입니다. AI 연구, 휴머노이드, 덱스터러스 핸드, Teleoperation 등 다양한 로봇 시스템과 연동하여 직관적인 원격 제어를 제공합니다."
+                : "The Motion Capture Glove recognizes finger and wrist movement in real time to naturally control robot hands and prosthetic hands. It integrates with a wide range of robotic systems — AI research, humanoids, dexterous hands, and teleoperation — for intuitive remote control."}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                {isKo ? "협업 문의하기" : "Contact Us"}
+              </a>
+              <Link href={`/${locale}/products/robot-hand`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "제품 목록" : "All Models"}
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-72 md:h-96">
+            <Image
+              src="/products/robot-hand/motion-capture-glove/motion-capture-glove.png"
+              alt="Motion Capture Glove"
+              fill
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>

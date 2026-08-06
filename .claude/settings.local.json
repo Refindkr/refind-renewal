@@ -51,7 +51,8 @@
       "Bash(rm -rf .next)",
       "Bash(SUPABASE_URL= SUPABASE_SERVICE_ROLE_KEY= npx next build)",
       "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
-      "Bash(mkdir -p \"app/[locale]/products/physical-ai/avr-amr/myagv\" \"app/[locale]/products/physical-ai/avr-amr/mobile-chassis\")"
+      "Bash(mkdir -p \"app/[locale]/products/physical-ai/avr-amr/myagv\" \"app/[locale]/products/physical-ai/avr-amr/mobile-chassis\")",
+      "Bash(cd \"C:\\\\Users\\\\riner\\\\정태성\\\\claude\\\\refind-renewal\" && rm -rf \"app/[locale]/products/guohua-robot\" && git status --porcelain -- \"app/[locale]/products/guohua-robot\")"
     ]
   }
 }

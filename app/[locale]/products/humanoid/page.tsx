@@ -39,32 +39,36 @@ export default async function HumanoidPage({ params }: PageProps) {
           tagline: isKo
             ? "풀바디 휴머노이드 로봇. 고자유도 관절과 정밀 제어로 다양한 작업 수행."
             : "Full-body humanoid robot. High-DOF joints and precise control for diverse task execution.",
-          image: "/products/humanoid/realbot.jpeg",
+          image: "/products/humanoid/realbot-s2.png",
           tags: isKo ? ["REALMAN", "풀바디", "고자유도"] : ["REALMAN", "Full-Body", "High-DOF"],
         },
         {
           slug: "realbot-l2",
           name: "REALBOT L2",
           nameEn: "REALMAN REALBOT L2",
-          tagline: isKo ? "REALMAN 휴머노이드 로봇 라인업의 신규 모델." : "A new model in the REALMAN humanoid robot lineup.",
-          image: "/products/coming-soon.svg",
-          tags: isKo ? ["REALMAN", "신규"] : ["REALMAN", "New"],
+          tagline: isKo
+            ? "승강 구조의 휠형 휴머노이드. 작업 높이를 자유롭게 조절해 물류·창고·공장에 최적화."
+            : "A wheeled humanoid with a lifting structure. Adjustable working height, optimized for logistics, warehouse, and factory use.",
+          image: "/products/humanoid/realbot-l2.png",
+          tags: isKo ? ["REALMAN", "승강형", "17 DOF"] : ["REALMAN", "Lifting", "17 DOF"],
         },
         {
           slug: "realbot-01",
-          name: "REALBOT01",
-          nameEn: "REALMAN REALBOT01",
-          tagline: isKo ? "REALMAN 휴머노이드 로봇 라인업의 신규 모델." : "A new model in the REALMAN humanoid robot lineup.",
-          image: "/products/coming-soon.svg",
-          tags: isKo ? ["REALMAN", "신규"] : ["REALMAN", "New"],
+          name: "REALBOT 01",
+          nameEn: "REALMAN REALBOT 01",
+          tagline: isKo
+            ? "모듈형 아키텍처 기반 AI 휴머노이드 플랫폼. Embodied AI 연구와 알고리즘 개발에 최적화."
+            : "A modular-architecture AI humanoid platform optimized for embodied AI research and algorithm development.",
+          image: "/products/humanoid/realbot-01.png",
+          tags: isKo ? ["REALMAN", "모듈형", "21 DOF"] : ["REALMAN", "Modular", "21 DOF"],
         },
         {
           slug: "embodied-dual-arm",
           name: "Dual arm vertical Lift",
           nameEn: "REALMAN Dual Arm Vertical Lift",
           tagline: isKo
-            ? "양팔 협업 로봇 플랫폼. 복잡한 조작 작업을 위한 최적의 양팔 솔루션."
-            : "Dual-arm collaborative robot platform. The ideal dual-arm solution for complex manipulation tasks.",
+            ? "이동·승강·양팔 작업을 하나의 플랫폼에 통합한 산업용 모바일 로봇. 제조·물류·검사 자동화에 최적."
+            : "An industrial mobile robot integrating mobility, lifting, and dual-arm manipulation on one platform, optimized for manufacturing, logistics, and inspection automation.",
           image: "/products/humanoid/embodied dual arm.jpeg",
           tags: isKo ? ["REALMAN", "양팔", "리프팅"] : ["REALMAN", "Dual-Arm", "Lifting"],
         },
@@ -73,21 +77,10 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "Single arm vertical lift",
           nameEn: "REALMAN Single Arm Vertical Lift",
           tagline: isKo
-            ? "이동형 리프팅 플랫폼. 다양한 로봇 팔과 결합해 이동·리프팅 자동화 구현."
-            : "Mobile lifting platform. Combine with various robot arms for mobility and lifting automation.",
+            ? "자율주행 플랫폼·승강축·단일 로봇암을 결합한 컴팩트 모바일 매니퓰레이터. 제조·물류·검사에 최적."
+            : "A compact mobile manipulator combining an autonomous platform, lift axis, and single robot arm — optimized for manufacturing, logistics, and inspection.",
           image: "/products/humanoid/lifting platform.jpeg",
           tags: isKo ? ["REALMAN", "이동형", "리프팅"] : ["REALMAN", "Mobile", "Lifting"],
-        },
-        {
-          slug: "guohua-robot",
-          href: `/${locale}/products/guohua-robot`,
-          name: "Guohua Robot",
-          nameEn: "Guohua Service Humanoid",
-          tagline: isKo
-            ? "서비스 특화 휴머노이드. 고객 응대·안내·서비스 업무에 최적화된 플랫폼."
-            : "Service-specialized humanoid. Optimized for customer interaction, guidance, and service tasks.",
-          image: "/products/humanoid/guohua robot.jpeg",
-          tags: isKo ? ["서비스형", "AI 탑재", "친화적"] : ["Service", "AI-Powered", "Friendly"],
         },
         {
           slug: "robot-arm",

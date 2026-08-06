@@ -90,7 +90,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           tagline: isKo
             ? "손가락·손목 움직임을 실시간으로 인식해 로봇 손을 원격 제어하는 전용 글러브."
             : "A dedicated glove that recognizes finger and wrist motion in real time to remotely control robot hands.",
-          image: "/products/coming-soon.svg",
+          image: "/products/robot-hand/motion-capture-glove/motion-capture-glove.png",
           tags: isKo ? ["6 DOF", "BLE 4.2", "원격조작"] : ["6 DOF", "BLE 4.2", "Teleoperation"],
         },
       ]}

@@ -88,42 +88,36 @@ export default async function RealbotPage({ params }: PageProps) {
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 60%)" }}
         />
-        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
-              Humanoid Robot · Full-body
-            </span>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
-              REALBOT S2
-            </h1>
-            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
-              {isKo
-                ? "인간의 형태와 지능을 결합한 차세대 모빌리티. 자율 학습 알고리즘과 고정밀 하드웨어로 인간과 협력합니다."
-                : "Next-generation mobility combining human form and intelligence. Collaborates with humans through autonomous learning algorithms and high-precision hardware."}
-            </p>
-            <div className="flex flex-wrap gap-3 mb-8">
-              {["21 DOF", "168 cm", "< 95 kg", "Wi-Fi / BT", "Open API"].map((tag) => (
-                <span key={tag} className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
-                {isKo ? "협업 문의하기" : "Contact Us"}
-              </a>
-              <Link href={`/${locale}/products/humanoid`}
-                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-                {isKo ? "제품 목록" : "All Models"}
-              </Link>
-            </div>
+        <div className="relative max-w-7xl mx-auto px-6">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            Humanoid Robot · Full-body
+          </span>
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
+            REALBOT S2
+          </h1>
+          <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+            {isKo
+              ? "인간의 형태와 지능을 결합한 차세대 모빌리티. 자율 학습 알고리즘과 고정밀 하드웨어로 인간과 협력합니다."
+              : "Next-generation mobility combining human form and intelligence. Collaborates with humans through autonomous learning algorithms and high-precision hardware."}
+          </p>
+          <div className="flex flex-wrap gap-3 mb-8">
+            {["21 DOF", "168 cm", "< 95 kg", "Wi-Fi / BT", "Open API"].map((tag) => (
+              <span key={tag} className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
+                {tag}
+              </span>
+            ))}
           </div>
-          <div className="relative h-72 md:h-[480px]">
-            <Image src="/products/humanoid/realbot.jpeg" alt="REALBOT" fill
-              className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
+          <div className="flex flex-wrap gap-3">
+            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
+              {isKo ? "협업 문의하기" : "Contact Us"}
+            </a>
+            <Link href={`/${locale}/products/humanoid`}
+              className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+              {isKo ? "제품 목록" : "All Models"}
+            </Link>
           </div>
         </div>
       </section>
@@ -174,13 +168,19 @@ export default async function RealbotPage({ params }: PageProps) {
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "기술 사양" : "Technical Specifications"}
           </h2>
-          <div className="grid md:grid-cols-2 gap-4 max-w-3xl">
-            {specs.map((s, i) => (
-              <div key={i} className="flex justify-between items-center bg-white rounded-xl px-6 py-4 border border-gray-100">
-                <span className="text-sm text-gray-500">{s.label}</span>
-                <span className="text-sm font-bold text-gray-900">{s.value}</span>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[420px] md:h-[560px] order-2 md:order-1">
+              <Image src="/products/humanoid/realbot-s2.png" alt="REALBOT S2" fill
+                className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 order-1 md:order-2">
+              {specs.map((s, i) => (
+                <div key={i} className="flex justify-between items-center bg-white rounded-xl px-6 py-4 border border-gray-100">
+                  <span className="text-sm text-gray-500">{s.label}</span>
+                  <span className="text-sm font-bold text-gray-900">{s.value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
