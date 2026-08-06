@@ -33,6 +33,16 @@ export default async function PhysicalAIPage({ params }: PageProps) {
       categorySlug="physical-ai"
       products={[
         {
+          slug: "tashan",
+          name: isKo ? "Tashan 포스센서" : "Tashan Force Sensor",
+          nameEn: "Tashan Force Sensor",
+          tagline: isKo
+            ? "로봇핸드 내장형 고감도 포스센서. 0.1N~25N 정밀 측정, 150Hz 샘플링."
+            : "High-sensitivity force sensor for robot hand integration. 0.1N–25N precision measurement, 150Hz sampling.",
+          image: "/products/sensors/tashan.png",
+          tags: isKo ? ["포스센서", "150Hz", "로봇핸드 내장"] : ["Force Sensor", "150Hz", "Embedded"],
+        },
+        {
           slug: "actuator",
           name: isKo ? "액추에이터" : "Actuator",
           nameEn: "Realman Actuator",
@@ -41,16 +51,6 @@ export default async function PhysicalAIPage({ params }: PageProps) {
             : "High-performance robot actuator solutions provided as an official Realman partner.",
           image: "/products/physical-ai/actuator/whj-series.png",
           tags: isKo ? ["Realman", "공식 파트너"] : ["Realman", "Official Partner"],
-        },
-        {
-          slug: "platform",
-          name: isKo ? "플랫폼" : "Platform",
-          nameEn: "Dural Arm Embodied AI Platform",
-          tagline: isKo
-            ? "양팔 로봇 + 딥비전 + 엔드이펙터 + 엣지 컴퓨팅이 통합된 올인원 AI 로보틱스 연구·교육 플랫폼."
-            : "All-in-one AI robotics research and education platform integrating dual-arm robot, depth vision, end effectors, and edge computing.",
-          image: "/products/platform/1.jpeg",
-          tags: isKo ? ["Dual Arm", "Embodied AI", "Edge Computing"] : ["Dual Arm", "Embodied AI", "Edge Computing"],
         },
         {
           slug: "avr-amr",
@@ -63,14 +63,14 @@ export default async function PhysicalAIPage({ params }: PageProps) {
           tags: isKo ? ["AMR", "SLAM", "자율이동", "모듈형"] : ["AMR", "SLAM", "Autonomous", "Modular"],
         },
         {
-          slug: "tashan",
-          name: isKo ? "Tashan 포스센서" : "Tashan Force Sensor",
-          nameEn: "Tashan Force Sensor",
+          slug: "platform",
+          name: isKo ? "플랫폼" : "Platform",
+          nameEn: "Dural Arm Embodied AI Platform",
           tagline: isKo
-            ? "로봇핸드 내장형 고감도 포스센서. 0.1N~25N 정밀 측정, 150Hz 샘플링."
-            : "High-sensitivity force sensor for robot hand integration. 0.1N–25N precision measurement, 150Hz sampling.",
-          image: "/products/sensors/tashan.png",
-          tags: isKo ? ["포스센서", "150Hz", "로봇핸드 내장"] : ["Force Sensor", "150Hz", "Embedded"],
+            ? "양팔 로봇 + 딥비전 + 엔드이펙터 + 엣지 컴퓨팅이 통합된 올인원 AI 로보틱스 연구·교육 플랫폼."
+            : "All-in-one AI robotics research and education platform integrating dual-arm robot, depth vision, end effectors, and edge computing.",
+          image: "/products/platform/1.jpeg",
+          tags: isKo ? ["Dual Arm", "Embodied AI", "Edge Computing"] : ["Dual Arm", "Embodied AI", "Edge Computing"],
         },
       ]}
     />
