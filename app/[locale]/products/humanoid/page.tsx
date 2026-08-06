@@ -89,7 +89,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tagline: isKo
             ? "산업 자동화와 Physical AI를 위한 신규 로봇암 라인업."
             : "A new robot arm lineup for industrial automation and Physical AI.",
-          image: "/products/coming-soon.svg",
+          image: "/products/humanoid/robot-arm/rx75.jpeg",
           tags: isKo ? ["RX 시리즈", "신규"] : ["RX Series", "New"],
         },
       ]}
