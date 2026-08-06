@@ -39,15 +39,15 @@ export default async function OhandPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0,105,114,0.2) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(122,19,14,0.2) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Prosthetic Hand · AI Myoelectric
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">Ohand</h1>
-            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "인공지능 근전도 전자의수" : "AI Myoelectric Prosthetic Hand"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -59,7 +59,7 @@ export default async function OhandPage({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/prosthetic`}
@@ -78,7 +78,7 @@ export default async function OhandPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { title: isKo ? "생체 모방 설계" : "Biomimetic Design", desc: isKo ? "사람 손의 구조와 동작을 모방해 27가지 다양한 동작 구현 가능" : "Mimics human hand structure and motion, enabling 27 diverse motion patterns" },
@@ -98,7 +98,7 @@ export default async function OhandPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 사양" : "Specifications"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "주요 사양" : "Specifications"}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
             {[
               { label: isKo ? "동작 속도" : "Motion Speed", value: "1.0s", unit: isKo ? "이하" : "or less" },
@@ -108,7 +108,7 @@ export default async function OhandPage({ params }: PageProps) {
             ].map((s, i) => (
               <div key={i} className="bg-white p-8 text-center">
                 <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide block mb-2">{s.label}</span>
-                <p className="text-3xl font-extrabold text-[#006972]">{s.value} <span className="text-base font-normal text-gray-400">{s.unit}</span></p>
+                <p className="text-3xl font-extrabold text-[#7A130E]">{s.value} <span className="text-base font-normal text-gray-400">{s.unit}</span></p>
               </div>
             ))}
           </div>
@@ -118,12 +118,12 @@ export default async function OhandPage({ params }: PageProps) {
       {/* Grip Modes */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">{isKo ? "그립 모드" : "Grip Modes"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">{isKo ? "그립 모드" : "Grip Modes"}</p>
           <p className="text-sm text-gray-400 mb-10">{isKo ? "총 27가지 동작 패턴을 3가지 모드로 구성" : "27 total motion patterns organized in 3 modes"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {gripModes.map((mode, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
-                <h3 className="text-xs font-bold text-[#0AABBA] uppercase tracking-wide mb-4">{mode.mode}</h3>
+                <h3 className="text-xs font-bold text-[#E1251B] uppercase tracking-wide mb-4">{mode.mode}</h3>
                 <div className="flex flex-wrap gap-2">
                   {mode.grips.map((g) => (
                     <span key={g} className="text-xs px-2.5 py-1 bg-gray-50 text-gray-600 rounded-full border border-gray-200">{g}</span>
@@ -138,7 +138,7 @@ export default async function OhandPage({ params }: PageProps) {
       {/* Use Cases GIF */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
             {isKo ? "일상에서 자연스럽게" : "Natural in Everyday Life"}
           </h2>
@@ -172,7 +172,7 @@ export default async function OhandPage({ params }: PageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#006972]">
+      <section className="py-20 bg-[#7A130E]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">{isKo ? "기술 혁신을 직접 경험해보세요" : "Experience the Innovation Firsthand"}</h2>
           <p className="text-white/60 mb-8 text-sm">
@@ -182,7 +182,7 @@ export default async function OhandPage({ params }: PageProps) {
             <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
+              className="inline-flex items-center px-8 py-3.5 bg-white text-[#7A130E] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
               {isKo ? "협업 문의하기" : "Contact Us"}
             </a>
           </div>

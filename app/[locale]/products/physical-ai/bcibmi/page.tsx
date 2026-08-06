@@ -26,9 +26,9 @@ export default async function BCIBMIPage({ params }: PageProps) {
       category: isKo ? "웨어러블 EEG" : "Wearable EEG",
       name: "NURA / Sync Series",
       badge: "EEG + ECG + IMU",
-      color: "text-blue-400",
-      bg: "bg-blue-500/10",
-      border: "border-blue-500/20",
+      color: "text-primary-400",
+      bg: "bg-primary-500/10",
+      border: "border-primary-500/20",
       specs: [
         { k: isKo ? "채널 라인업" : "Channel Lineup", v: isKo ? "1/2/4/7/8ch (Uno~Neo)" : "1/2/4/7/8ch (Uno~Neo)" },
         { k: isKo ? "앰프 무게" : "Amp Weight", v: "25g" },
@@ -46,9 +46,9 @@ export default async function BCIBMIPage({ params }: PageProps) {
       category: isKo ? "고밀도 EEG" : "High-Density EEG",
       name: "ORION",
       badge: isKo ? "16~32ch HD-EEG" : "16~32ch HD-EEG",
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
+      color: "text-primary-400",
+      bg: "bg-primary-500/10",
+      border: "border-primary-500/20",
       specs: [
         { k: isKo ? "채널" : "Channels", v: "16 / 24 / 32ch" },
         { k: isKo ? "해상도" : "Resolution", v: "24-bit" },
@@ -64,9 +64,9 @@ export default async function BCIBMIPage({ params }: PageProps) {
       category: isKo ? "고해상도 EMG" : "High-Resolution EMG",
       name: "BioFlex nano 32",
       badge: isKo ? "32~128ch HD-EMG" : "32~128ch HD-EMG",
-      color: "text-emerald-400",
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/20",
+      color: "text-primary-400",
+      bg: "bg-primary-500/10",
+      border: "border-primary-500/20",
       specs: [
         { k: isKo ? "기본 채널" : "Base Channels", v: "32ch" },
         { k: isKo ? "최대 확장" : "Max Expansion", v: "128ch" },
@@ -84,16 +84,16 @@ export default async function BCIBMIPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.2) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(16,185,129,0.1) 0%, transparent 50%)" }}
+          style={{ backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(225,37,27,0.2) 0%, transparent 50%), radial-gradient(ellipse at 80% 50%, rgba(225,37,27,0.1) 0%, transparent 50%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
-            <span className="inline-block text-xs font-bold tracking-[3px] text-indigo-400 uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">
               Physical AI · BCI / BMI Solutions
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight leading-tight">
               BCI / BMI<br />
-              <span className="text-indigo-400">{isKo ? "생체신호 솔루션" : "Biosignal Suite"}</span>
+              <span className="text-primary-400">{isKo ? "생체신호 솔루션" : "Biosignal Suite"}</span>
             </h1>
             <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
               {isKo
@@ -126,7 +126,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
       {/* Product Lineup */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-indigo-500 uppercase mb-4">Full Lineup</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Full Lineup</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-16 tracking-tight">
             {isKo ? "통합 생체신호 솔루션 라인업" : "Integrated Biosignal Solution Lineup"}
           </h2>
@@ -164,7 +164,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
       {/* Summary Table */}
       <section className="py-24 bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-indigo-400 uppercase mb-4">Comparison</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">Comparison</p>
           <h2 className="text-4xl font-extrabold mb-12 tracking-tight">
             {isKo ? "어떤 제품이 맞을까요?" : "Which Product Fits Your Needs?"}
           </h2>
@@ -215,7 +215,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-indigo-500 uppercase mb-4">Applications</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Applications</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "응용 분야" : "Application Areas"}
           </h2>

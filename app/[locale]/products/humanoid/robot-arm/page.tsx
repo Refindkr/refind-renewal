@@ -69,11 +69,11 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Humanoid Robot · Robot Arm
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
@@ -112,7 +112,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
               <Link
                 key={product.href}
                 href={product.href}
-                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary-100 transition-all duration-300"
               >
                 <div className="relative h-48 bg-gray-100 overflow-hidden">
                   <Image
@@ -126,7 +126,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
                 <div className="p-6">
                   <div className="flex flex-wrap gap-1.5 mb-3">
                     {product.tags.map((tag) => (
-                      <span key={tag} className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EAF1FF] text-[#669DFD] tracking-wide">
+                      <span key={tag} className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FDEDEB] text-[#E1251B] tracking-wide">
                         {tag}
                       </span>
                     ))}
@@ -135,7 +135,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
                   <p className="text-xs text-gray-400 mb-3">{product.nameEn}</p>
                   <p className="text-sm text-gray-500 leading-relaxed">{product.tagline}</p>
 
-                  <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-[#669DFD] group-hover:gap-2 transition-all">
+                  <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-[#E1251B] group-hover:gap-2 transition-all">
                     {isKo ? "자세히 보기" : "Learn more"}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

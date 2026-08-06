@@ -32,7 +32,7 @@ function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
               {" "}
             </th>
             {models.map((m, i) => (
-              <th key={m} className={`text-center px-5 py-3.5 text-xs font-bold whitespace-nowrap ${i === 2 ? "text-[#669DFD]" : "text-gray-500"}`}>
+              <th key={m} className={`text-center px-5 py-3.5 text-xs font-bold whitespace-nowrap ${i === 2 ? "text-[#E1251B]" : "text-gray-500"}`}>
                 {m}
               </th>
             ))}
@@ -43,7 +43,7 @@ function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
             <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
               <td className="px-5 py-3 text-xs font-semibold text-gray-500 whitespace-nowrap">{row.label}</td>
               {row.values.map((v, j) => (
-                <td key={j} className={`px-5 py-3 text-center whitespace-nowrap ${j === 2 ? "text-gray-900 font-semibold bg-[#669DFD]/5" : "text-gray-700"}`}>
+                <td key={j} className={`px-5 py-3 text-center whitespace-nowrap ${j === 2 ? "text-gray-900 font-semibold bg-[#E1251B]/5" : "text-gray-700"}`}>
                   {v}
                 </td>
               ))}
@@ -111,11 +111,11 @@ export default async function Rx75Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Humanoid Robot · Robot Arm
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -161,7 +161,7 @@ export default async function Rx75Page({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
@@ -178,13 +178,13 @@ export default async function Rx75Page({ params }: PageProps) {
       {/* Applications */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {applications.map((a, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-100">
-                <span className="text-[#669DFD] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <p className="text-sm text-gray-700 leading-relaxed">
                   <span className="font-semibold text-gray-900">{a.title}</span> : {a.desc}
                 </p>
@@ -197,17 +197,17 @@ export default async function Rx75Page({ params }: PageProps) {
       {/* RX Series Comparison */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "RX 시리즈 비교" : "RX Series Comparison"}
           </p>
           <SpecTable models={rxModels} rows={rxRows} />
           <p className="text-sm text-gray-400 mt-6">
             {isKo ? "다른 모델은 " : "See "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx71`} className="text-[#669DFD] font-semibold hover:underline">RX71</Link>
+            <Link href={`/${locale}/products/humanoid/robot-arm/rx71`} className="text-[#E1251B] font-semibold hover:underline">RX71</Link>
             {", "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx75s`} className="text-[#669DFD] font-semibold hover:underline">RX75S</Link>
+            <Link href={`/${locale}/products/humanoid/robot-arm/rx75s`} className="text-[#E1251B] font-semibold hover:underline">RX75S</Link>
             {isKo ? ", " : ", and "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx75-vision`} className="text-[#669DFD] font-semibold hover:underline">RX75 {isKo ? "비전" : "Vision"}</Link>
+            <Link href={`/${locale}/products/humanoid/robot-arm/rx75-vision`} className="text-[#E1251B] font-semibold hover:underline">RX75 {isKo ? "비전" : "Vision"}</Link>
             {isKo ? " 페이지를 참고하세요." : " for other models."}
           </p>
         </div>

@@ -55,11 +55,11 @@ export default async function A002Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Robot Hand · Standard
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -93,7 +93,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "특징" : "Features"}
           </p>
           <div className="space-y-4">
@@ -109,7 +109,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Structure Image */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 구조" : "Product Structure"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -130,7 +130,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Size Image + Tables */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "치수 도면" : "Dimensions"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -179,7 +179,7 @@ export default async function A002Page({ params }: PageProps) {
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
                       </td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#E1251B] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -195,7 +195,7 @@ export default async function A002Page({ params }: PageProps) {
 
           {/* Performance specs table */}
           <div className="max-w-3xl">
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-5">
+            <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-5">
               {isKo ? "사양" : "Specifications"}
             </p>
             <div className="overflow-hidden rounded-2xl border border-gray-100">
@@ -227,7 +227,7 @@ export default async function A002Page({ params }: PageProps) {
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
                       </td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#E1251B] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -240,7 +240,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Core Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 가치" : "Core Value"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">
@@ -276,13 +276,13 @@ export default async function A002Page({ params }: PageProps) {
       {/* Technical Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "기술 사양" : "Technical Specs"}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
               <h3 className="text-sm font-bold text-gray-900 mb-5 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center font-bold">1</span>
+                <span className="w-5 h-5 rounded-full bg-primary-100 text-primary-600 text-xs flex items-center justify-center font-bold">1</span>
                 {isKo ? "메커니즘" : "Mechanism"}
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
@@ -306,7 +306,7 @@ export default async function A002Page({ params }: PageProps) {
             </div>
             <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
               <h3 className="text-sm font-bold text-gray-900 mb-5 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-blue-100 text-blue-600 text-xs flex items-center justify-center font-bold">2</span>
+                <span className="w-5 h-5 rounded-full bg-primary-100 text-primary-600 text-xs flex items-center justify-center font-bold">2</span>
                 {isKo ? "인터페이스" : "Interface"}
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
@@ -336,7 +336,7 @@ export default async function A002Page({ params }: PageProps) {
       <section className="py-14 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
+            <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">
               {isKo ? "자료 다운로드" : "Download"}
             </p>
             <h3 className="text-lg font-extrabold text-white mb-1">
@@ -347,7 +347,7 @@ export default async function A002Page({ params }: PageProps) {
           <a
             href="/downloads/ROHand_eng.pdf"
             download="ROHand_eng.pdf"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#669DFD] text-white font-bold rounded-full text-sm hover:bg-blue-400 transition-colors whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#E1251B] text-white font-bold rounded-full text-sm hover:bg-primary-400 transition-colors whitespace-nowrap shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -360,7 +360,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
@@ -445,7 +445,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Model Comparison */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "모델 비교" : "Model Comparison"}
           </p>
           <p className="text-sm text-gray-400 mb-8">
@@ -456,7 +456,7 @@ export default async function A002Page({ params }: PageProps) {
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
-                  <th className="px-5 py-4 text-xs font-bold text-[#669DFD]">ROH-A002</th>
+                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">ROH-A002</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">ROH-AP001</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">ROH-AP002</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">ROH-Lite</th>
@@ -472,7 +472,7 @@ export default async function A002Page({ params }: PageProps) {
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row[0]}</td>
-                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#669DFD]">{row[1]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B]">{row[1]}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row[2]}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row[3]}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row[4]}</td>
@@ -487,7 +487,7 @@ export default async function A002Page({ params }: PageProps) {
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "납품 사례" : "Delivery Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">

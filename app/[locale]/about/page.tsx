@@ -22,11 +22,11 @@ export default async function AboutPage({ params }: PageProps) {
   const t = await getTranslations("about");
 
   const coreValues = [
-    { key: "innovation", color: "bg-yellow-50 border-yellow-200" },
-    { key: "professionalism", color: "bg-blue-50 border-blue-200" },
-    { key: "ethics", color: "bg-green-50 border-green-200" },
-    { key: "collaboration", color: "bg-purple-50 border-purple-200" },
-    { key: "positivity", color: "bg-pink-50 border-pink-200" },
+    "innovation",
+    "professionalism",
+    "ethics",
+    "collaboration",
+    "positivity",
   ] as const;
 
   const th = await getTranslations("home.coreValues");
@@ -81,10 +81,11 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Core Values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {coreValues.map(({ key, color }) => (
-              <div key={key} className={`p-6 rounded-2xl border ${color} text-center`}>
+            {coreValues.map((key, i) => (
+              <div key={key} className="p-6 rounded-2xl border border-gray-100 bg-white text-center">
+                <div className="text-xs font-bold text-gray-300 mb-3">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{th(key)}</h3>
-                <p className="text-sm text-gray-600">{th(`${key}Text`)}</p>
+                <p className="text-sm text-gray-500">{th(`${key}Text`)}</p>
               </div>
             ))}
           </div>

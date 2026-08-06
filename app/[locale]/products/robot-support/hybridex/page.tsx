@@ -83,15 +83,15 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               {isKo ? "로봇보조기" : "Robot Support"}
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">HYBRIDEX</h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "일상을 다시 잇다" : "Reconnect Daily Life"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -122,7 +122,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 기능 및 특징" : "Key Functions & Features"}
           </p>
           <div className="grid md:grid-cols-2 gap-5">
@@ -139,7 +139,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
       {/* Gallery */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 구성" : "Product Composition"}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
@@ -170,7 +170,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
       {/* Expected Benefits */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "기대 효과" : "Expected Benefits"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">
@@ -188,7 +188,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">
             {isKo ? "기술 사양" : "Technical Specifications"}
           </p>
           <p className="text-xs text-gray-400 mb-10">

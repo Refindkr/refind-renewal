@@ -18,11 +18,11 @@ export default function ComingSoonProduct({ locale, category, categoryLabel, nam
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 50%, #669DFD 0%, transparent 50%), radial-gradient(circle at 80% 20%, #0AABBA 0%, transparent 40%)",
+              "radial-gradient(circle at 20% 50%, #E1251B 0%, transparent 50%), radial-gradient(circle at 80% 20%, #E1251B 0%, transparent 40%)",
           }}
         />
         <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {categoryLabel}
           </p>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">

@@ -66,17 +66,17 @@ export default async function OhandS001Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0,105,114,0.2) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(122,19,14,0.2) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Prosthetic Hand · AI Myoelectric
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
               Ohand <span className="text-white/40">S001</span>
             </h1>
-            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "소형 인공지능 근전도 전자의수" : "Compact AI Myoelectric Prosthetic Hand"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -88,7 +88,7 @@ export default async function OhandS001Page({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/prosthetic`}
@@ -107,7 +107,7 @@ export default async function OhandS001Page({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "주요 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
@@ -122,7 +122,7 @@ export default async function OhandS001Page({ params }: PageProps) {
       {/* Measurements */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
           <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
             {measurements.map((m, i) => (
               <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
@@ -137,7 +137,7 @@ export default async function OhandS001Page({ params }: PageProps) {
       {/* Applications */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "활용 분야" : "Applications"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "활용 분야" : "Applications"}</p>
           <div className="flex flex-wrap gap-3">
             {applications.map((a) => (
               <span key={a} className="px-4 py-2 bg-white rounded-full border border-gray-100 text-sm font-medium text-gray-700">
@@ -151,14 +151,14 @@ export default async function OhandS001Page({ params }: PageProps) {
       {/* OHand Series Comparison */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
           <div className="overflow-x-auto rounded-2xl border border-gray-100">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">A001</th>
-                  <th className="px-5 py-4 text-xs font-bold text-[#0AABBA]">S001</th>
+                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">S001</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">Lite</th>
                 </tr>
               </thead>
@@ -167,7 +167,7 @@ export default async function OhandS001Page({ params }: PageProps) {
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row.label}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[0]}</td>
-                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#0AABBA] bg-[#0AABBA]/5">{row.values[1]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B] bg-[#E1251B]/5">{row.values[1]}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[2]}</td>
                   </tr>
                 ))}
@@ -176,16 +176,16 @@ export default async function OhandS001Page({ params }: PageProps) {
           </div>
           <p className="text-sm text-gray-400 mt-6">
             {isKo ? "다른 모델은 " : "See "}
-            <Link href={`/${locale}/products/prosthetic/ohand`} className="text-[#0AABBA] font-semibold hover:underline">Ohand</Link>
+            <Link href={`/${locale}/products/prosthetic/ohand`} className="text-[#E1251B] font-semibold hover:underline">Ohand</Link>
             {isKo ? ", " : " and "}
-            <Link href={`/${locale}/products/prosthetic/ohandlite`} className="text-[#0AABBA] font-semibold hover:underline">OhandLite</Link>
+            <Link href={`/${locale}/products/prosthetic/ohandlite`} className="text-[#E1251B] font-semibold hover:underline">OhandLite</Link>
             {isKo ? " 페이지를 참고하세요." : " for other models."}
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#006972]">
+      <section className="py-20 bg-[#7A130E]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">{isKo ? "기술 혁신을 직접 경험해보세요" : "Experience the Innovation Firsthand"}</h2>
           <p className="text-white/60 mb-8 text-sm">
@@ -195,7 +195,7 @@ export default async function OhandS001Page({ params }: PageProps) {
             <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
+              className="inline-flex items-center px-8 py-3.5 bg-white text-[#7A130E] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
               {isKo ? "협업 문의하기" : "Contact Us"}
             </a>
           </div>

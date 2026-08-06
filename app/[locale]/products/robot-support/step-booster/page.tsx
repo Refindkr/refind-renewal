@@ -93,15 +93,15 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               {isKo ? "로봇보조기" : "Robot Support"}
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">STEP BOOSTER</h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "당신의 불안했던 발걸음에 자존감을 더하다" : "Walk with Confidence"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -132,7 +132,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 기능 및 특징" : "Key Functions & Features"}
           </p>
           <div className="grid md:grid-cols-2 gap-5">
@@ -149,7 +149,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Product Composition */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 구성" : "Product Composition"}
           </p>
           <div className="grid md:grid-cols-2 gap-10 items-center">
@@ -181,7 +181,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Clinical Effects */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "임상 효과" : "Clinically Proven"}
           </p>
           <p className="text-sm text-gray-500 max-w-2xl leading-relaxed mb-10">
@@ -192,7 +192,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {clinicalStats.map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 text-center">
-                <p className="text-lg font-extrabold text-[#669DFD] mb-1">{s.value}</p>
+                <p className="text-lg font-extrabold text-[#E1251B] mb-1">{s.value}</p>
                 <p className="text-xs font-bold text-gray-900 mb-0.5">{s.label}</p>
                 <p className="text-xs text-gray-400">{s.desc}</p>
               </div>
@@ -204,7 +204,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Target Audience */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "추천 대상" : "Target Audience"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">
@@ -221,7 +221,7 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "주요 스펙 요약" : "Key Specifications"}
           </p>
           <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">

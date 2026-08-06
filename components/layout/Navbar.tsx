@@ -293,8 +293,8 @@ export default function Navbar({ locale }: NavbarProps) {
                     href={`/${locale}/admin`}
                     className={`text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${
                       isTransparent
-                        ? "bg-[#669DFD]/20 text-[#669DFD] hover:bg-[#669DFD]/30"
-                        : "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                        ? "bg-[#E1251B]/20 text-[#E1251B] hover:bg-[#E1251B]/30"
+                        : "bg-primary-50 text-primary-600 hover:bg-primary-100"
                     }`}
                   >
                     관리자

@@ -32,7 +32,7 @@ function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
               Model
             </th>
             {models.map((m) => (
-              <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#669DFD] whitespace-nowrap">
+              <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">
                 {m}
               </th>
             ))}
@@ -142,10 +142,10 @@ export default async function ActuatorPage({ params }: PageProps) {
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Physical AI · Actuator
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -178,7 +178,7 @@ export default async function ActuatorPage({ params }: PageProps) {
       {/* Partnership */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-3">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">
             Official Partner
           </p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-6">
@@ -195,7 +195,7 @@ export default async function ActuatorPage({ params }: PageProps) {
       {/* WHJ Series */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHJ Series</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">WHJ Series</p>
           <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
             <div>
               <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
@@ -204,7 +204,7 @@ export default async function ActuatorPage({ params }: PageProps) {
 
               {/* MTBF badge */}
               <div className="bg-gray-950 rounded-2xl p-8 mb-6">
-                <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">
+                <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">
                   {isKo ? "무고장 운전시간 5만 시간" : "50,000-Hour MTBF"}
                 </p>
                 <p className="text-sm text-white/60 leading-relaxed">
@@ -247,7 +247,7 @@ export default async function ActuatorPage({ params }: PageProps) {
                 ]
             ).map((f, i) => (
               <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <span className="text-[#669DFD] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
             ))}
@@ -260,7 +260,7 @@ export default async function ActuatorPage({ params }: PageProps) {
       {/* WHJ Torque Series */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHJ Torque Series</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">WHJ Torque Series</p>
           <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
             <p className="text-gray-500 leading-relaxed">
               {isKo
@@ -284,7 +284,7 @@ export default async function ActuatorPage({ params }: PageProps) {
       {/* WHG Series */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">WHG Series</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">WHG Series</p>
           <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
             <p className="text-gray-500 leading-relaxed">
               {isKo

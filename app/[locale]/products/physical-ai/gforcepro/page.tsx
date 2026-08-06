@@ -82,11 +82,11 @@ export default async function GForceProPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(168,85,247,0.15) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-purple-400 uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">
               Physical AI · EMG Armband
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -144,14 +144,14 @@ export default async function GForceProPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-purple-500 uppercase mb-4">Key Features</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Key Features</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-16 tracking-tight">
             {isKo ? "근전도 기반 인체-기계 인터페이스" : "EMG-based Human-Machine Interface"}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
               <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-sm mb-5">
+                <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-sm mb-5">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{f.title}</h3>
@@ -165,7 +165,7 @@ export default async function GForceProPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-purple-500 uppercase mb-4">Specifications</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Specifications</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "제품 사양" : "Product Specifications"}
           </h2>
@@ -183,7 +183,7 @@ export default async function GForceProPage({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-24 bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-purple-400 uppercase mb-4">Applications</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">Applications</p>
           <h2 className="text-4xl font-extrabold mb-16 tracking-tight">
             {isKo ? "다양한 분야에서 활용됩니다" : "Deployed Across Diverse Fields"}
           </h2>
@@ -202,7 +202,7 @@ export default async function GForceProPage({ params }: PageProps) {
       {/* Wearing Guide */}
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-purple-500 uppercase mb-4">Usage Guide</p>
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Usage Guide</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "사용 방법" : "How to Use"}
           </h2>
@@ -215,7 +215,7 @@ export default async function GForceProPage({ params }: PageProps) {
               isKo ? "학습 완료 후 전용 동글로 Raw 데이터 수신 가능" : "After training, receive raw data via dedicated dongle",
             ].map((step, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="w-7 h-7 rounded-full bg-purple-100 text-purple-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-full bg-primary-100 text-primary-600 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                   {i + 1}
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed">{step}</p>

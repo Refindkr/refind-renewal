@@ -80,15 +80,15 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(102,157,253,0.08) 0%, transparent 45%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(225,37,27,0.08) 0%, transparent 45%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Robot Hand · Magnetic Tactile Sensors
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP003</h1>
-            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "자기식 촉각 센서로 사람의 손끝을 재현하다" : "Reproducing the Human Fingertip with Magnetic Tactile Sensing"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -100,7 +100,7 @@ export default async function AP003Page({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/robot-hand`}
@@ -124,7 +124,7 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Differentiator */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-3">Magnetic Tactile Sensor</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">Magnetic Tactile Sensor</p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
             {isKo ? "압력을 넘어, 전단력과 미끄러짐까지 감지" : "Beyond Pressure — Sensing Shear Force and Slip"}
           </h2>
@@ -144,7 +144,7 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Load and Speed */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "부하 및 속도" : "Load and Speed"}
           </p>
           <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
@@ -161,7 +161,7 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Force Sensor */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">Force Sensor</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">Force Sensor</p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100">
@@ -200,20 +200,20 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {useCases.map((u, i) => (
               <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                <div className="w-8 h-8 rounded-lg bg-[#E6F7F8] text-[#0AABBA] flex items-center justify-center text-xs font-bold mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[#FDEDEB] text-[#E1251B] flex items-center justify-center text-xs font-bold mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-3">{u.title}</h3>
                 <ul className="space-y-2">
                   {u.points.map((p, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-gray-500 leading-relaxed">
-                      <span className="text-[#0AABBA] font-bold mt-0.5">•</span>
+                      <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                       <span>{p}</span>
                     </li>
                   ))}
@@ -223,7 +223,7 @@ export default async function AP003Page({ params }: PageProps) {
           </div>
           <p className="text-sm text-gray-400 mt-6">
             {isKo ? "원격 제어에는 " : "For teleoperation, see the "}
-            <Link href={`/${locale}/products/robot-hand/motion-capture-glove`} className="text-[#0AABBA] font-semibold hover:underline">
+            <Link href={`/${locale}/products/robot-hand/motion-capture-glove`} className="text-[#E1251B] font-semibold hover:underline">
               {isKo ? "모션 캡처 글러브" : "Motion Capture Glove"}
             </Link>
             {isKo ? "를 함께 참고하세요." : "."}
@@ -234,7 +234,7 @@ export default async function AP003Page({ params }: PageProps) {
       {/* Compatibility */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-3">Hardware Compatibility</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">Hardware Compatibility</p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-8 tracking-tight">
             {isKo ? "협동로봇 & 하드웨어 호환성" : "Collaborative Robot & Hardware Compatibility"}
           </h2>
@@ -269,7 +269,7 @@ export default async function AP003Page({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-[#0AABBA] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
         </div>

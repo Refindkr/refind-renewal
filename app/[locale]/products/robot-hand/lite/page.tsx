@@ -27,15 +27,15 @@ export default async function LitePage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.12) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.12) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Robot Hand · Economy
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-Lite</h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">{isKo ? "합리적인 가격, 완성된 6 DOF" : "Affordable Price, Complete 6 DOF"}</p>
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "합리적인 가격, 완성된 6 DOF" : "Affordable Price, Complete 6 DOF"}</p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
                 ? "연구·교육용으로 최적화된 보급형 6자유도 로봇핸드. 가볍고 빠르게, 핵심 기능에 집중합니다."
@@ -64,7 +64,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Core Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: isKo ? "경량 설계" : "Lightweight Design", desc: isKo ? "457g의 가벼운 무게로 장시간 운용과 빠른 구동(0.7초)에 최적화" : "457g lightweight design optimized for long operation and fast actuation (0.7s)" },
@@ -83,7 +83,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
           <div className="max-w-lg bg-gray-50 rounded-2xl p-7 border border-gray-100">
             <div className="space-y-0 text-sm">
               {[
@@ -108,7 +108,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Use Cases — GIF */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
@@ -184,7 +184,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Detail Image */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 상세" : "Product Detail"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -205,7 +205,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Size Image + Tables */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "치수 도면" : "Dimensions"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -254,7 +254,7 @@ export default async function LitePage({ params }: PageProps) {
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
                       </td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#E1251B] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -270,7 +270,7 @@ export default async function LitePage({ params }: PageProps) {
 
           {/* Performance specs table */}
           <div className="max-w-3xl">
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-5">
+            <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-5">
               {isKo ? "사양" : "Specifications"}
             </p>
             <div className="overflow-hidden rounded-2xl border border-gray-100">
@@ -301,7 +301,7 @@ export default async function LitePage({ params }: PageProps) {
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
                       </td>
-                      <td className="px-5 py-3 text-sm font-semibold text-[#669DFD] whitespace-nowrap">{val}</td>
+                      <td className="px-5 py-3 text-sm font-semibold text-[#E1251B] whitespace-nowrap">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -314,7 +314,7 @@ export default async function LitePage({ params }: PageProps) {
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "납품 사례" : "Delivery Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">

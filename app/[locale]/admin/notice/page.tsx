@@ -28,7 +28,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">Admin</p>
+              <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">Admin</p>
               <h1 className="text-3xl font-extrabold text-white">공지사항 관리</h1>
             </div>
             <div className="flex gap-2">
@@ -75,7 +75,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
                 notices.map((notice) => (
                   <tr key={notice.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5">
-                      <Link href={`/${notice.slug}`} target="_blank" className="text-gray-900 hover:text-[#669DFD] font-medium">
+                      <Link href={`/${notice.slug}`} target="_blank" className="text-gray-900 hover:text-[#E1251B] font-medium">
                         {notice.title}
                       </Link>
                     </td>

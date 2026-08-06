@@ -32,7 +32,7 @@ function SpecTable({ variants, rows }: { variants: string[]; rows: SpecRow[] }) 
               Item
             </th>
             {variants.map((v) => (
-              <th key={v} className="text-center px-5 py-3.5 text-xs font-bold text-[#669DFD] whitespace-nowrap">
+              <th key={v} className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">
                 {v}
               </th>
             ))}
@@ -101,17 +101,17 @@ export default async function MobileChassisPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Physical AI · Autonomous Mobile Robot
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
               {isKo ? "모바일 섀시" : "Mobile Chassis"}
             </h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "민첩한 조향 성능. 복잡한 환경에서도 안정적인 주행" : "Agile Steering — Stable Navigation in Complex Environments"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -151,13 +151,13 @@ export default async function MobileChassisPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 특징" : "Key Features"}
           </p>
           <div className="grid md:grid-cols-3 gap-4">
             {features.map((f, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-100">
-                <span className="text-[#669DFD] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
             ))}
@@ -168,7 +168,7 @@ export default async function MobileChassisPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="grid grid-cols-2 gap-4 mb-10 max-w-2xl">
@@ -180,7 +180,7 @@ export default async function MobileChassisPage({ params }: PageProps) {
                 <div className="relative h-48">
                   <Image src={v.src} alt={v.label} fill className="object-contain p-4" sizes="(max-width: 768px) 50vw, 25vw" />
                 </div>
-                <p className="text-center text-xs font-bold text-[#669DFD] py-2 border-t border-gray-100">{v.label}</p>
+                <p className="text-center text-xs font-bold text-[#E1251B] py-2 border-t border-gray-100">{v.label}</p>
               </div>
             ))}
           </div>

@@ -34,11 +34,11 @@ export default function ProductCategoryPage({
       <section className="py-20 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: "radial-gradient(circle at 20% 50%, #669DFD 0%, transparent 50%), radial-gradient(circle at 80% 20%, #0AABBA 0%, transparent 40%)",
+            backgroundImage: "radial-gradient(circle at 20% 50%, #E1251B 0%, transparent 50%), radial-gradient(circle at 80% 20%, #E1251B 0%, transparent 40%)",
           }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Products · {titleEn}
           </p>
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -56,7 +56,7 @@ export default function ProductCategoryPage({
               <Link
                 key={product.slug}
                 href={product.href ?? `/${locale}/products/${categorySlug}/${product.slug}`}
-                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary-100 transition-all duration-300"
               >
                 {/* Image */}
                 <div className="relative h-56 bg-gray-100 overflow-hidden">
@@ -75,7 +75,7 @@ export default function ProductCategoryPage({
                     {product.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 tracking-wide"
+                        className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary-50 text-primary-600 tracking-wide"
                       >
                         {tag}
                       </span>
@@ -85,7 +85,7 @@ export default function ProductCategoryPage({
                   <p className="text-xs text-gray-400 mb-3">{product.nameEn}</p>
                   <p className="text-sm text-gray-500 leading-relaxed">{product.tagline}</p>
 
-                  <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-blue-500 group-hover:gap-2 transition-all">
+                  <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-primary-500 group-hover:gap-2 transition-all">
                     {locale === "ko" ? "자세히 보기" : "Learn more"}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -82,16 +82,16 @@ export default async function Realbot01Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Humanoid Robot · R&D
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
             REALBOT 01
           </h1>
-          <p className="text-sm text-[#669DFD] font-semibold mb-5">
+          <p className="text-sm text-[#E1251B] font-semibold mb-5">
             {isKo ? "모듈형 아키텍처 기반 AI 휴머노이드 플랫폼" : "A Modular-Architecture AI Humanoid Platform"}
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
@@ -124,13 +124,13 @@ export default async function Realbot01Page({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 특징" : "Product Features"}
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {features.map((f, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-2xl p-5 border border-gray-100">
-                <span className="text-[#669DFD] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
             ))}
@@ -141,7 +141,7 @@ export default async function Realbot01Page({ params }: PageProps) {
       {/* Specs + Image */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Specifications</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Specifications</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "기술 사양" : "Technical Specifications"}
           </h2>
@@ -165,7 +165,7 @@ export default async function Realbot01Page({ params }: PageProps) {
       {/* Applications */}
       <section className="py-24 bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Applications</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Applications</p>
           <h2 className="text-4xl font-extrabold mb-12 tracking-tight">
             {isKo ? "활용 분야" : "Application Areas"}
           </h2>
@@ -184,7 +184,7 @@ export default async function Realbot01Page({ params }: PageProps) {
       {/* RealMan Humanoid Comparison */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Comparison</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Comparison</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "RealMan 휴머노이드 비교" : "RealMan Humanoid Comparison"}
           </h2>
@@ -194,12 +194,12 @@ export default async function Realbot01Page({ params }: PageProps) {
                 <tr className="bg-white border-b border-gray-100">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap"> </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-                    <Link href={`/${locale}/products/humanoid/realbot`} className="hover:text-[#669DFD] transition-colors">Realbot S2</Link>
+                    <Link href={`/${locale}/products/humanoid/realbot`} className="hover:text-[#E1251B] transition-colors">Realbot S2</Link>
                   </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-                    <Link href={`/${locale}/products/humanoid/realbot-l2`} className="hover:text-[#669DFD] transition-colors">Realbot L2</Link>
+                    <Link href={`/${locale}/products/humanoid/realbot-l2`} className="hover:text-[#E1251B] transition-colors">Realbot L2</Link>
                   </th>
-                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#669DFD] whitespace-nowrap">Realbot 01</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">Realbot 01</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -208,7 +208,7 @@ export default async function Realbot01Page({ params }: PageProps) {
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{row.label}</td>
                     <td className="px-5 py-3.5 text-center text-gray-600">{row.s2}</td>
                     <td className="px-5 py-3.5 text-center text-gray-600">{row.l2}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#669DFD]/5">{row.r01}</td>
+                    <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#E1251B]/5">{row.r01}</td>
                   </tr>
                 ))}
               </tbody>

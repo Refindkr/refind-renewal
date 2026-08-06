@@ -28,7 +28,7 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">Admin</p>
+              <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">Admin</p>
               <h1 className="text-3xl font-extrabold text-white">카드뉴스 관리</h1>
             </div>
             <div className="flex gap-2">
@@ -75,7 +75,7 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
                 cardNews.map((card) => (
                   <tr key={card.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5">
-                      <Link href={`/${card.slug}`} target="_blank" className="text-gray-900 hover:text-[#669DFD] font-medium">
+                      <Link href={`/${card.slug}`} target="_blank" className="text-gray-900 hover:text-[#E1251B] font-medium">
                         {card.title}
                       </Link>
                     </td>

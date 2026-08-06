@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface FooterProps {
@@ -15,8 +16,14 @@ export default async function Footer({ locale }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-5">
-            <span className="text-2xl font-bold text-white tracking-tight">refind</span>
-            <p className="mt-1 text-xs text-white/30 mb-6">{t("company")}</p>
+            <Image
+              src="/logo.png"
+              alt="Refind"
+              width={150}
+              height={50}
+              className="h-9 w-auto object-contain brightness-0 invert"
+            />
+            <p className="mt-3 text-xs text-white/30 mb-6">{t("company")}</p>
             <p className="text-sm leading-relaxed mb-4">{t("address")}</p>
             <div className="space-y-1 text-sm">
               <p>070-4837-2829</p>

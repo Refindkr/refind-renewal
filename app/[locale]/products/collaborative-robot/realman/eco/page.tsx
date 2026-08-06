@@ -66,15 +66,15 @@ export default async function EcoSeriesPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(102,157,253,0.12) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.12) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Collaborative Robot · REALMAN
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ECO 62 / 63 / 65</h1>
-            <p className="text-sm text-[#0aabba] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "경제적인 협동로봇 솔루션" : "Economical Collaborative Robot Solution"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -86,7 +86,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0aabba] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/collaborative-robot/realman`}
@@ -105,7 +105,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "특징" : "Features"}
           </p>
           <div className="grid md:grid-cols-2 gap-4">
@@ -113,7 +113,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
               const [title, ...rest] = f.split(isKo ? " : " : ": ");
               return (
                 <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-100">
-                  <span className="text-[#0aabba] font-bold mt-0.5">•</span>
+                  <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">{title}</span>
                     {rest.length > 0 ? ` : ${rest.join(": ")}` : ""}
@@ -128,7 +128,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
       {/* Applications */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-8">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-8">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -144,7 +144,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
       {/* Integrated Controller */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "통합 제어기" : "Integrated Controller"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">Integrated Controller</h2>
@@ -156,7 +156,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {controllerBenefits.map((b, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">
-                <span className="text-[#0aabba] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{b}</span>
               </div>
             ))}
@@ -167,7 +167,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-100">
@@ -178,7 +178,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
                     {isKo ? "항목" : "Item"}
                   </th>
                   {models.map((m) => (
-                    <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#0aabba] whitespace-nowrap">
+                    <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">
                       {m}
                     </th>
                   ))}
@@ -211,7 +211,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-[#0aabba] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
         </div>

@@ -74,17 +74,17 @@ export default async function MyAGVPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Physical AI · Autonomous Mobile Robot
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
               myAGV 2023
             </h1>
-            <p className="text-base text-[#669DFD] font-semibold mb-4">
+            <p className="text-base text-[#E1251B] font-semibold mb-4">
               {isKo ? "모바일 로봇 플랫폼 (Education & Research)" : "Mobile Robot Platform (Education & Research)"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -120,7 +120,7 @@ export default async function MyAGVPage({ params }: PageProps) {
       {/* myAGV 2023 핵심 특징 */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-3">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">
             myAGV 2023
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12">
@@ -130,8 +130,8 @@ export default async function MyAGVPage({ params }: PageProps) {
             {features.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
                 <div className="flex items-start gap-3 mb-4">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#669DFD]/10 flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-[#669DFD]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#E1251B]/10 flex items-center justify-center mt-0.5">
+                    <svg className="w-3.5 h-3.5 text-[#E1251B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                   </span>
@@ -140,7 +140,7 @@ export default async function MyAGVPage({ params }: PageProps) {
                 <ul className="space-y-2 pl-9">
                   {f.bullets.map((b, j) => (
                     <li key={j} className="text-sm text-gray-500 flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#669DFD]/50 mt-1.5 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E1251B]/50 mt-1.5 flex-shrink-0" />
                       {b}
                     </li>
                   ))}
@@ -154,7 +154,7 @@ export default async function MyAGVPage({ params }: PageProps) {
       {/* AGV Specification Table */}
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-3">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">
             {isKo ? "사양 비교" : "Specifications"}
           </p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
@@ -188,7 +188,7 @@ export default async function MyAGVPage({ params }: PageProps) {
       {/* YouTube Video */}
       <section className="py-24 bg-gray-950">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-3">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">
             {isKo ? "제품 영상" : "Product Video"}
           </p>
           <h2 className="text-3xl font-extrabold text-white mb-10">
@@ -209,7 +209,7 @@ export default async function MyAGVPage({ params }: PageProps) {
       {/* Use Cases GIF */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-3">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">

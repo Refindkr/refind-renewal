@@ -71,16 +71,16 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Humanoid · Mobile Platform
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
             {isKo ? "싱글암 수직 리프트" : "Single Arm Vertical Lift"}
           </h1>
-          <p className="text-sm text-[#669DFD] font-semibold mb-5">
+          <p className="text-sm text-[#E1251B] font-semibold mb-5">
             {isKo ? "스마트 자동화를 위한 단일 암 모바일 매니퓰레이터" : "A Single-Arm Mobile Manipulator for Smart Automation"}
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
@@ -113,7 +113,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 특징" : "Product Features"}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -130,7 +130,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
       {/* Specs + Image */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Specifications</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Specifications</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "기술 사양" : "Technical Specifications"}
           </h2>
@@ -159,7 +159,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
       {/* Applications */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -177,7 +177,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
       {/* Single vs Dual Arm Comparison */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Comparison</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Comparison</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "Single Arm vs Dual Arm 비교" : "Single Arm vs Dual Arm"}
           </h2>
@@ -187,26 +187,26 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
                 <tr className="bg-white border-b border-gray-100">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap"> </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-                    <Link href={`/${locale}/products/humanoid/embodied-dual-arm`} className="hover:text-[#669DFD] transition-colors">Dual Arm Vertical Lift</Link>
+                    <Link href={`/${locale}/products/humanoid/embodied-dual-arm`} className="hover:text-[#E1251B] transition-colors">Dual Arm Vertical Lift</Link>
                   </th>
-                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#669DFD] whitespace-nowrap">Single Arm Vertical Lift</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">Single Arm Vertical Lift</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 <tr className="bg-white">
                   <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{isKo ? "로봇암" : "Robot Arm"}</td>
                   <td className="px-5 py-3.5 text-center text-gray-600">{isKo ? "양팔" : "Dual Arm"}</td>
-                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#669DFD]/5">{isKo ? "단일 팔" : "Single Arm"}</td>
+                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#E1251B]/5">{isKo ? "단일 팔" : "Single Arm"}</td>
                 </tr>
                 <tr className="bg-gray-50/50">
                   <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{isKo ? "동시 작업" : "Simultaneous Tasks"}</td>
                   <td className="px-5 py-3.5 text-center text-gray-600">{isKo ? "가능" : "Possible"}</td>
-                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#669DFD]/5">{isKo ? "불가능" : "Not Possible"}</td>
+                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#E1251B]/5">{isKo ? "불가능" : "Not Possible"}</td>
                 </tr>
                 <tr className="bg-white">
                   <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{isKo ? "추천 환경" : "Best For"}</td>
                   <td className="px-5 py-3.5 text-center text-gray-600">{isKo ? "제조, 물류, 조립" : "Manufacturing, logistics, assembly"}</td>
-                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#669DFD]/5">{isKo ? "검사, 이송, 단순 자동화" : "Inspection, transfer, simple automation"}</td>
+                  <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#E1251B]/5">{isKo ? "검사, 이송, 단순 자동화" : "Inspection, transfer, simple automation"}</td>
                 </tr>
               </tbody>
             </table>

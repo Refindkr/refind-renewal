@@ -24,8 +24,8 @@ export default async function AdminPage({ params }: PageProps) {
   ]);
 
   const stats = [
-    { label: "전체 공지사항", value: noticeCount, color: "text-blue-600", bg: "bg-blue-50" },
-    { label: "전체 카드뉴스", value: cardNewsCount, color: "text-purple-600", bg: "bg-purple-50" },
+    { label: "전체 공지사항", value: noticeCount, color: "text-primary-600", bg: "bg-primary-50" },
+    { label: "전체 카드뉴스", value: cardNewsCount, color: "text-primary-600", bg: "bg-primary-50" },
   ];
 
   return (
@@ -36,7 +36,7 @@ export default async function AdminPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-2">Admin</p>
+              <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-2">Admin</p>
               <h1 className="text-3xl font-extrabold text-white">관리자 대시보드</h1>
             </div>
             <div className="flex items-center gap-4">
@@ -64,18 +64,18 @@ export default async function AdminPage({ params }: PageProps) {
         <div className="grid md:grid-cols-2 gap-5 max-w-2xl">
           <Link
             href={`/${locale}/admin/notice`}
-            className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-blue-200 hover:shadow-sm transition-all"
+            className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
           >
-            <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#669DFD] transition-colors">
+            <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">
               공지사항 관리
             </h2>
             <p className="text-sm text-gray-500">공지사항을 작성하고 목록을 관리합니다</p>
           </Link>
           <Link
             href={`/${locale}/admin/card-news`}
-            className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-blue-200 hover:shadow-sm transition-all"
+            className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
           >
-            <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#669DFD] transition-colors">
+            <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">
               카드뉴스 관리
             </h2>
             <p className="text-sm text-gray-500">카드뉴스를 작성하고 목록을 관리합니다</p>

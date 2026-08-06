@@ -27,15 +27,15 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Robot Hand · Force Sensing
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP001</h1>
-            <p className="text-sm text-[#0AABBA] font-semibold mb-5">{isKo ? "힘을 읽고 제어하다" : "Sense Force. Control Precisely."}</p>
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "힘을 읽고 제어하다" : "Sense Force. Control Precisely."}</p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
                 ? "내장형 Tashan 포스 센서로 실시간 힘 피드백과 토크 제어의 최적화를 경험하세요."
@@ -45,7 +45,7 @@ export default async function AP001Page({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/robot-hand`}
@@ -64,7 +64,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "특징" : "Features"}
           </p>
           <div className="space-y-4">
@@ -86,7 +86,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* YouTube Video */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 영상" : "Product Video"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -109,7 +109,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Core Values */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "핵심 가치" : "Core Value"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "핵심 가치" : "Core Value"}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { title: "Integrated Force Sensing", desc: isKo ? "별도 외부 센서 없이 말단 부하를 정밀 측정, 섬세한 힘 조절 가능" : "Precise end-load measurement without external sensors for delicate force control" },
@@ -129,7 +129,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Technical Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "하드웨어 사양" : "Hardware Specs"}</h3>
@@ -172,7 +172,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Sensor Spec Image */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "센서 사양" : "Sensor Specifications"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -193,7 +193,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Structure Image */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 구조" : "Product Structure"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -214,7 +214,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Size & Performance Specs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 사이즈 & 성능" : "Size & Performance"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
@@ -283,7 +283,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "활용 사례" : "Use Cases"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: isKo ? "정밀 조립" : "Precision Assembly", desc: isKo ? "부품 결합 시 발생하는 힘을 실시간 감지해 부품 파손 방지 및 공정 품질 즉각 검수" : "Real-time force detection during part assembly prevents damage and enables instant quality inspection" },
@@ -291,7 +291,7 @@ export default async function AP001Page({ params }: PageProps) {
               { title: isKo ? "의료/바이오 자동화" : "Medical/Bio Automation", desc: isKo ? "섬세한 바이오 시료 취급과 힘 피드백 기반 원격 수술 로봇 연구 환경에 최적" : "Ideal for delicate bio-sample handling and force-feedback-based surgical robot research" },
             ].map((u, i) => (
               <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="w-8 h-8 rounded-lg bg-[#E6F7F8] text-[#0AABBA] flex items-center justify-center text-xs font-bold mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[#FDEDEB] text-[#E1251B] flex items-center justify-center text-xs font-bold mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
@@ -305,7 +305,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Use Cases — GIF */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
@@ -381,7 +381,7 @@ export default async function AP001Page({ params }: PageProps) {
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "납품 사례" : "Delivery Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -409,7 +409,7 @@ export default async function AP001Page({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-[#0AABBA] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
         </div>

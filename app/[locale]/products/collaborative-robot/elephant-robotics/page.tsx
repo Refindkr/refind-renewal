@@ -96,17 +96,17 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Collaborative Robot · Education & Research
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
               Elephant Robotics
             </h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "교육·연구·개발을 위한 소형 협동 로봇암 플랫폼" : "Compact Collaborative Robot Arm Platform for Education & Research"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -142,7 +142,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
       {/* Key Features */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 특징" : "Key Features"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">
@@ -164,7 +164,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
       {products.map((p, idx) => (
         <section key={p.model} className={`py-20 ${idx % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
           <div className="max-w-7xl mx-auto px-6">
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               myCobot Series
             </p>
             <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -181,12 +181,12 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
               {/* Info */}
               <div>
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-2 tracking-tight">{p.model}</h2>
-                <p className="text-sm text-[#669DFD] font-semibold mb-4">{p.tagline}</p>
+                <p className="text-sm text-[#E1251B] font-semibold mb-4">{p.tagline}</p>
                 <p className="text-sm text-gray-500 leading-relaxed mb-6">{p.desc}</p>
                 {/* Feature tags */}
                 <div className="flex flex-wrap gap-2 mb-8">
                   {p.features.map((f, i) => (
-                    <span key={i} className="px-3 py-1.5 bg-blue-50 text-[#669DFD] rounded-full text-xs font-medium border border-blue-100">
+                    <span key={i} className="px-3 py-1.5 bg-primary-50 text-[#E1251B] rounded-full text-xs font-medium border border-primary-100">
                       {f}
                     </span>
                   ))}
@@ -219,7 +219,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
       {/* Model Comparison Table */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "모델 비교" : "Model Comparison"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -230,9 +230,9 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "항목" : "Spec"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-bold text-[#669DFD]">myCobot 280</th>
-                  <th className="text-center px-5 py-4 text-xs font-bold text-[#669DFD]">myCobot 320</th>
-                  <th className="text-center px-5 py-4 text-xs font-bold text-[#669DFD]">myCobot 630</th>
+                  <th className="text-center px-5 py-4 text-xs font-bold text-[#E1251B]">myCobot 280</th>
+                  <th className="text-center px-5 py-4 text-xs font-bold text-[#E1251B]">myCobot 320</th>
+                  <th className="text-center px-5 py-4 text-xs font-bold text-[#E1251B]">myCobot 630</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">

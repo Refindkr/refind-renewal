@@ -48,17 +48,17 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Physical AI · Platform
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
               {isKo ? "듀얼암 로봇 플랫폼" : "Dual-Arm Robot Platform"}
             </h1>
-            <p className="text-base text-[#669DFD] font-semibold mb-5">
+            <p className="text-base text-[#E1251B] font-semibold mb-5">
               Dural Arm embodied AI development platform
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -94,7 +94,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
       {/* Overview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Overview</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Overview</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-6 tracking-tight">
             {isKo ? "차세대 AI 로보틱스 연구를 위한 풀스택 플랫폼" : "Full-Stack Platform for Next-Gen AI Robotics Research"}
           </h2>
@@ -105,7 +105,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
           </p>
 
           {/* Use Cases */}
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-6">
             {isKo ? "활용 분야" : "Use Cases"}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -121,7 +121,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Parameters"}
           </p>
           <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">

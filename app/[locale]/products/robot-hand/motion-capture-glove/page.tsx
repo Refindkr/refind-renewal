@@ -35,11 +35,11 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(10,171,186,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(102,157,253,0.08) 0%, transparent 45%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.12) 0%, transparent 55%), radial-gradient(circle at 85% 30%, rgba(225,37,27,0.08) 0%, transparent 45%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Robot Hand · Teleoperation
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -54,7 +54,7 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/robot-hand`}
@@ -78,7 +78,7 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 사양" : "Key Specifications"}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -100,12 +100,12 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
       {/* Related */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-6">
             {isKo ? "함께 사용하기 좋은 제품" : "Works Well With"}
           </p>
           <Link
             href={`/${locale}/products/robot-hand/ap003`}
-            className="flex items-center justify-between bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-sm transition-all group max-w-xl"
+            className="flex items-center justify-between bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-primary-100 hover:shadow-sm transition-all group max-w-xl"
           >
             <div>
               <div className="text-sm font-bold text-gray-900 mb-1">ROH-AP003</div>
@@ -113,7 +113,7 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
                 {isKo ? "자기식 촉각 센서 로봇 핸드 — 모션 캡처 글러브로 실시간 원격 제어" : "Magnetic tactile sensor robot hand — real-time teleoperation via motion capture glove"}
               </div>
             </div>
-            <svg className="w-4 h-4 text-gray-300 group-hover:text-[#0AABBA] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-gray-300 group-hover:text-[#E1251B] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
@@ -132,7 +132,7 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-[#0AABBA] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "문의하기" : "Contact Us"}
           </a>
         </div>

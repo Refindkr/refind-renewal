@@ -86,10 +86,10 @@ export default async function RealbotPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(102,157,253,0.15) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(225,37,27,0.15) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Humanoid Robot · Full-body
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
@@ -143,14 +143,14 @@ export default async function RealbotPage({ params }: PageProps) {
       {/* Features */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Engineered Excellence</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Engineered Excellence</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-16 tracking-tight">
             {isKo ? "지능형 로보틱스의 새로운 기준" : "New Standard for Intelligent Robotics"}
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
-              <div key={i} className="border border-gray-100 rounded-2xl p-8 hover:border-[#669DFD]/30 transition-colors">
-                <div className="w-10 h-10 rounded-full bg-[#669DFD]/10 flex items-center justify-center text-[#669DFD] font-bold text-sm mb-5">
+              <div key={i} className="border border-gray-100 rounded-2xl p-8 hover:border-[#E1251B]/30 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#E1251B]/10 flex items-center justify-center text-[#E1251B] font-bold text-sm mb-5">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{f.title}</h3>
@@ -164,7 +164,7 @@ export default async function RealbotPage({ params }: PageProps) {
       {/* Specs Table */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Specifications</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Specifications</p>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "기술 사양" : "Technical Specifications"}
           </h2>
@@ -188,7 +188,7 @@ export default async function RealbotPage({ params }: PageProps) {
       {/* Use Cases GIF */}
       <section className="py-24 bg-gray-950 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Applications</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Applications</p>
           <h2 className="text-4xl font-extrabold mb-12 tracking-tight">
             {isKo ? "다양한 산업에서 인간과 협력합니다" : "Collaborating with Humans Across Industries"}
           </h2>

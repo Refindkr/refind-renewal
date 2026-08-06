@@ -89,15 +89,15 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(10,171,186,0.25) 0%, transparent 60%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.25) 0%, transparent 60%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Collaborative Robot · REALMAN
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">RM65 / RM75</h1>
-            <p className="text-sm text-[#0aabba] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "초경량 6축 협동로봇" : "Ultra-Lightweight 6-Axis Collaborative Robot"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -109,7 +109,7 @@ export default async function RM6575Page({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0aabba] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/collaborative-robot/realman`}
@@ -128,13 +128,13 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Core Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 특징" : "Core Features"}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {coreFeatures.map((f, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100">
-                <h3 className="text-sm font-bold text-[#0aabba] mb-2">{f.title}</h3>
+                <h3 className="text-sm font-bold text-[#E1251B] mb-2">{f.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -145,7 +145,7 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Applications */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid md:grid-cols-2 gap-4">
@@ -153,7 +153,7 @@ export default async function RM6575Page({ params }: PageProps) {
               const [title, ...rest] = a.split(isKo ? " : " : ": ");
               return (
                 <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-5 border border-gray-100">
-                  <span className="text-[#0aabba] font-bold mt-0.5">•</span>
+                  <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">{title}</span>
                     {rest.length > 0 ? ` : ${rest.join(": ")}` : ""}
@@ -168,7 +168,7 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Spec Comparison */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-100">
@@ -176,8 +176,8 @@ export default async function RM6575Page({ params }: PageProps) {
               <thead>
                 <tr className="bg-white border-b border-gray-100">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{isKo ? "항목" : "Item"}</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#0aabba] whitespace-nowrap">RM65</th>
-                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#0aabba] whitespace-nowrap">RM75</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">RM65</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">RM75</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -202,7 +202,7 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Integrated Controller */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "통합 제어기" : "Integrated Controller"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
@@ -216,7 +216,7 @@ export default async function RM6575Page({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-4">
             {controllerBenefits.map((b, i) => (
               <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <span className="text-[#0aabba] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{b}</span>
               </div>
             ))}
@@ -227,7 +227,7 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* Cross-sell: ROHand */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "함께 사용할 수 있는 제품" : "Works Well With"}
           </p>
           <p className="text-gray-500 leading-relaxed mb-6">
@@ -235,7 +235,7 @@ export default async function RM6575Page({ params }: PageProps) {
           </p>
           <Link
             href={`/${locale}/products/robot-hand`}
-            className="flex items-center justify-between bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-100 hover:shadow-sm transition-all group"
+            className="flex items-center justify-between bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-100 hover:shadow-sm transition-all group"
           >
             <div>
               <div className="text-sm font-bold text-gray-900 mb-1">
@@ -247,7 +247,7 @@ export default async function RM6575Page({ params }: PageProps) {
                   : "Human-like multi-joint structure · Precision grasping · AI/vision integration · Ideal for AI robots, humanoids, R&D, precision assembly"}
               </div>
             </div>
-            <svg className="w-4 h-4 text-gray-300 group-hover:text-[#0aabba] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-gray-300 group-hover:text-[#E1251B] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
@@ -257,7 +257,7 @@ export default async function RM6575Page({ params }: PageProps) {
       {/* RM vs ECO Comparison */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0aabba] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "RM 시리즈와 ECO 시리즈 비교" : "RM Series vs ECO Series"}
           </p>
           <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-10">
@@ -265,7 +265,7 @@ export default async function RM6575Page({ params }: PageProps) {
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap"> </th>
-                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#0aabba]">RM {isKo ? "시리즈" : "Series"}</th>
+                  <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B]">RM {isKo ? "시리즈" : "Series"}</th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500">ECO {isKo ? "시리즈" : "Series"}</th>
                 </tr>
               </thead>
@@ -282,14 +282,14 @@ export default async function RM6575Page({ params }: PageProps) {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <h3 className="text-sm font-bold text-[#0aabba] mb-4">RM {isKo ? "시리즈" : "Series"}</h3>
+              <h3 className="text-sm font-bold text-[#E1251B] mb-4">RM {isKo ? "시리즈" : "Series"}</h3>
               <ul className="space-y-2">
                 {(isKo
                   ? ["초경량 설계(약 7.2kg)", "AI·비전·서비스 로봇 등 확장성 중심", "이동형 로봇(AMR) 및 휴머노이드 플랫폼에 적합", "일부 관절에 소프트 브레이크를 적용해 무게를 줄이고 기동성을 향상", "내부 배선(Internal Wiring) 지원 — 비전 카메라, 그리퍼 등 말단 장치를 연결하는 케이블을 로봇 암 내부로 배선"]
                   : ["Ultra-lightweight design (~7.2kg)", "Extensibility-focused for AI, vision, service robots", "Ideal for mobile robot (AMR) and humanoid platforms", "Soft brakes on some joints reduce weight and improve agility", "Internal wiring support — routes end-effector cables (vision cameras, grippers) inside the arm"]
                 ).map((p, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-gray-600 leading-relaxed">
-                    <span className="text-[#0aabba] font-bold mt-0.5">•</span>
+                    <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                     <span>{p}</span>
                   </li>
                 ))}
@@ -312,7 +312,7 @@ export default async function RM6575Page({ params }: PageProps) {
           </div>
           <p className="text-sm text-gray-400 mt-8">
             {isKo ? "ECO 시리즈 상세는 " : "See the "}
-            <Link href={`/${locale}/products/collaborative-robot/realman/eco`} className="text-[#0aabba] font-semibold hover:underline">
+            <Link href={`/${locale}/products/collaborative-robot/realman/eco`} className="text-[#E1251B] font-semibold hover:underline">
               {isKo ? "ECO 62/63/65 페이지" : "ECO 62/63/65 page"}
             </Link>
             {isKo ? "를 참고하세요." : " for ECO series details."}
@@ -332,7 +332,7 @@ export default async function RM6575Page({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-[#0aabba] text-white font-bold rounded-full hover:bg-[#088A96] transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
         </div>

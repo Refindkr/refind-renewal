@@ -32,7 +32,7 @@ function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
               Model
             </th>
             {models.map((m) => (
-              <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#669DFD] whitespace-nowrap">
+              <th key={m} className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">
                 {m}
               </th>
             ))}
@@ -93,11 +93,11 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 80% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Physical AI · Platform
             </span>
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
@@ -140,7 +140,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
       {/* Overview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">Overview</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">Overview</p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-6 tracking-tight">
             {isKo ? "마스터-슬레이브 구조의 실시간 원격조작 솔루션" : "A Real-Time Master-Slave Teleoperation Solution"}
           </h2>
@@ -153,7 +153,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-4">
             {features.map((f, i) => (
               <div key={i} className="flex items-start gap-3 bg-white rounded-2xl p-5 border border-gray-100">
-                <span className="text-[#669DFD] font-bold mt-0.5">•</span>
+                <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
             ))}
@@ -164,7 +164,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="grid grid-cols-3 gap-4 mb-10">
@@ -177,7 +177,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
                 <div className="relative h-56">
                   <Image src={m.src} alt={m.label} fill className="object-contain p-4" sizes="(max-width: 768px) 33vw, 20vw" />
                 </div>
-                <p className="text-center text-xs font-bold text-[#669DFD] py-2 border-t border-gray-100">{m.label}</p>
+                <p className="text-center text-xs font-bold text-[#E1251B] py-2 border-t border-gray-100">{m.label}</p>
               </div>
             ))}
           </div>

@@ -27,17 +27,17 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 30% 50%, rgba(102,157,253,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 30% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Physical AI · Tactile Sensing
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
               Tashan Sensor
             </h1>
-            <p className="text-sm text-[#669DFD] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "힘을 느끼는 로봇의 감각" : "The Sense of Touch for Robots"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -73,7 +73,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Key Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "핵심 특징" : "Key Features"}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -115,7 +115,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Spec Table */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -134,7 +134,7 @@ export default async function TashanPage({ params }: PageProps) {
                       sizes="(max-width: 768px) 33vw, 16vw"
                     />
                   </div>
-                  <p className="text-center text-xs font-bold text-[#669DFD] py-2 border-t border-gray-100">{model}</p>
+                  <p className="text-center text-xs font-bold text-[#E1251B] py-2 border-t border-gray-100">{model}</p>
                 </div>
               ))}
             </div>
@@ -169,7 +169,7 @@ export default async function TashanPage({ params }: PageProps) {
                   ["TS-E-B",  "Matrix Sensing",                  "0 – 50 N", "0.05 N", "0.25 N", "5% FS", "≥ 1.5 cm"],
                 ].map(([model, type, range, normal, tangential, acc, prox], i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                    <td className="px-5 py-3.5 font-bold text-[#669DFD] whitespace-nowrap">{model}</td>
+                    <td className="px-5 py-3.5 font-bold text-[#E1251B] whitespace-nowrap">{model}</td>
                     <td className="px-5 py-3.5 text-center text-gray-600 text-xs">{type}</td>
                     <td className="px-5 py-3.5 text-center text-gray-700 font-medium">{range}</td>
                     <td className="px-5 py-3.5 text-center text-gray-700">{normal}</td>
@@ -188,7 +188,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* YouTube Video */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "제품 영상" : "Product Video"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
@@ -221,7 +221,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Use Cases GIF */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "활용 사례" : "Use Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-white mb-12 tracking-tight">
@@ -265,7 +265,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Vision-Touch Fusion */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             Vision–Touch Fusion Technology Platform
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
@@ -303,7 +303,7 @@ export default async function TashanPage({ params }: PageProps) {
                   ? "로봇은 카메라로 물체의 형상·위치·재질을 파악하고, 촉각센서로 힘·압력·미끄럼·질감·접촉 상태를 동시에 분석합니다."
                   : "Robots use cameras to understand object shape, position, and material — while tactile sensors simultaneously analyze force, pressure, slip, texture, and contact state."}
               </p>
-              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-4">
+              <div className="bg-primary-50 border border-primary-100 rounded-2xl p-5 mb-4">
                 <p className="text-sm text-gray-700 leading-relaxed">
                   {isKo
                     ? "Vision만 의존하는 로봇은 빛, 그림자, 반사광, 가려진 물체 등에 취약합니다. 하지만 Vision–Touch Fusion은 촉각이 시각의 불확실성을 보완하고 시각이 촉각의 한계를 보완하여 어떤 환경에서도 높은 안정성을 유지합니다."
@@ -333,7 +333,7 @@ export default async function TashanPage({ params }: PageProps) {
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+            <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               NVIDIA Isaac Sim
             </p>
             <h2 className="text-2xl font-extrabold text-white mb-4 tracking-tight">
@@ -373,7 +373,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Related Products */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "탑재 제품" : "Products with Tashan"}
           </p>
           <div className="grid md:grid-cols-2 gap-5 max-w-2xl">
@@ -390,12 +390,12 @@ export default async function TashanPage({ params }: PageProps) {
               },
             ].map((p, i) => (
               <Link key={i} href={p.href}
-                className="flex items-center gap-4 bg-white rounded-2xl p-6 border border-gray-100 hover:border-blue-200 hover:shadow-sm transition-all group">
+                className="flex items-center gap-4 bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-200 hover:shadow-sm transition-all group">
                 <div className="flex-1">
                   <div className="text-sm font-bold text-gray-900 mb-1">{p.name}</div>
                   <div className="text-xs text-gray-400">{p.desc}</div>
                 </div>
-                <svg className="w-4 h-4 text-gray-300 group-hover:text-[#669DFD] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gray-300 group-hover:text-[#E1251B] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
@@ -407,7 +407,7 @@ export default async function TashanPage({ params }: PageProps) {
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#669DFD] uppercase mb-4">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
             {isKo ? "납품 사례" : "Delivery Cases"}
           </p>
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">

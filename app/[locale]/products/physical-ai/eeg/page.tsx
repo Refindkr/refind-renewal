@@ -32,7 +32,7 @@ function ConfigTable({ models, rows, highlight }: { models: string[]; rows: Conf
               {" "}
             </th>
             {models.map((m, i) => (
-              <th key={m} className={`text-center px-5 py-3.5 text-xs font-bold whitespace-nowrap ${i === highlight ? "text-indigo-500" : "text-gray-500"}`}>
+              <th key={m} className={`text-center px-5 py-3.5 text-xs font-bold whitespace-nowrap ${i === highlight ? "text-primary-500" : "text-gray-500"}`}>
                 {m}
               </th>
             ))}
@@ -43,7 +43,7 @@ function ConfigTable({ models, rows, highlight }: { models: string[]; rows: Conf
             <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
               <td className="px-5 py-3 text-xs font-semibold text-gray-500 whitespace-nowrap">{row.label}</td>
               {row.values.map((v, j) => (
-                <td key={j} className={`px-5 py-3 text-center whitespace-nowrap ${j === highlight ? "text-gray-900 font-semibold bg-indigo-500/5" : "text-gray-700"}`}>
+                <td key={j} className={`px-5 py-3 text-center whitespace-nowrap ${j === highlight ? "text-gray-900 font-semibold bg-primary-500/5" : "text-gray-700"}`}>
                   {v}
                 </td>
               ))}
@@ -136,17 +136,17 @@ export default async function EEGPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.2) 0%, transparent 50%)" }}
+          style={{ backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(225,37,27,0.2) 0%, transparent 50%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-indigo-400 uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">
               BCI / BMI · EEG
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-5 tracking-tight">
               EEG
             </h1>
-            <p className="text-sm text-indigo-400 font-semibold mb-5">
+            <p className="text-sm text-primary-400 font-semibold mb-5">
               {isKo ? "확장 가능한 뇌파 측정을 위한 구성형 전극 플랫폼" : "Configurable Electrode Platform for Scalable Brain Signal Acquisition"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -182,7 +182,7 @@ export default async function EEGPage({ params }: PageProps) {
       {/* NURA */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-indigo-500 uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">
             {isKo ? "웨어러블 EEG" : "Wearable EEG"}
           </span>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">NURA</h2>
@@ -200,7 +200,7 @@ export default async function EEGPage({ params }: PageProps) {
               { label: isKo ? "무게" : "Weight", value: "25g" },
             ].map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 text-center">
-                <p className="text-lg font-extrabold text-indigo-600 mb-1">{s.value}</p>
+                <p className="text-lg font-extrabold text-primary-600 mb-1">{s.value}</p>
                 <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
@@ -230,7 +230,7 @@ export default async function EEGPage({ params }: PageProps) {
       {/* ORION */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-indigo-500 uppercase mb-4">
+          <span className="inline-block text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">
             {isKo ? "고밀도 무선 EEG" : "High-Density Wireless EEG"}
           </span>
           <h2 className="text-4xl font-extrabold text-gray-900 mb-3 tracking-tight">ORION</h2>
@@ -248,7 +248,7 @@ export default async function EEGPage({ params }: PageProps) {
               { label: isKo ? "연결" : "Connectivity", value: "Bluetooth 5.0" },
             ].map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100 text-center">
-                <p className="text-lg font-extrabold text-indigo-600 mb-1">{s.value}</p>
+                <p className="text-lg font-extrabold text-primary-600 mb-1">{s.value}</p>
                 <p className="text-xs text-gray-500">{s.label}</p>
               </div>
             ))}
@@ -289,7 +289,7 @@ export default async function EEGPage({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-indigo-500 uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-10">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">

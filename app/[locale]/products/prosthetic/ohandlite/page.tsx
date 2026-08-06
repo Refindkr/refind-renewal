@@ -27,15 +27,15 @@ export default async function OhandLitePage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(0,105,114,0.15) 0%, transparent 55%)" }}
+          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(122,19,14,0.15) 0%, transparent 55%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
               Prosthetic Hand · Lightweight
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">OhandLite</h1>
-            <p className="text-sm text-[#0AABBA] font-semibold mb-5">
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
               {isKo ? "27% 경량화, 동일한 지능" : "27% Lighter, Same Intelligence"}
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
@@ -47,7 +47,7 @@ export default async function OhandLitePage({ params }: PageProps) {
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-[#0AABBA] text-white font-semibold rounded-full text-sm hover:bg-[#088A96] transition-colors">
+                className="inline-flex items-center px-6 py-3 bg-[#E1251B] text-white font-semibold rounded-full text-sm hover:bg-[#9C1912] transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link href={`/${locale}/products/prosthetic`}
@@ -66,7 +66,7 @@ export default async function OhandLitePage({ params }: PageProps) {
       {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
               { title: isKo ? "초경량 363.5g" : "Ultra-Light 363.5g", desc: isKo ? "기존 Ohand(500g) 대비 27% 경량화. 장시간 착용 시 피로도를 최소화." : "27% lighter than standard Ohand (500g). Minimizes fatigue during extended wear." },
@@ -85,14 +85,14 @@ export default async function OhandLitePage({ params }: PageProps) {
       {/* Comparison */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-10">{isKo ? "Ohand vs OhandLite" : "Ohand vs OhandLite"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "Ohand vs OhandLite" : "Ohand vs OhandLite"}</p>
           <div className="overflow-x-auto rounded-2xl border border-gray-100">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">Ohand</th>
-                  <th className="px-5 py-4 text-xs font-bold text-[#0AABBA]">OhandLite</th>
+                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">OhandLite</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -107,7 +107,7 @@ export default async function OhandLitePage({ params }: PageProps) {
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row[0]}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row[1]}</td>
-                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#0AABBA]">{row[2]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B]">{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -119,7 +119,7 @@ export default async function OhandLitePage({ params }: PageProps) {
       {/* Use Cases GIF */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#0AABBA] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
             {isKo ? "가볍게, 자유롭게" : "Light & Free"}
           </h2>
@@ -150,7 +150,7 @@ export default async function OhandLitePage({ params }: PageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-[#006972]">
+      <section className="py-20 bg-[#7A130E]">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">{isKo ? "일상의 자유를 되찾으세요" : "Restore Freedom to Everyday Life"}</h2>
           <p className="text-white/60 mb-8 text-sm">
@@ -159,7 +159,7 @@ export default async function OhandLitePage({ params }: PageProps) {
           <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 bg-white text-[#006972] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
+            className="inline-flex items-center px-8 py-3.5 bg-white text-[#7A130E] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
         </div>

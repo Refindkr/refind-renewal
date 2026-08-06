@@ -27,17 +27,17 @@ export default async function HDEMGPage({ params }: PageProps) {
       {/* Hero */}
       <section className="py-24 bg-gray-950 relative overflow-hidden">
         <div className="absolute inset-0"
-          style={{ backgroundImage: "radial-gradient(ellipse at 80% 50%, rgba(16,185,129,0.2) 0%, transparent 50%)" }}
+          style={{ backgroundImage: "radial-gradient(ellipse at 80% 50%, rgba(225,37,27,0.2) 0%, transparent 50%)" }}
         />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block text-xs font-bold tracking-[3px] text-emerald-400 uppercase mb-4">
+            <span className="inline-block text-xs font-bold tracking-[3px] text-primary-400 uppercase mb-4">
               BCI / BMI · HD EMG
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
               HD EMG
             </h1>
-            <p className="text-sm text-emerald-400 font-semibold mb-5">BioFlex nano 32</p>
+            <p className="text-sm text-primary-400 font-semibold mb-5">BioFlex nano 32</p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
                 ? "32채널에서 최대 128채널까지 확장 가능한 고해상도 근전도 시스템. 4,096Hz의 초고속 샘플링으로 미세 신경-근육 신호를 정밀하게 포착합니다."
@@ -71,11 +71,11 @@ export default async function HDEMGPage({ params }: PageProps) {
       {/* Specs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-emerald-500 uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-8">
+            <div className="bg-primary-500/10 border border-primary-500/20 rounded-2xl p-8">
               <h3 className="text-xl font-extrabold text-gray-900 mb-6">BioFlex nano 32</h3>
               <div className="space-y-3">
                 {[
@@ -119,7 +119,7 @@ export default async function HDEMGPage({ params }: PageProps) {
       {/* Use Cases */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-emerald-500 uppercase mb-10">
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-10">
             {isKo ? "활용 분야" : "Applications"}
           </p>
           <div className="grid md:grid-cols-3 gap-5">
