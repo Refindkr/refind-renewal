@@ -30,12 +30,12 @@ export default async function BCIBMIPage({ params }: PageProps) {
       bg: "bg-blue-500/10",
       border: "border-blue-500/20",
       specs: [
-        { k: isKo ? "채널 라인업" : "Channel Lineup", v: "1ch / 2ch / 4ch / 7+1ch / 8ch" },
-        { k: isKo ? "앰프 무게" : "Amp Weight", v: "23g" },
+        { k: isKo ? "채널 라인업" : "Channel Lineup", v: isKo ? "1/2/4/7/8ch (Uno~Neo)" : "1/2/4/7/8ch (Uno~Neo)" },
+        { k: isKo ? "앰프 무게" : "Amp Weight", v: "25g" },
         { k: isKo ? "샘플링" : "Sampling", v: "250Hz" },
         { k: isKo ? "해상도" : "Resolution", v: "24-bit" },
-        { k: isKo ? "대역폭" : "Bandwidth", v: "0~80Hz" },
-        { k: isKo ? "연결" : "Connectivity", v: "BT 5.0" },
+        { k: isKo ? "주파수 대역" : "Frequency Band", v: "0.5-60Hz" },
+        { k: isKo ? "연결" : "Connectivity", v: "Bluetooth 4.2" },
         { k: isKo ? "배터리" : "Battery", v: isKo ? "최대 12시간" : "Up to 12hrs" },
       ],
       desc: isKo

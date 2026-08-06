@@ -75,12 +75,12 @@ refind-renewal/
 │   │   │   │   ├── embodied-dual-arm/page.tsx
 │   │   │   │   └── lifting-platform/page.tsx
 │   │   │   ├── body-enhancement/
-│   │   │   │   ├── page.tsx               # 신체증강기기 카테고리
-│   │   │   │   ├── ore-3000/page.tsx
-│   │   │   │   └── oyfm-7000/page.tsx
+│   │   │   │   └── page.tsx               # 개인 신체 증강 기기 대메뉴 개요
+│   │   │   │                                (전자의수/BCI-BMI/로봇보조기 3개 서브 카테고리로 링크)
 │   │   │   ├── prosthetic/
 │   │   │   │   ├── page.tsx               # 전자의수 카테고리 (신체증강기기 서브)
 │   │   │   │   ├── ohand/page.tsx
+│   │   │   │   ├── ohand-s001/page.tsx
 │   │   │   │   └── ohandlite/page.tsx
 │   │   │   ├── robot-support/page.tsx      # 로봇 보조기 (신체증강기기 서브)
 │   │   │   └── physical-ai/
@@ -159,8 +159,12 @@ refind-renewal/
 
 - "로봇운동기"(ORE-3000, OYFM-7000)는 실제 판매 상품이 아니라 리뉴얼 중 잘못 추가된 항목이라 삭제됨
 - "Guohua Robot"은 더 이상 취급하지 않는 상품이라 페이지·네비바·사이트맵에서 완전히 삭제됨
-- 로봇암(RX 시리즈 4개 모델: RX75, RX75S, RX75-비전형, RX71) / Ohand S001은
-  스펙·이미지 자료 확보 전까지 "준비 중" placeholder 페이지로 연결 (`components/ui/ComingSoonProduct.tsx`)
+- 로봇암(RX 시리즈 4개 모델: RX75, RX75S, RX75-비전형, RX71) / Ohand S001은 실제 사진·스펙 확보 완료되어
+  정식 상세 페이지로 전환됨 (RX 시리즈는 `humanoid/robot-arm` 카테고리 페이지에 4개 모델 비교표 포함)
+- "개인 신체 증강 기기" 대메뉴는 하위 서브카테고리(전자의수/BCI-BMI/로봇보조기)가 3개나 있음에도
+  대메뉴 링크가 곧바로 `products/prosthetic`(전자의수)로 연결되어 다른 서브카테고리가 보이지 않는
+  버그가 있었음 → `products/body-enhancement`에 3개 서브카테고리로 링크하는 개요 페이지를 신설하고
+  Navbar/Footer/홈페이지의 대메뉴 링크를 전부 이 페이지로 수정
 - REALBOT L2 / REALBOT 01은 실제 사진·스펙 확보 완료되어 정식 상세 페이지로 전환됨
   (RealBot S2/L2/01 비교표를 세 페이지 모두에 포함, 서로 링크)
 - "플랫폼"은 카테고리 페이지(`products/physical-ai/platform`)로, 하위에 듀얼암 로봇 플랫폼
@@ -211,13 +215,19 @@ refind-renewal/
 /[locale]/products/collaborative-robot/elephant-robotics
 /[locale]/products/humanoid
 /[locale]/products/humanoid/realbot            (REALBOT S2)
-/[locale]/products/humanoid/realbot-l2         (준비중)
-/[locale]/products/humanoid/realbot-01         (준비중)
+/[locale]/products/humanoid/realbot-l2
+/[locale]/products/humanoid/realbot-01
 /[locale]/products/humanoid/embodied-dual-arm  (Dual arm vertical Lift)
 /[locale]/products/humanoid/lifting-platform   (Single arm vertical lift)
-/[locale]/products/humanoid/robot-arm          (로봇암 RX 시리즈, 준비중)
+/[locale]/products/humanoid/robot-arm          (로봇암 RX 시리즈 카테고리)
+/[locale]/products/humanoid/robot-arm/rx71
+/[locale]/products/humanoid/robot-arm/rx75s
+/[locale]/products/humanoid/robot-arm/rx75
+/[locale]/products/humanoid/robot-arm/rx75-vision
+/[locale]/products/body-enhancement            (개인 신체 증강 기기 대메뉴 개요)
 /[locale]/products/prosthetic
 /[locale]/products/prosthetic/ohand
+/[locale]/products/prosthetic/ohand-s001
 /[locale]/products/prosthetic/ohandlite
 /[locale]/products/robot-support
 /[locale]/products/robot-support/hybridex

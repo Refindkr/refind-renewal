@@ -88,7 +88,7 @@ export default function Navbar({ locale }: NavbarProps) {
       ],
     },
     {
-      href: `/${locale}/products/prosthetic`,
+      href: `/${locale}/products/body-enhancement`,
       label: t("bodyEnhancement"),
       desc: isKo ? "의수·BCI·재활·보조기 솔루션" : "Prosthetics, BCI, rehab & support",
       children: [

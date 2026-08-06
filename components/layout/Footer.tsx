@@ -35,7 +35,7 @@ export default async function Footer({ locale }: FooterProps) {
                 { href: `/${locale}/products/robot-hand`, label: tn("robotHand") },
                 { href: `/${locale}/products/collaborative-robot`, label: tn("collaborativeRobot") },
                 { href: `/${locale}/products/humanoid`, label: tn("humanoid") },
-                { href: `/${locale}/products/prosthetic`, label: tn("bodyEnhancement") },
+                { href: `/${locale}/products/body-enhancement`, label: tn("bodyEnhancement") },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

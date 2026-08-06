@@ -59,7 +59,7 @@ export default async function HomePage({ params }: PageProps) {
       image: "/products/humanoid/realbot.jpeg",
     },
     {
-      href: `/${locale}/products/robot-support`,
+      href: `/${locale}/products/body-enhancement`,
       title: tp("bodyEnhancement.title"),
       desc: tp("bodyEnhancement.description"),
       number: "05",
