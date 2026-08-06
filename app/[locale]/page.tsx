@@ -27,50 +27,45 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const t = await getTranslations("home");
+  const tn = await getTranslations("nav");
   const tp = await getTranslations("products");
 
+  // 홈페이지 "주요 제품" 섹션은 실제 대메뉴(Navbar productLinks) 5개와 1:1로 대응시킨다.
   const products = [
     {
-      href: `/${locale}/products/robot-hand`,
-      title: tp("robotHand.title"),
-      desc: tp("robotHand.description"),
+      href: `/${locale}/products/physical-ai`,
+      title: tn("physicalAI"),
+      desc: tp("physicalAI.description"),
       number: "01",
+      image: "/products/sensors/tashan.png",
+    },
+    {
+      href: `/${locale}/products/robot-hand`,
+      title: tn("robotHand"),
+      desc: tp("robotHand.description"),
+      number: "02",
       image: "/products/robot-hand/a002.png",
     },
     {
-      href: `/${locale}/products/prosthetic`,
-      title: locale === "ko" ? "전자의수" : "Prosthetic Hand",
-      desc: locale === "ko" ? "AI 근전도 제어 지능형 전자의수" : "AI myoelectric intelligent prosthetic hand",
-      number: "02",
-      image: "/products/prosthetic/ohand_pinch_hd.png",
-    },
-    {
       href: `/${locale}/products/collaborative-robot`,
-      title: tp("collaborativeRobot.title"),
+      title: tn("collaborativeRobot"),
       desc: tp("collaborativeRobot.description"),
       number: "03",
       image: "/products/collaborative-robot/1.jpeg",
     },
     {
       href: `/${locale}/products/humanoid`,
-      title: tp("humanoid.title"),
+      title: tn("humanoid"),
       desc: tp("humanoid.description"),
       number: "04",
       image: "/products/humanoid/realbot.jpeg",
     },
     {
       href: `/${locale}/products/body-enhancement`,
-      title: tp("bodyEnhancement.title"),
+      title: tn("bodyEnhancement"),
       desc: tp("bodyEnhancement.description"),
       number: "05",
       image: "/products/prosthetic/ohand_pinch_hd.png",
-    },
-    {
-      href: `/${locale}/products/physical-ai`,
-      title: tp("physicalAI.title"),
-      desc: tp("physicalAI.description"),
-      number: "06",
-      image: "/products/sensors/tashan.png",
     },
   ];
 

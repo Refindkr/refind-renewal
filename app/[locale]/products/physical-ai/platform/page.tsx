@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
@@ -29,6 +30,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
         ? "AI 기반 로봇 연구와 애플리케이션 개발을 위한 듀얼 암 로봇 플랫폼. 양팔 협업 동작, AI 학습, 데이터 수집, 원격 조작, 강화학습 등에 활용됩니다."
         : "A dual-arm robot platform for AI-based robotics research and application development. Used for two-arm collaborative motion, AI training, data collection, teleoperation, and reinforcement learning.",
       tags: isKo ? ["듀얼암", "Embodied AI", "10kg 페이로드"] : ["Dual-Arm", "Embodied AI", "10kg Payload"],
+      image: "/products/platform/1.jpeg",
     },
     {
       href: `/${locale}/products/physical-ai/platform/teleoperation-kit`,
@@ -38,6 +40,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
         ? "작업자의 움직임을 로봇에 실시간으로 전달하는 마스터-슬레이브 원격조작 키트. Embodied AI 학습 데이터 수집, 기능 검증, 가정 서비스·리테일 환경에 적합합니다."
         : "A master-slave teleoperation kit that transmits an operator's movements to a robot in real time. Ideal for embodied AI data collection, functional verification, home service, and retail environments.",
       tags: isKo ? ["원격조작", "마스터-슬레이브", "RJ45"] : ["Teleoperation", "Master-Slave", "RJ45"],
+      image: "/products/physical-ai/platform/teleoperation-kit/aloha.png",
     },
   ];
 
@@ -75,27 +78,38 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
               <Link
                 key={product.href}
                 href={product.href}
-                className="group bg-white rounded-2xl border border-gray-100 p-8 hover:shadow-xl hover:border-blue-100 transition-all duration-300"
+                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-100 transition-all duration-300"
               >
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {product.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 tracking-wide"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <div className="relative h-56 bg-gray-100 overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-1">{product.name}</h3>
-                <p className="text-xs text-gray-400 mb-4">{product.nameEn}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{product.tagline}</p>
+                <div className="p-8">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {product.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 tracking-wide"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{product.name}</h3>
+                  <p className="text-xs text-gray-400 mb-4">{product.nameEn}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">{product.tagline}</p>
 
-                <div className="mt-6 flex items-center gap-1 text-sm font-semibold text-blue-500 group-hover:gap-2 transition-all">
-                  {isKo ? "자세히 보기" : "Learn more"}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <div className="mt-6 flex items-center gap-1 text-sm font-semibold text-blue-500 group-hover:gap-2 transition-all">
+                    {isKo ? "자세히 보기" : "Learn more"}
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
