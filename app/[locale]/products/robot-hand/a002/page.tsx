@@ -117,7 +117,7 @@ export default async function A002Page({ params }: PageProps) {
           </h2>
           <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
             <Image
-              src="/products/robot-hand/a002_2.png"
+              src="/products/robot-hand/a002_2.jpeg"
               alt={isKo ? "ROH-A002 구조 도면" : "ROH-A002 Structure Diagram"}
               width={1200}
               height={800}

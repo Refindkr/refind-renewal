@@ -180,7 +180,7 @@ export default async function AP001Page({ params }: PageProps) {
           </h2>
           <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
             <Image
-              src="/products/robot-hand/ap001_1.png"
+              src="/products/robot-hand/ap001_1.jpg"
               alt={isKo ? "ROH-AP001 센서 스펙" : "ROH-AP001 Sensor Specs"}
               width={1200}
               height={800}
