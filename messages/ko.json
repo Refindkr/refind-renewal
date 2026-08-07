@@ -14,7 +14,7 @@
     "inquiry": "문의게시판",
     "notice": "공지사항",
     "cardNews": "카드뉴스",
-    "login": "로그인",
+    "login": "관리자 로그인",
     "logout": "로그아웃",
     "myPage": "마이페이지"
   },
@@ -159,7 +159,7 @@
   },
   "auth": {
     "login": {
-      "title": "로그인",
+      "title": "관리자 로그인",
       "email": "이메일",
       "emailPlaceholder": "이메일을 입력하세요",
       "password": "비밀번호",

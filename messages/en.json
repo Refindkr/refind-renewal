@@ -14,7 +14,7 @@
     "inquiry": "Inquiry",
     "notice": "Notice",
     "cardNews": "Card News",
-    "login": "Login",
+    "login": "Admin Login",
     "logout": "Logout",
     "myPage": "My Page"
   },
@@ -159,7 +159,7 @@
   },
   "auth": {
     "login": {
-      "title": "Login",
+      "title": "Admin Login",
       "email": "Email",
       "emailPlaceholder": "Enter your email",
       "password": "Password",
