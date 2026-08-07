@@ -43,6 +43,22 @@ html {
   animation: hero-fade-up 0.8s ease-out both;
 }
 
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-hero-glow {
+  animation: hero-glow-pulse 6s ease-in-out infinite;
+}
+
 body {
   font-family: 'Pretendard Variable', 'Inter', sans-serif;
 }

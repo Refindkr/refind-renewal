@@ -92,7 +92,7 @@ export default async function HomePage({ params }: PageProps) {
 
         {/* Radial glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px]" />
+          <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px] animate-hero-glow" />
         </div>
 
         <div className="relative max-w-4xl mx-auto">
