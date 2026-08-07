@@ -13,6 +13,21 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.animate-hero-zoom {
+  animation-name: hero-ken-burns;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
 body {
   font-family: 'Pretendard Variable', 'Inter', sans-serif;
 }

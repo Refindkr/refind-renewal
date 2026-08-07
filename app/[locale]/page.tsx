@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroRotatingBackground from "@/components/ui/HeroRotatingBackground";
+import Reveal from "@/components/ui/Reveal";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -139,15 +140,15 @@ export default async function HomePage({ params }: PageProps) {
             { value: "5+", label: "제품 라인업" },
             { value: "AI", label: "물리적 지능" },
             { value: "∞", label: "가능성의 한계" },
-          ].map((stat) => (
-            <div key={stat.label} className="bg-white px-10 py-12 text-center">
+          ].map((stat, i) => (
+            <Reveal key={stat.label} delayMs={i * 80} className="bg-white px-10 py-12 text-center">
               <div className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
                 {stat.value}
               </div>
               <div className="text-sm text-gray-400 font-medium tracking-wide uppercase">
                 {stat.label}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -157,7 +158,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             {/* Left */}
-            <div>
+            <Reveal>
               <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-6">
                 About
               </p>
@@ -182,7 +183,7 @@ export default async function HomePage({ params }: PageProps) {
                   <p className="text-gray-800 font-medium">{t("about.missionText")}</p>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right – Core Values */}
             <div>
@@ -191,7 +192,7 @@ export default async function HomePage({ params }: PageProps) {
               </p>
               <div className="divide-y divide-gray-100">
                 {(["innovation", "professionalism", "ethics", "collaboration", "positivity"] as const).map((key, i) => (
-                  <div key={key} className="flex items-start gap-6 py-5 group">
+                  <Reveal key={key} delayMs={i * 80} className="flex items-start gap-6 py-5 group">
                     <span className="text-xs text-gray-300 font-mono mt-1 w-6 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -201,7 +202,7 @@ export default async function HomePage({ params }: PageProps) {
                       </div>
                       <p className="text-sm text-gray-400">{t(`coreValues.${key}Text`)}</p>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -212,7 +213,7 @@ export default async function HomePage({ params }: PageProps) {
       {/* ─── Products ─── */}
       <section className="py-32 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
             <div>
               <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
                 Products
@@ -221,12 +222,12 @@ export default async function HomePage({ params }: PageProps) {
                 {t("products.title")}
               </h2>
             </div>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {products.map((product) => (
+            {products.map((product, i) => (
+              <Reveal key={product.number} delayMs={i * 80}>
               <Link
-                key={product.number}
                 href={product.href}
                 className="group relative bg-[#111] rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
               >
@@ -259,6 +260,7 @@ export default async function HomePage({ params }: PageProps) {
                   </div>
                 </div>
               </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -266,7 +268,7 @@ export default async function HomePage({ params }: PageProps) {
 
       {/* ─── Final CTA ─── */}
       <section className="py-40 bg-black text-center px-6">
-        <div className="max-w-3xl mx-auto">
+        <Reveal className="max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight mb-6">
             {t("contact.title")}
           </h2>
@@ -284,7 +286,7 @@ export default async function HomePage({ params }: PageProps) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </div>
+        </Reveal>
       </section>
     </div>
   );
