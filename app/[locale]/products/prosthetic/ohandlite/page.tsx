@@ -162,6 +162,7 @@ export default async function OhandLitePage({ params }: PageProps) {
             className="inline-flex items-center px-8 py-3.5 bg-white text-[#7A130E] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
+          <div className="mt-10 pt-8 border-t border-white/10" />
         </div>
       </section>
     </div>

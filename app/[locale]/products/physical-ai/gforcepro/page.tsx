@@ -111,9 +111,9 @@ export default async function GForceProPage({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "제품 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/physical-ai`}
+              <Link href={`/${locale}/products/physical-ai/bcibmi`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-                {isKo ? "제품 목록" : "All Products"}
+                {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
               </Link>
             </div>
           </div>
@@ -249,11 +249,12 @@ export default async function GForceProPage({ params }: PageProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <Link href={`/${locale}/products/physical-ai`}
+            <Link href={`/${locale}/products/physical-ai/bcibmi`}
               className="inline-flex items-center px-8 py-4 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "다른 제품 보기" : "Other Products"}
+              {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
             </Link>
           </div>
+          <div className="mt-10 pt-8 border-t border-white/10" />
         </div>
       </section>
     </div>
