@@ -186,6 +186,7 @@ export default async function OhandPage({ params }: PageProps) {
               {isKo ? "협업 문의하기" : "Contact Us"}
             </a>
           </div>
+          <div className="mt-10 pt-8 border-t border-white/10" />
         </div>
       </section>
     </div>

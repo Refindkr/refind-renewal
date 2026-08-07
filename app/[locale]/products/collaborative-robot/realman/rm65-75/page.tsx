@@ -335,6 +335,7 @@ export default async function RM6575Page({ params }: PageProps) {
             className="inline-flex items-center px-8 py-3.5 bg-[#E1251B] text-white font-bold rounded-full hover:bg-[#9C1912] transition-colors text-sm">
             {isKo ? "협업 문의하기" : "Contact Us"}
           </a>
+          <div className="mt-10 pt-8 border-t border-white/10" />
         </div>
       </section>
     </div>

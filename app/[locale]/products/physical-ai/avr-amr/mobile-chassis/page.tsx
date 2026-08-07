@@ -210,6 +210,7 @@ export default async function MobileChassisPage({ params }: PageProps) {
           >
             {isKo ? "문의하기" : "Contact Us"}
           </a>
+          <div className="mt-10 pt-8 border-t border-white/10" />
         </div>
       </section>
     </div>
