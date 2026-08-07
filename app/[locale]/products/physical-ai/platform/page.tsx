@@ -78,16 +78,18 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
               <Link
                 key={product.href}
                 href={product.href}
-                className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary-100 transition-all duration-300"
+                className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300"
               >
-                <div className="relative h-56 bg-gray-100 overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                <div className="relative h-56 bg-gray-50 p-4">
+                  <div className="relative h-full w-full rounded-xl bg-white overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
                 <div className="p-8">
                   <div className="flex flex-wrap gap-1.5 mb-4">

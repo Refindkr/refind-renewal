@@ -238,14 +238,16 @@ export default async function HomePage({ params }: PageProps) {
                 className="group relative bg-[#111] rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
               >
                 {/* Product Image */}
-                <div className="relative h-48 bg-[#1a1a1a] overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    className="object-contain p-6 group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                <div className="relative h-48 bg-[#1a1a1a] p-4">
+                  <div className="relative h-full w-full rounded-xl bg-white overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className="object-contain p-5 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
 
                 <div className="p-7">
