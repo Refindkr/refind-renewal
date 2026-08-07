@@ -39,7 +39,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
           tagline: isKo
             ? "일상 착용용 초경량 EEG(NURA)와 정밀 연구용 고밀도 무선 EEG(ORION)로 구성된 뇌파 측정 라인업."
             : "Brainwave measurement lineup combining the ultra-lightweight, daily-wear NURA and the precision, high-density wireless ORION.",
-          image: "/products/physical-ai/wearable-eeg.jpeg",
+          image: "/products/physical-ai/wearable-eeg.png",
           tags: isKo ? ["1~32채널", "24-bit", "Bluetooth"] : ["1-32ch", "24-bit", "Bluetooth"],
         },
         {
@@ -49,7 +49,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
           tagline: isKo
             ? "8채널 건식 EMG + 9축 IMU 암밴드. 최대 16가지 제스처 인식과 SDK로 로봇 제어까지 연동합니다."
             : "8-channel dry EMG + 9-axis IMU armband. Up to 16 gesture recognition patterns with SDK support for robot control integration.",
-          image: "/products/physical-ai/gforce.jpeg",
+          image: "/products/physical-ai/gforce.png",
           tags: isKo ? ["8채널 EMG", "9축 IMU", "16 제스처"] : ["8ch EMG", "9-axis IMU", "16 Gestures"],
         },
         {
@@ -59,7 +59,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
           tagline: isKo
             ? "32채널에서 최대 128채널까지 확장 가능한 고해상도 EMG 시스템. 4,096Hz 초고속 샘플링."
             : "High-resolution EMG system expandable from 32 to 128 channels, with ultra-fast 4,096Hz sampling.",
-          image: "/products/physical-ai/hd-emg.jpg",
+          image: "/products/physical-ai/hd-emg.png",
           tags: isKo ? ["32~128채널", "4,096Hz", "고해상도"] : ["32-128ch", "4,096Hz", "High-Res"],
         },
       ]}

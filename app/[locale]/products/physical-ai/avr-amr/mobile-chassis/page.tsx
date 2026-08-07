@@ -138,7 +138,7 @@ export default async function MobileChassisPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-96">
             <Image
-              src="/products/physical-ai/avr-amr/mobile-chassis/4wheel.jpg"
+              src="/products/physical-ai/avr-amr/mobile-chassis/4wheel.png"
               alt="Mobile Chassis"
               fill
               className="object-contain drop-shadow-2xl"
@@ -173,8 +173,8 @@ export default async function MobileChassisPage({ params }: PageProps) {
           </p>
           <div className="grid grid-cols-2 gap-4 mb-10 max-w-2xl">
             {[
-              { src: "/products/physical-ai/avr-amr/mobile-chassis/4wheel.jpg", label: variants[0] },
-              { src: "/products/physical-ai/avr-amr/mobile-chassis/2wheel.jpg", label: variants[1] },
+              { src: "/products/physical-ai/avr-amr/mobile-chassis/4wheel.png", label: variants[0] },
+              { src: "/products/physical-ai/avr-amr/mobile-chassis/2wheel.png", label: variants[1] },
             ].map((v) => (
               <div key={v.src} className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">
                 <div className="relative h-48">

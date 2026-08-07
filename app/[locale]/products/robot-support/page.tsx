@@ -39,7 +39,7 @@ export default async function RobotSupportPage({ params }: PageProps) {
           tagline: isKo
             ? "로봇 의수와 기계식 상지 보조기를 융합한 지능형 하이브리드 로봇. EMG 센서와 AI로 사용자 의도를 인식해 손과 팔의 기능을 보조·대체합니다."
             : "An intelligent hybrid robot fusing a robotic hand with a mechanical arm support. Reads user intent via EMG sensors and AI to assist or replace hand and arm function.",
-          image: "/products/robot-support/hybridex/hybridex-1.jpg",
+          image: "/products/robot-support/hybridex/hybridex-1.png",
           tags: isKo ? ["EMG 제어", "AI 의도 인식", "5~6 자유도"] : ["EMG Control", "AI Intent Recognition", "5-6 DOF"],
         },
         {

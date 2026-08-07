@@ -137,7 +137,7 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="relative h-[420px] md:h-[560px] order-2 md:order-1">
               <Image
-                src="/products/humanoid/embodied dual arm.jpeg"
+                src="/products/humanoid/embodied dual arm.png"
                 alt="Dual Arm Vertical Lift"
                 fill
                 className="object-contain drop-shadow-2xl"

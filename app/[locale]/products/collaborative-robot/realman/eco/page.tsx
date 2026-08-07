@@ -96,7 +96,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/collaborative-robot/ECO65.jpeg" alt="ECO 62 / 63 / 65" fill
+            <Image src="/products/collaborative-robot/ECO65.png" alt="ECO 62 / 63 / 65" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

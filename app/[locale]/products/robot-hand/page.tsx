@@ -50,7 +50,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           tagline: isKo
             ? "Tashan 내장 포스센서로 실시간 힘 피드백. 정밀 조립·표면가공에 최적."
             : "Tashan integrated force sensor for real-time force feedback. Ideal for precision assembly and surface finishing.",
-          image: "/products/robot-hand/ap001.jpeg",
+          image: "/products/robot-hand/ap001.png",
           tags: isKo ? ["포스센서", "150Hz", "640g"] : ["Force Sensor", "150Hz", "640g"],
         },
         {
@@ -60,7 +60,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           tagline: isKo
             ? "3D 포스센서 + 11×5 팜 매트릭스로 인간 수준의 촉각 데이터 수집."
             : "3D force sensor + 11×5 palm matrix for human-level tactile data acquisition.",
-          image: "/products/robot-hand/ap002.jpeg",
+          image: "/products/robot-hand/ap002.png",
           tags: isKo ? ["3D 포스", "팜 매트릭스", "575g"] : ["3D Force", "Palm Matrix", "575g"],
         },
         {

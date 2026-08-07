@@ -40,7 +40,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
           tagline: isKo
             ? "인공지능 근전도(EMG) 신호로 제어하는 생체 모방형 전자의수. Ohand, Ohand S001, OhandLite 라인업."
             : "AI-powered myoelectric prosthetic hand controlled by EMG signals. Ohand, Ohand S001, and OhandLite lineup.",
-          image: "/products/prosthetic/ohand.jpg",
+          image: "/products/prosthetic/ohand.png",
           tags: isKo ? ["EMG 제어", "27동작", "3종 모델"] : ["EMG Control", "27 Motions", "3 Models"],
         },
         {
@@ -51,7 +51,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
           tagline: isKo
             ? "웨어러블 EEG(NURA)부터 고밀도 EEG(ORION)까지 아우르는 뇌-컴퓨터 인터페이스 라인업."
             : "Brain-computer interface lineup covering wearable EEG (NURA) and high-density EEG (ORION).",
-          image: "/products/physical-ai/wearable-eeg.jpeg",
+          image: "/products/physical-ai/wearable-eeg.png",
           tags: isKo ? ["EEG", "EMG", "BCI/BMI"] : ["EEG", "EMG", "BCI/BMI"],
         },
         {
@@ -62,7 +62,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
           tagline: isKo
             ? "장애 및 노화로 인한 신체 기능 저하를 보완하는 웨어러블 로봇 보조기. HYBRIDEX, STEP BOOSTER."
             : "Wearable robot support devices that supplement physical function loss due to disability or aging. HYBRIDEX and STEP BOOSTER.",
-          image: "/products/robot-support/hybridex/hybridex-1.jpg",
+          image: "/products/robot-support/hybridex/hybridex-1.png",
           tags: isKo ? ["재활", "웨어러블"] : ["Rehabilitation", "Wearable"],
         },
       ]}

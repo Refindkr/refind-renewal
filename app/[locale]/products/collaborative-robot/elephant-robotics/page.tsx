@@ -24,7 +24,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
   const products = [
     {
       model: "myCobot 280",
-      image: "/products/collaborative-robot/mycobot280.jpg",
+      image: "/products/collaborative-robot/mycobot280.png",
       tagline: isKo ? "로봇 입문자를 위한 컴팩트 교육용 cobot" : "Compact educational cobot for beginners",
       desc: isKo
         ? "myCobot 280은 로봇 교육과 기초 연구에 최적화된 모델로, 가장 컴팩트한 크기와 간단한 설치가 특징입니다."
@@ -46,7 +46,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
     },
     {
       model: "myCobot 320",
-      image: "/products/collaborative-robot/mycobot320.jpg",
+      image: "/products/collaborative-robot/mycobot320.png",
       tagline: isKo ? "교육과 연구의 균형을 잡은 스탠다드 모델" : "Standard model balancing education and research",
       desc: isKo
         ? "myCobot 320은 280 대비 작업 반경과 안정성이 향상된 모델로, 교육을 넘어 본격적인 연구·개발 실험에 적합합니다."
@@ -129,7 +129,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[420px]">
             <Image
-              src="/products/collaborative-robot/mycobot320.jpg"
+              src="/products/collaborative-robot/mycobot320.png"
               alt="Elephant Robotics myCobot"
               fill
               className="object-contain drop-shadow-2xl"

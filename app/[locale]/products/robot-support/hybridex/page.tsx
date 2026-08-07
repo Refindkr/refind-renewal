@@ -113,7 +113,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/robot-support/hybridex/hybridex-1.jpg" alt="HYBRIDEX" fill
+            <Image src="/products/robot-support/hybridex/hybridex-1.png" alt="HYBRIDEX" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

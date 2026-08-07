@@ -59,7 +59,7 @@ export default async function PhysicalAIPage({ params }: PageProps) {
           tagline: isKo
             ? "라이다 기반 SLAM 자율주행 모바일 플랫폼. 협동로봇 암과 결합해 완전 자동화 셀 구성 가능."
             : "LiDAR-based SLAM autonomous mobile platform. Combine with cobot arms to build fully automated cells.",
-          image: "/products/physical-ai/amr.jpg",
+          image: "/products/physical-ai/amr.png",
           tags: isKo ? ["AMR", "SLAM", "자율이동", "모듈형"] : ["AMR", "SLAM", "Autonomous", "Modular"],
         },
         {

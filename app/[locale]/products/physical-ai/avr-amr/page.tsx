@@ -24,7 +24,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
   const products = [
     {
       href: `/${locale}/products/physical-ai/avr-amr/myagv`,
-      image: "/products/physical-ai/amr/1.JPG",
+      image: "/products/physical-ai/amr/1.png",
       name: isKo ? "모바일 로봇 플랫폼" : "Mobile Robot Platform",
       nameEn: "myAGV 2023",
       tagline: isKo
@@ -34,7 +34,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/physical-ai/avr-amr/mobile-chassis`,
-      image: "/products/physical-ai/avr-amr/mobile-chassis/4wheel.jpg",
+      image: "/products/physical-ai/avr-amr/mobile-chassis/4wheel.png",
       name: isKo ? "모바일 섀시" : "Mobile Chassis",
       nameEn: "Mobile Chassis",
       tagline: isKo

@@ -69,7 +69,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tagline: isKo
             ? "이동·승강·양팔 작업을 하나의 플랫폼에 통합한 산업용 모바일 로봇. 제조·물류·검사 자동화에 최적."
             : "An industrial mobile robot integrating mobility, lifting, and dual-arm manipulation on one platform, optimized for manufacturing, logistics, and inspection automation.",
-          image: "/products/humanoid/embodied dual arm.jpeg",
+          image: "/products/humanoid/embodied dual arm.png",
           tags: isKo ? ["REALMAN", "양팔", "리프팅"] : ["REALMAN", "Dual-Arm", "Lifting"],
         },
         {
@@ -79,7 +79,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tagline: isKo
             ? "자율주행 플랫폼·승강축·단일 로봇암을 결합한 컴팩트 모바일 매니퓰레이터. 제조·물류·검사에 최적."
             : "A compact mobile manipulator combining an autonomous platform, lift axis, and single robot arm — optimized for manufacturing, logistics, and inspection.",
-          image: "/products/humanoid/lifting platform.jpeg",
+          image: "/products/humanoid/lifting platform.png",
           tags: isKo ? ["REALMAN", "이동형", "리프팅"] : ["REALMAN", "Mobile", "Lifting"],
         },
         {
@@ -89,7 +89,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           tagline: isKo
             ? "산업 자동화와 Physical AI를 위한 신규 로봇암 라인업."
             : "A new robot arm lineup for industrial automation and Physical AI.",
-          image: "/products/humanoid/robot-arm/rx75.jpeg",
+          image: "/products/humanoid/robot-arm/rx75.png",
           tags: isKo ? ["RX 시리즈", "신규"] : ["RX Series", "New"],
         },
       ]}

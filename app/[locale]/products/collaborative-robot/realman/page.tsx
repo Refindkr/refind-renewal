@@ -24,7 +24,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
   const products = [
     {
       href: `/${locale}/products/collaborative-robot/realman/rm65-75`,
-      image: "/products/collaborative-robot/RM65.jpeg",
+      image: "/products/collaborative-robot/RM65.png",
       name: isKo ? "협동로봇 (RM65/75)" : "Cobot (RM65/75)",
       nameEn: "Ultra-Lightweight 6-Axis Collaborative Robot",
       tagline: isKo
@@ -44,7 +44,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/collaborative-robot/realman/eco`,
-      image: "/products/collaborative-robot/ECO65.jpeg",
+      image: "/products/collaborative-robot/ECO65.png",
       name: isKo ? "협동로봇 (ECO 62/63/65)" : "Cobot (ECO 62/63/65)",
       nameEn: "Economical Collaborative Robot",
       tagline: isKo
@@ -88,7 +88,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/collaborative-robot/1.jpeg" alt="REALMAN" fill
+            <Image src="/products/collaborative-robot/1.png" alt="REALMAN" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

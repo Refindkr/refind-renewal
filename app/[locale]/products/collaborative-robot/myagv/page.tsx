@@ -77,7 +77,7 @@ export default async function MyAGVPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[420px]">
             <Image
-              src="/products/collaborative-robot/5.jpeg"
+              src="/products/collaborative-robot/5.png"
               alt="MyAGV"
               fill
               className="object-contain drop-shadow-2xl"

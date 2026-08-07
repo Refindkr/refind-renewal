@@ -34,7 +34,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/humanoid/robot-arm/rx75s`,
-      image: "/products/humanoid/robot-arm/rx75s.jpeg",
+      image: "/products/humanoid/robot-arm/rx75s.png",
       name: "RX75S",
       nameEn: isKo ? "표준형" : "Standard",
       tagline: isKo
@@ -44,7 +44,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/humanoid/robot-arm/rx75`,
-      image: "/products/humanoid/robot-arm/rx75.jpeg",
+      image: "/products/humanoid/robot-arm/rx75.png",
       name: "RX75",
       nameEn: isKo ? "표준형" : "Standard",
       tagline: isKo
@@ -54,7 +54,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/humanoid/robot-arm/rx75-vision`,
-      image: "/products/humanoid/robot-arm/rx75-vision.jpeg",
+      image: "/products/humanoid/robot-arm/rx75-vision.png",
       name: "RX75 " + (isKo ? "비전" : "Vision"),
       nameEn: isKo ? "비전형" : "Vision",
       tagline: isKo
@@ -98,7 +98,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/humanoid/robot-arm/rx75.jpeg" alt="RX Series Robot Arm" fill
+            <Image src="/products/humanoid/robot-arm/rx75.png" alt="RX Series Robot Arm" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

@@ -39,7 +39,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
           tagline: isKo
             ? "고정밀 6축 협동로봇. ROS2 지원 및 오픈 SDK 제공으로 연구·산업 즉시 적용."
             : "High-precision 6-axis cobot. ROS2 support and open SDK for instant research and industrial use.",
-          image: "/products/collaborative-robot/1.jpeg",
+          image: "/products/collaborative-robot/1.png",
           tags: isKo ? ["6축", "ROS2", "오픈 SDK"] : ["6-Axis", "ROS2", "Open SDK"],
         },
         {

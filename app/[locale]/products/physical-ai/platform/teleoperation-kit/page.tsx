@@ -170,7 +170,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
           <div className="grid grid-cols-3 gap-4 mb-10">
             {[
               { src: "/products/physical-ai/platform/teleoperation-kit/gln-rx71.png", label: "GLN-RX71" },
-              { src: "/products/physical-ai/platform/teleoperation-kit/gln-rx75.jpeg", label: "GLN-RX75" },
+              { src: "/products/physical-ai/platform/teleoperation-kit/gln-rx75.png", label: "GLN-RX75" },
               { src: "/products/physical-ai/platform/teleoperation-kit/aloha.png", label: "Aloha" },
             ].map((m) => (
               <div key={m.src} className="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden">

@@ -153,7 +153,7 @@ export default async function Rx75sPage({ params }: PageProps) {
           </div>
           <div className="relative h-64 md:h-80">
             <Image
-              src="/products/humanoid/robot-arm/rx75s.jpeg"
+              src="/products/humanoid/robot-arm/rx75s.png"
               alt="RX75S Standard"
               fill
               className="object-contain drop-shadow-2xl"

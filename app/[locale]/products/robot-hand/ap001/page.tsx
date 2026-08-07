@@ -55,7 +55,7 @@ export default async function AP001Page({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/robot-hand/ap001.jpeg" alt="ROH-AP001" fill
+            <Image src="/products/robot-hand/ap001.png" alt="ROH-AP001" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>
@@ -180,7 +180,7 @@ export default async function AP001Page({ params }: PageProps) {
           </h2>
           <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white">
             <Image
-              src="/products/robot-hand/ap001_1.jpg"
+              src="/products/robot-hand/ap001_1.png"
               alt={isKo ? "ROH-AP001 센서 스펙" : "ROH-AP001 Sensor Specs"}
               width={1200}
               height={800}

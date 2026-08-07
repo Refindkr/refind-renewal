@@ -55,7 +55,7 @@ export default async function AP002Page({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/robot-hand/ap002.jpeg" alt="ROH-AP002" fill
+            <Image src="/products/robot-hand/ap002.png" alt="ROH-AP002" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>

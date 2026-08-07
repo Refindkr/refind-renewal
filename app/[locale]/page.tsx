@@ -51,14 +51,14 @@ export default async function HomePage({ params }: PageProps) {
       title: tn("collaborativeRobot"),
       desc: tp("collaborativeRobot.description"),
       number: "03",
-      image: "/products/collaborative-robot/1.jpeg",
+      image: "/products/collaborative-robot/1.png",
     },
     {
       href: `/${locale}/products/humanoid`,
       title: tn("humanoid"),
       desc: tp("humanoid.description"),
       number: "04",
-      image: "/products/humanoid/realbot.jpeg",
+      image: "/products/humanoid/realbot.png",
     },
     {
       href: `/${locale}/products/body-enhancement`,
@@ -80,7 +80,7 @@ export default async function HomePage({ params }: PageProps) {
           {/* 이미지 영역: 오른쪽 배치 */}
           <div className="absolute right-0 top-0 h-full w-[55%]">
             <Image
-              src="/products/humanoid/realbot.jpeg"
+              src="/products/humanoid/realbot.png"
               alt=""
               fill
               className="object-contain object-center"
@@ -238,16 +238,14 @@ export default async function HomePage({ params }: PageProps) {
                 className="group relative bg-[#111] rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300"
               >
                 {/* Product Image */}
-                <div className="relative h-48 bg-[#1a1a1a] p-4">
-                  <div className="relative h-full w-full rounded-xl bg-white overflow-hidden">
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      fill
-                      className="object-contain p-5 group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  </div>
+                <div className="relative h-48 bg-[#1a1a1a]">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-contain p-8 group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
 
                 <div className="p-7">

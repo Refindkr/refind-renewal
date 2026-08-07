@@ -107,7 +107,7 @@ export default async function MyAGVPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[420px]">
             <Image
-              src="/products/physical-ai/amr/1.JPG"
+              src="/products/physical-ai/amr/1.png"
               alt="myAGV 2023"
               fill
               className="object-contain drop-shadow-2xl"
