@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroRotatingBackground from "@/components/ui/HeroRotatingBackground";
 import Reveal from "@/components/ui/Reveal";
+import CountUp from "@/components/ui/CountUp";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -95,19 +96,31 @@ export default async function HomePage({ params }: PageProps) {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <p className="text-primary-400 text-sm font-semibold tracking-[0.2em] uppercase mb-8">
+          <p
+            className="text-primary-400 text-sm font-semibold tracking-[0.2em] uppercase mb-8 animate-hero-fade-up"
+            style={{ animationDelay: "0ms" }}
+          >
             Refind Inc. · 리파인주식회사
           </p>
 
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line">
+          <h1
+            className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line animate-hero-fade-up"
+            style={{ animationDelay: "150ms" }}
+          >
             {t("hero.title")}
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line">
+          <p
+            className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line animate-hero-fade-up"
+            style={{ animationDelay: "300ms" }}
+          >
             {t("hero.subtitle")}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-hero-fade-up"
+            style={{ animationDelay: "450ms" }}
+          >
             <Link
               href={`/${locale}/products/robot-hand`}
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-200"
@@ -143,7 +156,7 @@ export default async function HomePage({ params }: PageProps) {
           ].map((stat, i) => (
             <Reveal key={stat.label} delayMs={i * 80} className="bg-white px-10 py-12 text-center">
               <div className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
-                {stat.value}
+                <CountUp value={stat.value} />
               </div>
               <div className="text-sm text-gray-400 font-medium tracking-wide uppercase">
                 {stat.label}
