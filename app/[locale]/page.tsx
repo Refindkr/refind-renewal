@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import HeroRotatingBackground from "@/components/ui/HeroRotatingBackground";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -77,17 +78,9 @@ export default async function HomePage({ params }: PageProps) {
 
         {/* 배경 이미지 — invert로 흰배경→검정, 제품→흰색 실루엣 */}
         <div className="absolute inset-0 pointer-events-none select-none">
-          {/* 이미지 영역: 오른쪽 배치 */}
+          {/* 이미지 영역: 오른쪽 배치, 주요 제품 5개를 순환 표시 */}
           <div className="absolute right-0 top-0 h-full w-[55%]">
-            <Image
-              src="/products/humanoid/realbot.png"
-              alt=""
-              fill
-              className="object-contain object-center"
-              style={{ filter: "invert(1)", opacity: 0.35 }}
-              sizes="55vw"
-              priority
-            />
+            <HeroRotatingBackground images={products.map((p) => p.image)} />
           </div>
           {/* 왼쪽으로 검정 그라디언트 페이드 */}
           <div className="absolute inset-0 bg-gradient-to-r from-black from-40% via-black/60 to-transparent" />
