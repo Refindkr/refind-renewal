@@ -44,24 +44,28 @@ export default async function AboutPage({ params }: PageProps) {
       {/* Company Info */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">{t("philosophy.title")}</h2>
-              <div className="space-y-6">
-                <div className="p-6 bg-primary-50 rounded-2xl border border-primary-100">
-                  <h3 className="text-lg font-bold text-primary-600 mb-2">{t("philosophy.vision")}</h3>
+              <div className="space-y-8">
+                <div className="border-l-2 border-primary-400 pl-6">
+                  <h3 className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-2">
+                    {t("philosophy.vision")}
+                  </h3>
                   <p className="text-gray-700">{t("philosophy.visionText")}</p>
                 </div>
-                <div className="p-6 bg-gray-50 rounded-2xl border border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">{t("philosophy.mission")}</h3>
+                <div className="border-l-2 border-gray-200 pl-6">
+                  <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">
+                    {t("philosophy.mission")}
+                  </h3>
                   <p className="text-gray-700">{t("philosophy.missionText")}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-3xl p-8">
+            <div className="border-t-2 border-gray-900 pt-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6">{t("ci.title")}</h3>
-              <div className="flex items-center justify-center mb-6 py-4">
+              <div className="flex items-center mb-6 py-4">
                 <Image
                   src="/logo.png"
                   alt="Refind Logo"
@@ -77,12 +81,12 @@ export default async function AboutPage({ params }: PageProps) {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Core Values</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Core Values</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {coreValues.map((key, i) => (
-              <div key={key} className="p-6 rounded-2xl border border-gray-100 bg-white text-center">
+              <div key={key} className="border-t-2 border-gray-900 pt-4">
                 <div className="text-xs font-bold text-gray-300 mb-3">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{th(key)}</h3>
                 <p className="text-sm text-gray-500">{th(`${key}Text`)}</p>
@@ -93,17 +97,17 @@ export default async function AboutPage({ params }: PageProps) {
       </section>
 
       {/* Contact Info */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Contact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { label: t("founded"), value: t("foundedYear") },
               { label: t("location"), value: t("locationText") },
               { label: t("phone"), value: "070-4837-2829" },
               { label: t("email"), value: "refind@refind.kr" },
             ].map((item) => (
-              <div key={item.label} className="p-6 bg-gray-50 rounded-2xl">
+              <div key={item.label} className="border-t-2 border-gray-900 pt-4">
                 <p className="text-sm text-gray-500 mb-1">{item.label}</p>
                 <p className="font-medium text-gray-900">{item.value}</p>
               </div>
