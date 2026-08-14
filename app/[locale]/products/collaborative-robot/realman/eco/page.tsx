@@ -112,7 +112,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
             {features.map((f, i) => {
               const [title, ...rest] = f.split(isKo ? " : " : ": ");
               return (
-                <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-100">
+                <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                   <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">{title}</span>
@@ -133,7 +133,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {applications.map((a, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-5 border border-gray-100 text-center">
+              <div key={i} className="border-t-2 border-gray-900 pt-4 text-center">
                 <span className="text-sm font-semibold text-gray-800">{a}</span>
               </div>
             ))}
@@ -155,7 +155,7 @@ export default async function EcoSeriesPage({ params }: PageProps) {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {controllerBenefits.map((b, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">
+              <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                 <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{b}</span>
               </div>
