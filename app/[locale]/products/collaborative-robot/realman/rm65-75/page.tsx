@@ -133,7 +133,7 @@ export default async function RM6575Page({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {coreFeatures.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl p-5 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-[#E1251B] mb-2">{f.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
               </div>
@@ -152,7 +152,7 @@ export default async function RM6575Page({ params }: PageProps) {
             {applications.map((a, i) => {
               const [title, ...rest] = a.split(isKo ? " : " : ": ");
               return (
-                <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                   <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">{title}</span>
