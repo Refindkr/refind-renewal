@@ -81,7 +81,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
           </div>
           <div className="relative h-72 md:h-[420px]">
             <Image
-              src="/products/platform/1.jpeg"
+              src="/products/platform/1.png"
               alt="Dural Arm embodied AI development platform"
               fill
               className="object-contain drop-shadow-2xl"

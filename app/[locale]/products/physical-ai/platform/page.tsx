@@ -30,7 +30,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
         ? "AI 기반 로봇 연구와 애플리케이션 개발을 위한 듀얼 암 로봇 플랫폼. 양팔 협업 동작, AI 학습, 데이터 수집, 원격 조작, 강화학습 등에 활용됩니다."
         : "A dual-arm robot platform for AI-based robotics research and application development. Used for two-arm collaborative motion, AI training, data collection, teleoperation, and reinforcement learning.",
       tags: isKo ? ["듀얼암", "Embodied AI", "10kg 페이로드"] : ["Dual-Arm", "Embodied AI", "10kg Payload"],
-      image: "/products/platform/1.jpeg",
+      image: "/products/platform/1.png",
     },
     {
       href: `/${locale}/products/physical-ai/platform/teleoperation-kit`,

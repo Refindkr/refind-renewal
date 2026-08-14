@@ -69,7 +69,7 @@ export default async function PhysicalAIPage({ params }: PageProps) {
           tagline: isKo
             ? "양팔 로봇 + 딥비전 + 엔드이펙터 + 엣지 컴퓨팅이 통합된 올인원 AI 로보틱스 연구·교육 플랫폼."
             : "All-in-one AI robotics research and education platform integrating dual-arm robot, depth vision, end effectors, and edge computing.",
-          image: "/products/platform/1.jpeg",
+          image: "/products/platform/1.png",
           tags: isKo ? ["Dual Arm", "Embodied AI", "Edge Computing"] : ["Dual Arm", "Embodied AI", "Edge Computing"],
         },
       ]}
