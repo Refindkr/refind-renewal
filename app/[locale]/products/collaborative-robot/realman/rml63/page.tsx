@@ -122,7 +122,7 @@ export default async function RML63Page({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {features.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-[#E1251B] mb-2">{f.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

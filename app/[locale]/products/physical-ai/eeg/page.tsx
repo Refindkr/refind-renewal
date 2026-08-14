@@ -263,7 +263,7 @@ export default async function EEGPage({ params }: PageProps) {
               { title: isKo ? "살린 전극" : "Saline Electrodes", desc: isKo ? "낮은 준비 과정으로 안정적인 접촉. 장시간 세션에 적합." : "Low-prep with reliable contact. Great for longer sessions." },
               { title: isKo ? "젤 전극" : "Gel Electrodes", desc: isKo ? "정밀 연구실 연구를 위한 최고 수준의 신호 품질." : "Gold-standard signal quality for high-precision lab research." },
             ].map((e, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{e.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{e.desc}</p>
               </div>
@@ -310,7 +310,7 @@ export default async function EEGPage({ params }: PageProps) {
                 desc: isKo ? "실시간 뇌파 피드백으로 집중력, 수면, 스트레스 관리를 돕습니다." : "Real-time brainwave feedback for focus, sleep, and stress management.",
               },
             ].map((u, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="text-xs font-bold text-gray-300 mb-3">{u.num}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>

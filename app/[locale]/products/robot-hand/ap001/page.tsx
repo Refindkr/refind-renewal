@@ -75,7 +75,7 @@ export default async function AP001Page({ params }: PageProps) {
               { text: isKo ? "RS-485, Modbus 등 표준 통신 인터페이스 지원으로 다양한 로봇 팔 및 PLC와 손쉬운 연결" : "Standard RS-485 and Modbus interfaces for easy connection with various robot arms and PLCs" },
               { text: isKo ? "전자의수로부터 파생된 제품으로 사람의 손동작 및 형태 등을 모방하여 사람의 손 기능 모방" : "Derived from prosthetic hand technology, mimicking human hand movements and form" },
             ].map((f, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl px-6 py-5 border border-gray-100">
+              <div key={i} className="flex items-start gap-4 border-l-2 border-gray-900 pl-4 py-1">
                 <p className="text-sm text-gray-700 leading-relaxed">{f.text}</p>
               </div>
             ))}
@@ -117,7 +117,7 @@ export default async function AP001Page({ params }: PageProps) {
               { title: "Industrial Reliability", desc: isKo ? "반복 가압 환경에서도 변함없는 측정 정밀도와 내구성 보장" : "Guaranteed measurement precision and durability under repeated force application" },
               { title: "SDK Support", desc: isKo ? "Python, C++ 전용 라이브러리로 연구 및 공정 설계에 즉시 도입 가능" : "Dedicated Python and C++ libraries for instant deployment in research and process design" },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -131,7 +131,7 @@ export default async function AP001Page({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "하드웨어 사양" : "Hardware Specs"}</h3>
               <div className="space-y-0 text-sm">
                 {[
@@ -148,7 +148,7 @@ export default async function AP001Page({ params }: PageProps) {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "센서 & 인터페이스" : "Sensor & Interface"}</h3>
               <div className="space-y-0 text-sm">
                 {[
@@ -290,7 +290,7 @@ export default async function AP001Page({ params }: PageProps) {
               { title: isKo ? "표면 가공" : "Surface Finishing", desc: isKo ? "일정 압력 유지가 필요한 샌딩·연마 공정 자동화로 작업 결과물의 균일성 확보" : "Automate sanding and polishing processes requiring constant pressure for uniform results" },
               { title: isKo ? "의료/바이오 자동화" : "Medical/Bio Automation", desc: isKo ? "섬세한 바이오 시료 취급과 힘 피드백 기반 원격 수술 로봇 연구 환경에 최적" : "Ideal for delicate bio-sample handling and force-feedback-based surgical robot research" },
             ].map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="w-8 h-8 rounded-lg bg-[#FDEDEB] text-[#E1251B] flex items-center justify-center text-xs font-bold mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>

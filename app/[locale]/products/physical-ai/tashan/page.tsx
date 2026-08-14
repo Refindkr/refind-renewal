@@ -103,7 +103,7 @@ export default async function TashanPage({ params }: PageProps) {
                   : "Real-time slip prediction with automatic grip force adjustment. Improves safety in dynamic work environments.",
               },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

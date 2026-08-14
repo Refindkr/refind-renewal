@@ -89,7 +89,7 @@ export default async function A001Page({ params }: PageProps) {
                   : "Open SDK based on ROS2, Python, C++ for instant integration with any robot platform",
               },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -105,7 +105,7 @@ export default async function A001Page({ params }: PageProps) {
             {isKo ? "기술 사양" : "Technical Specs"}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-primary-100 text-primary-600 text-xs flex items-center justify-center font-bold">1</span>
                 {isKo ? "메커니즘" : "Mechanism"}
@@ -129,7 +129,7 @@ export default async function A001Page({ params }: PageProps) {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5 flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-primary-100 text-primary-600 text-xs flex items-center justify-center font-bold">2</span>
                 {isKo ? "인터페이스" : "Interface"}
@@ -187,7 +187,7 @@ export default async function A001Page({ params }: PageProps) {
                   : "Expand irregular object picking and process automation scope, reduce defect rates",
               },
             ].map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="text-xs font-bold text-gray-300 mb-3">{u.num}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>

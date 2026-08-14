@@ -205,7 +205,7 @@ export default async function AP003Page({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {useCases.map((u, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="w-8 h-8 rounded-lg bg-[#FDEDEB] text-[#E1251B] flex items-center justify-center text-xs font-bold mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>
@@ -239,7 +239,7 @@ export default async function AP003Page({ params }: PageProps) {
             {isKo ? "협동로봇 & 하드웨어 호환성" : "Collaborative Robot & Hardware Compatibility"}
           </h2>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="bg-white rounded-2xl p-6 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-2">Realman</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
                 {isKo
@@ -247,7 +247,7 @@ export default async function AP003Page({ params }: PageProps) {
                   : "[Official Partnership] Optimized and verified integration across the entire Realman collaborative robot lineup"}
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-6 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-2">Elephant Robotics</h3>
               <p className="text-sm text-gray-500 leading-relaxed">
                 {isKo

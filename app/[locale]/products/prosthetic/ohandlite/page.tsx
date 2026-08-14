@@ -73,7 +73,7 @@ export default async function OhandLitePage({ params }: PageProps) {
               { title: isKo ? "AI + 2채널 EMG" : "AI + 2-Channel EMG", desc: isKo ? "2채널 EMG로 핵심 동작 제어. AI 알고리즘으로 동작 의도를 정확히 파악." : "2-channel EMG for core motion control. AI algorithm accurately detects motion intent." },
               { title: isKo ? "27동작 중 9개 선택" : "Choose 9 of 27 Motions", desc: isKo ? "27가지 동작 중 사용자가 자주 쓰는 9가지를 앱으로 직접 지정 가능." : "Users can designate 9 frequently used motions out of 27 via the app." },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>

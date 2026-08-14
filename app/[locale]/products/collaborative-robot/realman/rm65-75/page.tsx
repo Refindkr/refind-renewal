@@ -281,7 +281,7 @@ export default async function RM6575Page({ params }: PageProps) {
             </table>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-[#E1251B] mb-4">RM {isKo ? "시리즈" : "Series"}</h3>
               <ul className="space-y-2">
                 {(isKo
@@ -295,7 +295,7 @@ export default async function RM6575Page({ params }: PageProps) {
                 ))}
               </ul>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-700 mb-4">ECO {isKo ? "시리즈" : "Series"}</h3>
               <ul className="space-y-2">
                 {(isKo

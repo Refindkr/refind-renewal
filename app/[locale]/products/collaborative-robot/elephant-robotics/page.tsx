@@ -151,7 +151,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
               { title: isKo ? "쉬운 프로그래밍" : "Easy Programming", desc: isKo ? "Python, ROS, myBlockly 등 다양한 SDK 지원. 비전문가도 쉽게 자동화 작업을 구성할 수 있습니다." : "Supports Python, ROS, myBlockly and more. Anyone can configure automation tasks without deep expertise." },
               { title: isKo ? "교육·연구 최적화" : "Education & Research Optimized", desc: isKo ? "로봇 공학 입문부터 고급 알고리즘 실험까지, 교육 현장과 연구소 모두에서 즉시 활용 가능합니다." : "From intro robotics to advanced algorithm experiments — instantly deployable in classrooms and research labs." },
             ].map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
               </div>

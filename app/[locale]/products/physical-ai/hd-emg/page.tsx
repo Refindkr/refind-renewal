@@ -106,7 +106,7 @@ export default async function HDEMGPage({ params }: PageProps) {
                   desc: isKo ? "신경-근육 메커니즘 분석, 전자의수 제어 알고리즘 개발에 필요한 고품질 데이터를 제공합니다." : "Provides high-quality data for neuromuscular mechanism analysis and prosthetic control algorithm development.",
                 },
               ].map((f, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+                <div key={i} className="border-t-2 border-gray-900 pt-4">
                   <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
                 </div>
@@ -140,7 +140,7 @@ export default async function HDEMGPage({ params }: PageProps) {
                 desc: isKo ? "뇌졸중, 척수 손상 후 근기능 회복 과정을 정량적으로 모니터링합니다." : "Quantitatively monitor muscle function recovery after stroke and spinal cord injury.",
               },
             ].map((u, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="text-xs font-bold text-gray-300 mb-3">{u.num}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{u.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{u.desc}</p>

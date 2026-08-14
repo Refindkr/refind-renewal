@@ -71,7 +71,7 @@ export default async function AP002Page({ params }: PageProps) {
               { title: "Ultra-Responsive", desc: isKo ? "0.7초 구동 속도와 6자유도 메커니즘으로 실시간 피드백 제어 최적화" : "Real-time feedback control optimization with 0.7s actuation speed and 6-DOF mechanism" },
               { title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN FD interface support" },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -85,7 +85,7 @@ export default async function AP002Page({ params }: PageProps) {
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "기술 상세" : "Technical Deep Dive"}</p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "3D 포스 & 팜 매트릭스 센서" : "3D Force & Palm Matrix Sensor"}</h3>
               <div className="space-y-4 text-sm">
                 <div>
@@ -102,7 +102,7 @@ export default async function AP002Page({ params }: PageProps) {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+            <div className="border-t-2 border-gray-900 pt-4">
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "주요 사양" : "Key Specs"}</h3>
               <div className="space-y-0 text-sm">
                 {[
@@ -365,7 +365,7 @@ export default async function AP002Page({ params }: PageProps) {
               { title: isKo ? "정밀 조립 자동화" : "Precision Assembly Automation", desc: isKo ? "미세한 힘 조절이 필수적인 전자 부품 조립 및 실시간 품질 검수 라인에 최적" : "Ideal for electronic component assembly and real-time quality inspection requiring fine force control" },
               { title: isKo ? "차세대 휴머노이드" : "Next-Gen Humanoid", desc: isKo ? "인간과 유사한 촉각 피드백으로 로봇과 환경 간의 상호작용 지능 향상" : "Human-like tactile feedback to elevate robot-environment interaction intelligence" },
             ].map((u, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="w-8 h-8 rounded-lg bg-[#FDEDEB] text-[#E1251B] flex items-center justify-center text-xs font-bold mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>

@@ -150,7 +150,7 @@ export default async function GForceProPage({ params }: PageProps) {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
-              <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-sm mb-5">
                   {String(i + 1).padStart(2, "0")}
                 </div>

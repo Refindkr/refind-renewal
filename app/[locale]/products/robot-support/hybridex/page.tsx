@@ -127,7 +127,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {features.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{f.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
               </div>
@@ -175,7 +175,7 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
           </p>
           <div className="grid md:grid-cols-3 gap-5">
             {benefits.map((b, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="text-xs font-bold text-gray-300 mb-3">{String(i + 1).padStart(2, "0")}</div>
                 <h3 className="text-base font-bold text-gray-900 mb-2">{b.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{b.desc}</p>

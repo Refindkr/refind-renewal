@@ -128,7 +128,7 @@ export default async function MyAGVPage({ params }: PageProps) {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <div className="flex items-start gap-3 mb-4">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#E1251B]/10 flex items-center justify-center mt-0.5">
                     <svg className="w-3.5 h-3.5 text-[#E1251B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

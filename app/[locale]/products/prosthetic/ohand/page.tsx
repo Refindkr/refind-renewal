@@ -86,7 +86,7 @@ export default async function OhandPage({ params }: PageProps) {
               { title: isKo ? "전용 앱 연동" : "Dedicated App", desc: isKo ? "스마트폰 앱으로 동작 패턴 설정 및 근전도 경계치 실시간 조절" : "Set motion patterns and adjust EMG thresholds in real-time via smartphone app" },
               { title: isKo ? "12시간 배터리" : "12h Battery", desc: isKo ? "내부 배터리 기준 약 12시간 연속 사용 가능. 하루 종일 안심 착용." : "Approximately 12 hours of continuous use on internal battery. Wear all day with confidence." },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-sm font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-xs text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -122,7 +122,7 @@ export default async function OhandPage({ params }: PageProps) {
           <p className="text-sm text-gray-400 mb-10">{isKo ? "총 27가지 동작 패턴을 3가지 모드로 구성" : "27 total motion patterns organized in 3 modes"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {gripModes.map((mode, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-xs font-bold text-[#E1251B] uppercase tracking-wide mb-4">{mode.mode}</h3>
                 <div className="flex flex-wrap gap-2">
                   {mode.grips.map((g) => (

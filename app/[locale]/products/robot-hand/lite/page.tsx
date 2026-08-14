@@ -71,7 +71,7 @@ export default async function LitePage({ params }: PageProps) {
               { title: isKo ? "합리적인 가격" : "Cost-Effective", desc: isKo ? "핵심 6DOF 기능을 유지하면서 연구·교육 예산에 맞는 최적의 가성비" : "Optimal cost-performance ratio for research and education budgets while maintaining core 6-DOF functionality" },
               { title: isKo ? "즉시 연동" : "Easy Integration", desc: isKo ? "RS-485 및 Modbus 프로토콜 지원으로 기존 시스템에 빠르게 통합 가능" : "Quick integration with existing systems via RS-485 and Modbus protocol support" },
             ].map((v, i) => (
-              <div key={i} className="bg-white rounded-2xl p-7 border border-gray-100">
+              <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
               </div>
@@ -84,7 +84,7 @@ export default async function LitePage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "기술 사양" : "Technical Specs"}</p>
-          <div className="max-w-lg bg-gray-50 rounded-2xl p-7 border border-gray-100">
+          <div className="max-w-lg border-t-2 border-gray-900 pt-4">
             <div className="space-y-0 text-sm">
               {[
                 [isKo ? "자유도" : "DOF", "6 DOF"],

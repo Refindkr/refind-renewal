@@ -83,7 +83,7 @@ export default async function MotionCaptureGlovePage({ params }: PageProps) {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {specs.map((s, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
+              <div key={i} className="border-t-2 border-gray-900 pt-4 text-center">
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">{s.label}</p>
                 <p className="text-lg font-extrabold text-gray-900">{s.value}</p>
               </div>
