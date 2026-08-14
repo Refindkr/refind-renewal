@@ -194,9 +194,9 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
           <p className="text-xs text-gray-400 mb-10">
             {isKo ? "참고용 사양이며, 상세 스펙은 모델별로 상이할 수 있습니다." : "Reference specifications — detailed specs may vary by model."}
           </p>
-          <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
+          <div className="max-w-2xl overflow-hidden">
             {specs.map((s, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                 <span className="text-gray-500 font-medium">{s.label}</span>
                 <span className="font-semibold text-gray-900 text-right">{s.value}</span>
               </div>

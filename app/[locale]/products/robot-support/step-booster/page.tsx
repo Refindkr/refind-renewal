@@ -224,9 +224,9 @@ export default async function STEPBOOSTERPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "주요 스펙 요약" : "Key Specifications"}
           </p>
-          <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
+          <div className="max-w-2xl overflow-hidden">
             {specs.map((s, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                 <span className="text-gray-500 font-medium">{s.label}</span>
                 <span className="font-semibold text-gray-900 text-right">{s.value}</span>
               </div>

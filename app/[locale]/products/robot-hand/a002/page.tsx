@@ -150,7 +150,7 @@ export default async function A002Page({ params }: PageProps) {
 
           {/* Measurement location table */}
           <div className="max-w-3xl mb-10">
-            <div className="overflow-hidden rounded-2xl border border-gray-100">
+            <div className="overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b-2 border-gray-900">
@@ -198,7 +198,7 @@ export default async function A002Page({ params }: PageProps) {
             <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-5">
               {isKo ? "사양" : "Specifications"}
             </p>
-            <div className="overflow-hidden rounded-2xl border border-gray-100">
+            <div className="overflow-hidden">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b-2 border-gray-900">

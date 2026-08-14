@@ -110,7 +110,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {useCases.map((u, i) => (
-              <div key={i} className="flex items-center gap-4 bg-white rounded-2xl p-5 border border-gray-100">
+              <div key={i} className="flex items-center gap-4 border-l-2 border-gray-900 pl-4 py-2">
                 <span className="text-sm font-medium text-gray-800">{u.title}</span>
               </div>
             ))}
@@ -124,9 +124,9 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Parameters"}
           </p>
-          <div className="max-w-2xl overflow-hidden rounded-2xl border border-gray-100">
+          <div className="max-w-2xl overflow-hidden">
             {specs.map((s, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                 <span className="text-gray-500 font-medium">{s.k}</span>
                 <span className="font-semibold text-gray-900 text-right">{s.v}</span>
               </div>

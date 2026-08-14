@@ -57,9 +57,9 @@ function ConfigTable({ models, rows, highlight }: { models: string[]; rows: Conf
 
 function SpecList({ specs }: { specs: { label: string; value: string }[] }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-100">
+    <div className="overflow-hidden">
       {specs.map((s, i) => (
-        <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
+        <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
           <span className="text-gray-500 font-medium">{s.label}</span>
           <span className="font-semibold text-gray-900 text-right">{s.value}</span>
         </div>

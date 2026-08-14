@@ -161,7 +161,7 @@ export default async function Rx71Page({ params }: PageProps) {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="order-2 md:order-1 overflow-hidden rounded-2xl border border-gray-100">
               {specs.map((s, i) => (
-                <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50" : "bg-white"}`}>
+                <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                   <span className="text-gray-500 font-medium">{s.label}</span>
                   <span className="font-semibold text-gray-900 text-right">{s.value}</span>
                 </div>
