@@ -141,7 +141,7 @@ export default async function RML63Page({ params }: PageProps) {
             {applications.map((a, i) => {
               const [title, ...rest] = a.split(isKo ? " : " : ": ");
               return (
-                <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                   <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     <span className="font-semibold text-gray-900">{title}</span>
