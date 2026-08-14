@@ -152,7 +152,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
 
           <div className="grid md:grid-cols-3 gap-4">
             {features.map((f, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white rounded-2xl p-5 border border-gray-100">
+              <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                 <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
