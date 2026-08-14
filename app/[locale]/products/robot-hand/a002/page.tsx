@@ -153,7 +153,7 @@ export default async function A002Page({ params }: PageProps) {
             <div className="overflow-hidden rounded-2xl border border-gray-100">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-50 border-b border-gray-100">
+                  <tr className="border-b-2 border-gray-900">
                     <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 w-2/3">
                       {isKo ? "측정 위치" : "Measurement Location"}
                     </th>
@@ -174,7 +174,7 @@ export default async function A002Page({ params }: PageProps) {
                     ["엄지 측면 회전 각도", "Thumb lateral rotation angle", "0 ~ 90°"],
                     ["손가락 터치스크린 기능", "Finger touch screen function", isKo ? "지원" : "Supported"],
                   ].map(([ko, en, val], i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                    <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                       <td className="px-5 py-3 text-sm text-gray-600">
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
@@ -201,7 +201,7 @@ export default async function A002Page({ params }: PageProps) {
             <div className="overflow-hidden rounded-2xl border border-gray-100">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-gray-50 border-b border-gray-100">
+                  <tr className="border-b-2 border-gray-900">
                     <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 w-2/3">
                       {isKo ? "측정 항목" : "Measuring Position"}
                     </th>
@@ -222,7 +222,7 @@ export default async function A002Page({ params }: PageProps) {
                     ["단일 손가락 최대 정적 하중 (파워그립)", "Maximum single finger static load (power grip)", "10 kg"],
                     ["단일 손가락 끝 최대 정적 하중 (평면 신장)", "Maximum static load on fingertip of single finger (flat extension)", "8 kg"],
                   ].map(([ko, en, val], i) => (
-                    <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                    <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                       <td className="px-5 py-3 text-sm text-gray-600">
                         <span className="block">{ko}</span>
                         <span className="block text-xs text-gray-400">{en}</span>
@@ -451,10 +451,10 @@ export default async function A002Page({ params }: PageProps) {
           <p className="text-sm text-gray-400 mb-8">
             {isKo ? "용도에 맞는 최적의 로봇핸드 모델을 선택하세요." : "Choose the optimal robot hand model for your application."}
           </p>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
                   <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">ROH-A002</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">ROH-AP001</th>

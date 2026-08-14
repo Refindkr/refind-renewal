@@ -86,10 +86,10 @@ export default async function OhandLitePage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "Ohand vs OhandLite" : "Ohand vs OhandLite"}</p>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">Ohand</th>
                   <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">OhandLite</th>

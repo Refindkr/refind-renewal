@@ -181,7 +181,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "Single Arm vs Dual Arm 비교" : "Single Arm vs Dual Arm"}
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-white border-b border-gray-100">

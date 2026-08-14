@@ -193,7 +193,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
                 </div>
                 {/* Spec table */}
                 <div className="rounded-2xl border border-gray-100 overflow-hidden">
-                  <div className="px-5 py-3 bg-gray-50 border-b border-gray-100">
+                  <div className="px-5 py-3 border-b-2 border-gray-900">
                     <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
                       {isKo ? "사양" : "Specifications"}
                     </span>
@@ -225,10 +225,10 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
             {isKo ? "myCobot 시리즈 한눈에 보기" : "myCobot Series at a Glance"}
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "항목" : "Spec"}</th>
                   <th className="text-center px-5 py-4 text-xs font-bold text-[#E1251B]">myCobot 280</th>
                   <th className="text-center px-5 py-4 text-xs font-bold text-[#E1251B]">myCobot 320</th>
@@ -244,7 +244,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
                   [isKo ? "제어 방식" : "Control",        "Python / ROS", "Python / ROS", "Python / ROS"],
                   [isKo ? "주요 용도" : "Main Use",       isKo ? "입문·교육" : "Beginner / Education", isKo ? "교육·연구" : "Education / Research", isKo ? "연구·개발·시연" : "R&D / Demo"],
                 ].map(([label, v280, v320, v630], i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{label}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-600">{v280}</td>
                     <td className="px-5 py-3.5 text-center text-xs text-gray-600">{v320}</td>

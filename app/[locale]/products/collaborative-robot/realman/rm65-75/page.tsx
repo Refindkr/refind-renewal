@@ -171,7 +171,7 @@ export default async function RM6575Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-white border-b border-gray-100">
@@ -182,7 +182,7 @@ export default async function RM6575Page({ params }: PageProps) {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {specs.map((s, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-gray-50/50" : "bg-white"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-5 py-3 text-xs font-semibold text-gray-500 whitespace-nowrap">{s.k}</td>
                     <td className="px-5 py-3 text-center text-gray-700 whitespace-nowrap">{s.rm65}</td>
                     <td className="px-5 py-3 text-center text-gray-700 whitespace-nowrap">{s.rm75}</td>
@@ -260,10 +260,10 @@ export default async function RM6575Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "RM 시리즈와 ECO 시리즈 비교" : "RM Series vs ECO Series"}
           </p>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100 mb-10">
+          <div className="overflow-x-auto mb-10">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap"> </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B]">RM {isKo ? "시리즈" : "Series"}</th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500">ECO {isKo ? "시리즈" : "Series"}</th>
@@ -271,7 +271,7 @@ export default async function RM6575Page({ params }: PageProps) {
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {comparison.map((c, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{c.k}</td>
                     <td className="px-5 py-3.5 text-center text-gray-700">{c.rm}</td>
                     <td className="px-5 py-3.5 text-center text-gray-700">{c.eco}</td>

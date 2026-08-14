@@ -138,10 +138,10 @@ export default async function TashanPage({ params }: PageProps) {
                 </div>
               ))}
             </div>
-            <div className="overflow-x-auto rounded-2xl border border-gray-100">
+            <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "모델" : "Model"}</th>
                   <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "센싱 방식" : "Sensing Type"}</th>
                   <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
@@ -168,7 +168,7 @@ export default async function TashanPage({ params }: PageProps) {
                   ["TS-E-A",  "3D Force Sensing",                "0 – 50 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1.5 cm"],
                   ["TS-E-B",  "Matrix Sensing",                  "0 – 50 N", "0.05 N", "0.25 N", "5% FS", "≥ 1.5 cm"],
                 ].map(([model, type, range, normal, tangential, acc, prox], i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-5 py-3.5 font-bold text-[#E1251B] whitespace-nowrap">{model}</td>
                     <td className="px-5 py-3.5 text-center text-gray-600 text-xs">{type}</td>
                     <td className="px-5 py-3.5 text-center text-gray-700 font-medium">{range}</td>

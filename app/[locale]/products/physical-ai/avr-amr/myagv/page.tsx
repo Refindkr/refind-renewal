@@ -174,7 +174,7 @@ export default async function MyAGVPage({ params }: PageProps) {
               </thead>
               <tbody>
                 {agvSpecs.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-6 py-4 font-semibold text-gray-900 w-2/5">{row.spec}</td>
                     <td className="px-6 py-4 text-gray-600">{row.desc}</td>
                   </tr>

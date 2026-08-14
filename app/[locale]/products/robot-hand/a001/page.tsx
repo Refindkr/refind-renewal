@@ -206,10 +206,10 @@ export default async function A001Page({ params }: PageProps) {
           <p className="text-sm text-gray-400 mb-8">
             {isKo ? "용도에 맞는 최적의 로봇핸드 모델을 선택하세요." : "Choose the optimal robot hand model for your application."}
           </p>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
+                <tr className="border-b-2 border-gray-900">
                   <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
                   <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">ROH-A001</th>
                   <th className="px-5 py-4 text-xs font-semibold text-gray-500">ROH-AP001</th>

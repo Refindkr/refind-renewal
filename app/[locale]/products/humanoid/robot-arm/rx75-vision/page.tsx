@@ -24,10 +24,10 @@ interface SpecRow {
 
 function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
   return (
-    <div className="overflow-x-auto rounded-2xl border border-gray-100">
+    <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-gray-50 border-b border-gray-100">
+          <tr className="border-b-2 border-gray-900">
             <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">
               {" "}
             </th>
@@ -40,7 +40,7 @@ function SpecTable({ models, rows }: { models: string[]; rows: SpecRow[] }) {
         </thead>
         <tbody className="divide-y divide-gray-50">
           {rows.map((row, i) => (
-            <tr key={row.label} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+            <tr key={row.label} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
               <td className="px-5 py-3 text-xs font-semibold text-gray-500 whitespace-nowrap">{row.label}</td>
               {row.values.map((v, j) => (
                 <td key={j} className={`px-5 py-3 text-center whitespace-nowrap ${j === 3 ? "text-gray-900 font-semibold bg-[#E1251B]/5" : "text-gray-700"}`}>

@@ -201,7 +201,7 @@ export default async function RealbotL2Page({ params }: PageProps) {
           <h2 className="text-4xl font-extrabold text-gray-900 mb-12 tracking-tight">
             {isKo ? "RealMan 휴머노이드 비교" : "RealMan Humanoid Comparison"}
           </h2>
-          <div className="overflow-x-auto rounded-2xl border border-gray-100">
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-white border-b border-gray-100">
@@ -217,7 +217,7 @@ export default async function RealbotL2Page({ params }: PageProps) {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {comparison.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
+                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap">{row.label}</td>
                     <td className="px-5 py-3.5 text-center text-gray-600">{row.s2}</td>
                     <td className="px-5 py-3.5 text-center text-gray-900 font-semibold bg-[#E1251B]/5">{row.l2}</td>
