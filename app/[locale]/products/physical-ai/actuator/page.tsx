@@ -246,7 +246,7 @@ export default async function ActuatorPage({ params }: PageProps) {
                   "IP67-rated design with full support for high-speed CAN FD communication",
                 ]
             ).map((f, i) => (
-              <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+              <div key={i} className="flex items-start gap-3 border-l-2 border-gray-900 pl-4 py-1">
                 <span className="text-[#E1251B] font-bold mt-0.5">•</span>
                 <span className="text-sm text-gray-700 leading-relaxed">{f}</span>
               </div>
