@@ -75,16 +75,16 @@ export default async function HDEMGPage({ params }: PageProps) {
             {isKo ? "제품 사양" : "Specifications"}
           </p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-primary-500/10 border border-primary-500/20 rounded-2xl p-8">
+            <div className="border-t-2 border-gray-900 pt-6">
               <h3 className="text-xl font-extrabold text-gray-900 mb-6">BioFlex nano 32</h3>
-              <div className="space-y-3">
+              <div className="divide-y divide-gray-100">
                 {[
                   { k: isKo ? "기본 채널" : "Base Channels", v: "32ch" },
                   { k: isKo ? "최대 확장" : "Max Expansion", v: "128ch" },
                   { k: isKo ? "샘플링 레이트" : "Sampling Rate", v: "4,096Hz" },
                   { k: isKo ? "해상도" : "Resolution", v: "24-bit" },
                 ].map((s, i) => (
-                  <div key={i} className="bg-white rounded-xl px-4 py-3 border border-gray-100 flex justify-between items-center">
+                  <div key={i} className="flex justify-between items-center py-3">
                     <span className="text-xs text-gray-400">{s.k}</span>
                     <span className="text-xs font-bold text-gray-900">{s.v}</span>
                   </div>
