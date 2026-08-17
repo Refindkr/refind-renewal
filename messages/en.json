@@ -142,7 +142,7 @@
     "founded": "Founded",
     "foundedYear": "2020",
     "location": "Location",
-    "locationText": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon-do, South Korea",
+    "locationText": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon State, South Korea",
     "phone": "Phone",
     "email": "Email",
     "ci": {
@@ -170,10 +170,10 @@
   },
   "footer": {
     "company": "Refind Inc.",
-    "address": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon-do, South Korea",
+    "address": "200 Enterprise City Road, Jijung-myeon, Wonju-si, Gangwon State, South Korea",
     "phone": "070-4837-2829",
     "email": "refind@refind.kr",
-    "copyright": "© 2024 Refind Inc. All rights reserved.",
+    "copyright": "© 2026 Refind Inc. All rights reserved.",
     "links": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
