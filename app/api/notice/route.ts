@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "관리자만 작성할 수 있습니다" }, { status: 403 });
     }
 
-    const { slug, title, content, thumbnail } = await request.json();
+    const { slug, title, content, thumbnail, isExhibitionBanner } = await request.json();
 
     if (!slug || !title || !content) {
       return NextResponse.json({ error: "필수 항목을 입력해주세요" }, { status: 400 });
@@ -46,7 +46,14 @@ export async function POST(request: NextRequest) {
 
     const userId = (session.user as { id?: string }).id!;
     const notice = await prisma.notice.create({
-      data: { slug, title, content, thumbnail: thumbnail || null, authorId: userId },
+      data: {
+        slug,
+        title,
+        content,
+        thumbnail: thumbnail || null,
+        isExhibitionBanner: Boolean(isExhibitionBanner),
+        authorId: userId,
+      },
     });
 
     return NextResponse.json(notice, { status: 201 });

@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroRotatingBackground from "@/components/ui/HeroRotatingBackground";
+import HeroContentSlides from "@/components/ui/HeroContentSlides";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
+import { prisma } from "@/lib/prisma";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -29,9 +31,40 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
+  const isKo = locale === "ko";
   const t = await getTranslations("home");
   const tn = await getTranslations("nav");
   const tp = await getTranslations("products");
+
+  const exhibitionNotice = await prisma.notice.findFirst({
+    where: { isExhibitionBanner: true },
+    orderBy: { createdAt: "desc" },
+  });
+
+  const heroSlides = [
+    {
+      eyebrow: "Refind Inc. · 리파인주식회사",
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      primaryHref: `/${locale}/products/robot-hand`,
+      primaryLabel: t("hero.cta"),
+      secondaryHref: `/${locale}/about`,
+      secondaryLabel: t("hero.ctaSecondary"),
+    },
+    ...(exhibitionNotice
+      ? [
+          {
+            eyebrow: isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION",
+            title: exhibitionNotice.title,
+            subtitle: isKo
+              ? "리파인의 전시회 소식을 확인해보세요."
+              : "Check out Refind's latest exhibition news.",
+            primaryHref: `/${exhibitionNotice.slug}`,
+            primaryLabel: isKo ? "자세히 보기" : "Learn more",
+          },
+        ]
+      : []),
+  ];
 
   // 홈페이지 "주요 제품" 섹션은 실제 대메뉴(Navbar productLinks) 5개와 1:1로 대응시킨다.
   const products = [
@@ -95,49 +128,7 @@ export default async function HomePage({ params }: PageProps) {
           <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px] animate-hero-glow" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <p
-            className="text-primary-400 text-sm font-semibold tracking-[0.2em] uppercase mb-8 animate-hero-fade-up"
-            style={{ animationDelay: "0ms" }}
-          >
-            Refind Inc. · 리파인주식회사
-          </p>
-
-          <h1
-            className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line animate-hero-fade-up"
-            style={{ animationDelay: "150ms" }}
-          >
-            {t("hero.title")}
-          </h1>
-
-          <p
-            className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line animate-hero-fade-up"
-            style={{ animationDelay: "300ms" }}
-          >
-            {t("hero.subtitle")}
-          </p>
-
-          <div
-            className="flex flex-col sm:flex-row gap-4 justify-center animate-hero-fade-up"
-            style={{ animationDelay: "450ms" }}
-          >
-            <Link
-              href={`/${locale}/products/robot-hand`}
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-black text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-200"
-            >
-              {t("hero.cta")}
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <Link
-              href={`/${locale}/about`}
-              className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white text-sm font-semibold rounded-full hover:border-white/50 hover:bg-white/5 transition-all duration-200"
-            >
-              {t("hero.ctaSecondary")}
-            </Link>
-          </div>
-        </div>
+        <HeroContentSlides slides={heroSlides} />
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">

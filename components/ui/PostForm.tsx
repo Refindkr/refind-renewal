@@ -15,7 +15,7 @@ export default function PostForm({ locale, type }: Props) {
   const listPath = type === "notice" ? `/${locale}/admin/notice` : `/${locale}/admin/card-news`;
   const label = type === "notice" ? "공지사항" : "카드뉴스";
 
-  const [form, setForm] = useState({ slug: "", title: "", content: "", thumbnail: "" });
+  const [form, setForm] = useState({ slug: "", title: "", content: "", thumbnail: "", isExhibitionBanner: false });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [thumbUploading, setThumbUploading] = useState(false);
@@ -133,6 +133,23 @@ export default function PostForm({ locale, type }: Props) {
         </label>
         <RichTextEditor content={form.content} onChange={(html) => setForm({ ...form, content: html })} />
       </div>
+
+      {type === "notice" && (
+        <label className="flex items-start gap-3 p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+          <input
+            type="checkbox"
+            checked={form.isExhibitionBanner}
+            onChange={(e) => setForm({ ...form, isExhibitionBanner: e.target.checked })}
+            className="mt-0.5 h-4 w-4 accent-primary-400"
+          />
+          <span>
+            <span className="block text-sm font-medium text-gray-900">전시회 배너로 표시</span>
+            <span className="block text-xs text-gray-400 mt-0.5">
+              체크하면 홈페이지 히어로 영역에 이 공지사항이 전시회 배너 슬라이드로 노출됩니다. 여러 개를 체크하면 가장 최근 글이 노출됩니다.
+            </span>
+          </span>
+        </label>
+      )}
 
       <div className="flex gap-4 pt-2">
         <button
