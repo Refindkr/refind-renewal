@@ -61,3 +61,21 @@ export async function PUT(request: NextRequest, { params }: Params) {
     return NextResponse.json({ error: "서버 오류" }, { status: 500 });
   }
 }
+
+export async function DELETE(_request: NextRequest, { params }: Params) {
+  try {
+    const session = await getServerSession(authOptions);
+    const role = (session?.user as { role?: string })?.role;
+    if (!session?.user || role !== "admin") {
+      return NextResponse.json({ error: "관리자만 삭제할 수 있습니다" }, { status: 403 });
+    }
+
+    const { id } = await params;
+    await prisma.notice.delete({ where: { id } });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "서버 오류" }, { status: 500 });
+  }
+}

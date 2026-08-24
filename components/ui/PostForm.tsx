@@ -173,7 +173,7 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
             <span>
               <span className="block text-sm font-medium text-gray-900">전시회 배너로 표시</span>
               <span className="block text-xs text-gray-400 mt-0.5">
-                체크하면 홈페이지 히어로 영역에 이 공지사항이 전시회 배너 슬라이드로 노출됩니다. 여러 개를 체크하면 가장 최근 글이 노출됩니다.
+                체크하면 홈페이지 히어로 영역에 이 공지사항이 전시회 배너 슬라이드로 노출됩니다. 여러 개를 체크하면 모두 순서대로 함께 노출됩니다.
               </span>
             </span>
           </label>

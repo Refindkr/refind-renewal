@@ -3,6 +3,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import DeleteButton from "@/components/ui/DeleteButton";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -62,7 +63,7 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-40">슬러그</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden md:table-cell">작성자</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden lg:table-cell">날짜</th>
-                <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-20">관리</th>
+                <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28">관리</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
@@ -86,12 +87,15 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
                       {new Date(card.createdAt).toLocaleDateString("ko-KR")}
                     </td>
                     <td className="px-5 py-3.5">
-                      <Link
-                        href={`/${locale}/admin/card-news/${card.id}/edit`}
-                        className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
-                      >
-                        수정
-                      </Link>
+                      <div className="flex items-center gap-3">
+                        <Link
+                          href={`/${locale}/admin/card-news/${card.id}/edit`}
+                          className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
+                        >
+                          수정
+                        </Link>
+                        <DeleteButton apiPath={`/api/card-news/${card.id}`} confirmMessage={`"${card.title}" 카드뉴스를 삭제하시겠습니까? 되돌릴 수 없습니다.`} />
+                      </div>
                     </td>
                   </tr>
                 ))

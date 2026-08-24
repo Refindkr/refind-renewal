@@ -36,7 +36,7 @@ export default async function HomePage({ params }: PageProps) {
   const tn = await getTranslations("nav");
   const tp = await getTranslations("products");
 
-  const exhibitionNotice = await prisma.notice.findFirst({
+  const exhibitionNotices = await prisma.notice.findMany({
     where: { isExhibitionBanner: true },
     orderBy: { createdAt: "desc" },
   });
@@ -51,23 +51,18 @@ export default async function HomePage({ params }: PageProps) {
       secondaryHref: `/${locale}/about`,
       secondaryLabel: t("hero.ctaSecondary"),
     },
-    ...(exhibitionNotice
-      ? [
-          {
-            eyebrow:
-              exhibitionNotice.bannerEyebrow ||
-              (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
-            title: exhibitionNotice.title,
-            subtitle:
-              exhibitionNotice.bannerSubtitle ||
-              (isKo
-                ? "리파인의 전시회 소식을 확인해보세요."
-                : "Check out Refind's latest exhibition news."),
-            primaryHref: `/${exhibitionNotice.slug}`,
-            primaryLabel: isKo ? "자세히 보기" : "Learn more",
-          },
-        ]
-      : []),
+    ...exhibitionNotices.map((notice) => ({
+      eyebrow:
+        notice.bannerEyebrow || (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
+      title: notice.title,
+      subtitle:
+        notice.bannerSubtitle ||
+        (isKo
+          ? "리파인의 전시회 소식을 확인해보세요."
+          : "Check out Refind's latest exhibition news."),
+      primaryHref: `/${notice.slug}`,
+      primaryLabel: isKo ? "자세히 보기" : "Learn more",
+    })),
   ];
 
   // 홈페이지 "주요 제품" 섹션은 실제 대메뉴(Navbar productLinks) 5개와 1:1로 대응시킨다.

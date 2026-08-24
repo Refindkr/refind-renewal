@@ -7,6 +7,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { stripHtml } from "@/lib/html";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import DeleteButton from "@/components/ui/DeleteButton";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -57,6 +58,7 @@ export default async function FlatPostPage({ params }: PageProps) {
     type === "notice"
       ? `/${locale}/admin/notice/${post.id}/edit`
       : `/${locale}/admin/card-news/${post.id}/edit`;
+  const apiPath = type === "notice" ? `/api/notice/${post.id}` : `/api/card-news/${post.id}`;
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -89,12 +91,20 @@ export default async function FlatPostPage({ params }: PageProps) {
               {listLabel}
             </Link>
             {isAdmin && (
-              <Link
-                href={editHref}
-                className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors border border-primary-200 rounded-full px-4 py-1.5"
-              >
-                수정
-              </Link>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={editHref}
+                  className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors border border-primary-200 rounded-full px-4 py-1.5"
+                >
+                  수정
+                </Link>
+                <DeleteButton
+                  apiPath={apiPath}
+                  confirmMessage={`"${post.title}"을 삭제하시겠습니까? 되돌릴 수 없습니다.`}
+                  redirectTo={listHref}
+                  className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-red-500 transition-colors border border-gray-200 rounded-full px-4 py-1.5"
+                />
+              </div>
             )}
           </div>
 
