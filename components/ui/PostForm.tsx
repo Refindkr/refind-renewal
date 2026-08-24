@@ -118,13 +118,18 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">제목</label>
-        <input
-          type="text"
+        <textarea
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
+          rows={2}
+          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300 resize-none"
         />
+        {type === "notice" && (
+          <p className="text-xs text-gray-400 mt-1">
+            Enter로 줄바꿈하면 전시회 배너로 표시될 때 그 위치에서 줄바꿈됩니다.
+          </p>
+        )}
       </div>
 
       <div>

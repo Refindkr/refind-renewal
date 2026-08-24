@@ -65,7 +65,7 @@ export default async function FlatPostPage({ params }: PageProps) {
           <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
             Refind Inc.
           </p>
-          <h1 className="text-3xl font-bold text-white">{post.title}</h1>
+          <h1 className="text-3xl font-bold text-white whitespace-pre-line">{post.title}</h1>
           <p className="text-gray-400 text-sm mt-3">
             {new Date(post.createdAt).toLocaleDateString("ko-KR", {
               year: "numeric",
