@@ -65,13 +65,13 @@ export default async function AboutPage({ params }: PageProps) {
 
             <div className="border-t-2 border-gray-900 pt-6">
               <h3 className="text-xl font-bold text-gray-900 mb-6">{t("ci.title")}</h3>
-              <div className="flex items-center mb-6 py-4">
+              <div className="flex items-center justify-center mb-6 py-6">
                 <Image
-                  src="/logo.png"
-                  alt="Refind Logo"
-                  width={200}
-                  height={67}
-                  className="h-16 w-auto object-contain"
+                  src="/brand-symbol.jpg"
+                  alt="Refind Brand Symbol"
+                  width={600}
+                  height={400}
+                  className="h-40 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-600 text-sm leading-relaxed">{t("ci.description")}</p>
