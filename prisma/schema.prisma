@@ -62,6 +62,7 @@ model Notice {
   content            String
   thumbnail          String?
   isExhibitionBanner Boolean  @default(false) // 홈페이지 히어로에 전시회 배너로 노출할지 여부
+  bannerEyebrow      String? // 전시회 배너 상단 라벨문구 (선택, 예: "EXHIBITION · 전시회 안내")
   bannerSubtitle     String? // 전시회 배너로 노출될 때 표시할 소개문구 (선택)
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt

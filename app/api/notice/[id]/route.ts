@@ -17,7 +17,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
 
     const { id } = await params;
-    const { slug, title, content, thumbnail, isExhibitionBanner, bannerSubtitle } = await request.json();
+    const { slug, title, content, thumbnail, isExhibitionBanner, bannerEyebrow, bannerSubtitle } = await request.json();
 
     if (!slug || !title || !content) {
       return NextResponse.json({ error: "필수 항목을 입력해주세요" }, { status: 400 });
@@ -50,6 +50,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
         content,
         thumbnail: thumbnail || null,
         isExhibitionBanner: Boolean(isExhibitionBanner),
+        bannerEyebrow: bannerEyebrow || null,
         bannerSubtitle: bannerSubtitle || null,
       },
     });

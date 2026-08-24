@@ -10,6 +10,7 @@ interface PostFormData {
   content: string;
   thumbnail: string;
   isExhibitionBanner: boolean;
+  bannerEyebrow: string;
   bannerSubtitle: string;
 }
 
@@ -34,6 +35,7 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
     content: initialData?.content ?? "",
     thumbnail: initialData?.thumbnail ?? "",
     isExhibitionBanner: initialData?.isExhibitionBanner ?? false,
+    bannerEyebrow: initialData?.bannerEyebrow ?? "",
     bannerSubtitle: initialData?.bannerSubtitle ?? "",
   });
   const [loading, setLoading] = useState(false);
@@ -171,16 +173,29 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
             </span>
           </label>
           {form.isExhibitionBanner && (
-            <div className="px-4 pb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">배너 소개문구</label>
-              <input
-                type="text"
-                value={form.bannerSubtitle}
-                onChange={(e) => setForm({ ...form, bannerSubtitle: e.target.value })}
-                placeholder="예: 리파인의 이번 전시회 소식을 확인해보세요"
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
-              />
-              <p className="text-xs text-gray-400 mt-1">비워두면 기본 안내문구가 표시됩니다.</p>
+            <div className="px-4 pb-4 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">배너 상단 라벨</label>
+                <input
+                  type="text"
+                  value={form.bannerEyebrow}
+                  onChange={(e) => setForm({ ...form, bannerEyebrow: e.target.value })}
+                  placeholder="예: EXHIBITION · 전시회 안내"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
+                />
+                <p className="text-xs text-gray-400 mt-1">비워두면 기본 라벨(&quot;EXHIBITION · 전시회 안내&quot;)이 표시됩니다.</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">배너 소개문구</label>
+                <input
+                  type="text"
+                  value={form.bannerSubtitle}
+                  onChange={(e) => setForm({ ...form, bannerSubtitle: e.target.value })}
+                  placeholder="예: 리파인의 이번 전시회 소식을 확인해보세요"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
+                />
+                <p className="text-xs text-gray-400 mt-1">비워두면 기본 안내문구가 표시됩니다.</p>
+              </div>
             </div>
           )}
         </div>

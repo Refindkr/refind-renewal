@@ -54,7 +54,9 @@ export default async function HomePage({ params }: PageProps) {
     ...(exhibitionNotice
       ? [
           {
-            eyebrow: isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION",
+            eyebrow:
+              exhibitionNotice.bannerEyebrow ||
+              (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
             title: exhibitionNotice.title,
             subtitle:
               exhibitionNotice.bannerSubtitle ||

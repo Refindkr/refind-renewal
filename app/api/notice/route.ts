@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "관리자만 작성할 수 있습니다" }, { status: 403 });
     }
 
-    const { slug, title, content, thumbnail, isExhibitionBanner } = await request.json();
+    const { slug, title, content, thumbnail, isExhibitionBanner, bannerEyebrow, bannerSubtitle } = await request.json();
 
     if (!slug || !title || !content) {
       return NextResponse.json({ error: "필수 항목을 입력해주세요" }, { status: 400 });
@@ -52,6 +52,8 @@ export async function POST(request: NextRequest) {
         content,
         thumbnail: thumbnail || null,
         isExhibitionBanner: Boolean(isExhibitionBanner),
+        bannerEyebrow: bannerEyebrow || null,
+        bannerSubtitle: bannerSubtitle || null,
         authorId: userId,
       },
     });

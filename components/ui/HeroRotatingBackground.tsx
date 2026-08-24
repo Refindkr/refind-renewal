@@ -59,19 +59,6 @@ export default function HeroRotatingBackground({
           </div>
         </div>
       ))}
-
-      {images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-          {images.map((src, i) => (
-            <span
-              key={src}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === index ? "w-6 bg-white/70" : "w-1.5 bg-white/25"
-              }`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }
