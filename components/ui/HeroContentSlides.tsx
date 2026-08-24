@@ -27,7 +27,7 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
       setIndex((i) => (i + 1) % slides.length);
     }, intervalMs);
     return () => clearInterval(id);
-  }, [slides.length, intervalMs]);
+  }, [slides.length, intervalMs, index]);
 
   const slide = slides[index];
 
@@ -44,7 +44,7 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
 
         <h1
           key={`title-${index}`}
-          className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line animate-hero-fade-up"
+          className="text-5xl sm:text-7xl md:text-8xl font-bold leading-[1.05] tracking-tight mb-8 whitespace-pre-line break-keep animate-hero-fade-up"
           style={{ animationDelay: "100ms" }}
         >
           {slide.title}
@@ -52,7 +52,7 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
 
         <p
           key={`subtitle-${index}`}
-          className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line animate-hero-fade-up"
+          className="text-lg sm:text-xl text-white/50 leading-relaxed mb-12 max-w-xl mx-auto whitespace-pre-line break-keep animate-hero-fade-up"
           style={{ animationDelay: "200ms" }}
         >
           {slide.subtitle}
@@ -84,14 +84,21 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
       </div>
 
       {slides.length > 1 && (
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-3 z-10">
           {slides.map((_, i) => (
-            <span
+            <button
               key={i}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                i === index ? "w-6 bg-white/70" : "w-1.5 bg-white/25"
-              }`}
-            />
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`${i + 1}번째 슬라이드로 이동`}
+              className="p-2 -m-2"
+            >
+              <span
+                className={`block h-1.5 rounded-full transition-all duration-500 ${
+                  i === index ? "w-6 bg-white/70" : "w-1.5 bg-white/25 hover:bg-white/50"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}
