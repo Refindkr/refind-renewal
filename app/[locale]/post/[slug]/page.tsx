@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import DOMPurify from "isomorphic-dompurify";
 import { stripHtml } from "@/lib/html";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -40,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function FlatPostPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const result = await findPost(slug);
 
   if (!result) notFound();
@@ -48,6 +50,13 @@ export default async function FlatPostPage({ params }: PageProps) {
   const { type, post } = result;
   const listHref = type === "notice" ? "/ko/notice" : "/ko/card-news";
   const listLabel = type === "notice" ? "공지사항 목록" : "카드뉴스 목록";
+
+  const session = await getServerSession(authOptions);
+  const isAdmin = (session?.user as { role?: string })?.role === "admin";
+  const editHref =
+    type === "notice"
+      ? `/${locale}/admin/notice/${post.id}/edit`
+      : `/${locale}/admin/card-news/${post.id}/edit`;
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -69,15 +78,25 @@ export default async function FlatPostPage({ params }: PageProps) {
 
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
-          <Link
-            href={listHref}
-            className="inline-flex items-center text-sm text-gray-500 hover:text-primary-400 transition-colors mb-8"
-          >
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            {listLabel}
-          </Link>
+          <div className="flex items-center justify-between mb-8">
+            <Link
+              href={listHref}
+              className="inline-flex items-center text-sm text-gray-500 hover:text-primary-400 transition-colors"
+            >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              {listLabel}
+            </Link>
+            {isAdmin && (
+              <Link
+                href={editHref}
+                className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors border border-primary-200 rounded-full px-4 py-1.5"
+              >
+                수정
+              </Link>
+            )}
+          </div>
 
           {post.thumbnail && (
             <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden bg-gray-100">
