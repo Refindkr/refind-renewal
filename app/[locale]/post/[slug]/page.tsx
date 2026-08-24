@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import DOMPurify from "isomorphic-dompurify";
+import sanitizeHtml from "sanitize-html";
 import { stripHtml } from "@/lib/html";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -12,6 +12,31 @@ import DeleteButton from "@/components/ui/DeleteButton";
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
+
+// 리치 텍스트 에디터 출력 + 네이버 블로그 등에서 붙여넣은 서식을 최대한 보존하면서 위험한 태그만 제거
+const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
+  allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+    "img",
+    "h1",
+    "h2",
+    "span",
+    "table",
+    "thead",
+    "tbody",
+    "tr",
+    "th",
+    "td",
+    "u",
+    "s",
+  ]),
+  allowedAttributes: {
+    ...sanitizeHtml.defaults.allowedAttributes,
+    "*": ["style", "class"],
+    img: ["src", "alt", "width", "height"],
+    a: ["href", "target", "rel"],
+  },
+  allowedSchemes: ["http", "https", "data"],
+};
 
 async function findPost(slug: string) {
   const [notice, cardNews] = await Promise.all([
@@ -116,7 +141,7 @@ export default async function FlatPostPage({ params }: PageProps) {
 
           <div
             className="prose prose-sm sm:prose-base max-w-none text-gray-700"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content, SANITIZE_OPTIONS) }}
           />
         </div>
       </section>
