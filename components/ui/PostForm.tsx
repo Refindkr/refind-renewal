@@ -4,18 +4,38 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import RichTextEditor from "./RichTextEditor";
 
+interface PostFormData {
+  slug: string;
+  title: string;
+  content: string;
+  thumbnail: string;
+  isExhibitionBanner: boolean;
+  bannerSubtitle: string;
+}
+
 interface Props {
   locale: string;
   type: "notice" | "cardNews";
+  mode?: "create" | "edit";
+  postId?: string;
+  initialData?: Partial<PostFormData>;
 }
 
-export default function PostForm({ locale, type }: Props) {
+export default function PostForm({ locale, type, mode = "create", postId, initialData }: Props) {
   const router = useRouter();
   const apiPath = type === "notice" ? "/api/notice" : "/api/card-news";
   const listPath = type === "notice" ? `/${locale}/admin/notice` : `/${locale}/admin/card-news`;
   const label = type === "notice" ? "공지사항" : "카드뉴스";
+  const isEdit = mode === "edit";
 
-  const [form, setForm] = useState({ slug: "", title: "", content: "", thumbnail: "", isExhibitionBanner: false });
+  const [form, setForm] = useState<PostFormData>({
+    slug: initialData?.slug ?? "",
+    title: initialData?.title ?? "",
+    content: initialData?.content ?? "",
+    thumbnail: initialData?.thumbnail ?? "",
+    isExhibitionBanner: initialData?.isExhibitionBanner ?? false,
+    bannerSubtitle: initialData?.bannerSubtitle ?? "",
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [thumbUploading, setThumbUploading] = useState(false);
@@ -49,8 +69,8 @@ export default function PostForm({ locale, type }: Props) {
     setError("");
 
     try {
-      const res = await fetch(apiPath, {
-        method: "POST",
+      const res = await fetch(isEdit ? `${apiPath}/${postId}` : apiPath, {
+        method: isEdit ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
@@ -135,20 +155,35 @@ export default function PostForm({ locale, type }: Props) {
       </div>
 
       {type === "notice" && (
-        <label className="flex items-start gap-3 p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
-          <input
-            type="checkbox"
-            checked={form.isExhibitionBanner}
-            onChange={(e) => setForm({ ...form, isExhibitionBanner: e.target.checked })}
-            className="mt-0.5 h-4 w-4 accent-primary-400"
-          />
-          <span>
-            <span className="block text-sm font-medium text-gray-900">전시회 배너로 표시</span>
-            <span className="block text-xs text-gray-400 mt-0.5">
-              체크하면 홈페이지 히어로 영역에 이 공지사항이 전시회 배너 슬라이드로 노출됩니다. 여러 개를 체크하면 가장 최근 글이 노출됩니다.
+        <div className="border border-gray-200 rounded-xl overflow-hidden">
+          <label className="flex items-start gap-3 p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+            <input
+              type="checkbox"
+              checked={form.isExhibitionBanner}
+              onChange={(e) => setForm({ ...form, isExhibitionBanner: e.target.checked })}
+              className="mt-0.5 h-4 w-4 accent-primary-400"
+            />
+            <span>
+              <span className="block text-sm font-medium text-gray-900">전시회 배너로 표시</span>
+              <span className="block text-xs text-gray-400 mt-0.5">
+                체크하면 홈페이지 히어로 영역에 이 공지사항이 전시회 배너 슬라이드로 노출됩니다. 여러 개를 체크하면 가장 최근 글이 노출됩니다.
+              </span>
             </span>
-          </span>
-        </label>
+          </label>
+          {form.isExhibitionBanner && (
+            <div className="px-4 pb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">배너 소개문구</label>
+              <input
+                type="text"
+                value={form.bannerSubtitle}
+                onChange={(e) => setForm({ ...form, bannerSubtitle: e.target.value })}
+                placeholder="예: 리파인의 이번 전시회 소식을 확인해보세요"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
+              />
+              <p className="text-xs text-gray-400 mt-1">비워두면 기본 안내문구가 표시됩니다.</p>
+            </div>
+          )}
+        </div>
       )}
 
       <div className="flex gap-4 pt-2">
@@ -157,7 +192,7 @@ export default function PostForm({ locale, type }: Props) {
           disabled={loading}
           className="flex-1 py-3 bg-primary-400 text-white font-semibold rounded-xl hover:bg-primary-500 transition-colors disabled:opacity-50"
         >
-          {loading ? "등록 중..." : `${label} 등록`}
+          {loading ? (isEdit ? "수정 중..." : "등록 중...") : isEdit ? `${label} 수정` : `${label} 등록`}
         </button>
         <a
           href={listPath}

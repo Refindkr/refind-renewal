@@ -56,9 +56,11 @@ export default async function HomePage({ params }: PageProps) {
           {
             eyebrow: isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION",
             title: exhibitionNotice.title,
-            subtitle: isKo
-              ? "리파인의 전시회 소식을 확인해보세요."
-              : "Check out Refind's latest exhibition news.",
+            subtitle:
+              exhibitionNotice.bannerSubtitle ||
+              (isKo
+                ? "리파인의 전시회 소식을 확인해보세요."
+                : "Check out Refind's latest exhibition news."),
             primaryHref: `/${exhibitionNotice.slug}`,
             primaryLabel: isKo ? "자세히 보기" : "Learn more",
           },

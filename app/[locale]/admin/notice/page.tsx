@@ -62,12 +62,13 @@ export default async function AdminNoticePage({ params }: PageProps) {
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-40">슬러그</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden md:table-cell">작성자</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden lg:table-cell">날짜</th>
+                <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-20">관리</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
               {notices.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-5 py-16 text-center text-gray-400">
+                  <td colSpan={5} className="px-5 py-16 text-center text-gray-400">
                     등록된 공지사항이 없습니다
                   </td>
                 </tr>
@@ -78,11 +79,24 @@ export default async function AdminNoticePage({ params }: PageProps) {
                       <Link href={`/${notice.slug}`} target="_blank" className="text-gray-900 hover:text-[#E1251B] font-medium">
                         {notice.title}
                       </Link>
+                      {notice.isExhibitionBanner && (
+                        <span className="ml-2 text-[10px] font-semibold text-primary-500 bg-primary-50 px-1.5 py-0.5 rounded">
+                          전시회 배너
+                        </span>
+                      )}
                     </td>
                     <td className="px-5 py-3.5 text-gray-400 font-mono text-xs">/{notice.slug}</td>
                     <td className="px-5 py-3.5 text-gray-700 hidden md:table-cell">{notice.author.name}</td>
                     <td className="px-5 py-3.5 text-gray-400 hidden lg:table-cell">
                       {new Date(notice.createdAt).toLocaleDateString("ko-KR")}
+                    </td>
+                    <td className="px-5 py-3.5">
+                      <Link
+                        href={`/${locale}/admin/notice/${notice.id}/edit`}
+                        className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
+                      >
+                        수정
+                      </Link>
                     </td>
                   </tr>
                 ))

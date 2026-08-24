@@ -62,12 +62,13 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-40">슬러그</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden md:table-cell">작성자</th>
                 <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-28 hidden lg:table-cell">날짜</th>
+                <th className="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 w-20">관리</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50">
               {cardNews.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-5 py-16 text-center text-gray-400">
+                  <td colSpan={5} className="px-5 py-16 text-center text-gray-400">
                     등록된 카드뉴스가 없습니다
                   </td>
                 </tr>
@@ -83,6 +84,14 @@ export default async function AdminCardNewsPage({ params }: PageProps) {
                     <td className="px-5 py-3.5 text-gray-700 hidden md:table-cell">{card.author.name}</td>
                     <td className="px-5 py-3.5 text-gray-400 hidden lg:table-cell">
                       {new Date(card.createdAt).toLocaleDateString("ko-KR")}
+                    </td>
+                    <td className="px-5 py-3.5">
+                      <Link
+                        href={`/${locale}/admin/card-news/${card.id}/edit`}
+                        className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
+                      >
+                        수정
+                      </Link>
                     </td>
                   </tr>
                 ))
