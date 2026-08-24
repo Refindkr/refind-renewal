@@ -99,8 +99,8 @@ export default async function FlatPostPage({ params }: PageProps) {
           </div>
 
           {post.thumbnail && (
-            <div className="relative w-full aspect-video mb-8 rounded-2xl overflow-hidden bg-gray-100">
-              <Image src={post.thumbnail} alt={post.title} fill className="object-cover" />
+            <div className="relative w-full max-h-[480px] aspect-video mb-8 rounded-2xl overflow-hidden bg-gray-100">
+              <Image src={post.thumbnail} alt={post.title} fill className="object-contain" />
             </div>
           )}
 
