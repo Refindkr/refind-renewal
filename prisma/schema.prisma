@@ -19,10 +19,11 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  inquiries Inquiry[]
-  answers   Answer[]
-  notices   Notice[]
-  cardNews  CardNews[]
+  inquiries  Inquiry[]
+  answers    Answer[]
+  notices    Notice[]
+  cardNews   CardNews[]
+  topBanners TopBanner[]
 }
 
 model Inquiry {
@@ -78,6 +79,19 @@ model CardNews {
   title     String
   content   String
   thumbnail String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+}
+
+// 사이트 최상단 공지 배너 — 여러 개 등록 가능, isActive인 것 중 가장 최근 것 하나만 노출
+model TopBanner {
+  id        String   @id @default(cuid())
+  message   String
+  href      String? // 클릭 시 이동할 링크 (선택)
+  isActive  Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

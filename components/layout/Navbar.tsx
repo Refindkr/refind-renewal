@@ -106,7 +106,7 @@ export default function Navbar({ locale }: NavbarProps) {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
+    <nav className="bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
 

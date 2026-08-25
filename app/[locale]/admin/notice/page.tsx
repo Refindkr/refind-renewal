@@ -39,6 +39,9 @@ export default async function AdminNoticePage({ params }: PageProps) {
               <Link href={`/${locale}/admin/card-news`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
                 카드뉴스 관리
               </Link>
+              <Link href={`/${locale}/admin/top-banner`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
+                상단 배너 관리
+              </Link>
             </div>
           </div>
         </div>

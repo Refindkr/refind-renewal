@@ -80,6 +80,15 @@ export default async function AdminPage({ params }: PageProps) {
             </h2>
             <p className="text-sm text-gray-500">카드뉴스를 작성하고 목록을 관리합니다</p>
           </Link>
+          <Link
+            href={`/${locale}/admin/top-banner`}
+            className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
+          >
+            <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">
+              상단 공지 배너 관리
+            </h2>
+            <p className="text-sm text-gray-500">사이트 최상단 공지 배너를 작성하고 관리합니다</p>
+          </Link>
         </div>
 
       </div>
