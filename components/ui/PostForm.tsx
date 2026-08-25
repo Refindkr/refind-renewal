@@ -160,6 +160,11 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
         {form.thumbnail && (
           <img src={form.thumbnail} alt="" className="mt-3 h-32 rounded-xl object-cover border border-gray-100" />
         )}
+        {type === "notice" && form.isExhibitionBanner && (
+          <p className="text-xs text-primary-500 mt-2">
+            "전시회 배너로 표시"가 체크되어 있어서, 이 이미지가 메인 홈페이지 히어로에도 그대로 노출됩니다. 비워두면 기본 이미지로 대체됩니다.
+          </p>
+        )}
       </div>
 
       <div>
