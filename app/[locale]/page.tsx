@@ -62,7 +62,6 @@ export default async function HomePage({ params }: PageProps) {
           : "Check out Refind's latest exhibition news."),
       primaryHref: `/${notice.slug}`,
       primaryLabel: isKo ? "자세히 보기" : "Learn more",
-      color: notice.bannerColor || "#E1251B",
     })),
   ];
 
@@ -113,14 +112,19 @@ export default async function HomePage({ params }: PageProps) {
 
         {/* 배경 이미지 — invert로 흰배경→검정, 제품→흰색 실루엣 */}
         <div className="absolute inset-0 pointer-events-none select-none">
-          {/* 이미지 영역: 오른쪽 배치, 주요 제품 5개를 순환 표시. 여백을 둬서 확대 애니메이션에도 화면 밖으로 안 번지게 함 */}
-          <div className="absolute right-0 top-0 h-full w-[55%] p-12 md:p-16">
+          {/* 이미지 영역: 오른쪽 배치, 주요 제품 5개를 순환 표시 */}
+          <div className="absolute right-0 top-0 h-full w-[55%]">
             <HeroRotatingBackground images={products.map((p) => p.image)} />
           </div>
           {/* 왼쪽으로 검정 그라디언트 페이드 */}
           <div className="absolute inset-0 bg-gradient-to-r from-black from-40% via-black/60 to-transparent" />
           {/* 하단 페이드 */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        </div>
+
+        {/* Radial glow */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px] animate-hero-glow" />
         </div>
 
         <HeroContentSlides slides={heroSlides} />

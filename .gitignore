@@ -12,7 +12,6 @@ build/
 .env
 .env.local
 .env.production
-*계정*.txt
 
 # prisma
 prisma/dev.db

@@ -11,15 +11,12 @@ interface HeroSlide {
   primaryLabel: string;
   secondaryHref?: string;
   secondaryLabel?: string;
-  color?: string;
 }
 
 interface HeroContentSlidesProps {
   slides: HeroSlide[];
   intervalMs?: number;
 }
-
-const DEFAULT_GLOW_COLOR = "#E1251B";
 
 export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroContentSlidesProps) {
   const [index, setIndex] = useState(0);
@@ -33,23 +30,14 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
   }, [slides.length, intervalMs, index]);
 
   const slide = slides[index];
-  const glowColor = slide.color || DEFAULT_GLOW_COLOR;
 
   return (
     <>
-      {/* 슬라이드마다 강조 색상이 다른 라디얼 글로우 — 배경 색이 바뀌며 전환을 시각적으로 알림 */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div
-          className="w-[600px] h-[600px] rounded-full blur-[120px] animate-hero-glow transition-colors duration-1000"
-          style={{ backgroundColor: glowColor, opacity: 0.14 }}
-        />
-      </div>
-
       <div className="relative max-w-4xl mx-auto">
         <p
           key={`eyebrow-${index}`}
-          className="text-sm font-semibold tracking-[0.2em] uppercase mb-8 animate-hero-fade-up transition-colors duration-500"
-          style={{ animationDelay: "0ms", color: glowColor }}
+          className="text-primary-400 text-sm font-semibold tracking-[0.2em] uppercase mb-8 animate-hero-fade-up"
+          style={{ animationDelay: "0ms" }}
         >
           {slide.eyebrow}
         </p>
@@ -107,9 +95,8 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
             >
               <span
                 className={`block h-1.5 rounded-full transition-all duration-500 ${
-                  i === index ? "w-6" : "w-1.5 bg-white/25 hover:bg-white/50"
+                  i === index ? "w-6 bg-white/70" : "w-1.5 bg-white/25 hover:bg-white/50"
                 }`}
-                style={i === index ? { backgroundColor: glowColor } : undefined}
               />
             </button>
           ))}

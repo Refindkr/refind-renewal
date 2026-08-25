@@ -39,7 +39,6 @@ export default async function EditNoticePage({ params }: PageProps) {
             isExhibitionBanner: notice.isExhibitionBanner,
             bannerEyebrow: notice.bannerEyebrow ?? "",
             bannerSubtitle: notice.bannerSubtitle ?? "",
-            bannerColor: notice.bannerColor ?? "",
           }}
         />
       </div>
