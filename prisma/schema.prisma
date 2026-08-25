@@ -64,6 +64,7 @@ model Notice {
   isExhibitionBanner Boolean  @default(false) // 홈페이지 히어로에 전시회 배너로 노출할지 여부
   bannerEyebrow      String? // 전시회 배너 상단 라벨문구 (선택, 예: "EXHIBITION · 전시회 안내")
   bannerSubtitle     String? // 전시회 배너로 노출될 때 표시할 소개문구 (선택)
+  bannerColor        String? // 전시회 배너 강조 색상 (hex, 선택) — 슬라이드 전환을 시각적으로 구분하기 위함
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 
