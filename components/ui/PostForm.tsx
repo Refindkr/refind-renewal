@@ -15,7 +15,10 @@ interface PostFormData {
   isExhibitionBanner: boolean;
   bannerEyebrow: string;
   bannerSubtitle: string;
+  bannerColor: string;
 }
+
+const DEFAULT_BANNER_COLOR = "#3a3a3a";
 
 interface Props {
   locale: string;
@@ -40,6 +43,7 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
     isExhibitionBanner: initialData?.isExhibitionBanner ?? false,
     bannerEyebrow: initialData?.bannerEyebrow ?? "",
     bannerSubtitle: initialData?.bannerSubtitle ?? "",
+    bannerColor: initialData?.bannerColor || DEFAULT_BANNER_COLOR,
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -208,6 +212,27 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
                 />
                 <p className="text-xs text-gray-400 mt-1">비워두면 기본 안내문구가 표시됩니다.</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">배경 톤</label>
+                <div className="flex items-center gap-3">
+                  <input
+                    type="color"
+                    value={form.bannerColor}
+                    onChange={(e) => setForm({ ...form, bannerColor: e.target.value })}
+                    className="h-11 w-14 rounded-lg border border-gray-200 cursor-pointer"
+                  />
+                  <input
+                    type="text"
+                    value={form.bannerColor}
+                    onChange={(e) => setForm({ ...form, bannerColor: e.target.value })}
+                    placeholder="#3a3a3a"
+                    className="flex-1 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300 font-mono text-sm"
+                  />
+                </div>
+                <p className="text-xs text-gray-400 mt-1">
+                  메인 히어로의 검정 배경에 이 색이 은은하게 섞여서, 다른 슬라이드와 구분됩니다. 밝은 그레이 등 톤 조절 용도라 진한 색은 피하는 게 좋습니다.
+                </p>
               </div>
             </div>
           )}

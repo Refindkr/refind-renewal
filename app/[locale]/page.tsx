@@ -62,6 +62,7 @@ export default async function HomePage({ params }: PageProps) {
           : "Check out Refind's latest exhibition news."),
       primaryHref: `/${notice.slug}`,
       primaryLabel: isKo ? "자세히 보기" : "Learn more",
+      bgColor: notice.bannerColor || undefined,
     })),
   ];
 
