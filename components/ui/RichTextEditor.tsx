@@ -11,6 +11,9 @@ interface Props {
   onChange: (html: string) => void;
 }
 
+// Vercel 서버리스 함수 요청 본문 한도(~4.5MB)보다 여유 있게 설정 — /api/upload와 동일
+const MAX_UPLOAD_SIZE = 4 * 1024 * 1024;
+
 export default function RichTextEditor({ content, onChange }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
@@ -35,6 +38,11 @@ export default function RichTextEditor({ content, onChange }: Props) {
   });
 
   async function uploadFile(file: File) {
+    if (file.size > MAX_UPLOAD_SIZE) {
+      setUploadError("이미지 용량은 4MB 이하만 가능합니다");
+      return;
+    }
+
     setUploading(true);
     setUploadError("");
     try {

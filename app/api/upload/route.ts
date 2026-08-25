@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { getSupabaseAdmin, POST_IMAGES_BUCKET } from "@/lib/supabaseAdmin";
 
 const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/gif", "image/webp"];
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_SIZE = 4 * 1024 * 1024; // 4MB — Vercel 서버리스 함수 요청 본문 한도(~4.5MB)보다 여유 있게 설정
 
 export async function POST(request: NextRequest) {
   const session = await getServerSession(authOptions);
@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (file.size > MAX_SIZE) {
-    return NextResponse.json({ error: "이미지 용량은 5MB 이하만 가능합니다" }, { status: 400 });
+    return NextResponse.json({ error: "이미지 용량은 4MB 이하만 가능합니다" }, { status: 400 });
   }
 
   const ext = file.name.split(".").pop() || "jpg";
