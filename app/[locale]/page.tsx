@@ -4,7 +4,6 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroSlider from "@/components/ui/HeroSlider";
 import Reveal from "@/components/ui/Reveal";
-import CountUp from "@/components/ui/CountUp";
 import { prisma } from "@/lib/prisma";
 
 interface PageProps {
@@ -112,27 +111,6 @@ export default async function HomePage({ params }: PageProps) {
       <section className="relative pt-16 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28 min-h-[calc(100vh-4rem)] flex items-center">
           <HeroSlider slides={heroSlides} />
-        </div>
-      </section>
-
-      {/* ─── Stats ─── */}
-      <section className="bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100">
-          {[
-            { value: "2020", label: "설립연도" },
-            { value: "5+", label: "제품 라인업" },
-            { value: "AI", label: "물리적 지능" },
-            { value: "∞", label: "가능성의 한계" },
-          ].map((stat, i) => (
-            <Reveal key={stat.label} delayMs={i * 80} className="bg-white px-10 py-12 text-center">
-              <div className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
-                <CountUp value={stat.value} />
-              </div>
-              <div className="text-sm text-gray-400 font-medium tracking-wide uppercase">
-                {stat.label}
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 
