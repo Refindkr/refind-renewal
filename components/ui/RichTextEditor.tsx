@@ -5,6 +5,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
+import Youtube from "@tiptap/extension-youtube";
 
 interface Props {
   content: string;
@@ -25,6 +26,11 @@ export default function RichTextEditor({ content, onChange }: Props) {
       StarterKit,
       Image,
       Link.configure({ openOnClick: false }),
+      Youtube.configure({
+        controls: true,
+        nocookie: true,
+        HTMLAttributes: { class: "rounded-xl" },
+      }),
     ],
     content,
     editorProps: {
@@ -102,6 +108,16 @@ export default function RichTextEditor({ content, onChange }: Props) {
           className={btnClass(editor.isActive("link"))}
         >
           링크
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            const url = window.prompt("유튜브 영상 URL을 입력하세요");
+            if (url) editor.commands.setYoutubeVideo({ src: url });
+          }}
+          className={btnClass(false)}
+        >
+          유튜브
         </button>
         <span className="w-px h-4 bg-gray-200 mx-1" />
         <button

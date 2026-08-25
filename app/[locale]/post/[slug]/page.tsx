@@ -19,23 +19,20 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     "img",
     "h1",
     "h2",
-    "span",
-    "table",
-    "thead",
-    "tbody",
-    "tr",
-    "th",
-    "td",
     "u",
-    "s",
+    "iframe",
   ]),
   allowedAttributes: {
     ...sanitizeHtml.defaults.allowedAttributes,
     "*": ["style", "class"],
     img: ["src", "alt", "width", "height"],
     a: ["href", "target", "rel"],
+    div: ["data-youtube-video"],
+    iframe: ["src", "width", "height", "allow", "allowfullscreen", "frameborder"],
   },
   allowedSchemes: ["http", "https", "data"],
+  // 유튜브 임베드(iframe)만 허용 — 그 외 출처의 iframe은 그대로 걸러짐
+  allowedIframeHostnames: ["www.youtube.com", "www.youtube-nocookie.com"],
 };
 
 async function findPost(slug: string) {
