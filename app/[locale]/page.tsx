@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import HeroRotatingBackground from "@/components/ui/HeroRotatingBackground";
-import HeroContentSlides from "@/components/ui/HeroContentSlides";
+import HeroSlider from "@/components/ui/HeroSlider";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import { prisma } from "@/lib/prisma";
@@ -40,30 +39,6 @@ export default async function HomePage({ params }: PageProps) {
     where: { isExhibitionBanner: true },
     orderBy: { createdAt: "desc" },
   });
-
-  const heroSlides = [
-    {
-      eyebrow: "Refind Inc. · 리파인주식회사",
-      title: t("hero.title"),
-      subtitle: t("hero.subtitle"),
-      primaryHref: `/${locale}/products/robot-hand`,
-      primaryLabel: t("hero.cta"),
-      secondaryHref: `/${locale}/about`,
-      secondaryLabel: t("hero.ctaSecondary"),
-    },
-    ...exhibitionNotices.map((notice) => ({
-      eyebrow:
-        notice.bannerEyebrow || (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
-      title: notice.title,
-      subtitle:
-        notice.bannerSubtitle ||
-        (isKo
-          ? "리파인의 전시회 소식을 확인해보세요."
-          : "Check out Refind's latest exhibition news."),
-      primaryHref: `/${notice.slug}`,
-      primaryLabel: isKo ? "자세히 보기" : "Learn more",
-    })),
-  ];
 
   // 홈페이지 "주요 제품" 섹션은 실제 대메뉴(Navbar productLinks) 5개와 1:1로 대응시킨다.
   const products = [
@@ -104,34 +79,39 @@ export default async function HomePage({ params }: PageProps) {
     },
   ];
 
+  // 히어로 슬라이드: 브랜드 소개 1장 + 전시회 배너
+  const heroSlides = [
+    {
+      eyebrow: "Refind Inc. · 리파인주식회사",
+      title: t("hero.title"),
+      subtitle: t("hero.subtitle"),
+      image: products[3].image,
+      primaryHref: `/${locale}/products/robot-hand`,
+      primaryLabel: t("hero.cta"),
+      secondaryHref: `/${locale}/about`,
+      secondaryLabel: t("hero.ctaSecondary"),
+    },
+    ...exhibitionNotices.map((notice) => ({
+      eyebrow: notice.bannerEyebrow || (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
+      title: notice.title,
+      subtitle:
+        notice.bannerSubtitle ||
+        (isKo
+          ? "리파인의 전시회 소식을 확인해보세요."
+          : "Check out Refind's latest exhibition news."),
+      image: notice.thumbnail || products[0].image,
+      primaryHref: `/${notice.slug}`,
+      primaryLabel: isKo ? "자세히 보기" : "Learn more",
+    })),
+  ];
+
   return (
     <div>
 
       {/* ─── Hero ─── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white text-center px-6 overflow-hidden">
-
-        {/* 배경 이미지 — invert로 흰배경→검정, 제품→흰색 실루엣 */}
-        <div className="absolute inset-0 pointer-events-none select-none">
-          {/* 이미지 영역: 오른쪽 배치, 주요 제품 5개를 순환 표시 */}
-          <div className="absolute right-0 top-0 h-full w-[55%]">
-            <HeroRotatingBackground images={products.map((p) => p.image)} />
-          </div>
-          {/* 왼쪽으로 검정 그라디언트 페이드 */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black from-40% via-black/60 to-transparent" />
-          {/* 하단 페이드 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-        </div>
-
-        {/* Radial glow */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[600px] h-[600px] rounded-full bg-primary-400/10 blur-[120px] animate-hero-glow" />
-        </div>
-
-        <HeroContentSlides slides={heroSlides} />
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <div className="w-px h-12 bg-gradient-to-b from-transparent to-white/30" />
+      <section className="relative pt-16 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28 min-h-[calc(100vh-4rem)] flex items-center">
+          <HeroSlider slides={heroSlides} />
         </div>
       </section>
 

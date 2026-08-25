@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -18,14 +18,12 @@ export default function Navbar({ locale }: NavbarProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [openMobileCategory, setOpenMobileCategory] = useState<string | null>(null);
 
   const otherLocale = locale === "ko" ? "en" : "ko";
   const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
 
-  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
   const isKo = locale === "ko";
 
   const productLinks = [
@@ -107,23 +105,8 @@ export default function Navbar({ locale }: NavbarProps) {
     },
   ];
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 10);
-    handler();
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  const isTransparent = isHome && !scrolled;
-
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isTransparent
-          ? "bg-transparent"
-          : "bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm"
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
 
@@ -134,9 +117,7 @@ export default function Navbar({ locale }: NavbarProps) {
               alt="Refind"
               width={150}
               height={50}
-              className={`h-11 w-auto object-contain -translate-y-1 transition-all duration-300 ${
-                isTransparent ? "brightness-0 invert" : ""
-              }`}
+              className="h-11 w-auto object-contain -translate-y-1"
               priority
             />
           </Link>
@@ -152,11 +133,7 @@ export default function Navbar({ locale }: NavbarProps) {
               >
                 <Link
                   href={link.href}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 ${
-                    isTransparent
-                      ? "text-white/80 hover:text-white hover:bg-white/10"
-                      : "text-gray-700 hover:bg-black/5"
-                  }`}
+                  className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5"
                 >
                   {link.label}
                   {link.children.length > 0 && (
@@ -207,15 +184,11 @@ export default function Navbar({ locale }: NavbarProps) {
               </div>
             ))}
 
-            <span className={`mx-1.5 w-px h-4 ${isTransparent ? "bg-white/20" : "bg-gray-200"}`} />
+            <span className="mx-1.5 w-px h-4 bg-gray-200" />
 
             <Link
               href={`/${locale}/about`}
-              className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap ${
-                isTransparent
-                  ? "text-white/80 hover:text-white hover:bg-white/10"
-                  : "text-gray-700 hover:bg-black/5"
-              }`}
+              className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap text-gray-700 hover:bg-black/5"
             >
               {t("about")}
             </Link>
@@ -225,13 +198,7 @@ export default function Navbar({ locale }: NavbarProps) {
               onMouseEnter={() => setHoveredMenu("board")}
               onMouseLeave={() => setHoveredMenu(null)}
             >
-              <button
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 ${
-                  isTransparent
-                    ? "text-white/80 hover:text-white hover:bg-white/10"
-                    : "text-gray-700 hover:bg-black/5"
-                }`}
-              >
+              <button className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5">
                 {t("board")}
                 <svg
                   className={`w-3 h-3 transition-transform duration-200 opacity-50 ${hoveredMenu === "board" ? "rotate-180" : ""}`}
@@ -274,37 +241,27 @@ export default function Navbar({ locale }: NavbarProps) {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href={switchPath}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-                isTransparent
-                  ? "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
-                  : "border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
-              }`}
+              className="px-3 py-1.5 text-xs font-semibold rounded-full border transition-all border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
             >
               {otherLocale === "en" ? "EN" : "한국어"}
             </Link>
 
             {session ? (
               <div className="flex items-center gap-3">
-                <span className={`text-sm ${isTransparent ? "text-white/70" : "text-gray-600"}`}>
+                <span className="text-sm text-gray-600">
                   {session.user?.name}
                 </span>
                 {(session.user as { role?: string })?.role === "admin" && (
                   <Link
                     href={`/${locale}/admin`}
-                    className={`text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${
-                      isTransparent
-                        ? "bg-[#E1251B]/20 text-[#E1251B] hover:bg-[#E1251B]/30"
-                        : "bg-primary-50 text-primary-600 hover:bg-primary-100"
-                    }`}
+                    className="text-xs font-bold px-2.5 py-1 rounded-full transition-colors bg-primary-50 text-primary-600 hover:bg-primary-100"
                   >
                     관리자
                   </Link>
                 )}
                 <button
                   onClick={() => signOut({ callbackUrl: `/${locale}` })}
-                  className={`text-sm transition-colors ${
-                    isTransparent ? "text-white/60 hover:text-red-400" : "text-gray-500 hover:text-red-500"
-                  }`}
+                  className="text-sm transition-colors text-gray-500 hover:text-red-500"
                 >
                   {t("logout")}
                 </button>
@@ -312,9 +269,7 @@ export default function Navbar({ locale }: NavbarProps) {
             ) : (
               <Link
                 href={`/${locale}/auth/login`}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  isTransparent ? "text-white/80 hover:text-white" : "text-gray-700 hover:text-gray-900"
-                }`}
+                className="px-4 py-2 text-sm font-medium rounded-full transition-colors text-gray-700 hover:text-gray-900"
               >
                 {t("login")}
               </Link>
@@ -323,9 +278,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
           {/* Mobile menu button */}
           <button
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
-              isTransparent ? "text-white" : "text-gray-700"
-            }`}
+            className="lg:hidden p-2 rounded-lg transition-colors text-gray-700"
             onClick={() => {
               setMobileOpen(!mobileOpen);
               setOpenMobileCategory(null);

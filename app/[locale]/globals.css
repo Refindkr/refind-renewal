@@ -13,21 +13,6 @@ html {
   scroll-behavior: smooth;
 }
 
-@keyframes hero-ken-burns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
-}
-
-.animate-hero-zoom {
-  animation-name: hero-ken-burns;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
 @keyframes hero-fade-up {
   from {
     opacity: 0;
@@ -41,22 +26,6 @@ html {
 
 .animate-hero-fade-up {
   animation: hero-fade-up 0.8s ease-out both;
-}
-
-@keyframes hero-glow-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-}
-
-.animate-hero-glow {
-  animation: hero-glow-pulse 6s ease-in-out infinite;
 }
 
 body {
