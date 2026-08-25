@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
     if (!isValidSlugFormat(slug)) {
       return NextResponse.json(
-        { error: "슬러그는 영문 소문자, 숫자, 하이픈(-)만 사용할 수 있습니다" },
+        { error: "슬러그는 영문, 숫자, 하이픈(-)만 사용할 수 있습니다" },
         { status: 400 }
       );
     }

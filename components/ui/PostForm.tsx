@@ -110,10 +110,10 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
           onChange={(e) => setForm({ ...form, slug: e.target.value })}
           placeholder={type === "notice" ? "notice1" : "card1"}
           required
-          pattern="[a-z0-9]+(-[a-z0-9]+)*"
+          pattern="[A-Za-z0-9]+(-[A-Za-z0-9]+)*"
           className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300 font-mono text-sm"
         />
-        <p className="text-xs text-gray-400 mt-1">영문 소문자, 숫자, 하이픈(-)만 사용 가능. 다른 글과 중복될 수 없습니다.</p>
+        <p className="text-xs text-gray-400 mt-1">영문, 숫자, 하이픈(-)만 사용 가능. 다른 글과 중복될 수 없습니다.</p>
       </div>
 
       <div>

@@ -16,7 +16,9 @@ export function isReservedSlug(slug: string): boolean {
   return RESERVED_ROOT_SEGMENTS.has(slug);
 }
 
-const SLUG_PATTERN = /^[a-z0-9](?:[a-z0-9-]{0,48}[a-z0-9])?$/;
+// 기존 노션 사이트(products.refind.kr) 슬러그를 SEO 유지 목적으로 그대로 가져오는 경우가 있어
+// 대문자·긴 길이(예: 날짜+해시가 붙은 슬러그)까지 허용한다.
+const SLUG_PATTERN = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,198}[A-Za-z0-9])?$/;
 
 export function isValidSlugFormat(slug: string): boolean {
   return SLUG_PATTERN.test(slug);
