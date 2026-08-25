@@ -109,9 +109,6 @@ export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProp
 
       {/* 이미지 영역 */}
       <div className="relative order-1 lg:order-2 h-[280px] sm:h-[380px] lg:h-[520px]">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[85%] h-[85%] rounded-full bg-white" />
-        </div>
         {slides.map((s, i) => (
           <div
             key={i}
