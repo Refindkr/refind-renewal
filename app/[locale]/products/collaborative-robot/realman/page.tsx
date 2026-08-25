@@ -34,7 +34,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
     },
     {
       href: `/${locale}/products/collaborative-robot/realman/rml63`,
-      image: "/products/collaborative-robot/RML63.jpeg",
+      image: "/products/collaborative-robot/RML63.png",
       name: isKo ? "협동로봇 (RML63)" : "Cobot (RML63)",
       nameEn: "Human-like Arm Design Cobot",
       tagline: isKo

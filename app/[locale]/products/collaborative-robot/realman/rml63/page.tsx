@@ -108,7 +108,7 @@ export default async function RML63Page({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
-            <Image src="/products/collaborative-robot/RML63.jpeg" alt="RML63" fill
+            <Image src="/products/collaborative-robot/RML63.png" alt="RML63" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
         </div>
