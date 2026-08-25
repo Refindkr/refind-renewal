@@ -11,7 +11,6 @@ interface HeroSlide {
   primaryLabel: string;
   secondaryHref?: string;
   secondaryLabel?: string;
-  bgColor?: string;
 }
 
 interface HeroContentSlidesProps {
@@ -34,12 +33,6 @@ export default function HeroContentSlides({ slides, intervalMs = 6000 }: HeroCon
 
   return (
     <>
-      {/* 슬라이드별 배경 톤 — 검정 배경에 은은하게 섞여 슬라이드 전환을 표시. 색이 없으면 순수 검정 그대로 */}
-      <div
-        className="absolute inset-0 transition-[background-color,opacity] duration-1000 pointer-events-none"
-        style={{ backgroundColor: slide.bgColor || "transparent", opacity: slide.bgColor ? 0.35 : 0 }}
-      />
-
       <div className="relative max-w-4xl mx-auto">
         <p
           key={`eyebrow-${index}`}
