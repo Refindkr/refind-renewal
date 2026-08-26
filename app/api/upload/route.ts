@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createHash } from "crypto";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { getSupabaseAdmin, POST_IMAGES_BUCKET } from "@/lib/supabaseAdmin";
@@ -29,19 +30,25 @@ export async function POST(request: NextRequest) {
   }
 
   const ext = file.name.split(".").pop() || "jpg";
-  const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const buffer = Buffer.from(await file.arrayBuffer());
+  const hash = createHash("sha256").update(buffer).digest("hex");
+  const path = `${hash}.${ext}`;
 
   const supabaseAdmin = getSupabaseAdmin();
   const { error } = await supabaseAdmin.storage
     .from(POST_IMAGES_BUCKET)
-    .upload(path, file, { contentType: file.type });
+    .upload(path, buffer, { contentType: file.type, upsert: false });
 
-  if (error) {
+  // 파일 내용의 해시를 경로로 쓰기 때문에, 이미 같은 내용의 파일이 있으면 업로드가 "이미 존재함" 에러로
+  // 실패한다 — 이 경우 새로 올리지 않고 기존 파일의 URL을 그대로 재사용해 중복 저장을 막는다
+  const isDuplicate = error && (error as { statusCode?: string }).statusCode === "409";
+
+  if (error && !isDuplicate) {
     console.error(error);
     return NextResponse.json({ error: "업로드 중 오류가 발생했습니다" }, { status: 500 });
   }
 
   const { data } = supabaseAdmin.storage.from(POST_IMAGES_BUCKET).getPublicUrl(path);
 
-  return NextResponse.json({ url: data.publicUrl }, { status: 201 });
+  return NextResponse.json({ url: data.publicUrl, deduplicated: isDuplicate }, { status: 201 });
 }
