@@ -113,41 +113,52 @@ export default async function Rx71Page({ params }: PageProps) {
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(circle at 20% 50%, rgba(225,37,27,0.15) 0%, transparent 55%)" }}
         />
-        <div className="relative max-w-7xl mx-auto px-6">
-          <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
-            Humanoid Robot · Robot Arm
-          </span>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
-            RX71 <span className="text-white/40">{isKo ? "표준형" : "Standard"}</span>
-          </h1>
-          <p className="text-sm text-[#E1251B] font-semibold mb-5">
-            {isKo
-              ? "가볍고 정밀한 작업을 위한 7축 휴머노이드 로봇암"
-              : "A 7-Axis Humanoid Robot Arm for Light, Precise Work"}
-          </p>
-          <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
-            {isKo
-              ? "3kg 가반하중과 7축 자유도를 갖춘 경량 로봇암으로, AI·휴머노이드 연구개발과 정밀 작업에 적합합니다."
-              : "RX71 Standard is a humanoid robot arm with a 3kg payload and 7-axis DOF, optimized for R&D, AI algorithm validation, education, and precision work. Its lightweight design and excellent maneuverability make it easy to apply across diverse development environments, offering an efficient solution for building humanoid and embodied AI platforms."}
-          </p>
-          <div className="flex flex-wrap gap-3 mb-8">
-            {features.map((f) => (
-              <span key={f} className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
-                {f}
-              </span>
-            ))}
+        <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
+              Humanoid Robot · Robot Arm
+            </span>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">
+              RX71 <span className="text-white/40">{isKo ? "표준형" : "Standard"}</span>
+            </h1>
+            <p className="text-sm text-[#E1251B] font-semibold mb-5">
+              {isKo
+                ? "가볍고 정밀한 작업을 위한 7축 휴머노이드 로봇암"
+                : "A 7-Axis Humanoid Robot Arm for Light, Precise Work"}
+            </p>
+            <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
+              {isKo
+                ? "3kg 가반하중과 7축 자유도를 갖춘 경량 로봇암으로, AI·휴머노이드 연구개발과 정밀 작업에 적합합니다."
+                : "RX71 Standard is a humanoid robot arm with a 3kg payload and 7-axis DOF, optimized for R&D, AI algorithm validation, education, and precision work. Its lightweight design and excellent maneuverability make it easy to apply across diverse development environments, offering an efficient solution for building humanoid and embodied AI platforms."}
+            </p>
+            <div className="flex flex-wrap gap-3 mb-8">
+              {features.map((f) => (
+                <span key={f} className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-xs font-medium border border-white/10">
+                  {f}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
+                {isKo ? "협업 문의하기" : "Contact Us"}
+              </a>
+              <Link href={`/${locale}/products/humanoid/robot-arm`}
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "로봇암 전체 보기" : "All Robot Arms"}
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
-              {isKo ? "협업 문의하기" : "Contact Us"}
-            </a>
-            <Link href={`/${locale}/products/humanoid/robot-arm`}
-              className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "로봇암 전체 보기" : "All Robot Arms"}
-            </Link>
+          <div className="relative h-64 md:h-80">
+            <Image
+              src="/products/humanoid/robot-arm/rx71.png"
+              alt="RX71 Standard"
+              fill
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
         </div>
       </section>
@@ -158,24 +169,13 @@ export default async function Rx71Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "제품 사양" : "Specifications"}
           </p>
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="order-2 md:order-1 overflow-hidden rounded-2xl border border-gray-100">
-              {specs.map((s, i) => (
-                <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
-                  <span className="text-gray-500 font-medium">{s.label}</span>
-                  <span className="font-semibold text-gray-900 text-right">{s.value}</span>
-                </div>
-              ))}
-            </div>
-            <div className="order-1 md:order-2 relative h-72 md:h-96">
-              <Image
-                src="/products/humanoid/robot-arm/rx71.png"
-                alt="RX71 Standard"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+          <div className="max-w-2xl overflow-hidden">
+            {specs.map((s, i) => (
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
+                <span className="text-gray-500 font-medium">{s.label}</span>
+                <span className="font-semibold text-gray-900 text-right">{s.value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
