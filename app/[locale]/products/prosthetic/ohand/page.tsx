@@ -150,8 +150,8 @@ export default async function OhandPage({ params }: PageProps) {
               { src: "/products/prosthetic/gif/feed_4.gif", label: isKo ? "정밀 집기" : "Precision Grip" },
               { src: "/products/prosthetic/gif/feed_5.gif", label: isKo ? "물건 집기" : "Picking Object" },
               { src: "/products/prosthetic/gif/feed_6.gif", label: isKo ? "음료 잡기" : "Holding Cup" },
-              { src: "/products/prosthetic/gif/feed_7.gif", label: isKo ? "버튼 조작" : "Button Press" },
-              { src: "/products/prosthetic/gif/feed_8.gif", label: isKo ? "글쓰기" : "Writing" },
+              { src: "/products/prosthetic/gif/feed_7.gif", label: isKo ? "물건 잡기" : "Grabbing Object" },
+              { src: "/products/prosthetic/gif/feed_8.gif", label: isKo ? "EMG 컨트롤" : "EMG Control" },
               { src: "/products/prosthetic/gif/feed_9.gif", label: isKo ? "식사하기" : "Eating" },
             ].map((g, i) => (
               <div key={i} className="overflow-hidden rounded-2xl bg-gray-950 group">
