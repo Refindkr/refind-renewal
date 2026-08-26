@@ -105,7 +105,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "사람의 팔처럼 직관적인 조작, 모든 프레임이 트레이닝 데이터. 체화지능 데이터 수집, 기능 검증, 가정 서비스 및 리테일 환경에 적합합니다."
+                ? "사람의 움직임을 직관적으로 로봇에 전달해 실제 환경에서 체화지능 학습에 필요한 데이터를 효율적으로 수집하고 다양한 로봇 동작을 검증할 수 있는 원격조작 플랫폼입니다."
                 : "Intuitive control just like a human arm — every frame becomes training data. Ideal for embodied AI data collection, functional verification, home service, and retail environments."}
             </p>
             <div className="flex flex-wrap gap-3">

@@ -81,7 +81,7 @@ export default async function OhandS001Page({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "OHand S001은 근전도(EMG) 신호를 기반으로 자연스러운 손동작을 구현하는 소형 전자의수입니다. 5개의 독립 구동 손가락과 정밀한 파지 성능을 통해 일상생활은 물론 재활 및 연구 분야에서도 폭넓게 활용됩니다."
+                ? "근전도(EMG) 신호로 손동작을 제어하는 소형 전자의수로, 5개 손가락의 독립 구동을 통해 자연스럽고 정밀한 파지가 가능합니다."
                 : "OHand S001 is a compact prosthetic hand that realizes natural hand motion based on EMG signals. With 5 independently driven fingers and precise grip performance, it is widely used in daily living as well as rehabilitation and research."}
             </p>
             <div className="flex flex-wrap gap-3">

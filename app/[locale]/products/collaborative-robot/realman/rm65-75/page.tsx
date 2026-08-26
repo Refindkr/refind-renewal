@@ -56,19 +56,19 @@ export default async function RM6575Page({ params }: PageProps) {
       ];
 
   const specs = [
-    { k: isKo ? "자유도" : "DOF", rm65: "6", rm75: "7" },
-    { k: isKo ? "구조 형상" : "Structure", rm65: isKo ? "휴머노이드 구조" : "Humanoid structure", rm75: isKo ? "휴머노이드 구조" : "Humanoid structure" },
-    { k: isKo ? "관절 브레이크 형식" : "Joint Brake Type", rm65: isKo ? "1-3축 기계식 / 4-6축 소프트" : "J1-3 mechanical / J4-6 soft", rm75: isKo ? "1-4축 기계식 / 5-7축 소프트" : "J1-4 mechanical / J5-7 soft" },
-    { k: isKo ? "작업 반경 (mm)" : "Working Radius (mm)", rm65: "610", rm75: "610" },
-    { k: isKo ? "유효 가반 하중 (kg)" : "Payload (kg)", rm65: "5", rm75: "5" },
-    { k: isKo ? "자중 (kg)" : "Net Weight (kg)", rm65: "7.2", rm75: "7.8" },
-    { k: isKo ? "반복 위치 정밀도 (mm)" : "Repeatability (mm)", rm65: "±0.05", rm75: "±0.05" },
-    { k: "TCP " + (isKo ? "선속도 (m/s)" : "Linear Speed (m/s)"), rm65: "≤1.8", rm75: "≤1.8" },
-    { k: isKo ? "정격 소비전력 (W)" : "Rated Power (W)", rm65: "≤150", rm75: "≤200" },
-    { k: isKo ? "최대 출력 (W)" : "Max Power (W)", rm65: "≤600", rm75: "≤600" },
-    { k: isKo ? "베이스 크기 (mm)" : "Base Size (mm)", rm65: "107Φ", rm75: "107Φ" },
-    { k: isKo ? "작동 온도 (˚C)" : "Operating Temp (˚C)", rm65: "0-45", rm75: "0-45" },
-    { k: isKo ? "공급 전압 (V)" : "Power Supply (V)", rm65: "DC 24V", rm75: "DC 24V" },
+    { ko: "자유도", en: "DOF", rm65: "6", rm75: "7" },
+    { ko: "구조 형상", en: "Structure", rm65: isKo ? "휴머노이드 구조" : "Humanoid structure", rm75: isKo ? "휴머노이드 구조" : "Humanoid structure" },
+    { ko: "관절 브레이크 형식", en: "Joint Brake Type", rm65: isKo ? "1-3축 기계식 / 4-6축 소프트" : "J1-3 mechanical / J4-6 soft", rm75: isKo ? "1-4축 기계식 / 5-7축 소프트" : "J1-4 mechanical / J5-7 soft" },
+    { ko: "작업 반경 (mm)", en: "Working Radius (mm)", rm65: "610", rm75: "610" },
+    { ko: "유효 가반 하중 (kg)", en: "Payload (kg)", rm65: "5", rm75: "5" },
+    { ko: "자중 (kg)", en: "Net Weight (kg)", rm65: "7.2", rm75: "7.8" },
+    { ko: "반복 위치 정밀도 (mm)", en: "Repeatability (mm)", rm65: "±0.05", rm75: "±0.05" },
+    { ko: "TCP 선속도 (m/s)", en: "TCP Linear Speed (m/s)", rm65: "≤1.8", rm75: "≤1.8" },
+    { ko: "정격 소비전력 (W)", en: "Rated Power (W)", rm65: "≤150", rm75: "≤200" },
+    { ko: "최대 출력 (W)", en: "Max Power (W)", rm65: "≤600", rm75: "≤600" },
+    { ko: "베이스 크기 (mm)", en: "Base Size (mm)", rm65: "107Φ", rm75: "107Φ" },
+    { ko: "작동 온도 (˚C)", en: "Operating Temp (˚C)", rm65: "0-45", rm75: "0-45" },
+    { ko: "공급 전압 (V)", en: "Power Supply (V)", rm65: "DC 24V", rm75: "DC 24V" },
   ];
 
   const controllerBenefits = isKo
@@ -102,7 +102,7 @@ export default async function RM6575Page({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "5kg 가반하중과 ±0.05mm 반복정밀도를 제공하는 초경량 협동로봇. RM65는 초경량 설계, 사람과 유사한 6축 구조, 협동 작업, AI 및 비전 연동을 위해 개발된 협동로봇입니다."
+                ? "7.2kg의 초경량 설계로 5kg 페이로드를 지원하며, 제어기가 통합된 고성능 6축 협동로봇입니다."
                 : "An ultra-lightweight cobot with 5kg payload and ±0.05mm repeatability. RM65 was developed for ultra-lightweight design, human-like 6-axis structure, collaborative work, and AI/vision integration."}
             </p>
             <div className="flex flex-wrap gap-3">
@@ -183,7 +183,10 @@ export default async function RM6575Page({ params }: PageProps) {
               <tbody className="divide-y divide-gray-100">
                 {specs.map((s, i) => (
                   <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
-                    <td className="px-5 py-3 text-xs font-semibold text-gray-500 whitespace-nowrap">{s.k}</td>
+                    <td className="px-5 py-3 text-xs font-semibold text-gray-500">
+                      {isKo ? s.ko : s.en}
+                      <span className="block text-[11px] font-normal text-gray-400">{isKo ? s.en : s.ko}</span>
+                    </td>
                     <td className="px-5 py-3 text-center text-gray-700 whitespace-nowrap">{s.rm65}</td>
                     <td className="px-5 py-3 text-center text-gray-700 whitespace-nowrap">{s.rm75}</td>
                   </tr>

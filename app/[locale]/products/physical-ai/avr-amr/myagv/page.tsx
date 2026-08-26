@@ -89,7 +89,7 @@ export default async function MyAGVPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "자율 이동과 협동로봇 암이 결합된 모바일 로봇 플랫폼. SLAM 기반 자율주행으로 실내 환경을 자유롭게 탐색하며 교육·연구·자동화 분야에 최적화된 플랫폼입니다."
+                ? "myAGV 2023은 SLAM 기반 자율주행과 로봇 암을 결합해 실내 환경을 스스로 이동하며 다양한 교육·연구와 자동화 실습이 가능한 모바일 로봇 플랫폼입니다."
                 : "Mobile robot platform combining autonomous navigation with a collaborative robot arm. SLAM-based self-navigation optimized for education, research, and automation environments."}
             </p>
             <div className="flex flex-wrap gap-3">

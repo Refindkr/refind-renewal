@@ -109,7 +109,7 @@ export default async function RealbotL2Page({ params }: PageProps) {
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
             {isKo
-              ? "RealBot L2는 승강(Lifting) 구조를 적용한 휠형 휴머노이드 로봇입니다. 작업 높이를 자유롭게 조절할 수 있어 높은 선반, 생산 라인, 물류 랙 등 다양한 높이의 작업 환경에 유연하게 대응하며, 서비스부터 산업 자동화까지 폭넓게 활용할 수 있습니다."
+              ? "승강 구조와 휠 기반 이동을 결합해 작업 높이를 자유롭게 조절할 수 있는 휴머노이드 로봇으로, 물류·제조·서비스 환경에 유연하게 대응합니다."
               : "RealBot L2 is a wheeled humanoid robot with a lifting structure. Its freely adjustable working height flexibly handles tasks at high shelves, production lines, and logistics racks — spanning from service to industrial automation."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

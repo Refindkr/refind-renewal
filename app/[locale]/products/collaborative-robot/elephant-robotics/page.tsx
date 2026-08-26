@@ -111,7 +111,7 @@ export default async function ElephantRoboticsPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "myCobot 시리즈는 산업 자동화보다는 교육, 연구, 로봇 개발, 알고리즘 실험에 최적화된 플랫폼입니다. 컴팩트한 크기와 직관적인 제어 구조를 바탕으로 입문자부터 전문 연구자까지 폭넓게 활용할 수 있습니다."
+                ? "컴팩트한 크기와 직관적인 제어가 강점인 협동로봇으로, 교육·연구와 로봇 개발 및 알고리즘 실험에 적합합니다."
                 : "The myCobot series is optimized for education, research, robot development, and algorithm experimentation rather than industrial automation. Its compact size and intuitive control structure make it accessible from beginners to professional researchers."}
             </p>
             <div className="flex flex-wrap gap-3">

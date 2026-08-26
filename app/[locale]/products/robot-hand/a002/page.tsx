@@ -67,7 +67,7 @@ export default async function A002Page({ params }: PageProps) {
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "인간의 손을 완벽히 모사한 6자유도 메커니즘으로 로봇 자동화의 새로운 한계를 개척합니다."
+                ? "인간 손과 유사한 6자유도 구조를 기반으로 다양한 손동작을 정밀하게 구현할 수 있는 다관절 로봇 핸드입니다."
                 : "Pioneering new frontiers in robotic automation with a 6-DOF mechanism that perfectly replicates human hand motion."}
             </p>
             <div className="flex flex-wrap gap-3">

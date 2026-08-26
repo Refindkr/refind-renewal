@@ -128,7 +128,7 @@ export default async function Rx75VisionPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "RX75 Vision은 Intel RealSense D405 깊이 카메라를 로봇 말단부에 기본 탑재한 7축 휴머노이드 로봇암입니다. AI 비전과 6축 힘·토크 센서를 결합하여 물체 인식, 위치 보정, 정밀 조작을 하나의 플랫폼에서 구현할 수 있으며, 휴머노이드 로봇, Embodied AI, 스마트 자동화 및 연구개발 분야에 최적화되어 있습니다."
+                ? "7축 로봇암에 AI 비전과 힘·토크 센서를 결합해 물체 인식부터 위치 보정, 정밀 조작까지 구현할 수 있는 휴머노이드 로봇암입니다."
                 : "RX75 Vision is a 7-axis humanoid robot arm with an Intel RealSense D405 depth camera built into its end effector. Combining AI vision with a 6-axis force/torque sensor, it delivers object recognition, position correction, and precise manipulation on a single platform — optimized for humanoid robots, embodied AI, smart automation, and R&D."}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">

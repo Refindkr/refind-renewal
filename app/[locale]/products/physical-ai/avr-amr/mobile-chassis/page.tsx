@@ -116,7 +116,7 @@ export default async function MobileChassisPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "산업 물류, 상업 서비스, 연구와 교육, 체화 지능 데이터 수집 등 다양한 분야에 적합한 자율주행 모바일 플랫폼입니다."
+                ? "자율주행 모바일 플랫폼으로, 물류·서비스·연구·교육 등 다양한 환경에서 로봇의 이동과 데이터 수집을 효율적으로 지원합니다."
                 : "An autonomous mobile platform suited for industrial logistics, commercial service, research and education, and embodied AI data collection."}
             </p>
             <div className="flex flex-wrap gap-3">

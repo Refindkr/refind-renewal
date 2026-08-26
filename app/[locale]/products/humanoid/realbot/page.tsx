@@ -97,7 +97,7 @@ export default async function RealbotPage({ params }: PageProps) {
           </h1>
           <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
             {isKo
-              ? "인간의 형태와 지능을 결합한 차세대 모빌리티. 자율 학습 알고리즘과 고정밀 하드웨어로 인간과 협력합니다."
+              ? "인간과 유사한 형태와 지능을 갖춘 휴머노이드 로봇으로, 자율 학습과 정밀한 동작을 통해 다양한 환경에서 인간과 협력합니다."
               : "Next-generation mobility combining human form and intelligence. Collaborates with humans through autonomous learning algorithms and high-precision hardware."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

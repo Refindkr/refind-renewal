@@ -42,7 +42,7 @@ export default async function TashanPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "첨단 촉각 센싱 기술은 단순한 힘 감지를 넘어 촉감·압력·근접·마찰·재질 변화까지 읽어내는 새로운 차원의 로봇 감각을 가능하게 합니다. 사람의 손처럼 섬세하게 반응하는 로봇 핸드는 제조·서비스·의료 분야의 정밀성을 크게 확장합니다."
+                ? "Tashan 촉각센서는 힘·압력·근접·마찰·재질 등의 정보를 정밀하게 감지해 로봇이 사람의 손처럼 섬세하게 물체를 인식하고 조작할 수 있도록 합니다."
                 : "Advanced tactile sensing technology goes beyond simple force detection — enabling a new dimension of robot senses that read touch, pressure, proximity, friction, and material changes. Robot hands that respond as delicately as human hands greatly expand precision in manufacturing, service, and medical robotics."}
             </p>
             <div className="flex flex-wrap gap-3">

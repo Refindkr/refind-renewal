@@ -96,7 +96,7 @@ export default async function Realbot01Page({ params }: PageProps) {
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
             {isKo
-              ? "RealBot-01은 Embodied AI 연구와 휴머노이드 개발을 위해 설계된 차세대 휠형 휴머노이드입니다. 모듈형 구조를 기반으로 상체와 이동 플랫폼을 분리하거나 다양한 플랫폼과 결합할 수 있어 연구, 데이터 수집, AI 학습, 알고리즘 개발에 최적화되어 있습니다."
+              ? "모듈형 구조와 휠 기반 이동을 갖춘 연구용 휴머노이드 로봇으로, Embodied AI 연구와 데이터 수집 및 AI 학습에 적합합니다."
               : "RealBot-01 is a next-generation wheeled humanoid designed for embodied AI research and humanoid development. Its modular structure lets the upper body separate from or combine with various mobility platforms, optimized for research, data collection, AI training, and algorithm development."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

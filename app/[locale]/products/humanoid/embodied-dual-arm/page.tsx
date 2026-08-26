@@ -85,7 +85,7 @@ export default async function EmbodiedDualArmPage({ params }: PageProps) {
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
             {isKo
-              ? "이동, 승강, 양팔 작업을 하나의 플랫폼에 통합한 산업용 모바일 로봇입니다. 두 개의 로봇암과 승강축을 결합하여 다양한 높이의 작업 환경에 대응하며, 제조·물류·검사 공정의 자동화를 지원합니다."
+              ? "이동·승강·양팔 작업을 하나의 플랫폼에 통합한 모바일 로봇으로, 제조·물류·검사 등 다양한 작업을 자동화할 수 있습니다."
               : "An industrial mobile robot that integrates mobility, lifting, and dual-arm manipulation on a single platform. Combining two robot arms with a lift axis, it handles work environments of varying heights and supports automation in manufacturing, logistics, and inspection."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

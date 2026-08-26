@@ -123,7 +123,7 @@ export default async function Rx75Page({ params }: PageProps) {
             </h1>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "AI 시대를 위한 휴머노이드 로봇암. AI, Embodied AI, 휴머노이드, 연구개발을 위한 차세대 로봇 플랫폼입니다."
+                ? "AI·Embodied AI 연구와 휴머노이드 개발을 위한 고성능 로봇암으로, 다양한 연구개발 및 자동화 작업에 활용할 수 있습니다."
                 : "A humanoid robot arm built for the AI era — a next-generation robot platform for AI, embodied AI, humanoids, and R&D."}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">

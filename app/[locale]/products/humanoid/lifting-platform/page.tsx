@@ -85,7 +85,7 @@ export default async function LiftingPlatformPage({ params }: PageProps) {
           </p>
           <p className="text-lg text-white/60 max-w-2xl leading-relaxed mb-8">
             {isKo
-              ? "Single Arm Vertical Lift는 자율주행 플랫폼, 승강축, 단일 로봇암을 결합한 모바일 자동화 솔루션입니다. 컴팩트한 설계와 유연한 작업 범위를 바탕으로 제조, 물류, 검사 등 다양한 산업 환경에서 효율적인 자동화를 지원합니다."
+              ? "자율주행·승강·단일 로봇암을 결합해 다양한 높이의 작업을 수행할 수 있는 모바일 자동화 로봇입니다."
               : "Single Arm Vertical Lift is a mobile automation solution combining an autonomous platform, lift axis, and single robot arm. Its compact design and flexible work range support efficient automation across manufacturing, logistics, and inspection environments."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

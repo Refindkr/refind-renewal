@@ -38,7 +38,7 @@ export default async function AP002Page({ params }: PageProps) {
             <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "로봇에게 '촉각'을 부여하다" : "Giving Robots the Sense of Touch"}</p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "3D 포스센서 매트릭스와 11×5 팜(Palm) 센서로 구현하는 차세대 고정밀 센싱 솔루션."
+                ? "3D 포스센서와 손바닥 영역의 센서 매트릭스를 통해 힘의 변화를 정밀하게 감지하는 고정밀 로봇 핸드입니다."
                 : "Next-generation high-precision sensing solution realized through 3D force sensor matrix and 11×5 palm sensor."}
             </p>
             <div className="flex flex-wrap gap-3">

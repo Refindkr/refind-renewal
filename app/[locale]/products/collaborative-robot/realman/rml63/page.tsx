@@ -91,7 +91,7 @@ export default async function RML63Page({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "RML63은 최대 917mm의 긴 작업반경을 제공하여 넓은 작업 공간에서도 하나의 로봇으로 다양한 작업을 수행할 수 있습니다. 사람과 유사한 팔 구조를 적용하여 서비스 로봇, AI 로봇, 물류 자동화 등 다양한 분야에 적합합니다."
+                ? "최대 917mm의 넓은 작업반경과 사람과 유사한 팔 구조를 갖춘 6축 협동로봇으로, 다양한 자동화 작업에 활용할 수 있습니다."
                 : "RML63 offers up to 917mm of working radius, letting a single robot handle diverse tasks across a wide workspace. Its human-like arm structure suits service robots, AI robots, and logistics automation."}
             </p>
             <div className="flex flex-wrap gap-3">

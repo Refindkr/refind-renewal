@@ -127,7 +127,7 @@ export default async function Rx71Page({ params }: PageProps) {
           </p>
           <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
             {isKo
-              ? "RX71 Standard는 3kg 가반하중과 7축 자유도를 갖춘 휴머노이드 로봇암으로, 연구개발, AI 알고리즘 검증, 교육 및 정밀 작업에 최적화된 모델입니다. 경량 설계와 뛰어난 조작성으로 다양한 개발 환경에 쉽게 적용할 수 있으며, 휴머노이드 및 Embodied AI 플랫폼 구축을 위한 효율적인 솔루션을 제공합니다."
+              ? "3kg 가반하중과 7축 자유도를 갖춘 경량 로봇암으로, AI·휴머노이드 연구개발과 정밀 작업에 적합합니다."
               : "RX71 Standard is a humanoid robot arm with a 3kg payload and 7-axis DOF, optimized for R&D, AI algorithm validation, education, and precision work. Its lightweight design and excellent maneuverability make it easy to apply across diverse development environments, offering an efficient solution for building humanoid and embodied AI platforms."}
           </p>
           <div className="flex flex-wrap gap-3 mb-8">

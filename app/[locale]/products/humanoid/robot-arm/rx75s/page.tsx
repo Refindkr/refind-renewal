@@ -128,7 +128,7 @@ export default async function Rx75sPage({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "RX75S Standard는 RX75의 성능을 유지하면서 더욱 컴팩트한 구조로 설계된 휴머노이드 로봇암입니다. 691mm 작업반경과 5kg 가반하중, 내장형 6축 힘·토크 센서를 통해 협소한 공간에서도 높은 작업 효율과 정밀한 제어를 제공합니다. 특히 양팔 휴머노이드 시스템과 이동형 로봇 플랫폼에 최적화되어 있습니다."
+                ? "691mm 작업반경과 5kg 가반하중을 갖춘 컴팩트한 6축 로봇암으로, 양팔 휴머노이드와 이동형 로봇 플랫폼에 적합합니다."
                 : "RX75S Standard is a humanoid robot arm designed with a more compact structure while maintaining RX75's performance. With a 691mm working radius, 5kg payload, and built-in 6-axis force/torque sensor, it delivers high efficiency and precise control even in tight spaces — optimized especially for dual-arm humanoid systems and mobile robot platforms."}
             </p>
             <div className="flex flex-wrap gap-3 mb-8">

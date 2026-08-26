@@ -22,29 +22,29 @@ export default async function AP003Page({ params }: PageProps) {
   const isKo = locale === "ko";
 
   const loadAndSpeed = [
-    { k: isKo ? "최대 속도 전 범위 굽힘/펴기 시간" : "Bending/stretching time for full range at max speed", v: "0.7s" },
-    { k: isKo ? "최대 속도 기준 엄지 전체 회전 시간" : "Rotation time of thumb for full range at max speed", v: "0.7s" },
-    { k: isKo ? "펴진 상태 각 손가락 끝 능동력" : "Active force of each finger tip on stretched state", v: "≥ 0.5 Kgf" },
-    { k: isKo ? "굽힌 상태 각 손가락 끝 능동력" : "Active force of each finger tip on bended state", v: "≥ 1.0 Kgf" },
-    { k: isKo ? "4손가락 굽힌 상태 최대 수동 하중" : "Maximum passive load for four fingers on bended state", v: "30kg" },
-    { k: isKo ? "각 손가락 굽힌 상태 최대 수동 하중" : "Maximum passive load for each finger on bended state", v: "10kg" },
-    { k: isKo ? "각 손가락 펴진 상태 최대 수동 하중" : "Maximum passive load for each finger on stretched state", v: "8kg" },
-    { k: isKo ? "무게" : "Weight", v: "626g ± 5g" },
+    { ko: "최대 속도 전 범위 굽힘/펴기 시간", en: "Bending/stretching time for full range at max speed", v: "0.7s" },
+    { ko: "최대 속도 기준 엄지 전체 회전 시간", en: "Rotation time of thumb for full range at max speed", v: "0.7s" },
+    { ko: "펴진 상태 각 손가락 끝 능동력", en: "Active force of each finger tip on stretched state", v: "≥ 0.5 Kgf" },
+    { ko: "굽힌 상태 각 손가락 끝 능동력", en: "Active force of each finger tip on bended state", v: "≥ 1.0 Kgf" },
+    { ko: "4손가락 굽힌 상태 최대 수동 하중", en: "Maximum passive load for four fingers on bended state", v: "30kg" },
+    { ko: "각 손가락 굽힌 상태 최대 수동 하중", en: "Maximum passive load for each finger on bended state", v: "10kg" },
+    { ko: "각 손가락 펴진 상태 최대 수동 하중", en: "Maximum passive load for each finger on stretched state", v: "8kg" },
+    { ko: "무게", en: "Weight", v: "626g ± 5g" },
   ];
 
   const forceSensor3D = [
-    { k: isKo ? "주파수" : "Frequency", v: "≥ 50Hz" },
-    { k: isKo ? "최대 견딜 수 있는 힘" : "Maximum Withstand Force", v: isKo ? "30N (개별 촉각 센서 기준)" : "30N (for individual tactile sensor)" },
-    { k: isKo ? "수직 압력 범위 / 감도" : "Normal Force Range / Sensitivity", v: "15N / 0.1N" },
-    { k: isKo ? "전단력 범위 (말단골)" : "Shear Force Range (Distal Phalanx)", v: "± 5N" },
-    { k: isKo ? "방향 분해능" : "Directional Resolution", v: "1˚" },
+    { ko: "주파수", en: "Frequency", v: "≥ 50Hz" },
+    { ko: "최대 견딜 수 있는 힘", en: "Maximum Withstand Force", v: isKo ? "30N (개별 촉각 센서 기준)" : "30N (for individual tactile sensor)" },
+    { ko: "수직 압력 범위 / 감도", en: "Normal Force Range / Sensitivity", v: "15N / 0.1N" },
+    { ko: "전단력 범위 (말단골)", en: "Shear Force Range (Distal Phalanx)", v: "± 5N" },
+    { ko: "방향 분해능", en: "Directional Resolution", v: "1˚" },
   ];
 
   const dotMatrix = [
-    { k: isKo ? "주파수" : "Frequency", v: "150Hz" },
-    { k: isKo ? "도트 수" : "Dots", v: "11 x 5" },
-    { k: isKo ? "수직 압력 범위" : "Normal Force Range", v: "0.1N ~ 25N" },
-    { k: isKo ? "반복 정확도" : "Repeatability Accuracy", v: isKo ? "± 20% (500g 하중 기준)" : "± 20% (500g load)" },
+    { ko: "주파수", en: "Frequency", v: "150Hz" },
+    { ko: "도트 수", en: "Dots", v: "11 x 5" },
+    { ko: "수직 압력 범위", en: "Normal Force Range", v: "0.1N ~ 25N" },
+    { ko: "반복 정확도", en: "Repeatability Accuracy", v: isKo ? "± 20% (500g 하중 기준)" : "± 20% (500g load)" },
   ];
 
   const useCases = [
@@ -150,8 +150,11 @@ export default async function AP003Page({ params }: PageProps) {
           <div className="max-w-2xl overflow-hidden">
             {loadAndSpeed.map((s, i) => (
               <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
-                <span className="text-gray-500 font-medium">{s.k}</span>
-                <span className="font-semibold text-gray-900 text-right">{s.v}</span>
+                <span className="text-gray-500 font-medium">
+                  {isKo ? s.ko : s.en}
+                  <span className="block text-xs text-gray-400">{isKo ? s.en : s.ko}</span>
+                </span>
+                <span className="font-semibold text-gray-900 text-right shrink-0 pl-4">{s.v}</span>
               </div>
             ))}
           </div>
@@ -166,14 +169,17 @@ export default async function AP003Page({ params }: PageProps) {
             <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
               <div className="px-6 py-4 border-b border-gray-100">
                 <h3 className="text-sm font-bold text-gray-900">
-                  {isKo ? "3D 포스 (말단골 + 기절골)" : "3D Force (Distal + Proximal Phalanx)"}
+                  {isKo ? "3D 포스" : "3D Force"}
                 </h3>
               </div>
               <div className="divide-y divide-gray-100 text-sm">
                 {forceSensor3D.map((s, i) => (
                   <div key={i} className="flex justify-between px-6 py-3">
-                    <span className="text-gray-500 pr-4">{s.k}</span>
-                    <span className="font-semibold text-gray-900 whitespace-nowrap text-right">{s.v}</span>
+                    <span className="text-gray-500 pr-4">
+                      {isKo ? s.ko : s.en}
+                      <span className="block text-xs text-gray-400">{isKo ? s.en : s.ko}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap text-right shrink-0">{s.v}</span>
                   </div>
                 ))}
               </div>
@@ -187,8 +193,11 @@ export default async function AP003Page({ params }: PageProps) {
               <div className="divide-y divide-gray-100 text-sm">
                 {dotMatrix.map((s, i) => (
                   <div key={i} className="flex justify-between px-6 py-3">
-                    <span className="text-gray-500 pr-4">{s.k}</span>
-                    <span className="font-semibold text-gray-900 whitespace-nowrap text-right">{s.v}</span>
+                    <span className="text-gray-500 pr-4">
+                      {isKo ? s.ko : s.en}
+                      <span className="block text-xs text-gray-400">{isKo ? s.en : s.ko}</span>
+                    </span>
+                    <span className="font-semibold text-gray-900 whitespace-nowrap text-right shrink-0">{s.v}</span>
                   </div>
                 ))}
               </div>

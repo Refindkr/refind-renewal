@@ -113,6 +113,10 @@ export default async function HYBRIDEXPage({ params }: PageProps) {
             </div>
           </div>
           <div className="relative h-72 md:h-96">
+            {/* 제품이 검정색이라 어두운 배경에서 잘 안 보여서, 뒤에 은은한 밝은 백드롭을 깔아 대비를 줌 */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[85%] h-[85%] rounded-full bg-white/10 blur-3xl" />
+            </div>
             <Image src="/products/robot-support/hybridex/hybridex-1.png" alt="HYBRIDEX" fill
               className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 100vw, 50vw" />
           </div>
