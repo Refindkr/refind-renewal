@@ -128,6 +128,16 @@ export default function RichTextEditor({ content, onChange }: Props) {
         >
           {uploading ? "업로드 중..." : "이미지 업로드"}
         </button>
+        <button
+          type="button"
+          onClick={() => {
+            const url = window.prompt("이미지(GIF 등) URL을 입력하세요");
+            if (url) editor.chain().focus().setImage({ src: url }).run();
+          }}
+          className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          이미지 URL
+        </button>
         <input ref={fileInputRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp" onChange={handleFileSelect} className="hidden" />
       </div>
 
