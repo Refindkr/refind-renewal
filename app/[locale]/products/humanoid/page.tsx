@@ -37,7 +37,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "REALBOT S2",
           nameEn: "REALMAN REALBOT S2",
           tagline: isKo
-            ? "풀바디 휴머노이드 로봇. 고자유도 관절과 정밀 제어로 다양한 작업 수행."
+            ? "인간과 유사한 형태와 지능을 갖춘 휴머노이드 로봇으로, 자율 학습과 정밀한 동작을 통해 다양한 환경에서 인간과 협력합니다."
             : "Full-body humanoid robot. High-DOF joints and precise control for diverse task execution.",
           image: "/products/humanoid/realbot-s2.png",
           tags: isKo ? ["REALMAN", "풀바디", "고자유도"] : ["REALMAN", "Full-Body", "High-DOF"],
@@ -47,7 +47,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "REALBOT L2",
           nameEn: "REALMAN REALBOT L2",
           tagline: isKo
-            ? "승강 구조의 휠형 휴머노이드. 작업 높이를 자유롭게 조절해 물류·창고·공장에 최적화."
+            ? "승강 구조와 휠 기반 이동을 결합해 작업 높이를 자유롭게 조절할 수 있는 휴머노이드 로봇으로, 물류·제조·서비스 환경에 유연하게 대응합니다."
             : "A wheeled humanoid with a lifting structure. Adjustable working height, optimized for logistics, warehouse, and factory use.",
           image: "/products/humanoid/realbot-l2.png",
           tags: isKo ? ["REALMAN", "승강형", "17 DOF"] : ["REALMAN", "Lifting", "17 DOF"],
@@ -57,7 +57,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "REALBOT 01",
           nameEn: "REALMAN REALBOT 01",
           tagline: isKo
-            ? "모듈형 아키텍처 기반 AI 휴머노이드 플랫폼. Embodied AI 연구와 알고리즘 개발에 최적화."
+            ? "모듈형 구조와 휠 기반 이동을 갖춘 연구용 휴머노이드 로봇으로, Embodied AI 연구와 데이터 수집 및 AI 학습에 적합합니다."
             : "A modular-architecture AI humanoid platform optimized for embodied AI research and algorithm development.",
           image: "/products/humanoid/realbot-01.png",
           tags: isKo ? ["REALMAN", "모듈형", "21 DOF"] : ["REALMAN", "Modular", "21 DOF"],
@@ -67,7 +67,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "Dual arm vertical Lift",
           nameEn: "REALMAN Dual Arm Vertical Lift",
           tagline: isKo
-            ? "이동·승강·양팔 작업을 하나의 플랫폼에 통합한 산업용 모바일 로봇. 제조·물류·검사 자동화에 최적."
+            ? "이동·승강·양팔 작업을 하나의 플랫폼에 통합한 모바일 로봇으로, 제조·물류·검사 등 다양한 작업을 자동화할 수 있습니다."
             : "An industrial mobile robot integrating mobility, lifting, and dual-arm manipulation on one platform, optimized for manufacturing, logistics, and inspection automation.",
           image: "/products/humanoid/embodied dual arm.png",
           tags: isKo ? ["REALMAN", "양팔", "리프팅"] : ["REALMAN", "Dual-Arm", "Lifting"],
@@ -77,7 +77,7 @@ export default async function HumanoidPage({ params }: PageProps) {
           name: "Single arm vertical lift",
           nameEn: "REALMAN Single Arm Vertical Lift",
           tagline: isKo
-            ? "자율주행 플랫폼·승강축·단일 로봇암을 결합한 컴팩트 모바일 매니퓰레이터. 제조·물류·검사에 최적."
+            ? "자율주행·승강·단일 로봇암을 결합해 다양한 높이의 작업을 수행할 수 있는 모바일 자동화 로봇입니다."
             : "A compact mobile manipulator combining an autonomous platform, lift axis, and single robot arm — optimized for manufacturing, logistics, and inspection.",
           image: "/products/humanoid/lifting platform.png",
           tags: isKo ? ["REALMAN", "이동형", "리프팅"] : ["REALMAN", "Mobile", "Lifting"],

@@ -47,7 +47,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
           name: "Elephant Robotics",
           nameEn: "Elephant Robotics",
           tagline: isKo
-            ? "컴팩트한 테이블탑 협동로봇. 교육·연구·경량 자동화에 최적화된 플랫폼."
+            ? "컴팩트한 크기와 직관적인 제어가 강점인 협동로봇으로, 교육·연구와 로봇 개발 및 알고리즘 실험에 적합합니다."
             : "Compact tabletop collaborative robot. Optimized for education, research, and lightweight automation.",
           image: "/products/collaborative-robot/2.jpeg",
           tags: isKo ? ["테이블탑", "경량", "교육용"] : ["Tabletop", "Lightweight", "Education"],

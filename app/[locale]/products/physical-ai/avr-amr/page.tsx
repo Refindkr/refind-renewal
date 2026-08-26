@@ -28,7 +28,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
       name: isKo ? "모바일 로봇 플랫폼" : "Mobile Robot Platform",
       nameEn: "myAGV 2023",
       tagline: isKo
-        ? "Elephant Robotics에서 개발한 소형 자율주행 로봇. 자율주행·SLAM·경로 계획 등 이동 로봇 핵심 기술을 실습할 수 있는 교육·연구용 모바일 로봇 플랫폼입니다."
+        ? "myAGV 2023은 SLAM 기반 자율주행과 로봇 암을 결합해 실내 환경을 스스로 이동하며 다양한 교육·연구와 자동화 실습이 가능한 모바일 로봇 플랫폼입니다."
         : "A small autonomous robot developed by Elephant Robotics. An education and research platform for practicing core mobile-robot technologies — autonomous driving, SLAM, and path planning.",
       tags: isKo ? ["myAGV 2023", "SLAM", "교육·연구"] : ["myAGV 2023", "SLAM", "Education & Research"],
     },
@@ -38,7 +38,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
       name: isKo ? "모바일 섀시" : "Mobile Chassis",
       nameEn: "Mobile Chassis",
       tagline: isKo
-        ? "민첩한 조향 성능으로 복잡한 환경에서도 안정적으로 주행하는 모바일 플랫폼. 산업 물류, 상업 서비스, 연구·교육, 체화 지능 데이터 수집에 활용됩니다."
+        ? "자율주행 모바일 플랫폼으로, 물류·서비스·연구·교육 등 다양한 환경에서 로봇의 이동과 데이터 수집을 효율적으로 지원합니다."
         : "A mobile platform with agile steering that runs stably even in complex environments. Used in industrial logistics, commercial service, R&D, and embodied AI data collection.",
       tags: isKo ? ["4륜/2륜 구동", "SLAM", "6h+ 사용시간"] : ["4WD/2WD", "SLAM", "6h+ Runtime"],
     },

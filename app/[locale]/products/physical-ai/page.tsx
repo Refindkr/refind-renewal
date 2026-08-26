@@ -37,7 +37,7 @@ export default async function PhysicalAIPage({ params }: PageProps) {
           name: isKo ? "Tashan 포스센서" : "Tashan Force Sensor",
           nameEn: "Tashan Force Sensor",
           tagline: isKo
-            ? "로봇핸드 내장형 고감도 포스센서. 0.1N~25N 정밀 측정, 150Hz 샘플링."
+            ? "Tashan 촉각센서는 힘·압력·근접·마찰·재질 등의 정보를 정밀하게 감지해 로봇이 사람의 손처럼 섬세하게 물체를 인식하고 조작할 수 있도록 합니다."
             : "High-sensitivity force sensor for robot hand integration. 0.1N–25N precision measurement, 150Hz sampling.",
           image: "/products/sensors/tashan.png",
           tags: isKo ? ["포스센서", "150Hz", "로봇핸드 내장"] : ["Force Sensor", "150Hz", "Embedded"],

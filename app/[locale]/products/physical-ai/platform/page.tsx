@@ -37,7 +37,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
       name: isKo ? "원격조작 키트" : "Teleoperation Kit",
       nameEn: "Teleoperation Kit",
       tagline: isKo
-        ? "작업자의 움직임을 로봇에 실시간으로 전달하는 마스터-슬레이브 원격조작 키트. Embodied AI 학습 데이터 수집, 기능 검증, 가정 서비스·리테일 환경에 적합합니다."
+        ? "사람의 움직임을 직관적으로 로봇에 전달해 실제 환경에서 체화지능 학습에 필요한 데이터를 효율적으로 수집하고 다양한 로봇 동작을 검증할 수 있는 원격조작 플랫폼입니다."
         : "A master-slave teleoperation kit that transmits an operator's movements to a robot in real time. Ideal for embodied AI data collection, functional verification, home service, and retail environments.",
       tags: isKo ? ["원격조작", "마스터-슬레이브", "RJ45"] : ["Teleoperation", "Master-Slave", "RJ45"],
       image: "/products/physical-ai/platform/teleoperation-kit/aloha.png",

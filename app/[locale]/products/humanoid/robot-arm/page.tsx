@@ -28,7 +28,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       name: "RX71",
       nameEn: isKo ? "표준형" : "Standard",
       tagline: isKo
-        ? "3kg 가반하중, 7축 자유도를 갖춘 경량형 로봇암. 연구개발, AI 알고리즘 검증, 교육에 최적화되어 있습니다."
+        ? "3kg 가반하중과 7축 자유도를 갖춘 경량 로봇암으로, AI·휴머노이드 연구개발과 정밀 작업에 적합합니다."
         : "A lightweight 7-axis robot arm with 3kg payload, optimized for R&D, AI algorithm validation, and education.",
       tags: isKo ? ["7축", "3kg", "경제형"] : ["7-Axis", "3kg", "Economical"],
     },
@@ -38,7 +38,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       name: "RX75S",
       nameEn: isKo ? "표준형" : "Standard",
       tagline: isKo
-        ? "RX75의 성능을 유지하면서 더욱 컴팩트하게 설계된 로봇암. 좁은 공간에서도 강력한 성능을 제공합니다."
+        ? "691mm 작업반경과 5kg 가반하중을 갖춘 컴팩트한 6축 로봇암으로, 양팔 휴머노이드와 이동형 로봇 플랫폼에 적합합니다."
         : "A more compact robot arm that keeps RX75's performance — strong output even in tight spaces.",
       tags: isKo ? ["7축", "5kg", "컴팩트형"] : ["7-Axis", "5kg", "Compact"],
     },
@@ -48,7 +48,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       name: "RX75",
       nameEn: isKo ? "표준형" : "Standard",
       tagline: isKo
-        ? "5kg 가반하중과 내장형 6축 힘·토크 센서를 갖춘 표준형 휴머노이드 로봇암입니다."
+        ? "AI·Embodied AI 연구와 휴머노이드 개발을 위한 고성능 로봇암으로, 다양한 연구개발 및 자동화 작업에 활용할 수 있습니다."
         : "The standard humanoid robot arm with 5kg payload and a built-in 6-axis force/torque sensor.",
       tags: isKo ? ["7축", "5kg", "표준형"] : ["7-Axis", "5kg", "Standard"],
     },
@@ -58,7 +58,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       name: "RX75 " + (isKo ? "비전" : "Vision"),
       nameEn: isKo ? "비전형" : "Vision",
       tagline: isKo
-        ? "Intel RealSense D405 깊이 카메라를 기본 탑재한 AI 비전 통합형 로봇암. 스마트 자동화에 최적화되어 있습니다."
+        ? "7축 로봇암에 AI 비전과 힘·토크 센서를 결합해 물체 인식부터 위치 보정, 정밀 조작까지 구현할 수 있는 휴머노이드 로봇암입니다."
         : "AI vision-integrated robot arm with a built-in Intel RealSense D405 depth camera, optimized for smart automation.",
       tags: isKo ? ["7축", "5kg", "AI 비전"] : ["7-Axis", "5kg", "AI Vision"],
     },

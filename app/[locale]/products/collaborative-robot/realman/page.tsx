@@ -28,7 +28,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
       name: isKo ? "협동로봇 (RM65/75)" : "Cobot (RM65/75)",
       nameEn: "Ultra-Lightweight 6-Axis Collaborative Robot",
       tagline: isKo
-        ? "무게 약 7kg에 5kg 페이로드를 제공하는 초경량 협동로봇. 이동형 로봇 위에도 쉽게 탑재할 수 있습니다. 주용도: 정밀 제조, 협동 로봇."
+        ? "7.2kg의 초경량 설계로 5kg 페이로드를 지원하며, 제어기가 통합된 고성능 6축 협동로봇입니다."
         : "An ultra-lightweight cobot with a 5kg payload at just ~7kg — easy to mount on mobile platforms. Ideal for precision manufacturing and collaborative work.",
       tags: isKo ? ["6/7축", "5kg", "±0.05mm"] : ["6/7-Axis", "5kg", "±0.05mm"],
     },
@@ -38,7 +38,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
       name: isKo ? "협동로봇 (RML63)" : "Cobot (RML63)",
       nameEn: "Human-like Arm Design Cobot",
       tagline: isKo
-        ? "사람 팔처럼 긴 구조의 협동로봇. 최대 917mm의 긴 작업반경과 2.8m/s TCP 속도로 장거리 작업과 서비스 로봇에 적합합니다."
+        ? "최대 917mm의 넓은 작업반경과 사람과 유사한 팔 구조를 갖춘 6축 협동로봇으로, 다양한 자동화 작업에 활용할 수 있습니다."
         : "A cobot with a human-like long-reach arm — up to 917mm reach and 2.8m/s TCP speed, ideal for long-range work and service robots.",
       tags: isKo ? ["6축", "917mm", "2.8m/s"] : ["6-Axis", "917mm", "2.8m/s"],
     },

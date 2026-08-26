@@ -57,7 +57,7 @@ export default async function ProstheticPage({ params }: PageProps) {
           name: isKo ? "Ohand S001 (소형)" : "Ohand S001 (Compact)",
           nameEn: "Ohand S001",
           tagline: isKo
-            ? "작은 손 크기에 맞춘 소형 전자의수. 5개의 독립 구동 손가락, 최대 30kg 리프팅 하중."
+            ? "근전도(EMG) 신호로 손동작을 제어하는 소형 전자의수로, 5개 손가락의 독립 구동을 통해 자연스럽고 정밀한 파지가 가능합니다."
             : "A compact prosthetic hand sized for smaller hands. 5 independently driven fingers, up to 30kg lifting load.",
           image: "/products/prosthetic/ohand-s001.png",
           tags: isKo ? ["EMG 제어", "440g", "소형"] : ["EMG Control", "440g", "Compact"],
