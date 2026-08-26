@@ -38,7 +38,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-A002 (표준형)" : "ROH-A002 (Standard)",
           nameEn: "ROH-A002",
           tagline: isKo
-            ? "6자유도 11관절 와이어 구동 시스템. 최대 30kg 파워 그립 구현."
+            ? "인간 손과 유사한 6자유도 구조를 기반으로 다양한 손동작을 정밀하게 구현할 수 있는 다관절 로봇 핸드입니다."
             : "6-DOF 11-joint wire-driven system. Up to 30kg power grip.",
           image: "/products/robot-hand/a002.png",
           tags: isKo ? ["6 DOF", "545g", "RS485"] : ["6 DOF", "545g", "RS485"],
@@ -48,7 +48,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP001 (포스피드백)" : "ROH-AP001 (Force Sensing)",
           nameEn: "ROH-AP001",
           tagline: isKo
-            ? "Tashan 내장 포스센서로 실시간 힘 피드백. 정밀 조립·표면가공에 최적."
+            ? "포스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
             : "Tashan integrated force sensor for real-time force feedback. Ideal for precision assembly and surface finishing.",
           image: "/products/robot-hand/ap001.png",
           tags: isKo ? ["포스센서", "150Hz", "640g"] : ["Force Sensor", "150Hz", "640g"],
@@ -58,7 +58,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP002 (고성능 촉각)" : "ROH-AP002 (Tactile Intelligence)",
           nameEn: "ROH-AP002",
           tagline: isKo
-            ? "3D 포스센서 + 11×5 팜 매트릭스로 인간 수준의 촉각 데이터 수집."
+            ? "3D 포스센서와 손바닥 영역의 센서 매트릭스를 통해 힘의 변화를 정밀하게 감지하는 고정밀 로봇 핸드입니다."
             : "3D force sensor + 11×5 palm matrix for human-level tactile data acquisition.",
           image: "/products/robot-hand/ap002.png",
           tags: isKo ? ["3D 포스", "팜 매트릭스", "575g"] : ["3D Force", "Palm Matrix", "575g"],
