@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -140,7 +140,7 @@ export default async function Rx75Page({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/humanoid/robot-arm`}
+              <Link href={`/products/humanoid/robot-arm`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "로봇암 전체 보기" : "All Robot Arms"}
               </Link>
@@ -203,11 +203,11 @@ export default async function Rx75Page({ params }: PageProps) {
           <SpecTable models={rxModels} rows={rxRows} />
           <p className="text-sm text-gray-400 mt-6">
             {isKo ? "다른 모델은 " : "See "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx71`} className="text-[#E1251B] font-semibold hover:underline">RX71</Link>
+            <Link href={`/products/humanoid/robot-arm/rx71`} className="text-[#E1251B] font-semibold hover:underline">RX71</Link>
             {", "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx75s`} className="text-[#E1251B] font-semibold hover:underline">RX75S</Link>
+            <Link href={`/products/humanoid/robot-arm/rx75s`} className="text-[#E1251B] font-semibold hover:underline">RX75S</Link>
             {isKo ? ", " : ", and "}
-            <Link href={`/${locale}/products/humanoid/robot-arm/rx75-vision`} className="text-[#E1251B] font-semibold hover:underline">RX75 {isKo ? "비전" : "Vision"}</Link>
+            <Link href={`/products/humanoid/robot-arm/rx75-vision`} className="text-[#E1251B] font-semibold hover:underline">RX75 {isKo ? "비전" : "Vision"}</Link>
             {isKo ? " 페이지를 참고하세요." : " for other models."}
           </p>
         </div>

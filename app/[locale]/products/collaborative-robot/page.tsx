@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,7 +23,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
 
   const products = [
     {
-      href: `/${locale}/products/collaborative-robot/realman/rm65-75`,
+      href: `/products/collaborative-robot/realman/rm65-75`,
       image: "/products/collaborative-robot/RM65.png",
       name: isKo ? "협동로봇 (RM65/75)" : "Cobot (RM65/75)",
       nameEn: "Ultra-Lightweight 6-Axis Collaborative Robot",
@@ -33,7 +33,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
       tags: isKo ? ["6/7축", "5kg", "±0.05mm"] : ["6/7-Axis", "5kg", "±0.05mm"],
     },
     {
-      href: `/${locale}/products/collaborative-robot/realman/rml63`,
+      href: `/products/collaborative-robot/realman/rml63`,
       image: "/products/collaborative-robot/RML63.png",
       name: isKo ? "협동로봇 (RML63)" : "Cobot (RML63)",
       nameEn: "Human-like Arm Design Cobot",
@@ -43,7 +43,7 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
       tags: isKo ? ["6축", "917mm", "2.8m/s"] : ["6-Axis", "917mm", "2.8m/s"],
     },
     {
-      href: `/${locale}/products/collaborative-robot/realman/eco`,
+      href: `/products/collaborative-robot/realman/eco`,
       image: "/products/collaborative-robot/ECO65.png",
       name: isKo ? "협동로봇 (ECO 62/63/65)" : "Cobot (ECO 62/63/65)",
       nameEn: "Economical Collaborative Robot",

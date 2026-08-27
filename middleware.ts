@@ -9,8 +9,10 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const segments = pathname.split("/").filter(Boolean);
 
+  // 영어 접두사("eng")는 더 이상 locales 배열의 값과 같지 않으므로 별도로 제외
   const isFlatPostSlug =
     segments.length === 1 &&
+    segments[0] !== "eng" &&
     !routing.locales.includes(segments[0] as (typeof routing.locales)[number]) &&
     !RESERVED_ROOT_SEGMENTS.has(segments[0]);
 

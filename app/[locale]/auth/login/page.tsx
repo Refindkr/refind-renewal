@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Suspense } from "react";
 
@@ -33,7 +33,7 @@ function LoginForm({ locale }: { locale: string }) {
       setError(t("error"));
       setLoading(false);
     } else {
-      router.push(`/${locale}`);
+      router.push("/", { locale });
       router.refresh();
     }
   };

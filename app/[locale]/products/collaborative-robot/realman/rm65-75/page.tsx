@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -112,7 +112,7 @@ export default async function RM6575Page({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/collaborative-robot`}
+              <Link href={`/products/collaborative-robot`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "협동로봇 전체 보기" : "All Collaborative Robots"}
               </Link>
@@ -237,7 +237,7 @@ export default async function RM6575Page({ params }: PageProps) {
             {isKo ? "로봇손 Rohand와 연계하여 사용하실 수 있습니다." : "Can be used together with the ROHand robot hand."}
           </p>
           <Link
-            href={`/${locale}/products/robot-hand`}
+            href={`/products/robot-hand`}
             className="flex items-center justify-between bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-100 hover:shadow-sm transition-all group"
           >
             <div>
@@ -315,7 +315,7 @@ export default async function RM6575Page({ params }: PageProps) {
           </div>
           <p className="text-sm text-gray-400 mt-8">
             {isKo ? "ECO 시리즈 상세는 " : "See the "}
-            <Link href={`/${locale}/products/collaborative-robot/realman/eco`} className="text-[#E1251B] font-semibold hover:underline">
+            <Link href={`/products/collaborative-robot/realman/eco`} className="text-[#E1251B] font-semibold hover:underline">
               {isKo ? "ECO 62/63/65 페이지" : "ECO 62/63/65 page"}
             </Link>
             {isKo ? "를 참고하세요." : " for ECO series details."}

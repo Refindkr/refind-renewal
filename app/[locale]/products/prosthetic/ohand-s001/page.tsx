@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -91,7 +91,7 @@ export default async function OhandS001Page({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/prosthetic`}
+              <Link href={`/products/prosthetic`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "전자의수 전체 보기" : "All Prosthetic Hands"}
               </Link>
@@ -209,9 +209,9 @@ export default async function OhandS001Page({ params }: PageProps) {
           </div>
           <p className="text-sm text-gray-400 mt-6">
             {isKo ? "다른 모델은 " : "See "}
-            <Link href={`/${locale}/products/prosthetic/ohand`} className="text-[#E1251B] font-semibold hover:underline">Ohand</Link>
+            <Link href={`/products/prosthetic/ohand`} className="text-[#E1251B] font-semibold hover:underline">Ohand</Link>
             {isKo ? ", " : " and "}
-            <Link href={`/${locale}/products/prosthetic/ohandlite`} className="text-[#E1251B] font-semibold hover:underline">OhandLite</Link>
+            <Link href={`/products/prosthetic/ohandlite`} className="text-[#E1251B] font-semibold hover:underline">OhandLite</Link>
             {isKo ? " 페이지를 참고하세요." : " for other models."}
           </p>
         </div>

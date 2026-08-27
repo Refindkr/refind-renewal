@@ -51,8 +51,7 @@
 refind-renewal/
 ├── app/
 │   ├── layout.tsx
-│   ├── page.tsx                            # / → /ko 리다이렉트
-│   ├── [locale]/
+│   ├── [locale]/                           # locale=ko는 URL 접두사 없이 서빙 (as-needed)
 │   │   ├── layout.tsx                      # Navbar, Footer, Provider
 │   │   ├── globals.css
 │   │   ├── page.tsx                        # 홈페이지
@@ -186,10 +185,17 @@ refind-renewal/
 
 ## 사이트맵
 
+> **URL 언어 접두사**: 한국어(기본 언어)는 접두사 없이 노출되고(`/about`), 영어만 `/eng` 접두사가
+> 붙는다(`/eng/about`). `[locale]` 라우트 세그먼트 자체의 값은 내부적으로 여전히 `ko`/`en`을 쓰지만
+> (메시지 로딩·`isKo` 분기 등), 브라우저 주소창에 보이는 실제 URL은 이 규칙을 따른다. 쿠키/브라우저
+> 언어 기반 자동 감지는 꺼두어(`localeDetection: false`) 주소가 곧 언어를 그대로 나타내도록 함 —
+> `i18n/routing.ts` 참고. 내부 링크는 전부 `i18n/navigation.ts`(next-intl `createNavigation`)의
+> `Link`/`redirect`/`useRouter`를 사용하며, 언어 전환 버튼만은 접두사를 직접 계산해 일반 `<a>` 태그로
+> 렌더링한다(`Link`의 `locale` prop 전환 시 커스텀 접두사가 두 번 붙는 next-intl 이슈 회피).
+
 ```
-/                          → /ko (자동 리다이렉트)
-/[locale]                  홈
-/[locale]/about            회사소개
+/[locale]                  홈  (locale=ko일 때 URL은 접두사 없이 "/")
+/[locale]/about            회사소개  (ko: /about, en: /eng/about)
 /[locale]/products/physical-ai
 /[locale]/products/physical-ai/actuator
 /[locale]/products/physical-ai/platform
@@ -202,7 +208,6 @@ refind-renewal/
 /[locale]/products/physical-ai/gforcepro
 /[locale]/products/physical-ai/bcibmi
 /[locale]/products/physical-ai/eeg
-/[locale]/products/physical-ai/hd-emg
 /[locale]/products/robot-hand
 /[locale]/products/robot-hand/a002
 /[locale]/products/robot-hand/ap001

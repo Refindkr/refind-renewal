@@ -11,10 +11,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/api/",
           "/auth/",
-          "/ko/auth/",
-          "/en/auth/",
-          "/ko/inquiry/new",
-          "/en/inquiry/new",
+          "/eng/auth/",
+          "/admin/",
+          "/eng/admin/",
         ],
       },
     ],

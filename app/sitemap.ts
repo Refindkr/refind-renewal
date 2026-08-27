@@ -2,6 +2,8 @@ import { MetadataRoute } from "next";
 
 const BASE_URL = process.env.NEXTAUTH_URL || "https://products.refind.kr";
 const locales = ["ko", "en"];
+// 한국어(기본 언어)는 URL 접두사 없음, 영어는 /eng
+const localePrefix: Record<string, string> = { ko: "", en: "/eng" };
 
 // 정적 페이지 목록 (locale 제외)
 const staticPages = [
@@ -66,13 +68,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const locale of locales) {
     for (const page of staticPages) {
       entries.push({
-        url: `${BASE_URL}/${locale}${page.path}`,
+        url: `${BASE_URL}${localePrefix[locale]}${page.path}`,
         lastModified: new Date(),
         changeFrequency: page.changeFrequency as MetadataRoute.Sitemap[number]["changeFrequency"],
         priority: page.priority,
         alternates: {
           languages: Object.fromEntries(
-            locales.map((l) => [l, `${BASE_URL}/${l}${page.path}`])
+            locales.map((l) => [l, `${BASE_URL}${localePrefix[l]}${page.path}`])
           ),
         },
       });

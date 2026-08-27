@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
@@ -51,7 +51,7 @@ export default async function NoticePage({ params }: PageProps) {
           {isAdmin && (
             <div className="flex justify-end mb-6">
               <Link
-                href={`/${locale}/admin/notice/new`}
+                href={`/admin/notice/new`}
                 className="px-5 py-2.5 bg-primary-400 text-white rounded-lg font-medium hover:bg-primary-500 transition-colors text-sm"
               >
                 + 글쓰기

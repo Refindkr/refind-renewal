@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { redirect, notFound } from "next/navigation";
+import { notFound } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 import TopBannerForm from "@/components/ui/TopBannerForm";
 
 interface PageProps {
@@ -14,7 +15,7 @@ export default async function EditTopBannerPage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   const banner = await prisma.topBanner.findUnique({ where: { id } });

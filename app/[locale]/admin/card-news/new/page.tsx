@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 import PostForm from "@/components/ui/PostForm";
 
 interface PageProps {
@@ -13,7 +13,7 @@ export default async function NewCardNewsPage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   return (

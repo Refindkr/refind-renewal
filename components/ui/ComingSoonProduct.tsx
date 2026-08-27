@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface Props {
   locale: string;
@@ -55,7 +55,7 @@ export default function ComingSoonProduct({ locale, category, categoryLabel, nam
               {isKo ? "문의하기" : "Contact Us"}
             </a>
             <Link
-              href={`/${locale}/products/${category}`}
+              href={`/products/${category}`}
               className="inline-flex items-center px-8 py-3.5 border border-gray-200 text-gray-600 font-semibold rounded-full hover:bg-gray-50 transition-colors text-sm"
             >
               {categoryLabel}

@@ -34,7 +34,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
       products={[
         {
           slug: "prosthetic",
-          href: `/${locale}/products/prosthetic`,
+          href: `/products/prosthetic`,
           name: isKo ? "전자의수" : "Prosthetic Hand",
           nameEn: "Prosthetic Hand",
           tagline: isKo
@@ -45,7 +45,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
         },
         {
           slug: "bcibmi",
-          href: `/${locale}/products/physical-ai/eeg`,
+          href: `/products/physical-ai/eeg`,
           name: "BCI/BMI",
           nameEn: isKo ? "생체신호 솔루션" : "Biosignal Solutions",
           tagline: isKo
@@ -56,7 +56,7 @@ export default async function BodyEnhancementPage({ params }: PageProps) {
         },
         {
           slug: "robot-support",
-          href: `/${locale}/products/robot-support`,
+          href: `/products/robot-support`,
           name: isKo ? "로봇 보조기" : "Robot Support",
           nameEn: "Robot Support Device",
           tagline: isKo

@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { redirect } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -15,7 +15,7 @@ export default async function AdminPage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   const [noticeCount, cardNewsCount] = await Promise.all([
@@ -41,7 +41,7 @@ export default async function AdminPage({ params }: PageProps) {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-xs text-white/40 bg-white/10 px-3 py-1.5 rounded-full">
-                {(session.user as { name?: string })?.name} · 관리자
+                {(session?.user as { name?: string })?.name} · 관리자
               </span>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default async function AdminPage({ params }: PageProps) {
         {/* Content Management Links */}
         <div className="grid md:grid-cols-2 gap-5 max-w-2xl">
           <Link
-            href={`/${locale}/admin/notice`}
+            href={`/admin/notice`}
             className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
           >
             <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">
@@ -72,7 +72,7 @@ export default async function AdminPage({ params }: PageProps) {
             <p className="text-sm text-gray-500">공지사항을 작성하고 목록을 관리합니다</p>
           </Link>
           <Link
-            href={`/${locale}/admin/card-news`}
+            href={`/admin/card-news`}
             className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
           >
             <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">
@@ -81,7 +81,7 @@ export default async function AdminPage({ params }: PageProps) {
             <p className="text-sm text-gray-500">카드뉴스를 작성하고 목록을 관리합니다</p>
           </Link>
           <Link
-            href={`/${locale}/admin/top-banner`}
+            href={`/admin/top-banner`}
             className="group bg-white rounded-2xl border border-gray-100 p-8 hover:border-primary-200 hover:shadow-sm transition-all"
           >
             <h2 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-[#E1251B] transition-colors">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -73,7 +73,7 @@ export default async function DualArmPlatformPage({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/physical-ai/platform`}
+              <Link href={`/products/physical-ai/platform`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "플랫폼 전체 보기" : "All Platforms"}
               </Link>

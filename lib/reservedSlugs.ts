@@ -10,6 +10,7 @@ export const RESERVED_ROOT_SEGMENTS = new Set([
   "admin",
   "post",
   "api",
+  "eng", // 영어 로케일 URL 접두사 — 게시글 슬러그로 사용 불가
 ]);
 
 export function isReservedSlug(slug: string): boolean {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -113,7 +113,7 @@ export default async function Realbot01Page({ params }: PageProps) {
               className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
               {isKo ? "협업 문의하기" : "Contact Us"}
             </a>
-            <Link href={`/${locale}/products/humanoid`}
+            <Link href={`/products/humanoid`}
               className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
               {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
             </Link>
@@ -194,10 +194,10 @@ export default async function Realbot01Page({ params }: PageProps) {
                 <tr className="bg-white border-b border-gray-100">
                   <th className="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 whitespace-nowrap"> </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-                    <Link href={`/${locale}/products/humanoid/realbot`} className="hover:text-[#E1251B] transition-colors">Realbot S2</Link>
+                    <Link href={`/products/humanoid/realbot`} className="hover:text-[#E1251B] transition-colors">Realbot S2</Link>
                   </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-gray-500 whitespace-nowrap">
-                    <Link href={`/${locale}/products/humanoid/realbot-l2`} className="hover:text-[#E1251B] transition-colors">Realbot L2</Link>
+                    <Link href={`/products/humanoid/realbot-l2`} className="hover:text-[#E1251B] transition-colors">Realbot L2</Link>
                   </th>
                   <th className="text-center px-5 py-3.5 text-xs font-bold text-[#E1251B] whitespace-nowrap">Realbot 01</th>
                 </tr>
@@ -236,7 +236,7 @@ export default async function Realbot01Page({ params }: PageProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <Link href={`/${locale}/products/humanoid`}
+            <Link href={`/products/humanoid`}
               className="inline-flex items-center px-8 py-4 border border-gray-200 text-gray-700 font-semibold rounded-full text-sm hover:border-gray-400 transition-colors">
               {isKo ? "다른 제품 보기" : "Other Products"}
             </Link>

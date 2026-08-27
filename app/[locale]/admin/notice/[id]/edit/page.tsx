@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { redirect, notFound } from "next/navigation";
+import { notFound } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 import PostForm from "@/components/ui/PostForm";
 
 interface PageProps {
@@ -14,7 +15,7 @@ export default async function EditNoticePage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   const notice = await prisma.notice.findUnique({ where: { id } });

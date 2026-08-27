@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { redirect } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import DeleteButton from "@/components/ui/DeleteButton";
 
 interface PageProps {
@@ -15,7 +15,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   const notices = await prisma.notice.findMany({
@@ -33,13 +33,13 @@ export default async function AdminNoticePage({ params }: PageProps) {
               <h1 className="text-3xl font-extrabold text-white">공지사항 관리</h1>
             </div>
             <div className="flex gap-2">
-              <Link href={`/${locale}/admin`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
+              <Link href={`/admin`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
                 대시보드
               </Link>
-              <Link href={`/${locale}/admin/card-news`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
+              <Link href={`/admin/card-news`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
                 카드뉴스 관리
               </Link>
-              <Link href={`/${locale}/admin/top-banner`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
+              <Link href={`/admin/top-banner`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
                 상단 배너 관리
               </Link>
             </div>
@@ -51,7 +51,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
         <div className="flex items-center justify-between mb-6">
           <p className="text-sm text-gray-500">총 {notices.length}건</p>
           <Link
-            href={`/${locale}/admin/notice/new`}
+            href={`/admin/notice/new`}
             className="px-5 py-2.5 bg-primary-400 text-white rounded-lg font-medium hover:bg-primary-500 transition-colors text-sm"
           >
             + 새 공지사항 작성
@@ -97,7 +97,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-3">
                         <Link
-                          href={`/${locale}/admin/notice/${notice.id}/edit`}
+                          href={`/admin/notice/${notice.id}/edit`}
                           className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
                         >
                           수정

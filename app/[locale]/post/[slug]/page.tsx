@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import sanitizeHtml from "sanitize-html";
 import { stripHtml } from "@/lib/html";
@@ -71,15 +71,15 @@ export default async function FlatPostPage({ params }: PageProps) {
   if (!result) notFound();
 
   const { type, post } = result;
-  const listHref = type === "notice" ? "/ko/notice" : "/ko/card-news";
+  const listHref = type === "notice" ? "/notice" : "/card-news";
   const listLabel = type === "notice" ? "공지사항 목록" : "카드뉴스 목록";
 
   const session = await getServerSession(authOptions);
   const isAdmin = (session?.user as { role?: string })?.role === "admin";
   const editHref =
     type === "notice"
-      ? `/${locale}/admin/notice/${post.id}/edit`
-      : `/${locale}/admin/card-news/${post.id}/edit`;
+      ? `/admin/notice/${post.id}/edit`
+      : `/admin/card-news/${post.id}/edit`;
   const apiPath = type === "notice" ? `/api/notice/${post.id}` : `/api/card-news/${post.id}`;
 
   return (

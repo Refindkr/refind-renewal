@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 
 interface TopBannerFormData {
   message: string;
@@ -19,7 +19,7 @@ interface Props {
 export default function TopBannerForm({ locale, mode = "create", bannerId, initialData }: Props) {
   const router = useRouter();
   const isEdit = mode === "edit";
-  const listPath = `/${locale}/admin/top-banner`;
+  const listPath = "/admin/top-banner";
 
   const [form, setForm] = useState<TopBannerFormData>({
     message: initialData?.message ?? "",
@@ -47,7 +47,7 @@ export default function TopBannerForm({ locale, mode = "create", bannerId, initi
         return;
       }
 
-      router.push(listPath);
+      router.push(listPath, { locale });
       router.refresh();
     } catch {
       setError("서버 오류가 발생했습니다");
@@ -84,7 +84,7 @@ export default function TopBannerForm({ locale, mode = "create", bannerId, initi
           type="text"
           value={form.href}
           onChange={(e) => setForm({ ...form, href: e.target.value })}
-          placeholder="https://... 또는 /ko/notice1"
+          placeholder="https://... 또는 /notice1"
           className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-300"
         />
         <p className="text-xs text-gray-400 mt-1">비워두면 클릭해도 이동하지 않습니다.</p>
@@ -113,12 +113,12 @@ export default function TopBannerForm({ locale, mode = "create", bannerId, initi
         >
           {loading ? (isEdit ? "수정 중..." : "등록 중...") : isEdit ? "배너 수정" : "배너 등록"}
         </button>
-        <a
+        <Link
           href={listPath}
           className="px-6 py-3 border border-gray-200 text-gray-600 font-medium rounded-xl hover:bg-gray-50 transition-colors"
         >
           취소
-        </a>
+        </Link>
       </div>
     </form>
   );

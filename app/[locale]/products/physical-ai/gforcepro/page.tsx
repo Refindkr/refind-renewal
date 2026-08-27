@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -111,7 +111,7 @@ export default async function GForceProPage({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/physical-ai/bcibmi`}
+              <Link href={`/products/physical-ai/bcibmi`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
               </Link>
@@ -290,7 +290,7 @@ export default async function GForceProPage({ params }: PageProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <Link href={`/${locale}/products/physical-ai/bcibmi`}
+            <Link href={`/products/physical-ai/bcibmi`}
               className="inline-flex items-center px-8 py-4 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
               {isKo ? "BCI/BMI 전체 보기" : "All BCI/BMI"}
             </Link>

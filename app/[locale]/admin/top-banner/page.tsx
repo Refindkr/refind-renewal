@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { redirect } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import DeleteButton from "@/components/ui/DeleteButton";
 
 interface PageProps {
@@ -15,7 +15,7 @@ export default async function AdminTopBannerPage({ params }: PageProps) {
   const userRole = (session?.user as { role?: string })?.role;
 
   if (!session || userRole !== "admin") {
-    redirect(`/${locale}/auth/login`);
+    redirect({ href: "/auth/login", locale });
   }
 
   const banners = await prisma.topBanner.findMany({
@@ -33,7 +33,7 @@ export default async function AdminTopBannerPage({ params }: PageProps) {
               <h1 className="text-3xl font-extrabold text-white">상단 공지 배너 관리</h1>
             </div>
             <div className="flex gap-2">
-              <Link href={`/${locale}/admin`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
+              <Link href={`/admin`} className="text-xs text-white/40 hover:text-white/70 px-3 py-1.5">
                 대시보드
               </Link>
             </div>
@@ -45,7 +45,7 @@ export default async function AdminTopBannerPage({ params }: PageProps) {
         <div className="flex items-center justify-between mb-6">
           <p className="text-sm text-gray-500">총 {banners.length}건 — 사이트 최상단에는 노출(지금 노출) 켜진 것 중 가장 최근 것 하나만 보여집니다</p>
           <Link
-            href={`/${locale}/admin/top-banner/new`}
+            href={`/admin/top-banner/new`}
             className="px-5 py-2.5 bg-primary-400 text-white rounded-lg font-medium hover:bg-primary-500 transition-colors text-sm"
           >
             + 새 배너 작성
@@ -88,7 +88,7 @@ export default async function AdminTopBannerPage({ params }: PageProps) {
                     <td className="px-5 py-3.5">
                       <div className="flex items-center gap-3">
                         <Link
-                          href={`/${locale}/admin/top-banner/${banner.id}/edit`}
+                          href={`/admin/top-banner/${banner.id}/edit`}
                           className="text-xs font-medium text-gray-500 hover:text-[#E1251B]"
                         >
                           수정

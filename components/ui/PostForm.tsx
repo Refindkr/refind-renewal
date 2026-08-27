@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import RichTextEditor from "./RichTextEditor";
 
 // Vercel 서버리스 함수 요청 본문 한도(~4.5MB)보다 여유 있게 설정 — /api/upload와 동일
@@ -28,7 +28,7 @@ interface Props {
 export default function PostForm({ locale, type, mode = "create", postId, initialData }: Props) {
   const router = useRouter();
   const apiPath = type === "notice" ? "/api/notice" : "/api/card-news";
-  const listPath = type === "notice" ? `/${locale}/admin/notice` : `/${locale}/admin/card-news`;
+  const listPath = type === "notice" ? "/admin/notice" : "/admin/card-news";
   const label = type === "notice" ? "공지사항" : "카드뉴스";
   const isEdit = mode === "edit";
 
@@ -91,7 +91,7 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
         return;
       }
 
-      router.push(listPath);
+      router.push(listPath, { locale });
       router.refresh();
     } catch {
       setError("서버 오류가 발생했습니다");
@@ -227,12 +227,12 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
         >
           {loading ? (isEdit ? "수정 중..." : "등록 중...") : isEdit ? `${label} 수정` : `${label} 등록`}
         </button>
-        <a
+        <Link
           href={listPath}
           className="px-6 py-3 border border-gray-200 text-gray-600 font-medium rounded-xl hover:bg-gray-50 transition-colors"
         >
           취소
-        </a>
+        </Link>
       </div>
     </form>
   );

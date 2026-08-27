@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -166,7 +166,7 @@ export default async function ActuatorPage({ params }: PageProps) {
               {isKo ? "협업 문의하기" : "Contact Us"}
             </a>
             <Link
-              href={`/${locale}/products/physical-ai`}
+              href={`/products/physical-ai`}
               className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors"
             >
               {isKo ? "피지컬 AI 전체 보기" : "All Physical AI"}

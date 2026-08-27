@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -52,7 +52,7 @@ export default async function TashanPage({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/physical-ai`}
+              <Link href={`/products/physical-ai`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "Physical AI 전체 보기" : "All Physical AI"}
               </Link>
@@ -365,12 +365,12 @@ export default async function TashanPage({ params }: PageProps) {
           <div className="grid md:grid-cols-2 gap-5 max-w-2xl">
             {[
               {
-                href: `/${locale}/products/robot-hand/ap001`,
+                href: `/products/robot-hand/ap001`,
                 name: "ROH-AP001",
                 desc: isKo ? "Tashan 포스센서 내장 — 실시간 힘 피드백 로봇핸드" : "Tashan integrated — Real-time force feedback robot hand",
               },
               {
-                href: `/${locale}/products/robot-hand/ap002`,
+                href: `/products/robot-hand/ap002`,
                 name: "ROH-AP002",
                 desc: isKo ? "3D 포스센서 + 팜 매트릭스 — 고성능 촉각 로봇핸드" : "3D force sensor + palm matrix — High-performance tactile robot hand",
               },

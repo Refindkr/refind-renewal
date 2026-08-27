@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,7 +23,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
 
   const products = [
     {
-      href: `/${locale}/products/humanoid/robot-arm/rx71`,
+      href: `/products/humanoid/robot-arm/rx71`,
       image: "/products/humanoid/robot-arm/rx71.png",
       name: "RX71",
       nameEn: isKo ? "표준형" : "Standard",
@@ -33,7 +33,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       tags: isKo ? ["7축", "3kg", "경제형"] : ["7-Axis", "3kg", "Economical"],
     },
     {
-      href: `/${locale}/products/humanoid/robot-arm/rx75s`,
+      href: `/products/humanoid/robot-arm/rx75s`,
       image: "/products/humanoid/robot-arm/rx75s.png",
       name: "RX75S",
       nameEn: isKo ? "표준형" : "Standard",
@@ -43,7 +43,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       tags: isKo ? ["7축", "5kg", "컴팩트형"] : ["7-Axis", "5kg", "Compact"],
     },
     {
-      href: `/${locale}/products/humanoid/robot-arm/rx75`,
+      href: `/products/humanoid/robot-arm/rx75`,
       image: "/products/humanoid/robot-arm/rx75.png",
       name: "RX75",
       nameEn: isKo ? "표준형" : "Standard",
@@ -53,7 +53,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
       tags: isKo ? ["7축", "5kg", "표준형"] : ["7-Axis", "5kg", "Standard"],
     },
     {
-      href: `/${locale}/products/humanoid/robot-arm/rx75-vision`,
+      href: `/products/humanoid/robot-arm/rx75-vision`,
       image: "/products/humanoid/robot-arm/rx75-vision.png",
       name: "RX75 " + (isKo ? "비전" : "Vision"),
       nameEn: isKo ? "비전형" : "Vision",
@@ -91,7 +91,7 @@ export default async function RobotArmCategoryPage({ params }: PageProps) {
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
-              <Link href={`/${locale}/products/humanoid`}
+              <Link href={`/products/humanoid`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
                 {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
               </Link>

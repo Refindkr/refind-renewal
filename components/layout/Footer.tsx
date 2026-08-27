@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
@@ -38,11 +38,11 @@ export default async function Footer({ locale }: FooterProps) {
             </h3>
             <ul className="space-y-3">
               {[
-                { href: `/${locale}/products/physical-ai`, label: tn("physicalAI") },
-                { href: `/${locale}/products/robot-hand`, label: tn("robotHand") },
-                { href: `/${locale}/products/collaborative-robot`, label: tn("collaborativeRobot") },
-                { href: `/${locale}/products/humanoid`, label: tn("humanoid") },
-                { href: `/${locale}/products/body-enhancement`, label: tn("bodyEnhancement") },
+                { href: `/products/physical-ai`, label: tn("physicalAI") },
+                { href: `/products/robot-hand`, label: tn("robotHand") },
+                { href: `/products/collaborative-robot`, label: tn("collaborativeRobot") },
+                { href: `/products/humanoid`, label: tn("humanoid") },
+                { href: `/products/body-enhancement`, label: tn("bodyEnhancement") },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -64,7 +64,7 @@ export default async function Footer({ locale }: FooterProps) {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href={`/${locale}/about`}
+                  href={`/about`}
                   className="text-sm hover:text-white transition-colors duration-200"
                 >
                   {tn("about")}
@@ -88,13 +88,13 @@ export default async function Footer({ locale }: FooterProps) {
           <p className="text-xs">{t("copyright")}</p>
           <div className="flex gap-6">
             <Link
-              href={`/${locale}/privacy`}
+              href={`/privacy`}
               className="text-xs hover:text-white/60 transition-colors"
             >
               {t("links.privacy")}
             </Link>
             <Link
-              href={`/${locale}/terms`}
+              href={`/terms`}
               className="text-xs hover:text-white/60 transition-colors"
             >
               {t("links.terms")}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,7 +23,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
 
   const products = [
     {
-      href: `/${locale}/products/physical-ai/platform/dual-arm`,
+      href: `/products/physical-ai/platform/dual-arm`,
       name: isKo ? "듀얼암 로봇 플랫폼" : "Dual-Arm Robot Platform",
       nameEn: "Dural Arm Embodied AI Development Platform",
       tagline: isKo
@@ -33,7 +33,7 @@ export default async function PlatformCategoryPage({ params }: PageProps) {
       image: "/products/platform/1.png",
     },
     {
-      href: `/${locale}/products/physical-ai/platform/teleoperation-kit`,
+      href: `/products/physical-ai/platform/teleoperation-kit`,
       name: isKo ? "원격조작 키트" : "Teleoperation Kit",
       nameEn: "Teleoperation Kit",
       tagline: isKo

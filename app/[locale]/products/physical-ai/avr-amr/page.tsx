@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -23,7 +23,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
 
   const products = [
     {
-      href: `/${locale}/products/physical-ai/avr-amr/myagv`,
+      href: `/products/physical-ai/avr-amr/myagv`,
       image: "/products/physical-ai/amr/1.png",
       name: isKo ? "모바일 로봇 플랫폼" : "Mobile Robot Platform",
       nameEn: "myAGV 2023",
@@ -33,7 +33,7 @@ export default async function AVRAMRCategoryPage({ params }: PageProps) {
       tags: isKo ? ["myAGV 2023", "SLAM", "교육·연구"] : ["myAGV 2023", "SLAM", "Education & Research"],
     },
     {
-      href: `/${locale}/products/physical-ai/avr-amr/mobile-chassis`,
+      href: `/products/physical-ai/avr-amr/mobile-chassis`,
       image: "/products/physical-ai/avr-amr/mobile-chassis/4wheel.png",
       name: isKo ? "모바일 섀시" : "Mobile Chassis",
       nameEn: "Mobile Chassis",

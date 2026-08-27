@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 interface ProductCard {
   slug: string;
@@ -55,7 +55,7 @@ export default function ProductCategoryPage({
             {products.map((product) => (
               <Link
                 key={product.slug}
-                href={product.href ?? `/${locale}/products/${categorySlug}/${product.slug}`}
+                href={product.href ?? `/products/${categorySlug}/${product.slug}`}
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-primary-200 transition-all duration-300"
               >
                 {/* Image */}
