@@ -411,6 +411,104 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Downloads */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
+            {isKo ? "개발 자료" : "Resources & Downloads"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "매뉴얼 · SDK · 전용 소프트웨어" : "Manuals · SDK · Dedicated Software"}
+          </h2>
+
+          {/* Manuals */}
+          <p className="text-xs font-bold tracking-[2px] text-gray-400 uppercase mb-4">
+            {isKo ? "제품 매뉴얼" : "Product Manuals"}
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
+            {[
+              { model: "TS-F-A", href: "/downloads/tashan/manuals/Tashan-TS-F-A-Manual.docx", type: "DOCX", size: "1.7 MB" },
+              { model: "TS-F-A2", href: "/downloads/tashan/manuals/Tashan-TS-F-A2-Manual.pdf", type: "PDF", size: "1.7 MB" },
+              { model: "TS-F-B", href: "/downloads/tashan/manuals/Tashan-TS-F-B-Manual.pdf", type: "PDF", size: "1.6 MB" },
+              { model: "TS-F-C", href: "/downloads/tashan/manuals/Tashan-TS-F-C-Manual.pdf", type: "PDF", size: "2.5 MB" },
+              { model: "TS-E-A", href: "/downloads/tashan/manuals/Tashan-TS-E-A-Manual.docx", type: "DOCX", size: "1.8 MB" },
+              { model: "TS-E-B", href: "/downloads/tashan/manuals/Tashan-TS-E-B-Manual.pdf", type: "PDF", size: "0.8 MB" },
+            ].map((m) => (
+              <a key={m.model} href={m.href} download
+                className="flex flex-col items-center gap-2 bg-gray-50 rounded-2xl p-4 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all text-center">
+                <span className="text-sm font-bold text-gray-900">{m.model}</span>
+                <span className="text-[10px] font-semibold text-gray-400">{m.type} · {m.size}</span>
+                <span className="inline-flex items-center text-xs font-semibold text-[#E1251B] mt-1">
+                  {isKo ? "다운로드" : "Download"}
+                  <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* SDK */}
+          <p className="text-xs font-bold tracking-[2px] text-gray-400 uppercase mb-4">SDK</p>
+          <div className="grid md:grid-cols-3 gap-4 mb-12">
+            {[
+              {
+                title: isKo ? "Python SDK (데모 포함)" : "Python SDK (with Demo)",
+                href: "/downloads/tashan/sdk/Tashan-Python-SDK-Demo.zip",
+                size: "1.2 MB",
+              },
+              {
+                title: "C SDK",
+                href: "/downloads/tashan/sdk/Tashan-C-SDK.zip",
+                size: "27.8 MB",
+              },
+              {
+                title: isKo ? "Python 개발 패키지 (TS-E-B)" : "Python Dev Package (TS-E-B)",
+                href: "/downloads/tashan/sdk/Tashan-Python-Dev-TS-E-B.zip",
+                size: "2.3 MB",
+              },
+            ].map((s) => (
+              <a key={s.title} href={s.href} download
+                className="block bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+                <h3 className="text-sm font-bold text-gray-900 mb-1">{s.title}</h3>
+                <p className="text-xs text-gray-400 mb-4">ZIP · {s.size}</p>
+                <span className="inline-flex items-center text-xs font-semibold text-[#E1251B]">
+                  {isKo ? "다운로드" : "Download"}
+                  <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Dedicated Software */}
+          <p className="text-xs font-bold tracking-[2px] text-gray-400 uppercase mb-4">
+            {isKo ? "전용 소프트웨어" : "Dedicated Software"}
+          </p>
+          <a href="/downloads/tashan/software/Tashan-Tactile-Sensor-Software.zip" download
+            className="flex items-center justify-between gap-4 bg-gray-50 rounded-2xl border border-gray-100 px-6 py-5 hover:border-primary-300 hover:shadow-md transition-all mb-4">
+            <div>
+              <h3 className="text-sm font-bold text-gray-900 mb-1">
+                {isKo ? "Tashan 촉각 센서 전용 소프트웨어" : "Tashan Tactile Sensor Software"}
+              </h3>
+              <p className="text-xs text-gray-400">ZIP · 23.5 MB</p>
+            </div>
+            <span className="inline-flex items-center text-xs font-semibold text-[#E1251B] shrink-0">
+              {isKo ? "다운로드" : "Download"}
+              <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </span>
+          </a>
+          <p className="text-xs text-gray-400">
+            {isKo
+              ? "설치 순서: 1) 드라이버 설치 (CH341PAR.exe) → 2) SensorShow.exe 실행"
+              : "Install order: 1) Install driver (CH341PAR.exe) → 2) Run SensorShow.exe"}
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-3xl mx-auto px-6 text-center">
