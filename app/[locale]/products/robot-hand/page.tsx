@@ -68,8 +68,8 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP003 (3D 촉각 마그네틱 센서)" : "ROH-AP003 (3D Tactile Magnetic Sensor)",
           nameEn: "ROH-AP003",
           tagline: isKo
-            ? "3D 촉각 마그네틱 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
-            : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
+            ? "3D 촉각 마그네틱 센서를 통해 섬세한 촉각 정보를 정밀하게 감지하는 고성능 로봇 핸드입니다."
+            : "High-performance robot hand with a magnetic tactile sensor that precisely detects delicate tactile information.",
           image: "/products/robot-hand/ap003/ap003.png",
           tags: isKo ? ["6 DOF", "RS485", "마그네틱 촉각"] : ["6 DOF", "RS485", "Magnetic Tactile"],
         },

@@ -93,8 +93,8 @@ export default async function AP003Page({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "3D 촉각 마그네틱 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
-                : "AP003 is a high-performance robot hand that applies a Magnetic Tactile Sensor to provide tactile information similar to the human fingertip."}
+                ? "3D 촉각 마그네틱 센서를 통해 섬세한 촉각 정보를 정밀하게 감지하는 고성능 로봇 핸드입니다."
+                : "AP003 is a high-performance robot hand that applies a Magnetic Tactile Sensor to precisely detect delicate tactile information."}
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA"
