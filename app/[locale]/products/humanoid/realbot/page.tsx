@@ -116,7 +116,7 @@ export default async function RealbotPage({ params }: PageProps) {
             </a>
             <Link href={`/${locale}/products/humanoid`}
               className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-              {isKo ? "제품 목록" : "All Models"}
+              {isKo ? "휴머노이드 전체 보기" : "All Humanoids"}
             </Link>
           </div>
         </div>

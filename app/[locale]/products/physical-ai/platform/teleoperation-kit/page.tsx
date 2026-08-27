@@ -115,7 +115,7 @@ export default async function TeleoperationKitPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors"
               >
-                {isKo ? "도입 문의하기" : "Contact Us"}
+                {isKo ? "협업 문의하기" : "Contact Us"}
               </a>
               <Link
                 href={`/${locale}/products/physical-ai/platform`}

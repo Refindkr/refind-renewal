@@ -83,7 +83,7 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
               </a>
               <Link href={`/${locale}/products/collaborative-robot`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-                {isKo ? "제품 목록" : "All Models"}
+                {isKo ? "협동로봇 전체 보기" : "All Collaborative Robots"}
               </Link>
             </div>
           </div>

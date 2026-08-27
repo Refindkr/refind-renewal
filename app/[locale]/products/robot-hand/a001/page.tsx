@@ -51,7 +51,7 @@ export default async function A001Page({ params }: PageProps) {
               </a>
               <Link href={`/${locale}/products/robot-hand`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
-                {isKo ? "제품 목록" : "All Models"}
+                {isKo ? "로봇핸드 전체 보기" : "All Robot Hands"}
               </Link>
             </div>
           </div>
