@@ -25,7 +25,6 @@ const staticPages = [
   { path: "/products/robot-hand/lite", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-hand/motion-capture-glove", priority: 0.7, changeFrequency: "monthly" },
   // 협동로봇 상세
-  { path: "/products/collaborative-robot/realman", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/realman/rm65-75", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/realman/rml63", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/realman/eco", priority: 0.8, changeFrequency: "monthly" },

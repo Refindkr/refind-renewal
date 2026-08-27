@@ -60,7 +60,6 @@ export default function Navbar({ locale }: NavbarProps) {
       label: t("collaborativeRobot"),
       desc: isKo ? "안전한 인간-로봇 협업" : "Safe human-robot collaboration",
       children: [
-        { href: `/${locale}/products/collaborative-robot/realman`, label: "Realman", isGroup: true },
         { href: `/${locale}/products/collaborative-robot/realman/rm65-75`, label: "RM65/75", isGroup: false },
         { href: `/${locale}/products/collaborative-robot/realman/rml63`, label: "RML63", isGroup: false },
         { href: `/${locale}/products/collaborative-robot/realman/eco`, label: "ECO 62/63/65", isGroup: false },

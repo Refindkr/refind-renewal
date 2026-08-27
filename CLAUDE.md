@@ -143,9 +143,9 @@ refind-renewal/
 
 ```
 [피지컬 AI & 로봇부속]   [휴머노이드 로봇손]   [협동로봇]              [휴머노이드 로봇]              [개인 신체 증강 기기]     | [회사소개] [게시판]
-├ 액추에이터             ├ ROH-A002          ├ Realman              ├ REALMAN ─────────           전자의수 ─────────
-├ 플랫폼                 ├ ROH-AP001         └ Elephant Robotics    ├ REALBOT S2                  ├ Ohand
-├ AVR/AMR               ├ ROH-AP002                                ├ REALBOT L2                  ├ OhandLite
+├ 액추에이터             ├ ROH-A002          ├ RM65/75              ├ REALMAN ─────────           전자의수 ─────────
+├ 플랫폼                 ├ ROH-AP001         ├ RML63                ├ REALBOT S2                  ├ Ohand
+├ AVR/AMR               ├ ROH-AP002         └ ECO 62/63/65          ├ REALBOT L2                  ├ OhandLite
 └ Tashan 센서            └ ROH-Lite                                 ├ REALBOT 01                  ─────────────
                                                                     ├ Dual arm vertical Lift       BCI/BMI ─────────
                                                                     └ Single arm vertical lift     ├ Wearable EEG
@@ -172,8 +172,11 @@ refind-renewal/
 - 휴머노이드 로봇손에 ROH-AP003(자기식 촉각 센서, `robot-hand/ap003`)과 모션 캡처 글러브
   (`robot-hand/motion-capture-glove`) 추가. 실제 제품 사진이 없어 카테고리 그리드에서는
   `/products/coming-soon.svg`를 사용 (다른 미확보 이미지 제품과 동일한 방식)
-- "Realman"도 카테고리 페이지(`collaborative-robot/realman`)로, 하위에 RM65/75
-  (`realman/rm65-75`), RML63(`realman/rml63`), ECO 62/63/65(`realman/eco`) 3개 상세 페이지를 둠
+- "협동로봇" 대메뉴는 취급 브랜드가 REALMAN 하나뿐이라(Elephant Robotics 취급 종료 이후) 중간
+  브랜드 페이지(`collaborative-robot/realman`) 없이 카테고리 페이지(`products/collaborative-robot`)에서
+  바로 RM65/75(`collaborative-robot/realman/rm65-75`), RML63(`.../realman/rml63`),
+  ECO 62/63/65(`.../realman/eco`) 3개 상세 페이지로 연결됨 (상세 페이지 URL 자체는 유지, 목록
+  페이지만 통합)
 - "AVR/AMR"도 카테고리 페이지(`physical-ai/avr-amr`)로, 하위에 모바일 로봇 플랫폼/myAGV 2023
   (`avr-amr/myagv`)과 모바일 섀시(`avr-amr/mobile-chassis`) 2개 상세 페이지를 둠
 - "게시판" 하위의 "문의게시판"은 내부 페이지가 아니라 **네이버폼 외부 링크**(새 탭)로 연결됨 —
@@ -208,11 +211,9 @@ refind-renewal/
 /[locale]/products/robot-hand/lite
 /[locale]/products/robot-hand/motion-capture-glove
 /[locale]/products/collaborative-robot
-/[locale]/products/collaborative-robot/realman
 /[locale]/products/collaborative-robot/realman/rm65-75
 /[locale]/products/collaborative-robot/realman/rml63
 /[locale]/products/collaborative-robot/realman/eco
-/[locale]/products/collaborative-robot/elephant-robotics
 /[locale]/products/humanoid
 /[locale]/products/humanoid/realbot            (REALBOT S2)
 /[locale]/products/humanoid/realbot-l2
