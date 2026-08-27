@@ -34,7 +34,7 @@ export default async function ProstheticPage({ params }: PageProps) {
       products={[
         {
           slug: "ohand",
-          name: isKo ? "Ohand (AI 전자의수)" : "Ohand (AI Prosthetic)",
+          name: isKo ? "Ohand (일반형)" : "Ohand (Standard)",
           nameEn: "Ohand",
           tagline: isKo
             ? "8채널 EMG + AI 알고리즘으로 27가지 동작 구현. 배터리 12시간 지속."
