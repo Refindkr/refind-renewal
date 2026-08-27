@@ -57,9 +57,9 @@ function ConfigTable({ models, rows, highlight }: { models: string[]; rows: Conf
 
 function SpecList({ specs }: { specs: { label: string; value: string }[] }) {
   return (
-    <div className="overflow-hidden">
+    <div className="columns-1 md:columns-2 md:gap-x-10">
       {specs.map((s, i) => (
-        <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
+        <div key={i} className={`flex justify-between px-6 py-4 text-sm break-inside-avoid ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
           <span className="text-gray-500 font-medium">{s.label}</span>
           <span className="font-semibold text-gray-900 text-right">{s.value}</span>
         </div>
@@ -221,7 +221,7 @@ export default async function EEGPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[2px] text-gray-400 uppercase mb-4">
             {isKo ? "공통 기술 사양" : "Common Technical Specifications"}
           </p>
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <SpecList specs={nuraSpecs} />
           </div>
         </div>
@@ -280,7 +280,7 @@ export default async function EEGPage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[2px] text-gray-400 uppercase mb-4">
             {isKo ? "공통 기술 사양" : "Common Technical Specifications"}
           </p>
-          <div className="max-w-2xl">
+          <div className="max-w-4xl">
             <SpecList specs={orionSpecs} />
           </div>
         </div>
