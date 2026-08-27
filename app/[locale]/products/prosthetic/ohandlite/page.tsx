@@ -153,6 +153,15 @@ export default async function OhandLitePage({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <div className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gray-100 bg-white mb-10">
+            <Image
+              src="/products/prosthetic/ohandlite-dimensions.png"
+              alt={isKo ? "OhandLite 치수 도면" : "OhandLite Dimension Drawing"}
+              width={728}
+              height={343}
+              className="w-full h-auto object-contain"
+            />
+          </div>
           <div className="max-w-2xl overflow-hidden">
             {[
               { label: isKo ? "가운데 손가락 끝 ~ 손 밑단" : "Middle Fingertip to Hand Base", value: "157 mm" },

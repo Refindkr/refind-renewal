@@ -110,11 +110,30 @@ export default async function OhandPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Specs */}
+      {/* Product Structure */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">{isKo ? "제품 구성" : "Product Structure"}</p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "Ohand 세부 구성 요소" : "Ohand Component Breakdown"}
+          </h2>
+          <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white p-6">
+            <Image
+              src="/products/prosthetic/ohand-structure.png"
+              alt={isKo ? "Ohand 제품 구성도" : "Ohand Component Diagram"}
+              width={1915}
+              height={1062}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Specs */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "주요 사양" : "Specifications"}</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 rounded-2xl overflow-hidden border border-gray-100 mb-10">
             {[
               { label: isKo ? "동작 속도" : "Motion Speed", value: "1.0s", unit: isKo ? "이하" : "or less" },
               { label: isKo ? "파지력" : "Grip Force", value: "0.45kg", unit: isKo ? "이상" : "or more" },
@@ -127,11 +146,21 @@ export default async function OhandPage({ params }: PageProps) {
               </div>
             ))}
           </div>
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-5">{isKo ? "상세 사양표" : "Detailed Spec Sheet"}</p>
+          <div className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gray-100 bg-white">
+            <Image
+              src="/products/prosthetic/ohand-spec-table.png"
+              alt={isKo ? "Ohand 상세 사양표" : "Ohand Detailed Specifications"}
+              width={1785}
+              height={943}
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
       </section>
 
       {/* Grip Modes */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">{isKo ? "그립 모드" : "Grip Modes"}</p>
           <p className="text-sm text-gray-400 mb-10">{isKo ? "총 27가지 동작 패턴을 3가지 모드로 구성" : "27 total motion patterns organized in 3 modes"}</p>
@@ -151,7 +180,7 @@ export default async function OhandPage({ params }: PageProps) {
       </section>
 
       {/* Use Cases GIF */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
@@ -187,12 +216,21 @@ export default async function OhandPage({ params }: PageProps) {
       </section>
 
       {/* Measurements */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <div className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gray-100 bg-white mb-10">
+            <Image
+              src="/products/prosthetic/ohand-dimensions.png"
+              alt={isKo ? "Ohand 치수 도면" : "Ohand Dimension Drawing"}
+              width={1978}
+              height={993}
+              className="w-full h-auto object-contain"
+            />
+          </div>
           <div className="max-w-2xl overflow-hidden">
             {measurements.map((m, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-white/60" : ""}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/60" : ""}`}>
                 <span className="text-gray-500 font-medium">{m.label}</span>
                 <span className="font-semibold text-gray-900 text-right">{m.value}</span>
               </div>
@@ -202,7 +240,7 @@ export default async function OhandPage({ params }: PageProps) {
       </section>
 
       {/* OHand Series Comparison */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
           <div className="overflow-x-auto">
