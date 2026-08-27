@@ -76,7 +76,7 @@ export default async function EEGPage({ params }: PageProps) {
     { label: isKo ? "EEG 채널" : "EEG Channels", values: ["1", "2", "4", "7", "8"] },
     { label: isKo ? "ECG 채널" : "ECG Channels", values: ["0", "1", "1", "1", "1*"] },
     { label: isKo ? "캡 전극 배치" : "Cap Opening", values: [isKo ? "10-20 표준 21개소" : "21 in Standard 10-20", ...Array(4).fill(isKo ? "10-10 표준 75개소" : "75 in Standard 10-10")] },
-    { label: isKo ? "전극 종류" : "Electrode Types", values: [isKo ? "드라이" : "Dry", ...Array(4).fill(isKo ? "드라이, 젤, 살린" : "Dry, Gel, Saline")] },
+    { label: isKo ? "전극 종류" : "Electrode Types", values: [isKo ? "드라이" : "Dry", ...Array(4).fill(isKo ? "드라이, 젤, Saline" : "Dry, Gel, Saline")] },
   ];
 
   const nuraSpecs = [
@@ -105,8 +105,8 @@ export default async function EEGPage({ params }: PageProps) {
   const orionSpecs = [
     { label: isKo ? "레퍼런스 채널 (드라이)" : "Reference Channel (Dry)", value: isKo ? "귀 클립 전극 1개" : "1 ear clip electrode" },
     { label: isKo ? "그라운드 채널 (드라이)" : "Ground Channel (Dry)", value: isKo ? "귀 클립 전극 1개" : "1 ear clip electrode" },
-    { label: isKo ? "레퍼런스 채널 (살린/젤)" : "Reference Channel (Saline, Gel)", value: "CPz" },
-    { label: isKo ? "그라운드 채널 (살린/젤)" : "Ground Channel (Saline, Gel)", value: "Fz" },
+    { label: isKo ? "레퍼런스 채널 (Saline/젤)" : "Reference Channel (Saline, Gel)", value: "CPz" },
+    { label: isKo ? "그라운드 채널 (Saline/젤)" : "Ground Channel (Saline, Gel)", value: "Fz" },
     { label: isKo ? "샘플링 레이트 (온디바이스 SD)" : "Sampling Rate (On Device - SD Card)", value: "500 Hz" },
     { label: isKo ? "샘플링 레이트 (내부)" : "Sampling Rate (Internal)", value: "2000 Hz" },
     { label: isKo ? "커플링" : "Coupling", value: isKo ? "DC 커플링" : "DC Coupled" },
@@ -127,7 +127,7 @@ export default async function EEGPage({ params }: PageProps) {
     { label: isKo ? "무선 통신" : "Wireless Communication", value: "BLE 5.0" },
     { label: isKo ? "캡 사이즈" : "Cap Sizes", value: "S: 54cm, M: 58cm, L: 62cm" },
     { label: isKo ? "캡 전극 배치" : "Cap Opening", value: isKo ? "10-10 표준 75개소" : "75 in Standard 10-10" },
-    { label: isKo ? "전극 종류" : "Electrode Types", value: isKo ? "드라이, 젤, 살린" : "Dry, Gel, Saline" },
+    { label: isKo ? "전극 종류" : "Electrode Types", value: isKo ? "드라이, 젤, Saline" : "Dry, Gel, Saline" },
   ];
 
   return (
@@ -260,7 +260,7 @@ export default async function EEGPage({ params }: PageProps) {
           <div className="grid md:grid-cols-3 gap-4 mb-12">
             {[
               { title: isKo ? "드라이 전극" : "Dry Electrodes", desc: isKo ? "준비 과정 없이 빠른 세팅. 모바일·실환경 연구에 적합." : "Fast setup, no prep. Ideal for mobile and real-world studies." },
-              { title: isKo ? "살린 전극" : "Saline Electrodes", desc: isKo ? "낮은 준비 과정으로 안정적인 접촉. 장시간 세션에 적합." : "Low-prep with reliable contact. Great for longer sessions." },
+              { title: isKo ? "Saline 전극" : "Saline Electrodes", desc: isKo ? "낮은 준비 과정으로 안정적인 접촉. 장시간 세션에 적합." : "Low-prep with reliable contact. Great for longer sessions." },
               { title: isKo ? "젤 전극" : "Gel Electrodes", desc: isKo ? "정밀 연구실 연구를 위한 최고 수준의 신호 품질." : "Gold-standard signal quality for high-precision lab research." },
             ].map((e, i) => (
               <div key={i} className="border-t-2 border-gray-900 pt-4">

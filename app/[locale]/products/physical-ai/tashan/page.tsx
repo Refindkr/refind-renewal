@@ -142,40 +142,26 @@ export default async function TashanPage({ params }: PageProps) {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b-2 border-gray-900">
-                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "모델" : "Model"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "센싱 방식" : "Sensing Type"}</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
-                    <span className="block">Normal Force Range</span>
-                  </th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
-                    <span className="block">Normal Resolution</span>
-                  </th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
-                    <span className="block">Tangential Resolution</span>
-                  </th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">Accuracy</th>
-                  <th className="text-center px-5 py-4 text-xs font-semibold text-gray-500">
-                    {isKo ? "비접촉 감지" : "Proximity"}
-                  </th>
+                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500 whitespace-nowrap">{isKo ? "항목" : "Item"}</th>
+                  {["TS-F-A", "TS-F-A2", "TS-F-B", "TS-F-C", "TS-E-A", "TS-E-B"].map((model) => (
+                    <th key={model} className="text-center px-5 py-4 text-xs font-bold text-[#E1251B] whitespace-nowrap">{model}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {[
-                  ["TS-F-A",  "3D Force Sensing",                "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
-                  ["TS-F-A2", "Matrix Sensing",                  "0 – 50 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
-                  ["TS-F-B",  "Multi-modal Sensing",             "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1 cm"],
-                  ["TS-F-C",  "Multi-modal Sensing (Nail Type)", "0 – 20 N", "0.1 N",  "0.25 N", "5% FS", "≥ 2 cm"],
-                  ["TS-E-A",  "3D Force Sensing",                "0 – 50 N", "0.1 N",  "0.25 N", "5% FS", "≥ 1.5 cm"],
-                  ["TS-E-B",  "Matrix Sensing",                  "0 – 50 N", "0.05 N", "0.25 N", "5% FS", "≥ 1.5 cm"],
-                ].map(([model, type, range, normal, tangential, acc, prox], i) => (
-                  <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
-                    <td className="px-5 py-3.5 font-bold text-[#E1251B] whitespace-nowrap">{model}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-600 text-xs">{type}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700 font-medium">{range}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{normal}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{tangential}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{acc}</td>
-                    <td className="px-5 py-3.5 text-center text-gray-700">{prox}</td>
+                  { label: isKo ? "센싱 방식" : "Sensing Type", values: ["3D Force Sensing", "Matrix Sensing", "Multi-modal Sensing", "Multi-modal Sensing (Nail Type)", "3D Force Sensing", "Matrix Sensing"] },
+                  { label: "Normal Force Range", values: ["0 – 20 N", "0 – 50 N", "0 – 20 N", "0 – 20 N", "0 – 50 N", "0 – 50 N"] },
+                  { label: "Normal Resolution", values: ["0.1 N", "0.1 N", "0.1 N", "0.1 N", "0.1 N", "0.05 N"] },
+                  { label: "Tangential Resolution", values: ["0.25 N", "0.25 N", "0.25 N", "0.25 N", "0.25 N", "0.25 N"] },
+                  { label: "Accuracy", values: ["5% FS", "5% FS", "5% FS", "5% FS", "5% FS", "5% FS"] },
+                  { label: isKo ? "비접촉 감지" : "Proximity", values: ["≥ 1 cm", "≥ 1 cm", "≥ 1 cm", "≥ 2 cm", "≥ 1.5 cm", "≥ 1.5 cm"] },
+                ].map((row, i) => (
+                  <tr key={row.label} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
+                    <td className="px-5 py-3.5 font-semibold text-gray-700 whitespace-nowrap">{row.label}</td>
+                    {row.values.map((v, j) => (
+                      <td key={j} className="px-5 py-3.5 text-center text-gray-700 text-xs">{v}</td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
