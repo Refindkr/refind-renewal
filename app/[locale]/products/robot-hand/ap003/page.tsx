@@ -147,9 +147,9 @@ export default async function AP003Page({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">
             {isKo ? "부하 및 속도" : "Load and Speed"}
           </p>
-          <div className="max-w-2xl overflow-hidden">
+          <div className="max-w-4xl columns-1 md:columns-2 md:gap-x-10">
             {loadAndSpeed.map((s, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm break-inside-avoid ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                 <span className="text-gray-500 font-medium">
                   {isKo ? s.ko : s.en}
                   <span className="block text-xs text-gray-400">{isKo ? s.en : s.ko}</span>

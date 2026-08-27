@@ -162,7 +162,7 @@ export default async function OhandLitePage({ params }: PageProps) {
               className="w-full h-auto object-contain"
             />
           </div>
-          <div className="max-w-2xl overflow-hidden">
+          <div className="max-w-4xl columns-1 md:columns-2 md:gap-x-10">
             {[
               { label: isKo ? "가운데 손가락 끝 ~ 손 밑단" : "Middle Fingertip to Hand Base", value: "157 mm" },
               { label: isKo ? "엄지 끝 ~ 손 밑단" : "Thumb Tip to Hand Base", value: "80 mm" },
@@ -175,7 +175,7 @@ export default async function OhandLitePage({ params }: PageProps) {
               { label: isKo ? "손목 회전 범위" : "Wrist Rotation Range", value: "±175˚" },
               { label: isKo ? "엄지 최대 대향 각도" : "Maximum Thumb Opposition Angle", value: "0~50˚" },
             ].map((m, i) => (
-              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm break-inside-avoid ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
                 <span className="text-gray-500 font-medium">{m.label}</span>
                 <span className="font-semibold text-gray-900 text-right">{m.value}</span>
               </div>
