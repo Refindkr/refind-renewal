@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
@@ -19,6 +19,19 @@ export default function RichTextEditor({ content, onChange }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState("");
+  const [toolbarTop, setToolbarTop] = useState(64);
+
+  // 상단 고정 헤더(배너+네비바)의 실제 높이를 추적해 툴바가 그 바로 아래에 딱 붙도록 함 —
+  // 배너 유무/줄바꿈에 따라 헤더 높이가 달라지므로 고정값 대신 실측
+  useEffect(() => {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+    const update = () => setToolbarTop(header.offsetHeight);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
   const editor = useEditor({
     immediatelyRender: false,
@@ -82,8 +95,11 @@ export default function RichTextEditor({ content, onChange }: Props) {
     }`;
 
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
-      <div className="flex flex-wrap items-center gap-1 px-3 py-2 border-b border-gray-100 bg-gray-50">
+    <div className="border border-gray-200 rounded-xl">
+      <div
+        className="sticky z-20 flex flex-wrap items-center gap-1 px-3 py-2 rounded-t-xl border-b border-gray-100 bg-gray-50/95 backdrop-blur-sm shadow-sm"
+        style={{ top: toolbarTop }}
+      >
         <button type="button" onClick={() => editor.chain().focus().toggleBold().run()} className={btnClass(editor.isActive("bold"))}>
           굵게
         </button>
@@ -143,7 +159,9 @@ export default function RichTextEditor({ content, onChange }: Props) {
 
       {uploadError && <p className="px-3 pt-2 text-xs text-red-500">{uploadError}</p>}
 
-      <EditorContent editor={editor} />
+      <div className="rounded-b-xl overflow-hidden">
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 }
