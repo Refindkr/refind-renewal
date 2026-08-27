@@ -140,6 +140,29 @@ export default async function RealmanCategoryPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Resources */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <a
+            href="https://develop.realman-robotics.com/en/robot/summarize/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between gap-4 bg-gray-50 rounded-2xl border border-gray-100 px-6 py-5 hover:border-primary-200 hover:shadow-md transition-all"
+          >
+            <div>
+              <h3 className="text-sm font-bold text-gray-900 mb-1">{isKo ? "REALMAN 개발자 매뉴얼" : "REALMAN Developer Manual"}</h3>
+              <p className="text-xs text-gray-500">{isKo ? "제어 프로토콜 및 개발 문서 (공식 사이트)" : "Control protocol and development docs (official site)"}</p>
+            </div>
+            <span className="inline-flex items-center text-xs font-semibold text-[#E1251B] shrink-0">
+              {isKo ? "바로가기" : "View"}
+              <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 text-center">

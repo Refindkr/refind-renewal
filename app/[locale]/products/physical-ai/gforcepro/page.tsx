@@ -230,6 +230,47 @@ export default async function GForceProPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Resources */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-primary-500 uppercase mb-4">Resources</p>
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "개발 자료" : "Developer Resources"}
+          </h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                href: "https://oymotion.github.io/en/gForce/APPs/gForceApp/",
+                title: isKo ? "전용 앱" : "App",
+                desc: isKo ? "제스처 학습 및 기기 설정용 애플리케이션" : "App for gesture training and device configuration",
+              },
+              {
+                href: "https://oymotion.github.io/en/gForce/gForcePro/gForcePro/",
+                title: isKo ? "사용자 매뉴얼" : "User Manual",
+                desc: isKo ? "제품 사양 및 사용 방법 안내" : "Product specifications and usage instructions",
+              },
+              {
+                href: "https://oymotion.github.io/en/gForce/SDK/SDKList/",
+                title: "SDK",
+                desc: isKo ? "개발자용 소프트웨어 개발 키트" : "Software development kit for developers",
+              },
+            ].map((r) => (
+              <a key={r.title} href={r.href} target="_blank" rel="noopener noreferrer"
+                className="block bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+                <h3 className="text-base font-bold text-gray-900 mb-2">{r.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{r.desc}</p>
+                <span className="inline-flex items-center text-xs font-semibold text-primary-600">
+                  {isKo ? "바로가기" : "View"}
+                  <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-24 bg-gray-950 text-center">
         <div className="max-w-2xl mx-auto px-6">
