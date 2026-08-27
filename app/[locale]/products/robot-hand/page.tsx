@@ -41,11 +41,11 @@ export default async function RobotHandPage({ params }: PageProps) {
             ? "인간 손과 유사한 6자유도 구조를 기반으로 다양한 손동작을 정밀하게 구현할 수 있는 다관절 로봇 핸드입니다."
             : "6-DOF 11-joint wire-driven system. Up to 30kg power grip.",
           image: "/products/robot-hand/a002.png",
-          tags: isKo ? ["6 DOF", "545g", "RS485"] : ["6 DOF", "545g", "RS485"],
+          tags: isKo ? ["6 DOF", "RS485", "545g"] : ["6 DOF", "RS485", "545g"],
         },
         {
           slug: "ap001",
-          name: isKo ? "ROH-AP001 (포스피드백)" : "ROH-AP001 (Force Sensing)",
+          name: isKo ? "ROH-AP001 (포스 매트릭스 센서)" : "ROH-AP001 (Force Matrix Sensor)",
           nameEn: "ROH-AP001",
           tagline: isKo
             ? "포스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
@@ -55,13 +55,23 @@ export default async function RobotHandPage({ params }: PageProps) {
         },
         {
           slug: "ap002",
-          name: isKo ? "ROH-AP002 (고성능 촉각)" : "ROH-AP002 (Tactile Intelligence)",
+          name: isKo ? "ROH-AP002 (3D 촉각 캐패시터 센서)" : "ROH-AP002 (3D Tactile Capacitor Sensor)",
           nameEn: "ROH-AP002",
           tagline: isKo
             ? "3D 포스센서와 손바닥 영역의 센서 매트릭스를 통해 힘의 변화를 정밀하게 감지하는 고정밀 로봇 핸드입니다."
             : "3D force sensor + 11×5 palm matrix for human-level tactile data acquisition.",
           image: "/products/robot-hand/ap002.png",
           tags: isKo ? ["3D 포스", "팜 매트릭스", "575g"] : ["3D Force", "Palm Matrix", "575g"],
+        },
+        {
+          slug: "ap003",
+          name: isKo ? "ROH-AP003 (3D 촉각 마그네틱 센서)" : "ROH-AP003 (3D Tactile Magnetic Sensor)",
+          nameEn: "ROH-AP003",
+          tagline: isKo
+            ? "마그네틱 촉각 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
+            : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
+          image: "/products/robot-hand/ap003/ap003.png",
+          tags: isKo ? ["마그네틱 촉각", "6-DOF", "626g"] : ["Magnetic Tactile", "6-DOF", "626g"],
         },
         {
           slug: "lite",
@@ -71,17 +81,7 @@ export default async function RobotHandPage({ params }: PageProps) {
             ? "가성비 6DOF 로봇핸드. 가볍고 빠른 구동으로 입문 연구·교육용 최적."
             : "Cost-effective 6-DOF robot hand. Light and fast — ideal for entry-level research and education.",
           image: "/products/robot-hand/ROhandlite.png",
-          tags: isKo ? ["6 DOF", "457g", "보급형"] : ["6 DOF", "457g", "Economy"],
-        },
-        {
-          slug: "ap003",
-          name: isKo ? "ROH-AP003 (자기식 촉각 센서)" : "ROH-AP003 (Magnetic Tactile Sensors)",
-          nameEn: "ROH-AP003",
-          tagline: isKo
-            ? "자기식 촉각 센서로 수직압력·전단력·미끄러짐까지 감지하는 고성능 로봇 핸드."
-            : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
-          image: "/products/robot-hand/ap003/ap003.png",
-          tags: isKo ? ["자기식 촉각", "626g", "6-DOF"] : ["Magnetic Tactile", "626g", "6-DOF"],
+          tags: isKo ? ["6 DOF", "보급형", "457g"] : ["6 DOF", "Economy", "457g"],
         },
         {
           slug: "motion-capture-glove",

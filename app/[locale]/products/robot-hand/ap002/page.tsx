@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "ROH-AP002 로봇핸드 (고성능 촉각)" : "ROH-AP002 Robot Hand (Tactile Intelligence)",
+    title: isKo ? "ROH-AP002 로봇핸드 (3D 촉각 캐패시터 센서)" : "ROH-AP002 Robot Hand (3D Tactile Capacitor Sensor)",
     description: isKo
       ? "3D 포스센서 + 11×5 팜 촉각 매트릭스로 인간 수준의 촉각 데이터 수집. 575g 경량 설계."
       : "3D force sensor + 11×5 palm tactile matrix for human-level tactile data acquisition. 575g lightweight design.",
@@ -32,7 +32,7 @@ export default async function AP002Page({ params }: PageProps) {
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
-              Robot Hand · Tactile Intelligence
+              Robot Hand · 3D Tactile Capacitor Sensor
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP002</h1>
             <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "로봇에게 '촉각'을 부여하다" : "Giving Robots the Sense of Touch"}</p>

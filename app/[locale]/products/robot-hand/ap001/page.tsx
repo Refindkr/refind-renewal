@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "ROH-AP001 로봇핸드 (포스피드백)" : "ROH-AP001 Robot Hand (Force Sensing)",
+    title: isKo ? "ROH-AP001 로봇핸드 (포스 매트릭스 센서)" : "ROH-AP001 Robot Hand (Force Matrix Sensor)",
     description: isKo
       ? "Tashan 내장 포스센서로 실시간 힘 피드백. 150Hz 샘플링, 640g 경량 설계. 정밀 조립·표면가공에 최적."
       : "Tashan integrated force sensor for real-time force feedback. 150Hz sampling, 640g lightweight design. Ideal for precision assembly and surface finishing.",
@@ -32,7 +32,7 @@ export default async function AP001Page({ params }: PageProps) {
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
-              Robot Hand · Force Sensing
+              Robot Hand · Force Matrix Sensor
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP001</h1>
             <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "힘을 읽고 제어하다" : "Sense Force. Control Precisely."}</p>

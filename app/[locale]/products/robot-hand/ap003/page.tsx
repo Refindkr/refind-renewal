@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const isKo = locale === "ko";
   return {
-    title: isKo ? "ROH-AP003 로봇핸드 (자기식 촉각 센서)" : "ROH-AP003 Robot Hand (Magnetic Tactile Sensors)",
+    title: isKo ? "ROH-AP003 로봇핸드 (3D 촉각 마그네틱 센서)" : "ROH-AP003 Robot Hand (3D Tactile Magnetic Sensor)",
     description: isKo
       ? "Magnetic Tactile Sensor를 적용해 수직압력·전단력·미끄러짐까지 감지하는 고성능 로봇 핸드."
       : "A high-performance robot hand with magnetic tactile sensors that detect normal force, shear force, and slip.",
@@ -85,7 +85,7 @@ export default async function AP003Page({ params }: PageProps) {
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
-              Robot Hand · Magnetic Tactile Sensors
+              Robot Hand · 3D Tactile Magnetic Sensor
             </span>
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 tracking-tight">ROH-AP003</h1>
             <p className="text-sm text-[#E1251B] font-semibold mb-5">
@@ -93,7 +93,7 @@ export default async function AP003Page({ params }: PageProps) {
             </p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "AP003는 Magnetic Tactile Sensor(자기식 촉각 센서)를 적용하여 사람의 손끝과 유사한 촉각 정보를 제공하는 고성능 로봇 핸드입니다."
+                ? "마그네틱 촉각 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
                 : "AP003 is a high-performance robot hand that applies a Magnetic Tactile Sensor to provide tactile information similar to the human fingertip."}
             </p>
             <div className="flex flex-wrap gap-3">
