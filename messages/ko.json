@@ -82,10 +82,6 @@
         {
           "name": "REALMAN RM65-B",
           "description": "6축 협동로봇, 5kg 가반하중"
-        },
-        {
-          "name": "Elephant Robotics",
-          "description": "다관절 협동로봇 시리즈"
         }
       ]
     },

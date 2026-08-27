@@ -27,8 +27,8 @@ export default async function BCIBMIPage({ params }: PageProps) {
       titleEn="BCI / BMI Biosignal Solutions"
       description={
         isKo
-          ? "웨어러블 EEG부터 고해상도 HD-EMG까지. 뇌-컴퓨터 인터페이스와 생체신호 측정의 전 라인업을 공급합니다. 실생활 연구, 임상 실험, 로봇 제어까지 아우르는 통합 생체신호 플랫폼."
-          : "From wearable EEG to high-resolution HD-EMG. Full lineup for brain-computer interface and biosignal measurement — covering real-life research, clinical trials, and robot control."
+          ? "웨어러블 EEG부터 EMG 암밴드까지. 뇌-컴퓨터 인터페이스와 생체신호 측정의 전 라인업을 공급합니다. 실생활 연구, 임상 실험, 로봇 제어까지 아우르는 통합 생체신호 플랫폼."
+          : "From wearable EEG to EMG armbands. Full lineup for brain-computer interface and biosignal measurement — covering real-life research, clinical trials, and robot control."
       }
       categorySlug="physical-ai"
       products={[
@@ -51,16 +51,6 @@ export default async function BCIBMIPage({ params }: PageProps) {
             : "8-channel dry EMG + 9-axis IMU armband. Up to 16 gesture recognition patterns with SDK support for robot control integration.",
           image: "/products/physical-ai/gforce.png",
           tags: isKo ? ["8채널 EMG", "9축 IMU", "16 제스처"] : ["8ch EMG", "9-axis IMU", "16 Gestures"],
-        },
-        {
-          slug: "hd-emg",
-          name: isKo ? "HD EMG (BioFlex nano 32)" : "HD EMG (BioFlex nano 32)",
-          nameEn: "HD EMG",
-          tagline: isKo
-            ? "32채널에서 최대 128채널까지 확장 가능한 고해상도 EMG 시스템. 4,096Hz 초고속 샘플링."
-            : "High-resolution EMG system expandable from 32 to 128 channels, with ultra-fast 4,096Hz sampling.",
-          image: "/products/physical-ai/hd-emg.png",
-          tags: isKo ? ["32~128채널", "4,096Hz", "고해상도"] : ["32-128ch", "4,096Hz", "High-Res"],
         },
       ]}
     />

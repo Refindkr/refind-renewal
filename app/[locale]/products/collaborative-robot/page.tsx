@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "협동로봇" : "Collaborative Robot",
     description: isKo
-      ? "리파인 협동로봇 제품 라인업. REALMAN 6축 협동로봇, Elephant Robotics."
-      : "Refind collaborative robot lineup. REALMAN 6-axis cobot, Elephant Robotics.",
+      ? "리파인 협동로봇 제품 라인업. REALMAN 6축 협동로봇."
+      : "Refind collaborative robot lineup. REALMAN 6-axis cobot.",
   };
 }
 
@@ -41,16 +41,6 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
             : "High-precision 6-axis cobot. ROS2 support and open SDK for instant research and industrial use.",
           image: "/products/collaborative-robot/1.png",
           tags: isKo ? ["6축", "ROS2", "오픈 SDK"] : ["6-Axis", "ROS2", "Open SDK"],
-        },
-        {
-          slug: "elephant-robotics",
-          name: "Elephant Robotics",
-          nameEn: "Elephant Robotics",
-          tagline: isKo
-            ? "컴팩트한 크기와 직관적인 제어가 강점인 협동로봇으로, 교육·연구와 로봇 개발 및 알고리즘 실험에 적합합니다."
-            : "Compact tabletop collaborative robot. Optimized for education, research, and lightweight automation.",
-          image: "/products/collaborative-robot/2.jpeg",
-          tags: isKo ? ["테이블탑", "경량", "교육용"] : ["Tabletop", "Lightweight", "Education"],
         },
       ]}
     />

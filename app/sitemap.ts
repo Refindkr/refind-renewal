@@ -29,7 +29,6 @@ const staticPages = [
   { path: "/products/collaborative-robot/realman/rm65-75", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/realman/rml63", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/collaborative-robot/realman/eco", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/products/collaborative-robot/elephant-robotics", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/avr-amr", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/avr-amr/myagv", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/avr-amr/mobile-chassis", priority: 0.8, changeFrequency: "monthly" },
@@ -59,7 +58,6 @@ const staticPages = [
   { path: "/products/physical-ai/bcibmi", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/eeg", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/gforcepro", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/products/physical-ai/hd-emg", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/tashan", priority: 0.8, changeFrequency: "monthly" },
 ] as const;
 

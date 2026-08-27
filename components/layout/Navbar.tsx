@@ -64,7 +64,6 @@ export default function Navbar({ locale }: NavbarProps) {
         { href: `/${locale}/products/collaborative-robot/realman/rm65-75`, label: "RM65/75", isGroup: false },
         { href: `/${locale}/products/collaborative-robot/realman/rml63`, label: "RML63", isGroup: false },
         { href: `/${locale}/products/collaborative-robot/realman/eco`, label: "ECO 62/63/65", isGroup: false },
-        { href: `/${locale}/products/collaborative-robot/elephant-robotics`, label: "Elephant Robotics", isGroup: true },
       ],
     },
     {
@@ -97,7 +96,6 @@ export default function Navbar({ locale }: NavbarProps) {
         { href: `/${locale}/products/physical-ai/bcibmi`, label: "BCI/BMI", isGroup: true },
         { href: `/${locale}/products/physical-ai/eeg`, label: isKo ? "Wearable EEG" : "Wearable EEG", isGroup: false },
         { href: `/${locale}/products/physical-ai/gforcepro`, label: "GForcePro+", isGroup: false },
-        { href: `/${locale}/products/physical-ai/hd-emg`, label: "HD EMG", isGroup: false },
         { href: `/${locale}/products/robot-support`, label: isKo ? "로봇보조기" : "Robot Support", isGroup: true },
         { href: `/${locale}/products/robot-support/hybridex`, label: "HYBRIDEX", isGroup: false },
         { href: `/${locale}/products/robot-support/step-booster`, label: "STEP BOOSTER", isGroup: false },
