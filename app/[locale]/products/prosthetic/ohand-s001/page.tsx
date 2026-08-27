@@ -123,6 +123,15 @@ export default async function OhandS001Page({ params }: PageProps) {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <div className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gray-100 bg-white mb-10">
+            <Image
+              src="/products/prosthetic/ohand-s001-dimensions.png"
+              alt={isKo ? "Ohand S001 치수 도면" : "Ohand S001 Dimension Drawing"}
+              width={789}
+              height={487}
+              className="w-full h-auto object-contain"
+            />
+          </div>
           <div className="max-w-4xl columns-1 md:columns-2 md:gap-x-10">
             {measurements.map((m, i) => (
               <div key={i} className={`flex justify-between px-6 py-4 text-sm break-inside-avoid ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>

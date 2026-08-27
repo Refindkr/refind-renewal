@@ -123,8 +123,8 @@ export default async function OhandLitePage({ params }: PageProps) {
             <Image
               src="/products/prosthetic/ohandlite-dimensions.png"
               alt={isKo ? "OhandLite 치수 도면" : "OhandLite Dimension Drawing"}
-              width={728}
-              height={343}
+              width={772}
+              height={579}
               className="w-full h-auto object-contain"
             />
           </div>
