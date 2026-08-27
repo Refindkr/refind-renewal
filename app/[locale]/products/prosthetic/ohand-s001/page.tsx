@@ -56,7 +56,7 @@ export default async function OhandS001Page({ params }: PageProps) {
 
   const compareRows: { label: string; values: string[] }[] = [
     { label: isKo ? "손 크기" : "Hand Size", values: [isKo ? "표준" : "Standard", isKo ? "소형" : "Compact", isKo ? "소형" : "Compact"] },
-    { label: isKo ? "무게" : "Weight", values: ["480g", "440g", "363.5g"] },
+    { label: isKo ? "무게" : "Weight", values: ["500g", "440g", "363.5g"] },
     { label: isKo ? "최대 리프팅 하중" : "Max Lifting Load", values: ["30kg", "30kg", "8kg"] },
   ];
 
