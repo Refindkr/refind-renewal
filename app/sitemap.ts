@@ -37,6 +37,7 @@ const staticPages = [
   { path: "/products/robot-support/hybridex", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/robot-support/step-booster", priority: 0.8, changeFrequency: "monthly" },
   // 휴머노이드 상세
+  { path: "/products/humanoid/realman", priority: 0.7, changeFrequency: "monthly" },
   { path: "/products/humanoid/realbot", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/humanoid/realbot-l2", priority: 0.7, changeFrequency: "monthly" },
   { path: "/products/humanoid/realbot-01", priority: 0.7, changeFrequency: "monthly" },

@@ -72,7 +72,7 @@ export default function Navbar({ locale }: NavbarProps) {
       label: t("humanoid"),
       desc: isKo ? "차세대 휴머노이드 플랫폼" : "Next-gen humanoid platform",
       children: [
-        { href: `/products/humanoid/realbot`, label: "REALMAN", isGroup: true },
+        { href: `/products/humanoid/realman`, label: "REALMAN", isGroup: true },
         { href: `/products/humanoid/realbot`, label: "REALBOT S2", isGroup: false },
         { href: `/products/humanoid/realbot-l2`, label: "REALBOT L2", isGroup: false },
         { href: `/products/humanoid/realbot-01`, label: "REALBOT 01", isGroup: false },
