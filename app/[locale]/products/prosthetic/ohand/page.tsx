@@ -21,6 +21,21 @@ export default async function OhandPage({ params }: PageProps) {
   const { locale } = await params;
   const isKo = locale === "ko";
 
+  const measurements = [
+    { label: isKo ? "손 전체 길이" : "Total Hand Length", value: "179 mm" },
+    { label: isKo ? "손바닥 최대 너비" : "Maximum Palm Width", value: "83 mm" },
+    { label: isKo ? "손목 마운트 너비" : "Wrist Mount Width", value: "47 mm" },
+    { label: isKo ? "손목 높이 (소켓 외부)" : "Wrist Height (Outside Socket)", value: "13 mm" },
+    { label: isKo ? "손목 높이 (소켓 내부)" : "Wrist Height (Inside Socket)", value: "15 mm" },
+    { label: isKo ? "엄지 접힘 각도" : "Thumb Fold Angle", value: "31˚" },
+  ];
+
+  const seriesCompareRows: { label: string; values: string[] }[] = [
+    { label: isKo ? "손 크기" : "Hand Size", values: [isKo ? "표준" : "Standard", isKo ? "소형" : "Compact", isKo ? "소형" : "Compact"] },
+    { label: isKo ? "무게" : "Weight", values: ["500g", "440g", "363.5g"] },
+    { label: isKo ? "최대 리프팅 하중" : "Max Lifting Load", values: ["30kg", "30kg", "8kg"] },
+  ];
+
   const gripModes = isKo
     ? [
         { mode: "외측 모드 (Lateral Mode)", grips: ["주먹쥐기", "마우스", "열쇠 집기", "포인트", "컬럼", "접시", "Salute", "젓가락"] },
@@ -168,6 +183,57 @@ export default async function OhandPage({ params }: PageProps) {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Measurements */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <div className="max-w-2xl overflow-hidden">
+            {measurements.map((m, i) => (
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-white/60" : ""}`}>
+                <span className="text-gray-500 font-medium">{m.label}</span>
+                <span className="font-semibold text-gray-900 text-right">{m.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OHand Series Comparison */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b-2 border-gray-900">
+                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
+                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">A001</th>
+                  <th className="px-5 py-4 text-xs font-semibold text-gray-500">S001</th>
+                  <th className="px-5 py-4 text-xs font-semibold text-gray-500">Lite</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {seriesCompareRows.map((row, i) => (
+                  <tr key={i} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row.label}</td>
+                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B] bg-[#E1251B]/5">{row.values[0]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[1]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            {isKo ? "다른 모델은 " : "See "}
+            <Link href={`/${locale}/products/prosthetic/ohand-s001`} className="text-[#E1251B] font-semibold hover:underline">Ohand S001</Link>
+            {isKo ? ", " : " and "}
+            <Link href={`/${locale}/products/prosthetic/ohandlite`} className="text-[#E1251B] font-semibold hover:underline">OhandLite</Link>
+            {isKo ? " 페이지를 참고하세요." : " for other models."}
+          </p>
         </div>
       </section>
 

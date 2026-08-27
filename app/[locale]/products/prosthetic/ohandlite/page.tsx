@@ -149,6 +149,32 @@ export default async function OhandLitePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Measurements */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
+          <div className="max-w-2xl overflow-hidden">
+            {[
+              { label: isKo ? "가운데 손가락 끝 ~ 손 밑단" : "Middle Fingertip to Hand Base", value: "157 mm" },
+              { label: isKo ? "엄지 끝 ~ 손 밑단" : "Thumb Tip to Hand Base", value: "80 mm" },
+              { label: isKo ? "엄지 길이" : "Thumb Length", value: "92 mm" },
+              { label: isKo ? "최대 손바닥 너비" : "Maximum Palm Width", value: "76 mm" },
+              { label: isKo ? "손목 높이 (소켓 외부)" : "Wrist Height (Outside Socket)", value: "12 mm" },
+              { label: isKo ? "손목 높이 (소켓 내부)" : "Wrist Height (Inside Socket)", value: "12.8 mm" },
+              { label: isKo ? "손목 지름 (소켓 외부)" : "Wrist Diameter (Outside Socket)", value: "50 mm" },
+              { label: isKo ? "손목 지름 (소켓 내부)" : "Wrist Diameter (Inside Socket)", value: "45 mm" },
+              { label: isKo ? "손목 회전 범위" : "Wrist Rotation Range", value: "±175˚" },
+              { label: isKo ? "엄지 최대 대향 각도" : "Maximum Thumb Opposition Angle", value: "0~50˚" },
+            ].map((m, i) => (
+              <div key={i} className={`flex justify-between px-6 py-4 text-sm ${i % 2 === 0 ? "bg-gray-50/40" : ""}`}>
+                <span className="text-gray-500 font-medium">{m.label}</span>
+                <span className="font-semibold text-gray-900 text-right">{m.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-[#7A130E]">
         <div className="max-w-3xl mx-auto px-6 text-center">
