@@ -48,7 +48,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP001 (포스 매트릭스 센서)" : "ROH-AP001 (Force Matrix Sensor)",
           nameEn: "ROH-AP001",
           tagline: isKo
-            ? "포스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
+            ? "포스 매트릭스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
             : "Tashan integrated force sensor for real-time force feedback. Ideal for precision assembly and surface finishing.",
           image: "/products/robot-hand/ap001.png",
           tags: isKo ? ["6 DOF", "RS485", "포스 센서"] : ["6 DOF", "RS485", "Force Sensor"],
@@ -58,7 +58,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP002 (3D 촉각 캐패시터 센서)" : "ROH-AP002 (3D Tactile Capacitor Sensor)",
           nameEn: "ROH-AP002",
           tagline: isKo
-            ? "3D 포스센서와 손바닥 영역의 센서 매트릭스를 통해 힘의 변화를 정밀하게 감지하는 고정밀 로봇 핸드입니다."
+            ? "3D 촉각 캐패시터 센서와 손바닥 영역의 센서 매트릭스를 통해 힘의 변화를 정밀하게 감지하는 고정밀 로봇 핸드입니다."
             : "3D force sensor + 11×5 palm matrix for human-level tactile data acquisition.",
           image: "/products/robot-hand/ap002.png",
           tags: isKo ? ["6 DOF", "RS485", "3D 촉각 센서"] : ["6 DOF", "RS485", "3D Tactile Sensor"],
@@ -68,7 +68,7 @@ export default async function RobotHandPage({ params }: PageProps) {
           name: isKo ? "ROH-AP003 (3D 촉각 마그네틱 센서)" : "ROH-AP003 (3D Tactile Magnetic Sensor)",
           nameEn: "ROH-AP003",
           tagline: isKo
-            ? "마그네틱 촉각 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
+            ? "3D 촉각 마그네틱 센서를 통해 사람의 손끝과 유사한 촉각 정보를 감지하는 고성능 로봇 핸드입니다."
             : "High-performance robot hand with magnetic tactile sensors detecting normal force, shear force, and slip.",
           image: "/products/robot-hand/ap003/ap003.png",
           tags: isKo ? ["6 DOF", "RS485", "마그네틱 촉각"] : ["6 DOF", "RS485", "Magnetic Tactile"],

@@ -38,7 +38,7 @@ export default async function AP001Page({ params }: PageProps) {
             <p className="text-sm text-[#E1251B] font-semibold mb-5">{isKo ? "힘을 읽고 제어하다" : "Sense Force. Control Precisely."}</p>
             <p className="text-lg text-white/60 max-w-xl leading-relaxed mb-8">
               {isKo
-                ? "포스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
+                ? "포스 매트릭스 센서를 통해 물체에 가해지는 힘을 실시간으로 감지하고, 상황에 맞는 정밀한 힘 조절이 가능한 로봇 핸드입니다."
                 : "Experience optimized real-time force feedback and torque control with the integrated Tashan force sensor."}
             </p>
             <div className="flex flex-wrap gap-3">
