@@ -148,8 +148,41 @@ export default async function OhandS001Page({ params }: PageProps) {
         </div>
       </section>
 
-      {/* OHand Series Comparison */}
+      {/* Use Cases GIF */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
+            {isKo ? "일상에서 자연스럽게" : "Natural in Everyday Life"}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { src: "/products/prosthetic/gif/feed_1.gif", label: isKo ? "열기 동작" : "Opening" },
+              { src: "/products/prosthetic/gif/feed_2.gif", label: isKo ? "핀치 동작" : "Pinch Grip" },
+              { src: "/products/prosthetic/gif/feed_3.gif", label: isKo ? "파지 동작" : "Power Grasp" },
+              { src: "/products/prosthetic/gif/feed_4.gif", label: isKo ? "정밀 집기" : "Precision Grip" },
+              { src: "/products/prosthetic/gif/feed_5.gif", label: isKo ? "물건 집기" : "Picking Object" },
+              { src: "/products/prosthetic/gif/feed_6.gif", label: isKo ? "음료 잡기" : "Holding Cup" },
+            ].map((g, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl bg-gray-950 group">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={g.src}
+                    alt={g.label}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="px-4 py-3">
+                  <p className="text-xs font-semibold text-white/70">{g.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OHand Series Comparison */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
           <div className="overflow-x-auto">
@@ -181,39 +214,6 @@ export default async function OhandS001Page({ params }: PageProps) {
             <Link href={`/${locale}/products/prosthetic/ohandlite`} className="text-[#E1251B] font-semibold hover:underline">OhandLite</Link>
             {isKo ? " 페이지를 참고하세요." : " for other models."}
           </p>
-        </div>
-      </section>
-
-      {/* Use Cases GIF */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
-            {isKo ? "일상에서 자연스럽게" : "Natural in Everyday Life"}
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[
-              { src: "/products/prosthetic/gif/feed_1.gif", label: isKo ? "열기 동작" : "Opening" },
-              { src: "/products/prosthetic/gif/feed_2.gif", label: isKo ? "핀치 동작" : "Pinch Grip" },
-              { src: "/products/prosthetic/gif/feed_3.gif", label: isKo ? "파지 동작" : "Power Grasp" },
-              { src: "/products/prosthetic/gif/feed_4.gif", label: isKo ? "정밀 집기" : "Precision Grip" },
-              { src: "/products/prosthetic/gif/feed_5.gif", label: isKo ? "물건 집기" : "Picking Object" },
-              { src: "/products/prosthetic/gif/feed_6.gif", label: isKo ? "음료 잡기" : "Holding Cup" },
-            ].map((g, i) => (
-              <div key={i} className="overflow-hidden rounded-2xl bg-gray-950 group">
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={g.src}
-                    alt={g.label}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="px-4 py-3">
-                  <p className="text-xs font-semibold text-white/70">{g.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

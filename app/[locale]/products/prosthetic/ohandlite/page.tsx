@@ -82,42 +82,8 @@ export default async function OhandLitePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "Ohand vs OhandLite" : "Ohand vs OhandLite"}</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b-2 border-gray-900">
-                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
-                  <th className="px-5 py-4 text-xs font-semibold text-gray-500">Ohand</th>
-                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">OhandLite</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {[
-                  [isKo ? "무게" : "Weight", "500g ± 5g", "363.5g"],
-                  [isKo ? "EMG 채널" : "EMG Channels", isKo ? "8채널" : "8-channel", isKo ? "2채널" : "2-channel"],
-                  [isKo ? "동작 수" : "Motions", isKo ? "27가지" : "27 motions", isKo ? "최대 9가지 (선택)" : "Up to 9 (selectable)"],
-                  [isKo ? "배터리" : "Battery", isKo ? "약 12시간" : "~12 hours", isKo ? "동일" : "Same"],
-                  [isKo ? "앱 연동" : "App Control", "✓", "✓"],
-                  [isKo ? "손목 회전" : "Wrist Rotation", isKo ? "수동" : "Manual", isKo ? "수동" : "Manual"],
-                ].map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row[0]}</td>
-                    <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row[1]}</td>
-                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B]">{row[2]}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* Use Cases GIF */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-3">{isKo ? "활용 사례" : "Use Cases"}</p>
           <h2 className="text-3xl font-extrabold text-gray-900 mb-10">
@@ -150,7 +116,7 @@ export default async function OhandLitePage({ params }: PageProps) {
       </section>
 
       {/* Measurements */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "제품 치수" : "Measurements"}</p>
           <div className="relative w-full max-w-3xl rounded-2xl overflow-hidden border border-gray-100 bg-white mb-10">
@@ -181,6 +147,46 @@ export default async function OhandLitePage({ params }: PageProps) {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* OHand Series Comparison */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "OHand 시리즈 비교" : "OHand Series Comparison"}</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b-2 border-gray-900">
+                  <th className="text-left px-5 py-4 text-xs font-semibold text-gray-500">{isKo ? "구분" : "Spec"}</th>
+                  <th className="px-5 py-4 text-xs font-semibold text-gray-500">A001</th>
+                  <th className="px-5 py-4 text-xs font-semibold text-gray-500">S001</th>
+                  <th className="px-5 py-4 text-xs font-bold text-[#E1251B]">Lite</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {[
+                  { label: isKo ? "손 크기" : "Hand Size", values: [isKo ? "표준" : "Standard", isKo ? "소형" : "Compact", isKo ? "소형" : "Compact"] },
+                  { label: isKo ? "무게" : "Weight", values: ["500g", "440g", "363.5g"] },
+                  { label: isKo ? "최대 리프팅 하중" : "Max Lifting Load", values: ["30kg", "30kg", "8kg"] },
+                ].map((row, i) => (
+                  <tr key={i} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row.label}</td>
+                    <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[0]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs text-gray-500">{row.values[1]}</td>
+                    <td className="px-5 py-3.5 text-center text-xs font-bold text-[#E1251B] bg-[#E1251B]/5">{row.values[2]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-gray-400 mt-6">
+            {isKo ? "다른 모델은 " : "See "}
+            <Link href={`/${locale}/products/prosthetic/ohand`} className="text-[#E1251B] font-semibold hover:underline">Ohand</Link>
+            {isKo ? ", " : " and "}
+            <Link href={`/${locale}/products/prosthetic/ohand-s001`} className="text-[#E1251B] font-semibold hover:underline">Ohand S001</Link>
+            {isKo ? " 페이지를 참고하세요." : " for other models."}
+          </p>
         </div>
       </section>
 
