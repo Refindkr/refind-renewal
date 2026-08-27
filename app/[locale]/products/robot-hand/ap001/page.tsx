@@ -399,6 +399,54 @@ export default async function AP001Page({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Developer Resources */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
+            {isKo ? "개발 자료" : "Developer Resources"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-10 tracking-tight">
+            {isKo ? "OYMotion 공식 매뉴얼 · SDK · 데모" : "OYMotion Official Manual · SDK · Demos"}
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                href: "https://oymotion.github.io/en/ROHand/ROH-AP001/",
+                title: isKo ? "사용자 매뉴얼" : "User Manual",
+                desc: isKo ? "ROH-AP001 제품 사양 및 사용 설명서" : "ROH-AP001 specifications and user guide",
+              },
+              {
+                href: "https://oymotion.github.io/en/ROHand/SDK/ROH_SDK_CXX/",
+                title: "SDK (C/C++, Python)",
+                desc: isKo ? "ROS/ROS2 패키지 및 C++·Python API" : "ROS/ROS2 packages and C++/Python API",
+              },
+              {
+                href: "https://oymotion.github.io/en/ROHand/ROH-Demos/ROH_Gen2_Demos/",
+                title: isKo ? "데모 (GEN2 · 센서 모델용)" : "Demos (Gen2 · Sensor Models)",
+                desc: isKo ? "포스/촉각 센서 탑재 모델(AP001 등)을 위한 센서 데모" : "Sensor-focused demos for force/tactile sensor models (AP001, etc.)",
+              },
+              {
+                href: "https://oymotion.github.io/en/ROHand/ROH-Demos/ROH_Demo_Collection/",
+                title: isKo ? "데모 컬렉션 (전체 모델)" : "Demo Collection (All Models)",
+                desc: isKo ? "일반·센서 모델 모두 지원하는 통합 데모 모음" : "Combined demo set supporting both general and sensor models",
+              },
+            ].map((r) => (
+              <a key={r.title} href={r.href} target="_blank" rel="noopener noreferrer"
+                className="block bg-gray-50 rounded-2xl p-5 border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+                <h3 className="text-sm font-bold text-gray-900 mb-2">{r.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-4">{r.desc}</p>
+                <span className="inline-flex items-center text-xs font-semibold text-[#E1251B]">
+                  {isKo ? "바로가기" : "View"}
+                  <svg className="ml-1 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-3xl mx-auto px-6 text-center">
