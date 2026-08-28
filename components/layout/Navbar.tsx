@@ -123,6 +123,15 @@ export default function Navbar({ locale }: NavbarProps) {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-0.5">
+            <Link
+              href={`/about`}
+              className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap text-gray-700 hover:bg-black/5"
+            >
+              {t("about")}
+            </Link>
+
+            <span className="mx-1.5 w-px h-4 bg-gray-200" />
+
             {productLinks.map((link) => (
               <div
                 key={link.href}
@@ -183,14 +192,6 @@ export default function Navbar({ locale }: NavbarProps) {
               </div>
             ))}
 
-            <span className="mx-1.5 w-px h-4 bg-gray-200" />
-
-            <Link
-              href={`/about`}
-              className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap text-gray-700 hover:bg-black/5"
-            >
-              {t("about")}
-            </Link>
             {/* 게시판 드롭다운 */}
             <div
               className="relative"
@@ -299,6 +300,16 @@ export default function Navbar({ locale }: NavbarProps) {
       {mobileOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6">
           <div className="mb-4">
+            <Link
+              href={`/about`}
+              className="block px-3 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50 rounded-xl"
+              onClick={() => setMobileOpen(false)}
+            >
+              {t("about")}
+            </Link>
+          </div>
+
+          <div className="mb-4">
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1 px-3">
               {t("products")}
             </p>
@@ -361,15 +372,8 @@ export default function Navbar({ locale }: NavbarProps) {
           </div>
 
           <div className="space-y-1 mb-6">
-            <Link
-              href={`/about`}
-              className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("about")}
-            </Link>
             {/* 게시판 */}
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mt-4 mb-2 px-3">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2 px-3">
               {t("board")}
             </p>
             <a
