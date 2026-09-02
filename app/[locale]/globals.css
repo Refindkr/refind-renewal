@@ -68,6 +68,14 @@ body {
   height: 100%;
 }
 
+/* 이미지 삽입 시 입력한 설명은 사진 바로 다음 문단으로 들어감 — 네이버 블로그 캡션처럼 표시 */
+.prose img + p {
+  margin-top: -1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
 /* 게시글 에디터 표 스타일 — Tiptap 표 확장은 기본 스타일이 없어 직접 지정 필요 */
 .prose table {
   border-collapse: collapse;

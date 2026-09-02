@@ -19,6 +19,20 @@ interface Props {
 // Vercel 서버리스 함수 요청 본문 한도(~4.5MB)보다 여유 있게 설정 — /api/upload와 동일
 const MAX_UPLOAD_SIZE = 4 * 1024 * 1024;
 
+function escapeHtml(text: string) {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// 이미지 삽입 직후 사진 설명을 물어보고, 입력하면 네이버 블로그처럼 사진 바로 아래에
+// 표시되는 캡션 문단을 함께 넣어준다 (스타일은 globals.css의 `.prose img + p` 참고)
+function insertImageWithCaption(editor: NonNullable<ReturnType<typeof useEditor>>, src: string) {
+  const caption = window.prompt("사진 설명을 입력하세요 (사진 아래에 표시됩니다, 생략 가능)", "");
+  editor.chain().focus().setImage({ src, alt: caption || undefined }).run();
+  if (caption) {
+    editor.chain().focus().insertContent(`<p>${escapeHtml(caption)}</p>`).run();
+  }
+}
+
 export default function RichTextEditor({ content, onChange }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
@@ -81,8 +95,7 @@ export default function RichTextEditor({ content, onChange }: Props) {
         setUploadError(data.error || "업로드 실패");
         return;
       }
-      const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요 — 검색엔진(SEO)과 스크린 리더에 사용됩니다. 생략 가능", "");
-      editor?.chain().focus().setImage({ src: data.url, alt: alt || undefined }).run();
+      if (editor) insertImageWithCaption(editor, data.url);
     } catch {
       setUploadError("업로드 중 오류가 발생했습니다");
     } finally {
@@ -184,27 +197,12 @@ export default function RichTextEditor({ content, onChange }: Props) {
           type="button"
           onClick={() => {
             const url = window.prompt("이미지(GIF 등) URL을 입력하세요");
-            if (!url) return;
-            const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요 — 검색엔진(SEO)과 스크린 리더에 사용됩니다. 생략 가능", "");
-            editor.chain().focus().setImage({ src: url, alt: alt || undefined }).run();
+            if (url) insertImageWithCaption(editor, url);
           }}
           className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
         >
           이미지 URL
         </button>
-        {editor.isActive("image") && (
-          <button
-            type="button"
-            onClick={() => {
-              const current = (editor.getAttributes("image").alt as string) || "";
-              const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요", current);
-              if (alt !== null) editor.chain().focus().updateAttributes("image", { alt: alt || null }).run();
-            }}
-            className={btnClass(false)}
-          >
-            대체텍스트
-          </button>
-        )}
         <input ref={fileInputRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp" onChange={handleFileSelect} className="hidden" />
       </div>
 
