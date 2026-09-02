@@ -81,7 +81,8 @@ export default function RichTextEditor({ content, onChange }: Props) {
         setUploadError(data.error || "업로드 실패");
         return;
       }
-      editor?.chain().focus().setImage({ src: data.url }).run();
+      const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요 — 검색엔진(SEO)과 스크린 리더에 사용됩니다. 생략 가능", "");
+      editor?.chain().focus().setImage({ src: data.url, alt: alt || undefined }).run();
     } catch {
       setUploadError("업로드 중 오류가 발생했습니다");
     } finally {
@@ -183,12 +184,27 @@ export default function RichTextEditor({ content, onChange }: Props) {
           type="button"
           onClick={() => {
             const url = window.prompt("이미지(GIF 등) URL을 입력하세요");
-            if (url) editor.chain().focus().setImage({ src: url }).run();
+            if (!url) return;
+            const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요 — 검색엔진(SEO)과 스크린 리더에 사용됩니다. 생략 가능", "");
+            editor.chain().focus().setImage({ src: url, alt: alt || undefined }).run();
           }}
           className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
         >
           이미지 URL
         </button>
+        {editor.isActive("image") && (
+          <button
+            type="button"
+            onClick={() => {
+              const current = (editor.getAttributes("image").alt as string) || "";
+              const alt = window.prompt("이미지 설명(대체 텍스트)을 입력하세요", current);
+              if (alt !== null) editor.chain().focus().updateAttributes("image", { alt: alt || null }).run();
+            }}
+            className={btnClass(false)}
+          >
+            대체텍스트
+          </button>
+        )}
         <input ref={fileInputRef} type="file" accept="image/png,image/jpeg,image/gif,image/webp" onChange={handleFileSelect} className="hidden" />
       </div>
 
