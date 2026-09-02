@@ -6,6 +6,10 @@ import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
 import Youtube from "@tiptap/extension-youtube";
+import { Table } from "@tiptap/extension-table";
+import TableRow from "@tiptap/extension-table-row";
+import TableHeader from "@tiptap/extension-table-header";
+import TableCell from "@tiptap/extension-table-cell";
 
 interface Props {
   content: string;
@@ -44,6 +48,10 @@ export default function RichTextEditor({ content, onChange }: Props) {
         nocookie: true,
         HTMLAttributes: { class: "rounded-xl" },
       }),
+      Table.configure({ resizable: true }),
+      TableRow,
+      TableHeader,
+      TableCell,
     ],
     content,
     editorProps: {
@@ -135,6 +143,33 @@ export default function RichTextEditor({ content, onChange }: Props) {
         >
           유튜브
         </button>
+        <span className="w-px h-4 bg-gray-200 mx-1" />
+        <button
+          type="button"
+          onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+          className={btnClass(editor.isActive("table"))}
+        >
+          표
+        </button>
+        {editor.isActive("table") && (
+          <>
+            <button type="button" onClick={() => editor.chain().focus().addRowAfter().run()} className={btnClass(false)}>
+              행 추가
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().addColumnAfter().run()} className={btnClass(false)}>
+              열 추가
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().deleteRow().run()} className={btnClass(false)}>
+              행 삭제
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().deleteColumn().run()} className={btnClass(false)}>
+              열 삭제
+            </button>
+            <button type="button" onClick={() => editor.chain().focus().deleteTable().run()} className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-red-500 hover:bg-red-50 transition-colors">
+              표 삭제
+            </button>
+          </>
+        )}
         <span className="w-px h-4 bg-gray-200 mx-1" />
         <button
           type="button"

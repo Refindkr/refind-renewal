@@ -67,3 +67,44 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* 게시글 에디터 표 스타일 — Tiptap 표 확장은 기본 스타일이 없어 직접 지정 필요 */
+.prose table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.prose table td,
+.prose table th {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+  position: relative;
+}
+
+.prose table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  text-align: left;
+}
+
+.prose table .selectedCell {
+  background-color: rgba(102, 157, 253, 0.15);
+}
+
+.prose table .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #669dfd;
+  pointer-events: none;
+}
+
+.prose .tableWrapper {
+  overflow-x: auto;
+}
