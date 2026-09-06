@@ -12,7 +12,12 @@ import SiteHeader from "@/components/layout/SiteHeader";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
+// 상대경로 이미지/링크를 절대 URL로 변환할 때 기준이 되는 주소 — 없으면 배포 환경에 따라
+// 미리보기 주소(*.vercel.app) 등 엉뚱한 도메인으로 해석될 수 있어 명시적으로 지정
+const BASE_URL = process.env.NEXTAUTH_URL || "https://products.refind.kr";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Refind | 리파인주식회사",
     template: "%s | Refind 리파인주식회사",
@@ -27,10 +32,36 @@ export const metadata: Metadata = {
     siteName: "Refind 리파인주식회사",
     title: "Refind | 리파인주식회사",
     description: "로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술 솔루션",
+    // 페이지별로 별도 openGraph 이미지를 지정하지 않으면 이 기본 이미지가 공유 미리보기에 쓰임
+    images: [{ url: "/logo.png", width: 596, height: 253, alt: "Refind 리파인주식회사" }],
   },
   robots: {
     index: true,
     follow: true,
+  },
+};
+
+// 검색결과 지식패널·리치 스니펫에 회사 정보(로고, 주소, 연락처)를 노출하기 위한 구조화 데이터
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "리파인주식회사",
+  alternateName: "Refind Inc.",
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  foundingDate: "2020",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "지정면 기업도시로 200",
+    addressLocality: "원주시",
+    addressRegion: "강원특별자치도",
+    addressCountry: "KR",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+82-70-4837-2829",
+    email: "refind@refind.kr",
+    contactType: "customer service",
   },
 };
 
@@ -59,6 +90,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {/* Google tag (gtag.js) */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-SMDRW2E497" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">

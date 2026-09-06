@@ -23,6 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: isKo
         ? "로봇핸드, 전자의수, 협동로봇, 휴머노이드 등 첨단 로봇 기술 솔루션"
         : "Robot hands, prosthetics, collaborative robots, and humanoids",
+      // 페이지 자체 openGraph를 지정하면 layout의 기본값(이미지 포함)을 완전히
+      // 덮어써서 이미지가 사라지므로 여기서도 명시적으로 지정
+      images: [{ url: "/logo.png", width: 596, height: 253, alt: "Refind 리파인주식회사" }],
     },
   };
 }

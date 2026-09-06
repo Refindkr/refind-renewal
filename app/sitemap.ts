@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { prisma } from "@/lib/prisma";
 
 const BASE_URL = process.env.NEXTAUTH_URL || "https://products.refind.kr";
 const locales = ["ko", "en"];
@@ -63,7 +64,7 @@ const staticPages = [
   { path: "/products/physical-ai/tashan", priority: 0.8, changeFrequency: "monthly" },
 ] as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
@@ -80,6 +81,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       });
     }
+  }
+
+  // 공지사항·카드뉴스 개별 게시글은 locale 접두사 없는 flat URL(/<slug>)이라
+  // 언어 대체(alternates) 없이 페이지당 하나씩만 등록
+  const [notices, cardNewsList] = await Promise.all([
+    prisma.notice.findMany({ select: { slug: true, updatedAt: true } }),
+    prisma.cardNews.findMany({ select: { slug: true, updatedAt: true } }),
+  ]);
+
+  for (const post of [...notices, ...cardNewsList]) {
+    entries.push({
+      url: `${BASE_URL}/${post.slug}`,
+      lastModified: post.updatedAt,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    });
   }
 
   return entries;
