@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import DistributorCertificate from "@/components/ui/DistributorCertificate";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -136,33 +137,15 @@ export default async function CollaborativeRobotPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 공식 대리점 인증 */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center gap-8 bg-gray-50 rounded-2xl border border-gray-100 p-8">
-            <a href="/certifications/realman-distributor.jpg" target="_blank" rel="noopener noreferrer" className="shrink-0">
-              <Image
-                src="/certifications/realman-distributor.jpg"
-                alt={isKo ? "RealMan 공식 대리점 인증서" : "RealMan Authorized Distributor Certificate"}
-                width={1114}
-                height={785}
-                className="w-56 rounded-lg border border-gray-200 shadow-sm"
-              />
-            </a>
-            <div>
-              <p className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-2">
-                {isKo ? "공식 대리점 인증" : "Authorized Distributor"}
-              </p>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">RealMan Robotics</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {isKo
-                  ? "리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
-                  : "Refind Inc. is the authorized distributor of RealMan products in South Korea."}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DistributorCertificate
+        image="/certifications/realman-distributor.jpg"
+        imageWidth={1114}
+        imageHeight={785}
+        brand="RealMan Robotics"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
+      />
 
       {/* Resources */}
       <section className="py-16 bg-white">

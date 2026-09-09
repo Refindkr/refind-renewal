@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import DistributorCertificate from "@/components/ui/DistributorCertificate";
 import { Link } from "@/i18n/navigation";
 
 interface PageProps {
@@ -217,6 +218,15 @@ export default async function Rx75VisionPage({ params }: PageProps) {
           </p>
         </div>
       </section>
+      <DistributorCertificate
+        image="/certifications/realman-distributor.jpg"
+        imageWidth={1114}
+        imageHeight={785}
+        brand="RealMan Robotics"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
+      />
 
       {/* CTA */}
       <section className="py-20 bg-gray-950">
