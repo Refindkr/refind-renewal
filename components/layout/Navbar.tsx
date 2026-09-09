@@ -298,7 +298,9 @@ export default function Navbar({ locale }: NavbarProps) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6">
+        // #site-header가 position: fixed라 페이지 스크롤을 못 받음 — 하위 항목이 많은 카테고리를
+        // 펼치면 내용이 화면 밖으로 잘려서 안 보이는 문제가 있어 메뉴 자체에 내부 스크롤을 둠
+        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain">
           <div className="mb-4">
             <Link
               href={`/about`}
