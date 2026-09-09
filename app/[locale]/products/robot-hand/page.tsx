@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ProductCategoryPage from "@/components/ui/ProductCategoryPage";
 
 interface PageProps {
@@ -22,6 +23,7 @@ export default async function RobotHandPage({ params }: PageProps) {
   const isKo = locale === "ko";
 
   return (
+    <>
     <ProductCategoryPage
       locale={locale}
       title={isKo ? "로봇핸드" : "Robot Hand"}
@@ -95,5 +97,32 @@ export default async function RobotHandPage({ params }: PageProps) {
         },
       ]}
     />
+    <section className="py-16 bg-white border-t border-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center gap-8 bg-gray-50 rounded-2xl border border-gray-100 p-8">
+          <a href="/certifications/oymotion-distributor.jpg" target="_blank" rel="noopener noreferrer" className="shrink-0">
+            <Image
+              src="/certifications/oymotion-distributor.jpg"
+              alt={isKo ? "OYMotion 공식 대리점 인증서" : "OYMotion Authorized Distributor Certificate"}
+              width={793}
+              height={1122}
+              className="w-36 rounded-lg border border-gray-200 shadow-sm"
+            />
+          </a>
+          <div>
+            <p className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-2">
+              {isKo ? "공식 대리점 인증" : "Authorized Distributor"}
+            </p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">OYMotion Technologies</h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {isKo
+                ? "리파인(주)는 OYMotion Technologies Co., Ltd.가 설계·제조하는 전 제품의 대한민국 공식 대리점입니다."
+                : "Refind Inc. is the authorized distributor in South Korea for all products designed and manufactured by OYMotion Technologies Co., Ltd."}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }
