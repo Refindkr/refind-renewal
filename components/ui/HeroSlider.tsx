@@ -119,6 +119,7 @@ export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProp
               src={s.image}
               alt={s.title}
               fill
+              unoptimized={s.image.startsWith("http")}
               className="object-contain"
               sizes="(max-width: 1024px) 90vw, 45vw"
               priority={i === 0}
