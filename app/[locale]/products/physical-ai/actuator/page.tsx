@@ -305,6 +305,74 @@ export default async function ActuatorPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Developer Resources */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-4">
+            {isKo ? "개발자 자료" : "Developer Resources"}
+          </p>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
+            {isKo ? "액추에이터 개발 문서" : "Actuator Developer Documentation"}
+          </h2>
+          <p className="text-gray-500 leading-relaxed mb-10 max-w-3xl">
+            {isKo
+              ? "Realman 공식 개발자 센터에서 CAN FD 통신 프로토콜, 제어 레지스터, 단일 관절 테스트 프로그램 등 2차 개발에 필요한 자료를 제공합니다."
+              : "Realman's official developer center provides the CAN FD communication protocol, control register table, and single-joint test program needed for secondary development."}
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: isKo ? "CAN FD 사용 예제" : "CAN FD Usage Example",
+                desc: isKo
+                  ? "CAN FD 프로토콜로 위치·속도 조회 및 제어 명령을 주고받는 방법을 실제 명령 패킷 예시와 함께 안내합니다."
+                  : "Explains how to read and control joint position/speed over CAN FD, with sample command and response packets.",
+                href: "https://develop.realman-robotics.com/en/joints/CANFD/usageDemo/",
+                cta: isKo ? "사용 예제 보기" : "View Usage Example",
+              },
+              {
+                title: isKo ? "제어 레지스터표" : "Control Register Table",
+                desc: isKo
+                  ? "위치·속도·전류, PID 게인 등 액추에이터의 주소별 제어 파라미터를 정리한 메모리 컨트롤 테이블입니다."
+                  : "A memory control table listing each actuator's control parameters by address, including position, speed, current, and PID gains.",
+                href: "https://develop.realman-robotics.com/en/joints/CANFD/memoryControlTable/",
+                cta: isKo ? "레지스터표 보기" : "View Register Table",
+              },
+              {
+                title: isKo ? "단일 관절 PC 프로그램" : "Single-Joint Host Computer",
+                desc: isKo
+                  ? "WHJoint 프로그램으로 CAN 카드를 통해 관절 하나를 연결해 파라미터 설정, 실시간 모니터링, 펌웨어 업그레이드를 할 수 있습니다."
+                  : "The WHJoint program connects a single joint via a CAN card for parameter configuration, real-time monitoring, and firmware upgrades.",
+                href: "https://develop.realman-robotics.com/en/joints/guide/SinglejointToolUserManual/singlejointTool/",
+                cta: isKo ? "사용법·다운로드 보기" : "View Guide & Download",
+              },
+            ].map((r) => (
+              <a
+                key={r.title}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-white rounded-2xl border border-gray-100 p-6 hover:border-gray-300 hover:shadow-md transition-all"
+              >
+                <h3 className="text-base font-bold text-gray-900 mb-2">{r.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">{r.desc}</p>
+                <span className="inline-flex items-center text-xs font-semibold text-[#E1251B]">
+                  {r.cta}
+                  <svg className="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400 mt-6">
+            {isKo
+              ? "※ Realman 공식 개발자 센터(develop.realman-robotics.com)로 이동하며, 새 탭에서 열립니다."
+              : "※ Opens Realman's official developer center (develop.realman-robotics.com) in a new tab."}
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-3xl mx-auto px-6 text-center">
