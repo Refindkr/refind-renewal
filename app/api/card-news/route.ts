@@ -4,11 +4,23 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { isReservedSlug, isValidSlugFormat } from "@/lib/reservedSlugs";
 
-export async function GET() {
-  const cardNews = await prisma.cardNews.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-  return NextResponse.json(cardNews);
+const PAGE_SIZE = 9;
+
+export async function GET(request: NextRequest) {
+  const skip = Number(request.nextUrl.searchParams.get("skip")) || 0;
+  const take = PAGE_SIZE;
+
+  const [cardNews, total] = await Promise.all([
+    prisma.cardNews.findMany({
+      orderBy: { createdAt: "desc" },
+      skip,
+      take,
+      select: { id: true, slug: true, title: true, thumbnail: true, content: true, createdAt: true },
+    }),
+    prisma.cardNews.count(),
+  ]);
+
+  return NextResponse.json({ cards: cardNews, hasMore: skip + cardNews.length < total });
 }
 
 export async function POST(request: NextRequest) {

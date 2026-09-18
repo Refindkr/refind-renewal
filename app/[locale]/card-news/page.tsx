@@ -3,7 +3,9 @@ import { Link } from "@/i18n/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { stripHtml } from "@/lib/html";
+import CardNewsGrid from "@/components/ui/CardNewsGrid";
+
+const PAGE_SIZE = 9;
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -27,9 +29,14 @@ export default async function CardNewsPage({ params }: PageProps) {
   const session = await getServerSession(authOptions);
   const isAdmin = (session?.user as { role?: string })?.role === "admin";
 
-  const cards = await prisma.cardNews.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  const [cards, total] = await Promise.all([
+    prisma.cardNews.findMany({
+      orderBy: { createdAt: "desc" },
+      take: PAGE_SIZE,
+      select: { id: true, slug: true, title: true, thumbnail: true, content: true, createdAt: true },
+    }),
+    prisma.cardNews.count(),
+  ]);
 
   return (
     <div className="pt-16 min-h-screen bg-white">
@@ -70,32 +77,11 @@ export default async function CardNewsPage({ params }: PageProps) {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cards.map((card) => (
-                <Link
-                  key={card.id}
-                  href={`/${card.slug}`}
-                  className="bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group"
-                >
-                  <div className="h-52 bg-gray-100 overflow-hidden">
-                    {card.thumbnail && (
-                      <img
-                        src={card.thumbnail}
-                        alt={card.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <p className="text-xs text-gray-400 mb-2">
-                      {new Date(card.createdAt).toLocaleDateString("ko-KR")}
-                    </p>
-                    <h3 className="text-sm font-semibold text-gray-900 mb-1 line-clamp-2">{card.title}</h3>
-                    <p className="text-xs text-gray-500 line-clamp-2">{stripHtml(card.content)}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <CardNewsGrid
+              initialCards={cards.map((c) => ({ ...c, createdAt: c.createdAt.toISOString() }))}
+              initialHasMore={total > cards.length}
+              isKo={isKo}
+            />
           )}
         </div>
       </section>
