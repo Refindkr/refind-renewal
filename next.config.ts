@@ -45,6 +45,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "products.refind.kr" },
       { protocol: "https", hostname: "*.supabase.co" },
+      { protocol: "https", hostname: "*.r2.dev" },
     ],
   },
   async redirects() {
