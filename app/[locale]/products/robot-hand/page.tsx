@@ -24,6 +24,16 @@ export default async function RobotHandPage({ params }: PageProps) {
 
   return (
     <>
+    <DistributorCertificate
+      image="/certifications/oymotion-distributor.jpg"
+      imageWidth={793}
+      imageHeight={1122}
+      imageWidthClass="w-36"
+      brand="OYMotion Technologies"
+      isKo={isKo}
+      descriptionKo="리파인(주)는 OYMotion Technologies Co., Ltd.가 설계·제조하는 전 제품의 대한민국 공식 대리점입니다."
+      descriptionEn="Refind Inc. is the authorized distributor in South Korea for all products designed and manufactured by OYMotion Technologies Co., Ltd."
+    />
     <ProductCategoryPage
       locale={locale}
       title={isKo ? "로봇핸드" : "Robot Hand"}
@@ -96,16 +106,6 @@ export default async function RobotHandPage({ params }: PageProps) {
           tags: isKo ? ["6 DOF", "BLE 4.2", "원격조작"] : ["6 DOF", "BLE 4.2", "Teleoperation"],
         },
       ]}
-    />
-    <DistributorCertificate
-      image="/certifications/oymotion-distributor.jpg"
-      imageWidth={793}
-      imageHeight={1122}
-      imageWidthClass="w-36"
-      brand="OYMotion Technologies"
-      isKo={isKo}
-      descriptionKo="리파인(주)는 OYMotion Technologies Co., Ltd.가 설계·제조하는 전 제품의 대한민국 공식 대리점입니다."
-      descriptionEn="Refind Inc. is the authorized distributor in South Korea for all products designed and manufactured by OYMotion Technologies Co., Ltd."
     />
     </>
   );

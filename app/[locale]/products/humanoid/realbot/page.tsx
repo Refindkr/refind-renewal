@@ -123,6 +123,17 @@ export default async function RealbotPage({ params }: PageProps) {
         </div>
       </section>
 
+      <DistributorCertificate
+        image="/certifications/realman-distributor.jpg"
+        imageWidth={1114}
+        imageHeight={785}
+        brand="RealMan Robotics"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
+      />
+
+
       {/* Core Stats */}
       <section className="border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-5 divide-x divide-gray-100">
@@ -229,15 +240,6 @@ export default async function RealbotPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-      <DistributorCertificate
-        image="/certifications/realman-distributor.jpg"
-        imageWidth={1114}
-        imageHeight={785}
-        brand="RealMan Robotics"
-        isKo={isKo}
-        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
-        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
-      />
 
       {/* CTA */}
       <section className="py-24 bg-white text-center">

@@ -122,6 +122,18 @@ export default async function AP003Page({ params }: PageProps) {
         </div>
       </section>
 
+      <DistributorCertificate
+        image="/certifications/oymotion-distributor.jpg"
+        imageWidth={793}
+        imageHeight={1122}
+        imageWidthClass="w-36"
+        brand="OYMotion Technologies"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 OYMotion Technologies Co., Ltd.가 설계·제조하는 전 제품의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor in South Korea for all products designed and manufactured by OYMotion Technologies Co., Ltd."
+      />
+
+
       {/* Differentiator */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
@@ -268,16 +280,6 @@ export default async function AP003Page({ params }: PageProps) {
           </div>
         </div>
       </section>
-      <DistributorCertificate
-        image="/certifications/oymotion-distributor.jpg"
-        imageWidth={793}
-        imageHeight={1122}
-        imageWidthClass="w-36"
-        brand="OYMotion Technologies"
-        isKo={isKo}
-        descriptionKo="리파인(주)는 OYMotion Technologies Co., Ltd.가 설계·제조하는 전 제품의 대한민국 공식 대리점입니다."
-        descriptionEn="Refind Inc. is the authorized distributor in South Korea for all products designed and manufactured by OYMotion Technologies Co., Ltd."
-      />
 
       {/* CTA */}
       <section className="py-20 bg-gray-950">

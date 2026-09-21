@@ -115,6 +115,17 @@ export default async function HumanoidRealmanPage({ params }: PageProps) {
         </div>
       </section>
 
+      <DistributorCertificate
+        image="/certifications/realman-distributor.jpg"
+        imageWidth={1114}
+        imageHeight={785}
+        brand="RealMan Robotics"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
+      />
+
+
       {/* Product Grid */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -161,15 +172,6 @@ export default async function HumanoidRealmanPage({ params }: PageProps) {
         </div>
       </section>
 
-      <DistributorCertificate
-        image="/certifications/realman-distributor.jpg"
-        imageWidth={1114}
-        imageHeight={785}
-        brand="RealMan Robotics"
-        isKo={isKo}
-        descriptionKo="리파인(주)는 RealMan 제품의 대한민국 공식 대리점입니다."
-        descriptionEn="Refind Inc. is the authorized distributor of RealMan products in South Korea."
-      />
 
       {/* CTA */}
       <section className="py-16 bg-white border-t border-gray-100">

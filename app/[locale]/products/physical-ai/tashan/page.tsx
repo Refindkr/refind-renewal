@@ -71,6 +71,17 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
+      <DistributorCertificate
+        image="/certifications/tashan-distributor.jpg"
+        imageWidth={1114}
+        imageHeight={785}
+        brand="Tashan (Beijing Tashan Technology)"
+        isKo={isKo}
+        descriptionKo="리파인(주)는 Tashan 촉각 센서(센서·모듈·개발 키트)의 대한민국 공식 대리점입니다."
+        descriptionEn="Refind Inc. is the authorized distributor of Tashan tactile sensors (sensors, modules, development kits) in South Korea."
+      />
+
+
       {/* Key Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -510,15 +521,6 @@ export default async function TashanPage({ params }: PageProps) {
         </div>
       </section>
 
-      <DistributorCertificate
-        image="/certifications/tashan-distributor.jpg"
-        imageWidth={1114}
-        imageHeight={785}
-        brand="Tashan (Beijing Tashan Technology)"
-        isKo={isKo}
-        descriptionKo="리파인(주)는 Tashan 촉각 센서(센서·모듈·개발 키트)의 대한민국 공식 대리점입니다."
-        descriptionEn="Refind Inc. is the authorized distributor of Tashan tactile sensors (sensors, modules, development kits) in South Korea."
-      />
 
       {/* CTA */}
       <section className="py-20 bg-gray-950">
