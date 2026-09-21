@@ -37,8 +37,8 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
 
 async function findPost(slug: string) {
   const [notice, cardNews] = await Promise.all([
-    prisma.notice.findUnique({ where: { slug } }),
-    prisma.cardNews.findUnique({ where: { slug } }),
+    prisma.notice.findUnique({ where: { slug }, include: { author: true } }),
+    prisma.cardNews.findUnique({ where: { slug }, include: { author: true } }),
   ]);
 
   if (notice) return { type: "notice" as const, post: notice };
@@ -56,9 +56,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.title,
     description,
+    alternates: { canonical: `/${slug}` },
     openGraph: {
       title: post.title,
       description,
+      type: "article",
+      publishedTime: post.createdAt.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
+      authors: post.author ? [post.author.name] : undefined,
       images: post.thumbnail ? [post.thumbnail] : undefined,
     },
   };
@@ -81,9 +86,31 @@ export default async function FlatPostPage({ params }: PageProps) {
       ? `/admin/notice/${post.id}/edit`
       : `/admin/card-news/${post.id}/edit`;
   const apiPath = type === "notice" ? `/api/notice/${post.id}` : `/api/card-news/${post.id}`;
+  const baseUrl = process.env.NEXTAUTH_URL || "https://products.refind.kr";
+
+  // 구글 디스커버리/뉴스가 게시글임을 인식하도록 하는 구조화 데이터
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    datePublished: post.createdAt.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
+    image: post.thumbnail ? [post.thumbnail] : undefined,
+    author: { "@type": "Organization", name: post.author?.name || "리파인주식회사" },
+    publisher: {
+      "@type": "Organization",
+      name: "리파인주식회사",
+      logo: { "@type": "ImageObject", url: `${baseUrl}/logo.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${baseUrl}/${slug}` },
+  };
 
   return (
     <div className="pt-16 min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-16">
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-primary-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3">
@@ -91,6 +118,7 @@ export default async function FlatPostPage({ params }: PageProps) {
           </p>
           <h1 className="text-3xl font-bold text-white whitespace-pre-line">{post.title}</h1>
           <p className="text-gray-400 text-sm mt-3">
+            {post.author?.name && <span>{post.author.name} · </span>}
             {new Date(post.createdAt).toLocaleDateString("ko-KR", {
               year: "numeric",
               month: "long",
