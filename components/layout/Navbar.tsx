@@ -1,5 +1,6 @@
 "use client";
 
+import SocialLinks from "@/components/ui/SocialLinks";
 import { useState } from "react";
 import { Link, usePathname, getPathname } from "@/i18n/navigation";
 import Image from "next/image";
@@ -239,6 +240,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
+            <SocialLinks locale={locale} className="hidden xl:flex text-gray-500" />
             <a
               href={switchPath}
               className="px-3 py-1.5 text-xs font-semibold rounded-full border transition-all border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
@@ -403,6 +405,7 @@ export default function Navbar({ locale }: NavbarProps) {
             </Link>
           </div>
 
+          <SocialLinks locale={locale} labels className="text-gray-500 py-3" />
           <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
             <a
               href={switchPath}

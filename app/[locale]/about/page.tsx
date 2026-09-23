@@ -1,3 +1,4 @@
+import SocialLinks from "@/components/ui/SocialLinks";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -295,6 +296,7 @@ export default async function AboutPage({ params }: PageProps) {
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Contact</h2>
+          <SocialLinks locale={locale} labels className="text-gray-500 mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { label: t("founded"), value: t("foundedYear") },

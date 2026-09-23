@@ -1,3 +1,4 @@
+import SocialLinks from "@/components/ui/SocialLinks";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -28,6 +29,7 @@ export default async function Footer({ locale }: FooterProps) {
             <div className="space-y-1 text-sm">
               <p>070-4837-2829</p>
               <p>refind@refind.kr</p>
+              <SocialLinks locale={locale} labels className="pt-4 text-white/70" />
             </div>
           </div>
 
