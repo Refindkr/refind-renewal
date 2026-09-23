@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 interface Banner {
   message: string;
   href: string | null;
+  endsAt?: Date | string | null;
 }
 
 interface Props {

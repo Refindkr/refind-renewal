@@ -87,9 +87,9 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const session = await getServerSession(authOptions);
   const banner = await prisma.topBanner.findFirst({
-    where: { isActive: true },
+    where: { isActive: true, OR: [{ endsAt: null }, { endsAt: { gt: new Date() } }] },
     orderBy: { createdAt: "desc" },
-    select: { message: true, href: true },
+    select: { message: true, href: true, endsAt: true },
   });
 
   return (

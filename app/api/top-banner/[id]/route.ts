@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { parseBannerEnd } from "@/lib/bannerSchedule";
 import { prisma } from "@/lib/prisma";
 
 interface Params {
@@ -16,18 +17,21 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
 
     const { id } = await params;
-    const { message, href, isActive } = await request.json();
+    const { message, href, isActive, endsAt } = await request.json();
 
     if (!message) {
       return NextResponse.json({ error: "배너 문구를 입력해주세요" }, { status: 400 });
     }
 
+    const parsedEnd = parseBannerEnd(endsAt);
+    if (parsedEnd === undefined) return NextResponse.json({ error: "종료일시를 올바르게 입력해주세요" }, { status: 400 });
     const banner = await prisma.topBanner.update({
       where: { id },
       data: {
         message,
         href: href || null,
         isActive: Boolean(isActive),
+        endsAt: parsedEnd,
       },
     });
 

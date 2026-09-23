@@ -73,9 +73,9 @@ export default async function AdminTopBannerPage({ params }: PageProps) {
               ) : (
                 banners.map((banner) => (
                   <tr key={banner.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-5 py-3.5 text-gray-900">{banner.message}</td>
+                    <td className="px-5 py-3.5 text-gray-900">{banner.message}<p className="text-xs text-gray-500 mt-1">{banner.endsAt ? `${banner.endsAt.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} 종료 (한국 시간)` : "종료일 없음"}</p></td>
                     <td className="px-5 py-3.5">
-                      {banner.isActive ? (
+                      {banner.isActive && (!banner.endsAt || banner.endsAt > new Date()) ? (
                         <span className="text-xs font-semibold text-primary-500 bg-primary-50 px-2 py-0.5 rounded">노출 중</span>
                       ) : (
                         <span className="text-xs font-medium text-gray-400 bg-gray-100 px-2 py-0.5 rounded">꺼짐</span>

@@ -85,7 +85,7 @@ export default async function AdminNoticePage({ params }: PageProps) {
                       </Link>
                       {notice.isExhibitionBanner && (
                         <span className="ml-2 text-[10px] font-semibold text-primary-500 bg-primary-50 px-1.5 py-0.5 rounded">
-                          전시회 배너
+                          전시회 배너 · 순서 {notice.bannerOrder}{notice.bannerEndsAt && (notice.bannerEndsAt <= new Date() ? " · 종료됨" : ` · ${notice.bannerEndsAt.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })} 종료`)}
                         </span>
                       )}
                     </td>

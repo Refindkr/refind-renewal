@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 
 interface HeroSlide {
   eyebrow?: string;
+  endsAt?: string;
   title: string;
   subtitle: string;
   image: string;
@@ -20,8 +21,15 @@ interface HeroSliderProps {
   intervalMs?: number;
 }
 
-export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProps) {
+export default function HeroSlider({ slides: allSlides, intervalMs = 5000 }: HeroSliderProps) {
   const [index, setIndex] = useState(0);
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => {
+    setNow(Date.now());
+    const timer = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+  const slides = allSlides.filter((s) => !s.endsAt || now === null || new Date(s.endsAt).getTime() > now);
 
   useEffect(() => {
     if (slides.length <= 1) return;
@@ -31,7 +39,8 @@ export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProp
     return () => clearInterval(id);
   }, [slides.length, intervalMs, index]);
 
-  const slide = slides[index];
+  const slide = slides[index % slides.length];
+  if (!slide) return null;
 
   return (
     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
@@ -98,7 +107,7 @@ export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProp
               >
                 <span
                   className={`block h-1.5 rounded-full transition-all duration-500 ${
-                    i === index ? "w-6 bg-primary-400" : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                    i === index % slides.length ? "w-6 bg-primary-400" : "w-1.5 bg-gray-300 hover:bg-gray-400"
                   }`}
                 />
               </button>
@@ -113,7 +122,7 @@ export default function HeroSlider({ slides, intervalMs = 5000 }: HeroSliderProp
           <div
             key={i}
             className="absolute inset-0 transition-opacity duration-1000"
-            style={{ opacity: i === index ? 1 : 0 }}
+            style={{ opacity: i === index % slides.length ? 1 : 0 }}
           >
             <Image
               src={s.image}

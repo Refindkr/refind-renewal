@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { parseBannerEnd } from "@/lib/bannerSchedule";
 import { prisma } from "@/lib/prisma";
 import { isReservedSlug, isValidSlugFormat } from "@/lib/reservedSlugs";
 
@@ -19,7 +20,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "관리자만 작성할 수 있습니다" }, { status: 403 });
     }
 
-    const { slug, title, content, thumbnail, isExhibitionBanner, bannerEyebrow, bannerSubtitle } = await request.json();
+    const { slug, title, content, thumbnail, isExhibitionBanner, bannerEyebrow, bannerSubtitle, bannerOrder, bannerEndsAt } = await request.json();
 
     if (!slug || !title || !content) {
       return NextResponse.json({ error: "필수 항목을 입력해주세요" }, { status: 400 });
@@ -44,6 +45,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "이미 사용 중인 슬러그입니다" }, { status: 409 });
     }
 
+    const parsedEnd = parseBannerEnd(bannerEndsAt);
+    if (parsedEnd === undefined) return NextResponse.json({ error: "종료일시를 올바르게 입력해주세요" }, { status: 400 });
+    if (bannerOrder !== undefined && (!Number.isInteger(bannerOrder) || bannerOrder < 1 || bannerOrder > 9999)) return NextResponse.json({ error: "순서는 1~9999 정수로 입력해주세요" }, { status: 400 });
     const userId = (session.user as { id?: string }).id!;
     const notice = await prisma.notice.create({
       data: {
@@ -54,6 +58,8 @@ export async function POST(request: NextRequest) {
         isExhibitionBanner: Boolean(isExhibitionBanner),
         bannerEyebrow: bannerEyebrow || null,
         bannerSubtitle: bannerSubtitle || null,
+        bannerOrder: bannerOrder ?? undefined,
+        bannerEndsAt: parsedEnd,
         authorId: userId,
       },
     });

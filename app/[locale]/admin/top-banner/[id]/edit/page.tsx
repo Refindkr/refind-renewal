@@ -35,6 +35,7 @@ export default async function EditTopBannerPage({ params }: PageProps) {
             message: banner.message,
             href: banner.href ?? "",
             isActive: banner.isActive,
+            endsAt: banner.endsAt?.toISOString() ?? "",
           }}
         />
       </div>

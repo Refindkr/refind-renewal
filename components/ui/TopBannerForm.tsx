@@ -1,5 +1,7 @@
 "use client";
 
+import BannerDeadline from "./BannerDeadline";
+import { toKstInput } from "@/lib/bannerSchedule";
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 
@@ -7,6 +9,7 @@ interface TopBannerFormData {
   message: string;
   href: string;
   isActive: boolean;
+  endsAt: string;
 }
 
 interface Props {
@@ -25,6 +28,7 @@ export default function TopBannerForm({ locale, mode = "create", bannerId, initi
     message: initialData?.message ?? "",
     href: initialData?.href ?? "",
     isActive: initialData?.isActive ?? true,
+    endsAt: toKstInput(initialData?.endsAt),
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -105,6 +109,7 @@ export default function TopBannerForm({ locale, mode = "create", bannerId, initi
         </span>
       </label>
 
+      <BannerDeadline value={form.endsAt} onChange={(endsAt) => setForm({ ...form, endsAt })} />
       <div className="flex gap-4 pt-2">
         <button
           type="submit"

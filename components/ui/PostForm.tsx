@@ -1,5 +1,7 @@
 "use client";
 
+import BannerDeadline from "./BannerDeadline";
+import { toKstInput } from "@/lib/bannerSchedule";
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 import RichTextEditor from "./RichTextEditor";
@@ -15,6 +17,8 @@ interface PostFormData {
   isExhibitionBanner: boolean;
   bannerEyebrow: string;
   bannerSubtitle: string;
+  bannerOrder: number;
+  bannerEndsAt: string;
 }
 
 interface Props {
@@ -40,6 +44,8 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
     isExhibitionBanner: initialData?.isExhibitionBanner ?? false,
     bannerEyebrow: initialData?.bannerEyebrow ?? "",
     bannerSubtitle: initialData?.bannerSubtitle ?? "",
+    bannerOrder: initialData?.bannerOrder ?? 1,
+    bannerEndsAt: toKstInput(initialData?.bannerEndsAt),
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -219,6 +225,13 @@ export default function PostForm({ locale, type, mode = "create", postId, initia
         </div>
       )}
 
+      {type === "notice" && form.isExhibitionBanner && <div className="space-y-4">
+        <label className="block text-sm">롤링 순서
+          <input aria-label="롤링 순서" type="number" min={1} max={9999} step={1} required value={form.bannerOrder} onChange={(e) => setForm({ ...form, bannerOrder: Number(e.target.value) })} className="block border rounded-lg p-3 mt-2" />
+        </label>
+        <p className="text-xs text-gray-500">작은 번호부터 메인 첫 화면에 표시됩니다. 브랜드 소개는 마지막에 표시되며, 같은 번호는 최신 등록순입니다.</p>
+        <BannerDeadline value={form.bannerEndsAt} onChange={(bannerEndsAt) => setForm({ ...form, bannerEndsAt })} />
+      </div>}
       <div className="flex gap-4 pt-2">
         <button
           type="submit"

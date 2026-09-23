@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 interface Banner {
   message: string;
   href: string | null;
+  endsAt?: Date | string | null;
 }
 
 interface Props {
@@ -28,7 +29,14 @@ export default function AnnouncementBar({ banner }: Props) {
     }
   }, [banner]);
 
-  if (!banner || !visible) return null;
+  const [expired, setExpired] = useState(false);
+  useEffect(() => {
+    const check = () => setExpired(!!banner?.endsAt && new Date(banner.endsAt).getTime() <= Date.now());
+    check();
+    const timer = setInterval(check, 1000);
+    return () => clearInterval(timer);
+  }, [banner?.endsAt]);
+  if (!banner || !visible || expired) return null;
 
   const content = (
     <span className="text-sm font-medium text-white truncate">{banner.message}</span>

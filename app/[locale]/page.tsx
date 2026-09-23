@@ -38,8 +38,8 @@ export default async function HomePage({ params }: PageProps) {
   const tp = await getTranslations("products");
 
   const exhibitionNotices = await prisma.notice.findMany({
-    where: { isExhibitionBanner: true },
-    orderBy: { createdAt: "desc" },
+    where: { isExhibitionBanner: true, OR: [{ bannerEndsAt: null }, { bannerEndsAt: { gt: new Date() } }] },
+    orderBy: [{ bannerOrder: "asc" }, { createdAt: "desc" }, { id: "asc" }],
   });
 
   // 홈페이지 "주요 제품" 섹션은 실제 대메뉴(Navbar productLinks) 5개와 1:1로 대응시킨다.
@@ -81,8 +81,21 @@ export default async function HomePage({ params }: PageProps) {
     },
   ];
 
-  // 히어로 슬라이드: 브랜드 소개 1장 + 전시회 배너
+  // 관리자가 지정한 배너 순서를 먼저 적용하고 브랜드 소개는 마지막에 표시한다.
   const heroSlides = [
+    ...exhibitionNotices.map((notice) => ({
+      eyebrow: notice.bannerEyebrow || (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
+      title: notice.title,
+      endsAt: notice.bannerEndsAt?.toISOString(),
+      subtitle:
+        notice.bannerSubtitle ||
+        (isKo
+          ? "리파인의 전시회 소식을 확인해보세요."
+          : "Check out Refind's latest exhibition news."),
+      image: notice.thumbnail || products[0].image,
+      primaryHref: `/${notice.slug}`,
+      primaryLabel: isKo ? "자세히 보기" : "Learn more",
+    })),
     {
       eyebrow: "Refind Inc. · 리파인주식회사",
       title: t("hero.title"),
@@ -93,18 +106,6 @@ export default async function HomePage({ params }: PageProps) {
       secondaryHref: `/about`,
       secondaryLabel: t("hero.ctaSecondary"),
     },
-    ...exhibitionNotices.map((notice) => ({
-      eyebrow: notice.bannerEyebrow || (isKo ? "EXHIBITION · 전시회 안내" : "EXHIBITION"),
-      title: notice.title,
-      subtitle:
-        notice.bannerSubtitle ||
-        (isKo
-          ? "리파인의 전시회 소식을 확인해보세요."
-          : "Check out Refind's latest exhibition news."),
-      image: notice.thumbnail || products[0].image,
-      primaryHref: `/${notice.slug}`,
-      primaryLabel: isKo ? "자세히 보기" : "Learn more",
-    })),
   ];
 
   return (
