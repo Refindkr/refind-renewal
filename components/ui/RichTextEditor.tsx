@@ -140,6 +140,14 @@ export default function RichTextEditor({ content, onChange }: Props) {
         </button>
         <button
           type="button"
+          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          className={btnClass(false)}
+          title="커서 위치에 가는 회색 구분선 삽입"
+        >
+          구분선
+        </button>
+        <button
+          type="button"
           onClick={() => {
             const url = window.prompt("링크 URL을 입력하세요");
             if (url) editor.chain().focus().setLink({ href: url }).run();

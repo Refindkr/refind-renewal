@@ -77,6 +77,18 @@ body {
 }
 
 /* 게시글 에디터 표 스타일 — Tiptap 표 확장은 기본 스타일이 없어 직접 지정 필요 */
+/* 에디터와 공개 게시글에 동일한 문단 구분선 적용 */
+.prose hr {
+  border: 0;
+  border-top: 1px solid #d1d5db;
+  margin: 2rem 0;
+}
+
+.ProseMirror hr.ProseMirror-selectednode {
+  outline: 2px solid #669dfd;
+  outline-offset: 4px;
+}
+
 .prose table {
   border-collapse: collapse;
   table-layout: fixed;
