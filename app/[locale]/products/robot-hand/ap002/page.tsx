@@ -1,3 +1,5 @@
+import ROHandSpecSource from "@/components/ui/ROHandSpecSource";
+import { rohandManualUrl } from "@/lib/rohandManuals";
 import type { Metadata } from "next";
 import Image from "next/image";
 import DistributorCertificate from "@/components/ui/DistributorCertificate";
@@ -82,7 +84,7 @@ export default async function AP002Page({ params }: PageProps) {
             {[
               { title: "Multidimensional", desc: isKo ? "손가락 끝 3D 포스센서와 손바닥 고밀도 도트 매트릭스로 인간 수준의 촉각 데이터 수집" : "Human-level tactile data acquisition with fingertip 3D force sensors and high-density palm dot matrix" },
               { title: "Ultra-Responsive", desc: isKo ? "0.7초 구동 속도와 6자유도 메커니즘으로 실시간 피드백 제어 최적화" : "Real-time feedback control optimization with 0.7s actuation speed and 6-DOF mechanism" },
-              { title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN FD 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN FD interface support" },
+              { title: "Versatile Connectivity", desc: isKo ? "UART, RS485, CAN 인터페이스 지원으로 고대역폭 데이터 전송 보장" : "High-bandwidth data transmission guaranteed with UART, RS485, CAN interface support" },
             ].map((v, i) => (
               <div key={i} className="border-t-2 border-gray-900 pt-4">
                 <h3 className="text-base font-bold text-gray-900 mb-2">{v.title}</h3>
@@ -119,12 +121,12 @@ export default async function AP002Page({ params }: PageProps) {
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "주요 사양" : "Key Specs"}</h3>
               <div className="space-y-0 text-sm">
                 {[
-                  [isKo ? "가동 관절" : "Active Joints", "11개 / 6 DOF"],
+                  [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11개 / 6 DOF"],
                   [isKo ? "무게" : "Weight", "575g ± 5g"],
                   [isKo ? "구동 속도" : "Speed", isKo ? "0.7초" : "0.7s"],
                   [isKo ? "팜 샘플링" : "Palm Sampling", "150Hz"],
-                  [isKo ? "손가락 샘플링" : "Finger Sampling", "50Hz"],
-                  [isKo ? "통신" : "Comm.", "UART, RS485, CAN FD"],
+                  [isKo ? "손가락 샘플링" : "Finger Sampling", "≥50Hz"],
+                  [isKo ? "통신" : "Comm.", "UART, RS485, CAN"],
                 ].map(([k, v], i, arr) => (
                   <div key={i} className={`flex justify-between py-2.5 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
                     <span className="text-gray-500">{k}</span>
@@ -206,7 +208,7 @@ export default async function AP002Page({ params }: PageProps) {
                 {[
                   ["최대 속도 전 범위 굽힘/펴기 시간", "Bending/stretching time for full range at maximum speed", "0.7 s"],
                   ["최대 속도 기준 엄지 전체 회전 시간", "Rotation time of thumb for full range at maximum speed", "0.7 s"],
-                  ["펴진 상태 각 손가락 끝 능동력", "Active force of each finger tip on stretched state", "≥ 0.5 kgf"],
+                  ["펴진 상태 각 손가락 끝 능동력", "Active force of each finger tip on stretched state", "≥ 0.45 kgf"],
                   ["굽힌 상태 각 손가락 끝 능동력", "Active force of each finger tip on bended state", "≥ 1 kgf"],
                   ["엄지 끝 최대 능동력", "Maximum active force of thumb tip", "≥ 1 kgf"],
                   ["4손가락 굽힌 상태 최대 수동 하중", "Maximum passive load for four fingers on bended state", "30 kg"],
@@ -268,6 +270,8 @@ export default async function AP002Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ROHandSpecSource models={["ap002"]} isKo={isKo} />
 
       {/* YouTube Video */}
       <section className="py-20 bg-gray-50">
@@ -423,7 +427,7 @@ export default async function AP002Page({ params }: PageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                href: "https://oymotion.github.io/en/ROHand/ROH-AP002/",
+                href: rohandManualUrl("ap002"),
                 title: isKo ? "사용자 매뉴얼" : "User Manual",
                 desc: isKo ? "ROH-AP002 제품 사양 및 사용 설명서" : "ROH-AP002 specifications and user guide",
               },

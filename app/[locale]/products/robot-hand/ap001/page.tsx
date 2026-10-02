@@ -1,3 +1,5 @@
+import ROHandSpecSource from "@/components/ui/ROHandSpecSource";
+import { rohandManualUrl } from "@/lib/rohandManuals";
 import type { Metadata } from "next";
 import Image from "next/image";
 import DistributorCertificate from "@/components/ui/DistributorCertificate";
@@ -13,8 +15,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "ROH-AP001 로봇핸드 (포스 매트릭스 센서)" : "ROH-AP001 Robot Hand (Force Matrix Sensor)",
     description: isKo
-      ? "Tashan 내장 포스센서로 실시간 힘 피드백. 150Hz 샘플링, 640g 경량 설계. 정밀 조립·표면가공에 최적."
-      : "Tashan integrated force sensor for real-time force feedback. 150Hz sampling, 640g lightweight design. Ideal for precision assembly and surface finishing.",
+      ? "Tashan 내장 포스센서로 실시간 힘 피드백. 150Hz 샘플링, 661g 경량 설계. 정밀 조립·표면가공에 최적."
+      : "Tashan integrated force sensor for real-time force feedback. 150Hz sampling, 661g lightweight design. Ideal for precision assembly and surface finishing.",
   };
 }
 
@@ -148,8 +150,8 @@ export default async function AP001Page({ params }: PageProps) {
               <h3 className="text-sm font-bold text-gray-900 mb-5">{isKo ? "하드웨어 사양" : "Hardware Specs"}</h3>
               <div className="space-y-0 text-sm">
                 {[
-                  [isKo ? "가동 관절" : "Active Joints", "11개 / 6 DOF"],
-                  [isKo ? "무게" : "Weight", "640g ± 5g"],
+                  [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11개 / 6 DOF"],
+                  [isKo ? "무게" : "Weight", "661g ± 5g"],
                   [isKo ? "구동 속도" : "Speed", isKo ? "0.7초" : "0.7s"],
                   [isKo ? "포스 측정 범위" : "Force Range", "0.1N ~ 25N"],
                   [isKo ? "반복 정밀도" : "Repeatability", "±20% (500g 부하)"],
@@ -167,7 +169,7 @@ export default async function AP001Page({ params }: PageProps) {
                 {[
                   [isKo ? "센서 타입" : "Sensor Type", "Tashan Force Sensor"],
                   [isKo ? "샘플링 속도" : "Sampling Rate", "150Hz"],
-                  [isKo ? "통신" : "Communication", "UART, RS485, CAN FD"],
+                  [isKo ? "통신" : "Communication", "UART, RS485, CAN"],
                   [isKo ? "프로토콜" : "Protocol", "SerialCtrl, ModBus-RTU"],
                   ["SDK", "ROS, ROS2, Python, C++"],
                 ].map(([k, v], i, arr) => (
@@ -233,7 +235,7 @@ export default async function AP001Page({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             {isKo ? "ROH-AP001 상세 스펙" : "ROH-AP001 Detailed Specifications"}
           </h2>
-          <p className="text-sm text-gray-500 mb-10">{isKo ? "무게: 640g ± 5g" : "Weight: 640g ± 5g"}</p>
+          <p className="text-sm text-gray-500 mb-10">{isKo ? "무게: 661g ± 5g" : "Weight: 661g ± 5g"}</p>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Measurement Table */}
             <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
@@ -244,8 +246,8 @@ export default async function AP001Page({ params }: PageProps) {
                 {[
                   ["중지 끝~손목 세로 거리", "Middle finger tip to wrist (vertical)", "183 mm"],
                   ["엄지 끝~손목 세로 거리", "Thumb tip to wrist (vertical)", "95 mm"],
-                  ["엄지 길이", "Thumb length", "111 mm"],
-                  ["최대 손바닥 너비", "Maximum palm width", "82 mm"],
+                  ["엄지 길이", "Thumb length", "113 mm"],
+                  ["최대 손바닥 너비", "Maximum palm width", "83 mm"],
                   ["손목 직경", "Wrist diameter", "49 mm"],
                   ["엄지 측면 최대 개폐 각도", "Thumb side max open/close angle", "0 ~ 31°"],
                   ["엄지~손바닥 최대 개폐 각도", "Thumb to palm max open/close angle", "0 ~ 50°"],
@@ -292,6 +294,8 @@ export default async function AP001Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ROHandSpecSource models={["ap001"]} isKo={isKo} />
 
       {/* Use Cases */}
       <section className="py-20 bg-gray-50">
@@ -424,7 +428,7 @@ export default async function AP001Page({ params }: PageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                href: "https://oymotion.github.io/en/ROHand/ROH-AP001/",
+                href: rohandManualUrl("ap001"),
                 title: isKo ? "사용자 매뉴얼" : "User Manual",
                 desc: isKo ? "ROH-AP001 제품 사양 및 사용 설명서" : "ROH-AP001 specifications and user guide",
               },

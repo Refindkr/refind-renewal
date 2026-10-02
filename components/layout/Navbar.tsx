@@ -96,6 +96,7 @@ export default function Navbar({ locale }: NavbarProps) {
         { href: `/products/prosthetic/ohandlite`, label: "OhandLite", isGroup: false },
         { href: `/products/physical-ai/bcibmi`, label: "BCI/BMI", isGroup: true },
         { href: `/products/physical-ai/eeg`, label: isKo ? "Wearable EEG" : "Wearable EEG", isGroup: false },
+        { href: `/products/physical-ai/gforce-ultra`, label: "gForce Ultra", isGroup: false },
         { href: `/products/physical-ai/gforcepro`, label: "GForcePro+", isGroup: false },
         { href: `/products/robot-support`, label: isKo ? "로봇보조기" : "Robot Support", isGroup: true },
         { href: `/products/robot-support/hybridex`, label: "HYBRIDEX", isGroup: false },

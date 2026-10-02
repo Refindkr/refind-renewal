@@ -1,3 +1,5 @@
+import ROHandSpecSource from "@/components/ui/ROHandSpecSource";
+import { rohandManualUrl } from "@/lib/rohandManuals";
 import type { Metadata } from "next";
 import Image from "next/image";
 import DistributorCertificate from "@/components/ui/DistributorCertificate";
@@ -13,8 +15,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "ROH-Lite 로봇핸드 (보급형)" : "ROH-Lite Robot Hand (Economy)",
     description: isKo
-      ? "가성비 6DOF 로봇핸드. 457g 경량, 빠른 구동으로 연구·교육용에 최적화된 보급형 로봇핸드."
-      : "Cost-effective 6-DOF robot hand. 457g lightweight design optimized for research and education.",
+      ? "가성비 6DOF 로봇핸드. 486g 경량, 빠른 구동으로 연구·교육용에 최적화된 보급형 로봇핸드."
+      : "Cost-effective 6-DOF robot hand. 486g lightweight design optimized for research and education.",
   };
 }
 
@@ -80,7 +82,7 @@ export default async function LitePage({ params }: PageProps) {
           <p className="text-xs font-bold tracking-[3px] text-[#E1251B] uppercase mb-10">{isKo ? "핵심 특징" : "Key Features"}</p>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { title: isKo ? "경량 설계" : "Lightweight Design", desc: isKo ? "457g의 가벼운 무게로 장시간 운용과 빠른 구동(0.7초)에 최적화" : "457g lightweight design optimized for long operation and fast actuation (0.7s)" },
+              { title: isKo ? "경량 설계" : "Lightweight Design", desc: isKo ? "486g의 가벼운 무게로 장시간 운용과 빠른 구동(0.7초)에 최적화" : "486g lightweight design optimized for long operation and fast actuation (0.7s)" },
               { title: isKo ? "합리적인 가격" : "Cost-Effective", desc: isKo ? "핵심 6DOF 기능을 유지하면서 연구·교육 예산에 맞는 최적의 가성비" : "Optimal cost-performance ratio for research and education budgets while maintaining core 6-DOF functionality" },
               { title: isKo ? "즉시 연동" : "Easy Integration", desc: isKo ? "RS-485 및 Modbus 프로토콜 지원으로 기존 시스템에 빠르게 통합 가능" : "Quick integration with existing systems via RS-485 and Modbus protocol support" },
             ].map((v, i) => (
@@ -101,11 +103,10 @@ export default async function LitePage({ params }: PageProps) {
             <div className="space-y-0 text-sm">
               {[
                 [isKo ? "자유도" : "DOF", "6 DOF"],
-                [isKo ? "무게" : "Weight", "457g ± 5g"],
+                [isKo ? "무게" : "Weight", "486g ± 5g"],
                 [isKo ? "구동 속도" : "Speed", isKo ? "0.7초" : "0.7s"],
                 [isKo ? "포스/촉각 센서" : "Force/Tactile", isKo ? "미탑재" : "Not included"],
-                [isKo ? "샘플링" : "Sampling", "50Hz"],
-                [isKo ? "통신" : "Communication", "RS-485, Modbus"],
+                [isKo ? "통신" : "Communication", "UART / RS485 / CAN"],
                 ["SDK", "ROS, ROS2, Python, C++"],
               ].map(([k, v], i, arr) => (
                 <div key={i} className={`flex justify-between py-2.5 ${i < arr.length - 1 ? "border-b border-gray-200" : ""}`}>
@@ -228,7 +229,7 @@ export default async function LitePage({ params }: PageProps) {
           {/* Dimension image */}
           <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white mb-14">
             <Image
-              src="/products/robot-hand/lite_2.jpeg"
+              src="/products/robot-hand/lite_dimensions_v1_0_8.png"
               alt={isKo ? "ROH-Lite 치수 도면" : "ROH-Lite Dimension Drawing"}
               width={1200}
               height={800}
@@ -253,9 +254,9 @@ export default async function LitePage({ params }: PageProps) {
                 <tbody>
                   {[
                     ["중지 끝에서 손목까지 수직 거리", "Vertical distance from the tip of the middle finger to the wrist", "169 mm"],
-                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "97 mm"],
+                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "93 mm"],
                     ["엄지 길이", "Thumb length", "110 mm"],
-                    ["최대 손바닥 너비", "Maximum palm width", "75 mm"],
+                    ["최대 손바닥 너비", "Maximum palm width", "76 mm"],
                     ["손목 직경", "Wrist diameter", "49 mm"],
                     ["엄지 측면 최대 개폐 각도", "Maximum opening and closing angle of the thumb side", "0 ~ 31°"],
                     ["엄지와 손바닥 최대 개폐 각도", "Maximum opening and closing angle of the thumb to the palm", "0 ~ 50°"],
@@ -278,7 +279,7 @@ export default async function LitePage({ params }: PageProps) {
           {/* Weight */}
           <div className="max-w-3xl mb-10 flex items-center gap-3 bg-gray-50 rounded-2xl px-6 py-4 border border-gray-100">
             <span className="text-sm font-semibold text-gray-500">{isKo ? "무게" : "Weight"}</span>
-            <span className="text-xl font-extrabold text-gray-900">457g ± 5g</span>
+            <span className="text-xl font-extrabold text-gray-900">486g ± 5g</span>
           </div>
 
           {/* Performance specs table */}
@@ -302,12 +303,12 @@ export default async function LitePage({ params }: PageProps) {
                   {[
                     ["최대 속도 기준 완전 굴곡/신전 시간", "Bending/stretching time for full range at maximum speed", "0.7 s"],
                     ["최대 속도 기준 엄지 전체 회전 시간", "Rotation time of thumb for full range at maximum speed", "0.7 s"],
-                    ["신전 상태 각 손가락 끝 능동 추력", "Active force of each finger tip on stretched state", "≥ 0.45 kgf"],
+                    ["신전 상태 각 손가락 끝 능동 추력", "Active force of each finger tip on stretched state", "≥ 0.5 kgf"],
                     ["굴곡 상태 각 손가락 끝 능동 추력", "Active force of each finger tip on bended state", "≥ 1 kgf"],
                     ["엄지 끝 최대 능동 추력", "Maximum active force of thumb tip", "≥ 1 kgf"],
-                    ["굴곡 상태 4손가락 최대 수동 하중", "Maximum passive load for four fingers on bended state", "8 kg"],
-                    ["굴곡 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on bended state", "3 kg"],
-                    ["신전 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on stretched state", "2.25 kg"],
+                    ["굴곡 상태 4손가락 최대 수동 하중", "Maximum passive load for four fingers on bended state", "25 kg"],
+                    ["굴곡 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on bended state", "8 kg"],
+                    ["신전 상태 각 손가락 최대 수동 하중", "Maximum passive load for each finger on stretched state", "5 kg"],
                   ].map(([ko, en, val], i) => (
                     <tr key={i} className={i % 2 === 0 ? "" : "bg-gray-50/40"}>
                       <td className="px-5 py-3 text-sm text-gray-600">
@@ -345,6 +346,8 @@ export default async function LitePage({ params }: PageProps) {
         </div>
       </section>
 
+      <ROHandSpecSource models={["lite"]} isKo={isKo} />
+
       {/* Developer Resources */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -357,7 +360,7 @@ export default async function LitePage({ params }: PageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                href: "https://oymotion.github.io/en/ROHand/ROH-LiteS001/",
+                href: rohandManualUrl("lite"),
                 title: isKo ? "사용자 매뉴얼" : "User Manual",
                 desc: isKo ? "ROH-Lite 제품 사양 및 사용 설명서" : "ROH-Lite specifications and user guide",
               },

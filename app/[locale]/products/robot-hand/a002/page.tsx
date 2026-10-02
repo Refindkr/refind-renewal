@@ -1,3 +1,5 @@
+import ROHandSpecSource from "@/components/ui/ROHandSpecSource";
+import { rohandManualUrl } from "@/lib/rohandManuals";
 import type { Metadata } from "next";
 import Image from "next/image";
 import DistributorCertificate from "@/components/ui/DistributorCertificate";
@@ -13,8 +15,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "ROH-A002 로봇핸드 (표준형)" : "ROH-A002 Robot Hand (Standard)",
     description: isKo
-      ? "6자유도 11관절 와이어 구동 로봇핸드. 최대 30kg 파워 그립. ROS2, Python, C++ SDK 지원."
-      : "6-DOF 11-joint wire-driven robot hand. Up to 30kg power grip. Supports ROS2, Python, C++ SDK.",
+      ? "6자유도 11관절 와이어 구동 로봇핸드. 네 손가락 굴곡 상태 최대 수동 하중 30kg. ROS2, Python, C++ SDK 지원."
+      : "6-DOF 11-joint wire-driven robot hand. 30kg maximum passive load with four fingers bent. Supports ROS2, Python, C++ SDK.",
   };
 }
 
@@ -153,7 +155,7 @@ export default async function A002Page({ params }: PageProps) {
           {/* Dimension image */}
           <div className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-gray-100 bg-white mb-14">
             <Image
-              src="/products/robot-hand/a002_size.jpg"
+              src="/products/robot-hand/a002_dimensions_v1_1_5.png"
               alt={isKo ? "ROH-A002 치수 도면" : "ROH-A002 Dimension Drawing"}
               width={1200}
               height={800}
@@ -177,9 +179,9 @@ export default async function A002Page({ params }: PageProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {[
-                    ["중지 끝에서 손목까지 수직 거리", "Vertical distance from the tip of the middle finger to the wrist", "184 mm"],
-                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "93 mm"],
-                    ["엄지 길이", "Thumb length", "111 mm"],
+                    ["중지 끝에서 손목까지 수직 거리", "Vertical distance from the tip of the middle finger to the wrist", "183 mm"],
+                    ["엄지 끝에서 손목까지 수직 거리", "Vertical distance from the thumb tip to wrist", "95 mm"],
+                    ["엄지 길이", "Thumb length", "113 mm"],
                     ["최대 손바닥 너비", "Maximum palm width", "83 mm"],
                     ["손목 직경", "Wrist diameter", "49 mm"],
                     ["엄지 측면 최대 개폐 각도", "Maximum opening and closing angle of the thumb side", "0 ~ 31°"],
@@ -203,7 +205,7 @@ export default async function A002Page({ params }: PageProps) {
           {/* Weight */}
           <div className="max-w-3xl mb-10 flex items-center gap-3 bg-gray-50 rounded-2xl px-6 py-4 border border-gray-100">
             <span className="text-sm font-semibold text-gray-500">{isKo ? "무게" : "Weight"}</span>
-            <span className="text-xl font-extrabold text-gray-900">545g ± 5g</span>
+            <span className="text-xl font-extrabold text-gray-900">580g ± 5g</span>
           </div>
 
           {/* Performance specs table */}
@@ -225,13 +227,13 @@ export default async function A002Page({ params }: PageProps) {
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {[
-                    ["완전 개방 → 완전 폐쇄 최소 시간", "Fastest time from fully open to fully closed finger", "1.0 s"],
-                    ["완전 폐쇄 → 완전 개방 최소 시간", "Fastest time from fully closed to fully open finger", "1.0 s"],
-                    ["엄지 측면 및 반대 손바닥 회전 최소 시간", "Fastest time from thumb side and opposite palm rotation", "1.0 s"],
-                    ["검지 끝 최대 능동 추력", "Maximum active thrust force of the index finger tip", "≥ 0.45 kgf"],
+                    ["완전 개방 → 완전 폐쇄 최소 시간", "Fastest time from fully open to fully closed finger", "0.7 s"],
+                    ["완전 폐쇄 → 완전 개방 최소 시간", "Fastest time from fully closed to fully open finger", "0.7 s"],
+                    ["엄지 측면 및 반대 손바닥 회전 최소 시간", "Fastest time from thumb side and opposite palm rotation", "0.7 s"],
+                    ["신전 상태 각 손가락 끝 능동력", "Active force per fingertip (stretched)", "≥ 0.5 kgf"],
                     ["엄지 끝 최대 능동 추력", "Maximum active thrust force of thumb tip", "≥ 1 kgf"],
-                    ["두세 손가락 최대 능동 집기력", "Maximum active pinching force of two/three fingertips", "≥ 1 kgf"],
-                    ["최대 들어올림 하중 (파워그립)", "Maximum weight lifted (power grip)", "30 kg"],
+                    ["굴곡 상태 각 손가락 끝 능동력", "Active force per fingertip (bent)", "≥ 1 kgf"],
+                    ["네 손가락 굴곡 상태 최대 수동 하중", "Maximum passive load for four fingers (bent)", "30 kg"],
                     ["단일 손가락 최대 정적 하중 (파워그립)", "Maximum single finger static load (power grip)", "10 kg"],
                     ["단일 손가락 끝 최대 정적 하중 (평면 신장)", "Maximum static load on fingertip of single finger (flat extension)", "8 kg"],
                   ].map(([ko, en, val], i) => (
@@ -267,8 +269,8 @@ export default async function A002Page({ params }: PageProps) {
               {
                 title: "High Payload",
                 desc: isKo
-                  ? "파워 그립(Power grip) 시 최대 30kg 하중을 견디는 와이어 구동 시스템"
-                  : "Wire-driven system withstanding up to 30kg payload in power grip mode",
+                  ? "네 손가락을 굽힌 상태에서 최대 수동 하중 30kg을 지지하는 구조"
+                  : "Supports a maximum passive load of 30kg with four fingers bent",
               },
               {
                 title: "Seamless Integration",
@@ -300,20 +302,20 @@ export default async function A002Page({ params }: PageProps) {
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex justify-between py-2 border-b border-gray-200">
-                  <span className="text-gray-500">{isKo ? "가동 관절" : "Active Joints"}</span>
+                  <span className="text-gray-500">{isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF"}</span>
                   <span className="font-semibold text-gray-900">11{isKo ? "개" : ""} / 6 DOF</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "무게" : "Weight"}</span>
-                  <span className="font-semibold text-gray-900">545g ± 5g</span>
+                  <span className="font-semibold text-gray-900">580g ± 5g</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "구동 속도" : "Actuation Speed"}</span>
-                  <span className="font-semibold text-gray-900">1.0{isKo ? "초" : "s"}</span>
+                  <span className="font-semibold text-gray-900">0.7{isKo ? "초" : "s"}</span>
                 </div>
                 <div className="flex justify-between py-2">
-                  <span className="text-gray-500">{isKo ? "최대 하중" : "Max Payload"}</span>
-                  <span className="font-semibold text-gray-900">30kg ({isKo ? "파워그립" : "Power Grip"})</span>
+                  <span className="text-gray-500">{isKo ? "최대 수동 하중" : "Max Passive Load"}</span>
+                  <span className="font-semibold text-gray-900">30kg ({isKo ? "네 손가락 굴곡" : "Four Fingers Bent"})</span>
                 </div>
               </div>
             </div>
@@ -325,7 +327,7 @@ export default async function A002Page({ params }: PageProps) {
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "통신" : "Communication"}</span>
-                  <span className="font-semibold text-gray-900">RS485</span>
+                  <span className="font-semibold text-gray-900">UART / RS485 / CAN</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "프로토콜" : "Protocol"}</span>
@@ -345,6 +347,8 @@ export default async function A002Page({ params }: PageProps) {
         </div>
       </section>
 
+      <ROHandSpecSource models={["a002"]} isKo={isKo} />
+
       {/* Brochure Download */}
       <section className="py-14 bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -353,19 +357,19 @@ export default async function A002Page({ params }: PageProps) {
               {isKo ? "자료 다운로드" : "Download"}
             </p>
             <h3 className="text-lg font-extrabold text-white mb-1">
-              {isKo ? "ROH-A002 제품 브로셔" : "ROH-A002 Product Brochure"}
+              {isKo ? "ROH-A002 공식 매뉴얼" : "ROH-A002 Official Manual"}
             </h3>
-            <p className="text-sm text-white/40">PDF · ROHand_eng.pdf</p>
+            <p className="text-sm text-white/40">PDF · V1.1.5</p>
           </div>
           <a
-            href="/downloads/ROHand_eng.pdf"
-            download="ROHand_eng.pdf"
+            href={rohandManualUrl("a002")}
+            target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#E1251B] text-white font-bold rounded-full text-sm hover:bg-primary-400 transition-colors whitespace-nowrap shrink-0"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            {isKo ? "브로셔 다운로드" : "Download Brochure"}
+            {isKo ? "매뉴얼 보기" : "View Manual"}
           </a>
         </div>
       </section>
@@ -477,11 +481,11 @@ export default async function A002Page({ params }: PageProps) {
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {[
-                  [isKo ? "가동 관절" : "Active Joints", "11개 / 6 DOF", "11개 / 6 DOF", "11개 / 6 DOF", "6 DOF"],
-                  [isKo ? "무게" : "Weight", "545g", "640g", "575g", "457g"],
-                  [isKo ? "구동 속도" : "Speed", "1.0초", "0.7초", "0.7초", "0.7초"],
+                  [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF"],
+                  [isKo ? "무게" : "Weight", "580g", "661g", "575g", "486g"],
+                  [isKo ? "구동 속도" : "Speed", "0.7초", "0.7초", "0.7초", "0.7초"],
                   [isKo ? "포스/촉각 센서" : "Force/Tactile", isKo ? "미탑재" : "None", "Tashan 포스", "3D 포스+팜", isKo ? "미탑재" : "None"],
-                  [isKo ? "통신" : "Comm.", "RS485", "UART/RS485/CAN FD", "UART/RS485/CAN FD", "RS485/Modbus"],
+                  [isKo ? "통신" : "Comm.", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN"],
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row[0]}</td>
@@ -496,6 +500,8 @@ export default async function A002Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ROHandSpecSource models={["a002", "ap001", "ap002", "lite"]} isKo={isKo} />
 
       {/* Delivery Cases */}
       <section className="py-20 bg-gray-50">
@@ -530,7 +536,7 @@ export default async function A002Page({ params }: PageProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
-                href: "https://oymotion.github.io/en/ROHand/ROH-A001%26A002/",
+                href: rohandManualUrl("a002"),
                 title: isKo ? "사용자 매뉴얼" : "User Manual",
                 desc: isKo ? "ROH-A002 제품 사양 및 사용 설명서" : "ROH-A002 specifications and user guide",
               },

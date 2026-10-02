@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "BCI/BMI 생체신호 솔루션" : "BCI/BMI Biosignal Solutions",
     description: isKo
-      ? "웨어러블 EEG(NURA/ORION)부터 고해상도 EMG(BioFlex nano 32), GForcePro+까지. 연구급 뇌파·근전도 측정 장비 라인업."
-      : "From wearable EEG (NURA/ORION) to high-resolution EMG (BioFlex nano 32) and GForcePro+. Research-grade brainwave and EMG measurement device lineup.",
+      ? "웨어러블 EEG(NURA/ORION)부터 고해상도 EMG(BioFlex nano 32), gForce Ultra까지. 연구급 뇌파·근전도 측정 장비 라인업."
+      : "From wearable EEG (NURA/ORION) to high-resolution EMG (BioFlex nano 32) and gForce Ultra. Research-grade brainwave and EMG measurement device lineup.",
   };
 }
 
@@ -41,6 +41,14 @@ export default async function BCIBMIPage({ params }: PageProps) {
             : "Brainwave measurement lineup combining the ultra-lightweight, daily-wear NURA and the precision, high-density wireless ORION.",
           image: "/products/physical-ai/wearable-eeg.png",
           tags: isKo ? ["1~32채널", "24-bit", "Bluetooth"] : ["1-32ch", "24-bit", "Bluetooth"],
+        },
+        {
+          slug: "gforce-ultra",
+          name: "gForce Ultra",
+          nameEn: "gForce Ultra",
+          tagline: isKo ? "24-bit ADC와 8채널 건식 EMG. 원시 근전도 신호와 제스처 인식 결과를 동시에 출력하는 새로운 암밴드." : "24-bit ADC and 8-channel dry EMG. A new armband with simultaneous raw EMG and gesture recognition output.",
+          image: "/products/physical-ai/gforce-ultra-brochure.jpg",
+          tags: ["24-bit", "8ch EMG", "6-axis IMU"],
         },
         {
           slug: "gforcepro",

@@ -1,3 +1,4 @@
+import ROHandSpecSource from "@/components/ui/ROHandSpecSource";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -12,8 +13,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "ROH-A001 로봇핸드 (표준형)" : "ROH-A001 Robot Hand (Standard)",
     description: isKo
-      ? "6자유도 11관절 와이어 구동 로봇핸드. 최대 30kg 파워 그립. ROS2, Python, C++ SDK 지원."
-      : "6-DOF 11-joint wire-driven robot hand. Up to 30kg power grip. Supports ROS2, Python, C++ SDK.",
+      ? "6자유도 11관절 와이어 구동 로봇핸드. 네 손가락 굴곡 상태 최대 수동 하중 30kg. ROS2, Python, C++ SDK 지원."
+      : "6-DOF 11-joint wire-driven robot hand. 30kg maximum passive load with four fingers bent. Supports ROS2, Python, C++ SDK.",
   };
 }
 
@@ -79,8 +80,8 @@ export default async function A001Page({ params }: PageProps) {
               {
                 title: isKo ? "High Payload" : "High Payload",
                 desc: isKo
-                  ? "파워 그립(Power grip) 시 최대 30kg 하중을 견디는 와이어 구동 시스템"
-                  : "Wire-driven system withstanding up to 30kg payload in power grip mode",
+                  ? "네 손가락을 굽힌 상태에서 최대 수동 하중 30kg을 지지하는 구조"
+                  : "Supports a maximum passive load of 30kg with four fingers bent",
               },
               {
                 title: isKo ? "Seamless Integration" : "Seamless Integration",
@@ -112,7 +113,7 @@ export default async function A001Page({ params }: PageProps) {
               </h3>
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex justify-between py-2 border-b border-gray-200">
-                  <span className="text-gray-500">{isKo ? "가동 관절" : "Active Joints"}</span>
+                  <span className="text-gray-500">{isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF"}</span>
                   <span className="font-semibold text-gray-900">11{isKo ? "개" : ""} / 6 DOF</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-200">
@@ -124,8 +125,8 @@ export default async function A001Page({ params }: PageProps) {
                   <span className="font-semibold text-gray-900">1.0{isKo ? "초" : "s"}</span>
                 </div>
                 <div className="flex justify-between py-2">
-                  <span className="text-gray-500">{isKo ? "최대 하중" : "Max Payload"}</span>
-                  <span className="font-semibold text-gray-900">30kg ({isKo ? "파워그립" : "Power Grip"})</span>
+                  <span className="text-gray-500">{isKo ? "최대 수동 하중" : "Max Passive Load"}</span>
+                  <span className="font-semibold text-gray-900">30kg ({isKo ? "네 손가락 굴곡" : "Four Fingers Bent"})</span>
                 </div>
               </div>
             </div>
@@ -137,7 +138,7 @@ export default async function A001Page({ params }: PageProps) {
               <div className="space-y-3 text-sm text-gray-600">
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "통신" : "Communication"}</span>
-                  <span className="font-semibold text-gray-900">RS485</span>
+                  <span className="font-semibold text-gray-900">UART / RS485 / CAN</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-gray-200">
                   <span className="text-gray-500">{isKo ? "프로토콜" : "Protocol"}</span>
@@ -156,6 +157,8 @@ export default async function A001Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ROHandSpecSource models={["a001"]} isKo={isKo} />
 
       {/* Use Cases */}
       <section className="py-20 bg-gray-50">
@@ -219,11 +222,11 @@ export default async function A001Page({ params }: PageProps) {
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {[
-                  [isKo ? "가동 관절" : "Active Joints", "11개 / 6 DOF", "11개 / 6 DOF", "11개 / 6 DOF", "6 DOF"],
-                  [isKo ? "무게" : "Weight", "545g", "640g", "575g", "457g"],
+                  [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF"],
+                  [isKo ? "무게" : "Weight", "545g", "661g", "575g", "486g"],
                   [isKo ? "구동 속도" : "Speed", "1.0초", "0.7초", "0.7초", "0.7초"],
                   [isKo ? "포스/촉각 센서" : "Force/Tactile", isKo ? "미탑재" : "None", "Tashan 포스", "3D 포스+팜", isKo ? "미탑재" : "None"],
-                  [isKo ? "통신" : "Comm.", "RS485", "UART/RS485/CAN FD", "UART/RS485/CAN FD", "RS485/Modbus"],
+                  [isKo ? "통신" : "Comm.", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN"],
                 ].map((row, i) => (
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
                     <td className="px-5 py-3.5 text-xs font-semibold text-gray-700">{row[0]}</td>
@@ -238,6 +241,8 @@ export default async function A001Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <ROHandSpecSource models={["a001", "ap001", "ap002", "lite"]} isKo={isKo} />
 
       {/* CTA */}
       <section className="py-20 bg-gray-950">

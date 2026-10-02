@@ -60,6 +60,7 @@ const staticPages = [
   { path: "/products/physical-ai/platform/teleoperation-kit", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/bcibmi", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/eeg", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/physical-ai/gforce-ultra", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/gforcepro", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/tashan", priority: 0.8, changeFrequency: "monthly" },
 ] as const;

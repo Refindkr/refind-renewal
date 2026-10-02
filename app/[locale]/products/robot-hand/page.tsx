@@ -51,9 +51,9 @@ export default async function RobotHandPage({ params }: PageProps) {
           nameEn: "ROH-A002",
           tagline: isKo
             ? "인간 손과 유사한 6자유도 구조를 기반으로 다양한 손동작을 정밀하게 구현할 수 있는 다관절 로봇 핸드입니다."
-            : "6-DOF 11-joint wire-driven system. Up to 30kg power grip.",
+            : "6-DOF 11-joint wire-driven system. Maximum passive load: 30kg with four fingers bent.",
           image: "/products/robot-hand/a002.png",
-          tags: isKo ? ["6 DOF", "RS485", "545g"] : ["6 DOF", "RS485", "545g"],
+          tags: isKo ? ["6 DOF", "RS485", "580g"] : ["6 DOF", "RS485", "580g"],
         },
         {
           slug: "ap001",
@@ -93,7 +93,7 @@ export default async function RobotHandPage({ params }: PageProps) {
             ? "가성비 6DOF 로봇핸드. 가볍고 빠른 구동으로 입문 연구·교육용 최적."
             : "Cost-effective 6-DOF robot hand. Light and fast — ideal for entry-level research and education.",
           image: "/products/robot-hand/ROhandlite.png",
-          tags: isKo ? ["6 DOF", "RS485", "457g"] : ["6 DOF", "RS485", "457g"],
+          tags: isKo ? ["6 DOF", "RS485", "486g"] : ["6 DOF", "RS485", "486g"],
         },
         {
           slug: "motion-capture-glove",
