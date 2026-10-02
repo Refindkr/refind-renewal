@@ -47,7 +47,7 @@ export default async function BCIBMIPage({ params }: PageProps) {
           name: "gForce Ultra",
           nameEn: "gForce Ultra",
           tagline: isKo ? "24-bit ADC와 8채널 건식 EMG. 원시 근전도 신호와 제스처 인식 결과를 동시에 출력하는 새로운 암밴드." : "24-bit ADC and 8-channel dry EMG. A new armband with simultaneous raw EMG and gesture recognition output.",
-          image: "/products/physical-ai/gforce-ultra-brochure.jpg",
+          image: "/products/physical-ai/gforce-ultra-worn-v1.webp",
           tags: ["24-bit", "8ch EMG", "6-axis IMU"],
         },
         {

@@ -54,14 +54,27 @@ export default async function GForceUltraPage({ params }: PageProps) {
               <a href={brochure} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/30 px-6 py-3 text-sm font-bold text-white">{t("제품 자료 PDF", "Product Brochure PDF")}</a>
             </div>
           </div>
-          <a href={brochure} target="_blank" rel="noopener noreferrer" className="block max-w-sm mx-auto rounded-2xl overflow-hidden">
-            <Image src="/products/physical-ai/gforce-ultra-brochure.jpg" alt={t("OYMotion gForce Ultra 공식 제품 이미지", "OYMotion gForce Ultra official product brochure")} width={1000} height={1357} priority sizes="(max-width: 768px) 90vw, 384px" className="w-full h-auto" />
-          </a>
+          <figure className="w-full max-w-lg mx-auto">
+            <a href="/products/physical-ai/gforce-ultra-worn-v1.webp" target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden">
+              <Image src="/products/physical-ai/gforce-ultra-worn-v1.webp" alt={t("마네킹 손목에 착용한 gForce Ultra — 본체, 밴드와 녹색 상태 표시등", "gForce Ultra on a mannequin wrist — housing, band and green status indicator")} width={1254} height={1254} priority sizes="(max-width: 768px) 90vw, 512px" className="w-full h-auto" />
+            </a>
+            <figcaption className="text-xs text-white/50 mt-3">{t("마네킹 착용 모습 · 실물 사진 보정", "Shown on a mannequin · retouched product photograph")}</figcaption>
+          </figure>
         </div>
       </section>
       <section className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-2xl font-extrabold mb-10">{t("새로워진 신호 수집과 제스처 인식", "Updated acquisition and gesture recognition")}</h2>
         <div className="grid md:grid-cols-3 gap-8">{features.map(([title, body], i) => <article key={title} className="border-t-2 border-gray-900 pt-5"><p className="text-primary-600 text-sm font-bold mb-4">0{i + 1}</p><h3 className="text-lg font-bold mb-3">{title}</h3><p className="text-sm leading-relaxed text-gray-600">{body}</p></article>)}</div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-2xl font-extrabold mb-3">{t("밴드 안쪽까지 자세히", "A closer look inside the band")}</h2>
+        <p className="text-sm text-gray-600 mb-8">{t("펼친 밴드의 안쪽 전극과 체결 구조를 확인하세요.", "Explore the inner electrodes and fastening structure of the open band.")}</p>
+        <figure>
+          <a href="/products/physical-ai/gforce-ultra-electrodes-v1.webp" target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden bg-gray-50">
+            <Image src="/products/physical-ai/gforce-ultra-electrodes-v1.webp" alt={t("gForce Ultra 밴드 안쪽의 금속 전극과 길이 조절 구멍", "Metal electrodes and adjustment holes on the inside of the gForce Ultra band")} width={1536} height={1024} sizes="(max-width: 1280px) 100vw, 1232px" className="w-full h-auto" />
+          </a>
+          <figcaption className="mt-3 text-xs text-gray-500">{t("실물 사진 보정 · 클릭하면 크게 볼 수 있습니다.", "Retouched product photograph · click to enlarge.")}</figcaption>
+        </figure>
       </section>
       <section className="bg-gray-50 py-20">
         <div className="max-w-4xl mx-auto px-6">
