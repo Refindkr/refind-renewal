@@ -42,6 +42,9 @@ const legacyRedirects = [
 
 const nextConfig: NextConfig = {
   images: {
+    // Serve originals directly: the hosted optimizer currently rejects requests
+    // with OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED (HTTP 402).
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "products.refind.kr" },
       { protocol: "https", hostname: "*.supabase.co" },
