@@ -25,12 +25,13 @@ export default async function AP003Page({ params }: PageProps) {
   const loadAndSpeed = [
     { ko: "최대 속도 전 범위 굽힘/펴기 시간", en: "Bending/stretching time for full range at max speed", v: "0.7s" },
     { ko: "최대 속도 기준 엄지 전체 회전 시간", en: "Rotation time of thumb for full range at max speed", v: "0.7s" },
-    { ko: "펴진 상태 각 손가락 끝 능동력", en: "Active force of each finger tip on stretched state", v: "≥ 0.5 Kgf" },
-    { ko: "굽힌 상태 각 손가락 끝 능동력", en: "Active force of each finger tip on bended state", v: "≥ 1.0 Kgf" },
+    { ko: "펴진 상태 각 손가락 끝 능동력 (엄지 제외)", en: "Active fingertip force when extended (excluding thumb)", v: "≥ 0.5 kgf" },
+    { ko: "굽힌 상태 각 손가락 끝 능동력 (엄지 제외)", en: "Active fingertip force when bent (excluding thumb)", v: "≥ 1.0 kgf" },
+    { ko: "엄지 손끝 최대 능동력", en: "Maximum active thumb tip force", v: "≥ 1.0 kgf" },
     { ko: "4손가락 굽힌 상태 최대 수동 하중", en: "Maximum passive load for four fingers on bended state", v: "30kg" },
     { ko: "각 손가락 굽힌 상태 최대 수동 하중", en: "Maximum passive load for each finger on bended state", v: "10kg" },
     { ko: "각 손가락 펴진 상태 최대 수동 하중", en: "Maximum passive load for each finger on stretched state", v: "8kg" },
-    { ko: "무게", en: "Weight", v: "626g ± 5g" },
+    { ko: "무게 (손목 포함)", en: "Weight (including wrist)", v: "626g ± 5g" },
   ];
 
   const forceSensor3D = [
@@ -38,7 +39,7 @@ export default async function AP003Page({ params }: PageProps) {
     { ko: "최대 견딜 수 있는 힘", en: "Maximum Withstand Force", v: isKo ? "30N (개별 촉각 센서 기준)" : "30N (for individual tactile sensor)" },
     { ko: "수직 압력 범위 / 감도", en: "Normal Force Range / Sensitivity", v: "15N / 0.1N" },
     { ko: "전단력 범위 (말단골)", en: "Shear Force Range (Distal Phalanx)", v: "± 5N" },
-    { ko: "방향 분해능", en: "Directional Resolution", v: "1˚" },
+    { ko: "방향 분해능", en: "Directional Resolution", v: "1°" },
   ];
 
   const dotMatrix = [
@@ -103,6 +104,12 @@ export default async function AP003Page({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition-colors">
                 {isKo ? "협업 문의하기" : "Contact Us"}
+              </a>
+              <a href="/downloads/rohand-ap003-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
+                {isKo ? "제품 자료 PDF" : "Product Brochure PDF"}
               </a>
               <Link href={`/products/robot-hand`}
                 className="inline-flex items-center px-6 py-3 border border-white/20 text-white/80 font-semibold rounded-full text-sm hover:border-white/50 hover:text-white transition-colors">
@@ -218,6 +225,23 @@ export default async function AP003Page({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <aside className="max-w-7xl mx-auto px-6 pt-8 text-sm text-gray-600 leading-relaxed">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+          <h2 className="font-bold text-gray-900 mb-2">
+            {isKo ? "스펙 근거 · 제조사 제품 자료" : "Specification Source · Manufacturer Brochure"}
+          </h2>
+          <a href="/downloads/rohand-ap003-brochure.pdf#page=2" target="_blank" rel="noopener noreferrer"
+            className="text-[#E1251B] underline underline-offset-4">
+            {isKo ? "OYMotion × Melexis ROH-AP003 제품 자료 · 2쪽 (PDF)" : "OYMotion × Melexis ROH-AP003 brochure · page 2 (PDF)"}
+          </a>
+          <p className="mt-3">
+            {isKo
+              ? "위 부하·속도·무게 및 센서 사양은 제조사 제품 자료 2쪽을 기준으로 작성했습니다. 무게는 손목 포함이며, 수동 하중은 손가락이 능동적으로 들어 올릴 수 있는 무게와 다릅니다."
+              : "The load, speed, weight and sensor specifications above follow page 2 of the manufacturer brochure. Weight includes the wrist. Passive load is different from the weight the fingers can actively lift."}
+          </p>
+        </div>
+      </aside>
 
       {/* Use Cases */}
       <section className="py-20 bg-white">
