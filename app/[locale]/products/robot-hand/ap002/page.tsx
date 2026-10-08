@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: isKo ? "ROH-AP002 로봇핸드 (3D 촉각 캐패시터 센서)" : "ROH-AP002 Robot Hand (3D Tactile Capacitor Sensor)",
     description: isKo
-      ? "3D 포스센서 + 11×5 팜 촉각 매트릭스로 인간 수준의 촉각 데이터 수집. 575g 경량 설계."
-      : "3D force sensor + 11×5 palm tactile matrix for human-level tactile data acquisition. 575g lightweight design.",
+      ? "3D 포스센서 + 11×5 팜 촉각 매트릭스로 인간 수준의 촉각 데이터 수집. 손목 포함 무게 626g ± 5g."
+      : "3D force sensor + 11×5 palm tactile matrix for human-level tactile data acquisition. Weight including wrist: 626g ± 5g.",
   };
 }
 
@@ -122,7 +122,7 @@ export default async function AP002Page({ params }: PageProps) {
               <div className="space-y-0 text-sm">
                 {[
                   [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11개 / 6 DOF"],
-                  [isKo ? "무게" : "Weight", "575g ± 5g"],
+                  [isKo ? "무게 (손목 포함)" : "Weight (including wrist)", "626g ± 5g"],
                   [isKo ? "구동 속도" : "Speed", isKo ? "0.7초" : "0.7s"],
                   [isKo ? "팜 샘플링" : "Palm Sampling", "150Hz"],
                   [isKo ? "손가락 샘플링" : "Finger Sampling", "≥50Hz"],
@@ -169,7 +169,7 @@ export default async function AP002Page({ params }: PageProps) {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-2 tracking-tight">
             {isKo ? "ROH-AP002 상세 스펙" : "ROH-AP002 Detailed Specifications"}
           </h2>
-          <p className="text-sm text-gray-500 mb-10">{isKo ? "무게: 575g ± 5g" : "Weight: 575g ± 5g"}</p>
+          <p className="text-sm text-gray-500 mb-10">{isKo ? "무게 (손목 포함): 626g ± 5g" : "Weight (including wrist): 626g ± 5g"}</p>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Measurement Table */}
             <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">

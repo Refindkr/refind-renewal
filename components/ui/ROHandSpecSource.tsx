@@ -13,7 +13,7 @@ export default function ROHandSpecSource({ models, isKo }: { models: ROHandManua
         </ul>
         <p className="mt-4">{isKo ? "무게는 손목 포함 기준입니다. 수동 하중은 명시된 손가락 자세에서 버티는 하중이며, 모터가 능동적으로 쥐는 힘이나 로봇팔의 가반하중과 다릅니다." : "Weights include the wrist. Passive load is the supported load in the specified finger posture, not active gripping force or robot-arm payload."}</p>
         <p className="mt-2">{isKo ? "가동 관절 11개와 능동 자유도 6개를 구분합니다. 통신은 제품 버전에 따라 다르며, 모델명 끝의 -C는 CAN 버전입니다. 주문 시 해당 모델과 인터페이스를 확인하세요." : "11 movable joints and 6 active degrees of freedom are distinct. Interfaces depend on the variant; the -C suffix denotes CAN. Confirm the model and interface when ordering."}</p>
-        <p className="mt-2 text-xs text-gray-500">{isKo ? "2026년 10월 2일 확인 · 위 매뉴얼 버전 기준" : "Checked October 2, 2026 · Based on the manual versions above"}</p>
+        <p className="mt-2 text-xs text-gray-500">{isKo ? "위에 표시된 제조사 매뉴얼 버전 기준" : "Based on the manufacturer manual versions listed above"}</p>
       </div>
     </aside>
   );

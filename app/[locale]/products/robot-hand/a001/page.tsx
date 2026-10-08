@@ -223,7 +223,7 @@ export default async function A001Page({ params }: PageProps) {
               <tbody className="divide-y divide-gray-50">
                 {[
                   [isKo ? "가동 관절 / 능동 자유도" : "Movable Joints / Active DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF", "11 / 6 DOF"],
-                  [isKo ? "무게" : "Weight", "545g", "661g", "575g", "486g"],
+                  [isKo ? "무게" : "Weight", "545g", "661g", "626g ± 5g", "486g"],
                   [isKo ? "구동 속도" : "Speed", "1.0초", "0.7초", "0.7초", "0.7초"],
                   [isKo ? "포스/촉각 센서" : "Force/Tactile", isKo ? "미탑재" : "None", "Tashan 포스", "3D 포스+팜", isKo ? "미탑재" : "None"],
                   [isKo ? "통신" : "Comm.", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN", "UART/RS485/CAN"],
