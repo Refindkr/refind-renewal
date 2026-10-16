@@ -1,0 +1,46 @@
+{
+  "retrieved": "2026-10-16",
+  "note": "Official manufacturer photographs and specification panel. The hero derivative is explicitly labeled as AI retouched; originals remain available.",
+  "assets": [
+    {
+      "file": "demo-grasp.webp",
+      "dimensions": [
+        1080,
+        720
+      ],
+      "page": "https://www.tashantec.com/newsDetail/74",
+      "original_url": "https://tashan-assets.onew.design/news/20260918-pdf-batch/001b245a4ec54ac9ff3f.webp",
+      "modified": false
+    },
+    {
+      "file": "demo-capture.webp",
+      "dimensions": [
+        1080,
+        720
+      ],
+      "page": "https://www.tashantec.com/newsDetail/74",
+      "original_url": "https://tashan-assets.onew.design/news/20260918-pdf-batch/78617e485f9456a2da4d.webp",
+      "modified": false
+    },
+    {
+      "file": "specifications.webp",
+      "dimensions": [
+        1080,
+        492
+      ],
+      "page": "https://www.tashantec.com/newsDetail/74",
+      "original_url": "https://tashan-assets.onew.design/news/20260918-pdf-batch/3d17199e5733efd7a5e9.webp",
+      "modified": false
+    },
+    {
+      "file": "demo-grasp-retouched-v2.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "derived_from": "demo-grasp.webp",
+      "modified": true,
+      "method": "AI photo retouch using built-in image_gen; not a technical reference for fine product details."
+    }
+  ]
+}

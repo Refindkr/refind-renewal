@@ -33,6 +33,16 @@ export default async function PhysicalAIPage({ params }: PageProps) {
       categorySlug="physical-ai"
       products={[
         {
+          slug: "ts-echo",
+          name: isKo ? "TS-ECHO 촉각 데이터 글러브" : "TS-ECHO Tactile Data Capture",
+          nameEn: "TASHAN TS-ECHO",
+          tagline: isKo
+            ? "사람의 손에 착용해 힘과 근접 정보를 수집합니다. 실제 작업의 촉각 데이터를 피지컬 AI 연구에 연결하세요."
+            : "Wearable finger sleeves for capturing forces and proximity during human demonstrations.",
+          image: "/products/physical-ai/ts-echo/demo-grasp.webp",
+          tags: isKo ? ["TASHAN", "촉각 데이터", "착용형"] : ["TASHAN", "Tactile Data", "Wearable"],
+        },
+        {
           slug: "tashan",
           name: isKo ? "Tashan 포스센서" : "Tashan Force Sensor",
           nameEn: "Tashan Force Sensor",

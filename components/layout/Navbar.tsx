@@ -35,6 +35,7 @@ export default function Navbar({ locale }: NavbarProps) {
       desc: isKo ? "액추에이터·플랫폼·센서 솔루션" : "Actuators, platform & sensor solutions",
       children: [
         { href: `/products/physical-ai/tashan`, label: isKo ? "Tashan 센서" : "Tashan Sensor", isGroup: false },
+        { href: `/products/physical-ai/ts-echo`, label: isKo ? "TS-ECHO 데이터 글러브" : "TS-ECHO Data Glove", isGroup: false },
         { href: `/products/physical-ai/actuator`, label: isKo ? "액추에이터" : "Actuator", isGroup: false },
         { href: `/products/physical-ai/avr-amr`, label: "AVR/AMR", isGroup: true },
         { href: `/products/physical-ai/avr-amr/myagv`, label: isKo ? "모바일 로봇 플랫폼 (myAGV 2023)" : "Mobile Robot Platform (myAGV 2023)", isGroup: false },

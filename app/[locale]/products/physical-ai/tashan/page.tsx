@@ -82,6 +82,13 @@ export default async function TashanPage({ params }: PageProps) {
       />
 
 
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <Link href="/products/physical-ai/ts-echo" className="group flex flex-col md:flex-row md:items-center justify-between gap-5 rounded-2xl bg-slate-50 border border-slate-200 p-7 md:p-9 hover:border-slate-400 transition-colors">
+          <div><p className="text-xs font-bold tracking-widest text-primary-600 mb-3">TASHAN TS-ECHO</p><h2 className="text-2xl font-bold mb-2">{isKo ? "사람의 손에서 촉각 데이터를 수집하세요" : "Capture tactile data from human demonstrations"}</h2><p className="text-sm text-slate-500">{isKo ? "착용형 촉각 데이터 글러브 · 제품 소개와 공개 사양" : "Wearable tactile data capture · Overview and specifications"}</p></div>
+          <span className="text-sm font-semibold whitespace-nowrap">{isKo ? "제품 살펴보기" : "Explore TS-ECHO"} →</span>
+        </Link>
+      </section>
+
       {/* Key Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">

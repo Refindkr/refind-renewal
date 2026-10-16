@@ -63,6 +63,7 @@ const staticPages = [
   { path: "/products/physical-ai/gforce-ultra", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/gforcepro", priority: 0.8, changeFrequency: "monthly" },
   { path: "/products/physical-ai/tashan", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/products/physical-ai/ts-echo", priority: 0.8, changeFrequency: "monthly" },
 ] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
