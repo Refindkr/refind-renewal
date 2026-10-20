@@ -11,6 +11,7 @@ interface NavbarProps {
 }
 
 const INQUIRY_FORM_URL = "https://form.naver.com/response/WxUcn3MgR1ouvktOE4JwYA";
+const DRAW_ME_BOT_URL = "https://drawmebot.vercel.app/";
 
 export default function Navbar({ locale }: NavbarProps) {
   const t = useTranslations("nav");
@@ -27,6 +28,10 @@ export default function Navbar({ locale }: NavbarProps) {
   const switchPath = otherLocale === "en" ? `/eng${pathname === "/" ? "" : pathname}` : pathname;
 
   const isKo = locale === "ko";
+  const experienceLabel = isKo ? "로봇경험" : "Robot Experience";
+  const drawMeBotLabel = isKo ? "드로우미봇" : "Draw Me Bot";
+  const desktopDisplay = isKo ? "hidden min-[1440px]:flex" : "hidden min-[1600px]:flex";
+  const mobileDisplay = isKo ? "min-[1440px]:hidden" : "min-[1600px]:hidden";
 
   const productLinks = [
     {
@@ -108,7 +113,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
   return (
     <nav className="bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-[1600px] mx-auto px-6">
         <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
@@ -124,7 +129,7 @@ export default function Navbar({ locale }: NavbarProps) {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-0.5">
+          <div className={`${desktopDisplay} items-center gap-0.5`}>
             <Link
               href={`/about`}
               className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap text-gray-700 hover:bg-black/5"
@@ -194,6 +199,36 @@ export default function Navbar({ locale }: NavbarProps) {
               </div>
             ))}
 
+            <div
+              className="relative"
+              onMouseEnter={() => setHoveredMenu("experience")}
+              onMouseLeave={() => setHoveredMenu(null)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHoveredMenu(null);
+              }}
+              onKeyDown={(event) => { if (event.key === "Escape") setHoveredMenu(null); }}
+            >
+              <button
+                type="button"
+                aria-expanded={hoveredMenu === "experience"}
+                aria-controls="desktop-robot-experience"
+                onClick={() => setHoveredMenu("experience")}
+                className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5"
+              >
+                {experienceLabel}
+                <svg className={`w-3 h-3 opacity-50 transition-transform ${hoveredMenu === "experience" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              {hoveredMenu === "experience" && (
+                <div id="desktop-robot-experience" className="absolute top-full left-1/2 -translate-x-1/2 z-50 pt-2">
+                  <div className="bg-white shadow-xl rounded-2xl border border-gray-100 py-2 min-w-[180px]">
+                    <a href={DRAW_ME_BOT_URL} target="_blank" rel="noopener noreferrer" aria-label={`${drawMeBotLabel} (${isKo ? "새 창" : "opens in a new tab"})`} className="flex items-center justify-between gap-5 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50" onClick={() => setHoveredMenu(null)}>
+                      {drawMeBotLabel}<span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* 게시판 드롭다운 */}
             <div
               className="relative"
@@ -240,7 +275,7 @@ export default function Navbar({ locale }: NavbarProps) {
           </div>
 
           {/* Right side */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className={`${desktopDisplay} items-center gap-3 shrink-0 whitespace-nowrap`}>
             <a
               href={switchPath}
               className="px-3 py-1.5 text-xs font-semibold rounded-full border transition-all border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
@@ -280,7 +315,7 @@ export default function Navbar({ locale }: NavbarProps) {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 rounded-lg transition-colors text-gray-700"
+            className={`${mobileDisplay} p-2 rounded-lg transition-colors text-gray-700`}
             onClick={() => {
               setMobileOpen(!mobileOpen);
               setOpenMobileCategory(null);
@@ -302,7 +337,7 @@ export default function Navbar({ locale }: NavbarProps) {
       {mobileOpen && (
         // #site-header가 position: fixed라 페이지 스크롤을 못 받음 — 하위 항목이 많은 카테고리를
         // 펼치면 내용이 화면 밖으로 잘려서 안 보이는 문제가 있어 메뉴 자체에 내부 스크롤을 둠
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain">
+        <div className={`${mobileDisplay} bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain`}>
           <div className="mb-4">
             <Link
               href={`/about`}
@@ -373,6 +408,20 @@ export default function Navbar({ locale }: NavbarProps) {
                 );
               })}
             </div>
+          </div>
+
+          <div className="mb-4 border-y border-gray-100">
+            <button type="button" aria-expanded={openMobileCategory === "experience"} aria-controls="mobile-robot-experience" onClick={() => setOpenMobileCategory(openMobileCategory === "experience" ? null : "experience")} className="w-full flex items-center justify-between gap-3 px-3 py-3 text-left">
+              <span className="text-sm font-semibold text-gray-800">{experienceLabel}</span>
+              <svg className={`w-4 h-4 text-gray-400 shrink-0 transition-transform ${openMobileCategory === "experience" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            {openMobileCategory === "experience" && (
+              <div id="mobile-robot-experience" className="pb-2">
+                <a href={DRAW_ME_BOT_URL} target="_blank" rel="noopener noreferrer" aria-label={`${drawMeBotLabel} (${isKo ? "새 창" : "opens in a new tab"})`} onClick={() => { setMobileOpen(false); setOpenMobileCategory(null); }} className="flex items-center justify-between px-6 py-2.5 text-sm text-gray-500 hover:bg-gray-50 rounded-lg">
+                  {drawMeBotLabel}<span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="space-y-1 mb-6">
