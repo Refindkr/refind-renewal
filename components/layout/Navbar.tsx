@@ -28,10 +28,11 @@ export default function Navbar({ locale }: NavbarProps) {
   const switchPath = otherLocale === "en" ? `/eng${pathname === "/" ? "" : pathname}` : pathname;
 
   const isKo = locale === "ko";
-  const experienceLabel = isKo ? "로봇경험" : "Robot Experience";
+  const experienceLabel = isKo ? "로봇 익스피리언스" : "Robot Experience";
   const drawMeBotLabel = isKo ? "드로우미봇" : "Draw Me Bot";
-  const desktopDisplay = isKo ? "hidden min-[1440px]:flex" : "hidden min-[1600px]:flex";
-  const mobileDisplay = isKo ? "min-[1440px]:hidden" : "min-[1600px]:hidden";
+  const desktopDisplay = "hidden xl:flex";
+  const mobileDisplay = "xl:hidden";
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
 
   const productLinks = [
     {
@@ -111,376 +112,146 @@ export default function Navbar({ locale }: NavbarProps) {
     },
   ];
 
+  const sections = [
+    { id: "solutions", label: isKo ? "로봇솔루션" : "Robot Solutions", desc: isKo ? "연구와 산업을 위한 로봇·부품 솔루션" : "Robots and components for research and industry" },
+    { id: "experience", label: experienceLabel, desc: isKo ? "체험·교육·퍼포먼스로 만나는 로봇" : "Experiences, education and performances" },
+    { id: "assistance", label: isKo ? "로봇 어시스턴스" : "Robot Assistance", desc: isKo ? "리파인 자체 개발 제품" : "Products developed by REFIND" },
+  ];
+  const experienceItems = [
+    { label: drawMeBotLabel, desc: isKo ? "로봇이 그려주는 캐리커처 체험" : "Robot caricature experiences", href: DRAW_ME_BOT_URL, external: true },
+    { label: isKo ? "로봇 코딩교육" : "Robot Coding Education", desc: isKo ? "로봇과 함께 배우는 코딩" : "Learn coding with robots" },
+    { label: isKo ? "로봇개 퍼포먼스" : "Robot Dog Performance", desc: isKo ? "행사·공연·체험 프로그램" : "Events, performances and experiences" },
+  ];
+  const assistanceItems = [
+    { label: isKo ? "하이브리덱스" : "HYBRIDEX", desc: "HYBRIDEX", href: "/products/robot-support/hybridex" },
+    { label: isKo ? "스텝부스터" : "STEP BOOSTER", desc: "STEP BOOSTER", href: "/products/robot-support/step-booster" },
+  ];
+  const boardItems = [
+    { label: t("inquiry"), href: INQUIRY_FORM_URL, external: true },
+    { label: t("notice"), href: "/notice" },
+    { label: t("cardNews"), href: "/card-news" },
+  ];
+  const closeMenus = () => {
+    setHoveredMenu(null);
+    setMobileOpen(false);
+    setOpenMobileSection(null);
+    setOpenMobileCategory(null);
+  };
+  const chevron = (open: boolean) => (
+    <svg className={`h-3.5 w-3.5 shrink-0 text-gray-400 transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 9l6 6 6-6" />
+    </svg>
+  );
+  const renderItem = (item: { label: string; desc?: string; href?: string; external?: boolean }) => {
+    const content = <>
+      <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+        {item.label}
+        {item.href ? <span aria-hidden="true" className="text-gray-400">{item.external ? "↗" : "→"}</span> : <span className="shrink-0 rounded-full bg-gray-100 px-2 py-1 text-[10px] font-medium text-gray-500">{isKo ? "준비 중" : "Coming soon"}</span>}
+      </span>
+      {item.desc && <span className="mt-1.5 block text-xs leading-relaxed text-gray-500">{item.desc}</span>}
+    </>;
+    const className = "block rounded-xl p-4 text-gray-800 transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500";
+    if (!item.href) return <div key={item.label} aria-disabled="true" className="rounded-xl p-4 text-gray-500">{content}</div>;
+    if (item.external) return <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" aria-label={`${item.label} (${isKo ? "새 창" : "opens in a new tab"})`} onClick={closeMenus} className={className}>{content}</a>;
+    return <Link key={item.label} href={item.href} onClick={closeMenus} className={className}>{content}</Link>;
+  };
+
   return (
-    <nav className="bg-white/90 backdrop-blur-xl border-b border-gray-200/60 shadow-sm">
-      <div className="max-w-[1600px] mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-
-          {/* Logo */}
-          <Link href={"/"} className="flex items-center shrink-0">
-            <Image
-              src="/logo.png"
-              alt="Refind"
-              width={150}
-              height={50}
-              className="h-11 w-auto object-contain -translate-y-1"
-              priority
-            />
+    <nav aria-label={isKo ? "주 메뉴" : "Main navigation"} className="relative border-b border-gray-200/60 bg-white/95 shadow-sm backdrop-blur-xl"
+      onMouseLeave={() => setHoveredMenu(null)}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHoveredMenu(null); }}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          const trigger = event.currentTarget.querySelector<HTMLButtonElement>(mobileOpen ? "#mobile-menu-toggle" : `#nav-trigger-${hoveredMenu}`);
+          closeMenus();
+          trigger?.focus();
+        }
+      }}>
+      <div className="mx-auto max-w-[1600px] px-6">
+        <div className="flex h-16 items-center justify-between gap-6">
+          <Link href="/" onClick={closeMenus} className="flex shrink-0 items-center">
+            <Image src="/logo.png" alt="Refind" width={150} height={50} className="h-11 w-auto -translate-y-1 object-contain" priority />
           </Link>
-
-          {/* Desktop Nav */}
-          <div className={`${desktopDisplay} items-center gap-0.5`}>
-            <Link
-              href={`/about`}
-              className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap text-gray-700 hover:bg-black/5"
-            >
-              {t("about")}
-            </Link>
-
-            <span className="mx-1.5 w-px h-4 bg-gray-200" />
-
-            {productLinks.map((link) => (
-              <div
-                key={link.href}
-                className="relative"
-                onMouseEnter={() => setHoveredMenu(link.href)}
-                onMouseLeave={() => setHoveredMenu(null)}
-              >
-                <Link
-                  href={link.href}
-                  className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5"
-                >
-                  {link.label}
-                  {link.children.length > 0 && (
-                    <svg
-                      className={`w-3 h-3 transition-transform duration-200 opacity-50 ${
-                        hoveredMenu === link.href ? "rotate-180" : ""
-                      }`}
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  )}
-                </Link>
-
-                {/* 서브메뉴 드롭다운 */}
-                {hoveredMenu === link.href && link.children.length > 0 && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 z-50 pt-2">
-                    <div className="bg-white shadow-xl rounded-2xl border border-gray-100 py-2 min-w-[180px]">
-                      {/* 카테고리 페이지 링크 */}
-                      <Link
-                        href={link.href}
-                        className="block px-4 py-2 text-xs font-bold text-primary-500 hover:bg-gray-50 transition-colors border-b border-gray-100 mb-1"
-                      >
-                        {isKo ? "전체 보기" : "View All"} →
-                      </Link>
-                      {/* 하위 제품 — isGroup으로 3뎁스 구성 */}
-                      {link.children.map((child, idx) => (
-                        <div key={`${child.href}-${idx}`}>
-                          {/* 그룹 헤더 앞에 구분선 (첫 번째 제외) */}
-                          {child.isGroup && idx > 0 && (
-                            <div className="my-1 mx-3 border-t border-gray-100" />
-                          )}
-                          <Link
-                            href={child.href}
-                            className={`block px-4 py-1.5 text-sm hover:bg-gray-50 transition-colors ${
-                              child.isGroup
-                                ? "font-semibold text-gray-800 hover:text-gray-900"
-                                : "text-gray-500 pl-6 hover:text-gray-800"
-                            }`}
-                          >
-                            {child.label}
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+          <div className={`${desktopDisplay} items-center gap-1`}>
+            {sections.map((section) => (
+              <button key={section.id} id={`nav-trigger-${section.id}`} type="button" aria-expanded={hoveredMenu === section.id} aria-controls={`nav-panel-${section.id}`}
+                onMouseEnter={() => setHoveredMenu(section.id)} onClick={() => setHoveredMenu(section.id)}
+                className={`flex items-center gap-2 whitespace-nowrap rounded-lg px-4 py-3 text-sm font-semibold transition-colors focus-visible:outline-primary-500 ${hoveredMenu === section.id ? "bg-gray-50 text-primary-600" : "text-gray-800 hover:bg-gray-50"}`}>
+                {section.label}{chevron(hoveredMenu === section.id)}
+              </button>
             ))}
-
-            <div
-              className="relative"
-              onMouseEnter={() => setHoveredMenu("experience")}
-              onMouseLeave={() => setHoveredMenu(null)}
-              onBlur={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHoveredMenu(null);
-              }}
-              onKeyDown={(event) => { if (event.key === "Escape") setHoveredMenu(null); }}
-            >
-              <button
-                type="button"
-                aria-expanded={hoveredMenu === "experience"}
-                aria-controls="desktop-robot-experience"
-                onClick={() => setHoveredMenu("experience")}
-                className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5"
-              >
-                {experienceLabel}
-                <svg className={`w-3 h-3 opacity-50 transition-transform ${hoveredMenu === "experience" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            <span className="mx-3 h-4 w-px bg-gray-200" aria-hidden="true" />
+            <Link href="/about" onMouseEnter={() => setHoveredMenu(null)} onClick={closeMenus} className="whitespace-nowrap rounded-lg px-3 py-3 text-sm text-gray-500 hover:bg-gray-50">{t("about")}</Link>
+            <div className="relative" onMouseEnter={() => setHoveredMenu("board")}>
+              <button id="nav-trigger-board" type="button" aria-expanded={hoveredMenu === "board"} aria-controls="nav-panel-board" onClick={() => setHoveredMenu("board")} className="flex items-center gap-2 whitespace-nowrap rounded-lg px-3 py-3 text-sm text-gray-500 hover:bg-gray-50">
+                {t("board")}{chevron(hoveredMenu === "board")}
               </button>
-              {hoveredMenu === "experience" && (
-                <div id="desktop-robot-experience" className="absolute top-full left-1/2 -translate-x-1/2 z-50 pt-2">
-                  <div className="bg-white shadow-xl rounded-2xl border border-gray-100 py-2 min-w-[180px]">
-                    <a href={DRAW_ME_BOT_URL} target="_blank" rel="noopener noreferrer" aria-label={`${drawMeBotLabel} (${isKo ? "새 창" : "opens in a new tab"})`} className="flex items-center justify-between gap-5 px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50" onClick={() => setHoveredMenu(null)}>
-                      {drawMeBotLabel}<span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* 게시판 드롭다운 */}
-            <div
-              className="relative"
-              onMouseEnter={() => setHoveredMenu("board")}
-              onMouseLeave={() => setHoveredMenu(null)}
-            >
-              <button className="px-3 py-2 text-sm font-medium rounded-lg transition-colors whitespace-nowrap flex items-center gap-1 text-gray-700 hover:bg-black/5">
-                {t("board")}
-                <svg
-                  className={`w-3 h-3 transition-transform duration-200 opacity-50 ${hoveredMenu === "board" ? "rotate-180" : ""}`}
-                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              {hoveredMenu === "board" && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 z-50 pt-2">
-                  <div className="bg-white shadow-xl rounded-2xl border border-gray-100 py-2 min-w-[150px]">
-                    <a
-                      href={INQUIRY_FORM_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
-                    >
-                      {t("inquiry")}
-                    </a>
-                    <Link
-                      href={`/notice`}
-                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
-                    >
-                      {t("notice")}
-                    </Link>
-                    <Link
-                      href={`/card-news`}
-                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
-                    >
-                      {t("cardNews")}
-                    </Link>
-                  </div>
-                </div>
-              )}
+              {hoveredMenu === "board" && <div id="nav-panel-board" className="absolute right-0 top-full z-50 w-52 rounded-2xl border border-gray-100 bg-white p-2 shadow-xl">{boardItems.map(renderItem)}</div>}
             </div>
           </div>
-
-          {/* Right side */}
-          <div className={`${desktopDisplay} items-center gap-3 shrink-0 whitespace-nowrap`}>
-            <a
-              href={switchPath}
-              className="px-3 py-1.5 text-xs font-semibold rounded-full border transition-all border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-900"
-            >
-              {otherLocale === "en" ? "EN" : "한국어"}
-            </a>
-
-            {session ? (
-              <div className="flex items-center gap-3">
-                <span className="text-sm text-gray-600">
-                  {session.user?.name}
-                </span>
-                {(session.user as { role?: string })?.role === "admin" && (
-                  <Link
-                    href={`/admin`}
-                    className="text-xs font-bold px-2.5 py-1 rounded-full transition-colors bg-primary-50 text-primary-600 hover:bg-primary-100"
-                  >
-                    관리자
-                  </Link>
-                )}
-                <button
-                  onClick={() => signOut({ callbackUrl: homePath })}
-                  className="text-sm transition-colors text-gray-500 hover:text-red-500"
-                >
-                  {t("logout")}
-                </button>
-              </div>
-            ) : (
-              <Link
-                href={`/auth/login`}
-                className="px-4 py-2 text-sm font-medium rounded-full transition-colors text-gray-700 hover:text-gray-900"
-              >
-                {t("login")}
-              </Link>
-            )}
+          <div className={`${desktopDisplay} shrink-0 items-center gap-3 whitespace-nowrap`} onMouseEnter={() => setHoveredMenu(null)}>
+            <a href={switchPath} className="rounded-full border border-gray-200 px-3 py-1.5 text-xs font-semibold text-gray-500 hover:border-gray-400">{otherLocale === "en" ? "EN" : "한국어"}</a>
+            {session ? <div className="flex items-center gap-3">
+              <span className="max-w-20 truncate text-sm text-gray-600">{session.user?.name}</span>
+              {(session.user as { role?: string })?.role === "admin" && <Link href="/admin" onClick={closeMenus} className="rounded-full bg-primary-50 px-2.5 py-1 text-xs font-bold text-primary-600">{isKo ? "관리자" : "Admin"}</Link>}
+              <button onClick={() => signOut({ callbackUrl: homePath })} className="text-sm text-gray-500 hover:text-red-500">{t("logout")}</button>
+            </div> : <Link href="/auth/login" onClick={closeMenus} className="text-xs text-gray-500 hover:text-gray-900">{t("login")}</Link>}
           </div>
-
-          {/* Mobile menu button */}
-          <button
-            className={`${mobileDisplay} p-2 rounded-lg transition-colors text-gray-700`}
-            onClick={() => {
-              setMobileOpen(!mobileOpen);
-              setOpenMobileCategory(null);
-            }}
-            aria-label="메뉴"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+          <button id="mobile-menu-toggle" type="button" aria-label={isKo ? "메뉴" : "Menu"} aria-expanded={mobileOpen} aria-controls="mobile-navigation" className={`${mobileDisplay} rounded-lg p-2 text-gray-700`}
+            onClick={() => { setMobileOpen(!mobileOpen); setOpenMobileSection(null); setOpenMobileCategory(null); setHoveredMenu(null); }}>
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        // #site-header가 position: fixed라 페이지 스크롤을 못 받음 — 하위 항목이 많은 카테고리를
-        // 펼치면 내용이 화면 밖으로 잘려서 안 보이는 문제가 있어 메뉴 자체에 내부 스크롤을 둠
-        <div className={`${mobileDisplay} bg-white/95 backdrop-blur-xl border-t border-gray-100 px-6 py-6 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain`}>
-          <div className="mb-4">
-            <Link
-              href={`/about`}
-              className="block px-3 py-2.5 text-sm font-semibold text-gray-800 hover:bg-gray-50 rounded-xl"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("about")}
-            </Link>
-          </div>
-
-          <div className="mb-4">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1 px-3">
-              {t("products")}
-            </p>
-            <div className="divide-y divide-gray-100">
-              {productLinks.map((link) => {
-                const isOpen = openMobileCategory === link.href;
-                return (
-                  <div key={link.href}>
-                    <button
-                      type="button"
-                      onClick={() => setOpenMobileCategory(isOpen ? null : link.href)}
-                      className="w-full flex items-center justify-between gap-3 px-3 py-3 text-left"
-                      aria-expanded={isOpen}
-                    >
-                      <div>
-                        <div className="text-sm font-semibold text-gray-800">{link.label}</div>
-                        <div className="text-[11px] text-gray-400">{link.desc}</div>
-                      </div>
-                      <svg
-                        className={`w-4 h-4 text-gray-400 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {/* 모바일 서브메뉴 — 아코디언 */}
-                    {isOpen && (
-                      <div className="pb-2">
-                        <Link
-                          href={link.href}
-                          className="block px-3 py-2 text-xs font-bold text-primary-500"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {isKo ? "전체 보기 →" : "View All →"}
-                        </Link>
-                        {link.children.map((child, idx) => (
-                          <div key={`${child.href}-${idx}`}>
-                            {child.isGroup && idx > 0 && (
-                              <div className="my-1 mx-3 border-t border-gray-100" />
-                            )}
-                            <Link
-                              href={child.href}
-                              className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
-                                child.isGroup
-                                  ? "font-semibold text-gray-800"
-                                  : "text-gray-500 pl-6"
-                              }`}
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {child.label}
-                            </Link>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+      {sections.map((section) => hoveredMenu === section.id && (
+        <div key={section.id} id={`nav-panel-${section.id}`} className="absolute inset-x-0 top-full z-50 hidden border-t border-gray-100 bg-white shadow-xl xl:block">
+          <div className="mx-auto max-h-[calc(100dvh-9rem)] max-w-[1600px] overflow-y-auto px-8 py-7">
+            <div className="mb-5 flex items-baseline gap-4 border-b border-gray-100 pb-4">
+              <p className="text-sm font-bold text-primary-600">{section.label}</p>
+              <p className="text-xs text-gray-500">{section.desc}</p>
             </div>
-          </div>
-
-          <div className="mb-4 border-y border-gray-100">
-            <button type="button" aria-expanded={openMobileCategory === "experience"} aria-controls="mobile-robot-experience" onClick={() => setOpenMobileCategory(openMobileCategory === "experience" ? null : "experience")} className="w-full flex items-center justify-between gap-3 px-3 py-3 text-left">
-              <span className="text-sm font-semibold text-gray-800">{experienceLabel}</span>
-              <svg className={`w-4 h-4 text-gray-400 shrink-0 transition-transform ${openMobileCategory === "experience" ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </button>
-            {openMobileCategory === "experience" && (
-              <div id="mobile-robot-experience" className="pb-2">
-                <a href={DRAW_ME_BOT_URL} target="_blank" rel="noopener noreferrer" aria-label={`${drawMeBotLabel} (${isKo ? "새 창" : "opens in a new tab"})`} onClick={() => { setMobileOpen(false); setOpenMobileCategory(null); }} className="flex items-center justify-between px-6 py-2.5 text-sm text-gray-500 hover:bg-gray-50 rounded-lg">
-                  {drawMeBotLabel}<span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-1 mb-6">
-            {/* 게시판 */}
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2 px-3">
-              {t("board")}
-            </p>
-            <a
-              href={INQUIRY_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("inquiry")}
-            </a>
-            <Link
-              href={`/notice`}
-              className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("notice")}
-            </Link>
-            <Link
-              href={`/card-news`}
-              className="block px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 rounded-xl"
-              onClick={() => setMobileOpen(false)}
-            >
-              {t("cardNews")}
-            </Link>
-          </div>
-
-          <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-            <a
-              href={switchPath}
-              className="text-sm text-gray-500 font-medium"
-              onClick={() => setMobileOpen(false)}
-            >
-              {otherLocale === "en" ? "English" : "한국어"}
-            </a>
-            {session ? (
-              <button
-                onClick={() => signOut({ callbackUrl: homePath })}
-                className="text-sm text-red-500"
-              >
-                {t("logout")}
-              </button>
-            ) : (
-              <Link
-                href={`/auth/login`}
-                className="text-sm text-gray-600"
-                onClick={() => setMobileOpen(false)}
-              >
-                {t("login")}
-              </Link>
-            )}
+            {section.id === "solutions" ? <div className="grid grid-cols-5 gap-5">
+              {productLinks.map((group) => <div key={group.href}>
+                <Link href={group.href} onClick={closeMenus} className="mb-3 flex items-center justify-between gap-2 text-sm font-bold text-gray-900 hover:text-primary-600">{group.label}<span aria-hidden="true">→</span></Link>
+                <div className="space-y-0.5">{group.children.map((child) => <Link key={child.href} href={child.href} onClick={closeMenus} className={`block rounded-lg px-2 py-1.5 text-xs leading-relaxed hover:bg-gray-50 hover:text-primary-600 ${child.isGroup ? "font-semibold text-gray-800" : "text-gray-500"}`}>{child.label}</Link>)}</div>
+              </div>)}
+            </div> : <div className={`grid gap-4 ${section.id === "experience" ? "max-w-5xl grid-cols-3" : "max-w-3xl grid-cols-2"}`}>
+              {(section.id === "experience" ? experienceItems : assistanceItems).map(renderItem)}
+            </div>}
           </div>
         </div>
-      )}
+      ))}
+
+      {mobileOpen && <div id="mobile-navigation" className={`${mobileDisplay} max-h-[calc(100dvh-8rem)] overflow-y-auto overscroll-contain border-t border-gray-100 bg-white px-5 py-4`}>
+        {sections.map((section) => <div key={section.id} className="border-b border-gray-100">
+          <button type="button" aria-expanded={openMobileSection === section.id} aria-controls={`mobile-section-${section.id}`} onClick={() => { setOpenMobileSection(openMobileSection === section.id ? null : section.id); setOpenMobileCategory(null); }} className="flex w-full items-center justify-between gap-3 py-4 text-left text-base font-semibold text-gray-900">
+            {section.label}{chevron(openMobileSection === section.id)}
+          </button>
+          {openMobileSection === section.id && <div id={`mobile-section-${section.id}`} className="pb-4">
+            <p className="mb-3 text-xs text-gray-500">{section.desc}</p>
+            {section.id === "solutions" ? productLinks.map((group, index) => <div key={group.href} className="rounded-lg bg-gray-50/70 px-3">
+              <button type="button" aria-expanded={openMobileCategory === group.href} aria-controls={`mobile-products-${index}`} onClick={() => setOpenMobileCategory(openMobileCategory === group.href ? null : group.href)} className="flex w-full items-center justify-between gap-3 py-3 text-left text-sm font-medium text-gray-700">{group.label}{chevron(openMobileCategory === group.href)}</button>
+              {openMobileCategory === group.href && <div id={`mobile-products-${index}`} className="pb-3">
+                <Link href={group.href} onClick={closeMenus} className="block py-2 text-xs font-bold text-primary-600">{isKo ? "전체 보기 →" : "View all →"}</Link>
+                {group.children.map((child) => <Link key={child.href} href={child.href} onClick={closeMenus} className={`block rounded-lg px-2 py-2 text-sm hover:bg-white ${child.isGroup ? "font-semibold text-gray-800" : "text-gray-500"}`}>{child.label}</Link>)}
+              </div>}
+            </div>) : (section.id === "experience" ? experienceItems : assistanceItems).map(renderItem)}
+          </div>}
+        </div>)}
+        <div className="py-4">
+          <Link href="/about" onClick={closeMenus} className="block py-3 text-sm font-semibold text-gray-800">{t("about")}</Link>
+          <p className="py-2 text-xs font-semibold text-gray-400">{t("board")}</p>
+          {boardItems.map(renderItem)}
+        </div>
+        <div className="flex items-center justify-between border-t border-gray-100 py-4 text-sm text-gray-500">
+          <a href={switchPath} onClick={closeMenus}>{otherLocale === "en" ? "English" : "한국어"}</a>
+          {session ? <div className="flex items-center gap-4">
+            {(session.user as { role?: string })?.role === "admin" && <Link href="/admin" onClick={closeMenus}>{isKo ? "관리자" : "Admin"}</Link>}
+            <button onClick={() => signOut({ callbackUrl: homePath })}>{t("logout")}</button>
+          </div> : <Link href="/auth/login" onClick={closeMenus}>{t("login")}</Link>}
+        </div>
+      </div>}
     </nav>
   );
 }
