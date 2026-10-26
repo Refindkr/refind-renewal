@@ -28,7 +28,7 @@ export default function Navbar({ locale }: NavbarProps) {
   const switchPath = otherLocale === "en" ? `/eng${pathname === "/" ? "" : pathname}` : pathname;
 
   const isKo = locale === "ko";
-  const experienceLabel = isKo ? "로봇 익스피리언스" : "Robot Experience";
+  const experienceLabel = "Robot Experience";
   const drawMeBotLabel = isKo ? "드로우미봇" : "Draw Me Bot";
   const desktopDisplay = "hidden xl:flex";
   const mobileDisplay = "xl:hidden";
@@ -113,9 +113,9 @@ export default function Navbar({ locale }: NavbarProps) {
   ];
 
   const sections = [
-    { id: "solutions", label: isKo ? "로봇솔루션" : "Robot Solutions", desc: isKo ? "연구와 산업을 위한 로봇·부품 솔루션" : "Robots and components for research and industry" },
+    { id: "solutions", label: "Robot Solutions", desc: isKo ? "연구와 산업을 위한 로봇·부품 솔루션" : "Robots and components for research and industry" },
     { id: "experience", label: experienceLabel, desc: isKo ? "체험·교육·퍼포먼스로 만나는 로봇" : "Experiences, education and performances" },
-    { id: "assistance", label: isKo ? "로봇 어시스턴스" : "Robot Assistance", desc: isKo ? "리파인 자체 개발 제품" : "Products developed by REFIND" },
+    { id: "assistance", label: "Personal Augmentation Robotics", desc: isKo ? "리파인 자체 개발 제품" : "Products developed by REFIND" },
   ];
   const experienceItems = [
     { label: drawMeBotLabel, desc: isKo ? "로봇이 그려주는 캐리커처 체험" : "Robot caricature experiences", href: DRAW_ME_BOT_URL, external: true },
