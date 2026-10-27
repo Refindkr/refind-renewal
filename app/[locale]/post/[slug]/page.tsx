@@ -1,4 +1,5 @@
 import SocialLinks from "@/components/ui/SocialLinks";
+import CardNewsLinkedInFollow from "@/components/ui/CardNewsLinkedInFollow";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
@@ -175,6 +176,7 @@ export default async function FlatPostPage({ params }: PageProps) {
             className="prose prose-sm sm:prose-base max-w-none text-gray-700"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content, SANITIZE_OPTIONS) }}
           />
+          {type === "cardNews" && <CardNewsLinkedInFollow content={post.content} locale={locale} />}
           <SocialLinks locale={locale} labels className="text-gray-500 mt-10" />
         </div>
       </section>
