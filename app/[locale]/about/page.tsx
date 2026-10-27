@@ -69,6 +69,16 @@ const milestones = [
       { ko: "대표이사 원주시장(의료기기 산업) 표창", en: "CEO commended by the Mayor of Wonju (Medical Device Industry)" },
     ],
   },
+  {
+    year: "2026",
+    items: [
+      {
+        ko: "10월 — 「2026 혁신한국인 & POWER KOREA 대상」 기술혁신 부문(로봇솔루션) 수상 · 일간스포츠미디어",
+        en: "October — 2026 Innovative Korean & POWER KOREA Award, Technology Innovation (Robot Solutions) · Ilgan Sports Media",
+        href: "/power-korea-award-2026",
+      },
+    ],
+  },
 ] as const;
 
 const patents = [
@@ -208,7 +218,11 @@ export default async function AboutPage({ params }: PageProps) {
                 <ul className="space-y-1.5">
                   {m.items.map((item) => (
                     <li key={item.ko} className="text-gray-700 text-sm sm:text-base">
-                      {isKo ? item.ko : item.en}
+                      {"href" in item ? (
+                        <a href={item.href} className="underline decoration-gray-300 underline-offset-4 hover:text-primary-600">
+                          {isKo ? item.ko : item.en}
+                        </a>
+                      ) : (isKo ? item.ko : item.en)}
                     </li>
                   ))}
                 </ul>
